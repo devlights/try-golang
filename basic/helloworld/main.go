@@ -10,5 +10,6 @@ func main() {
 	//
 	// 理由は、Golang のドキュメントに以下のように記載されているから。
 	//   https://golang.org/pkg/builtin/#println
+	//   https://qiita.com/taji-taji/items/79a49c0ee329d0b9c065
 	fmt.Println("Hello World!")
 }
