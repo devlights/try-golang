@@ -1,11 +1,11 @@
-package main
+package map_
 
 import (
 	"fmt"
 	"strings"
 )
 
-func main() {
+func Map01() error {
 	// マップの宣言
 	map1 := make(map[int]string)
 	map1[1] = "hoge"
@@ -36,6 +36,8 @@ func main() {
 
 		fmt.Println(result)
 	}
+
+	return nil
 }
 
 func say(name string) string {

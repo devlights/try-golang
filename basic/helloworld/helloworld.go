@@ -1,9 +1,9 @@
 // HelloWorld プログラム
-package main
+package helloworld
 
 import "fmt"
 
-func main() {
+func HelloWorld() error {
 	// Golang には、 ビルドイン関数の println と
 	// fmt.Println という　名前の似ている２つの関数があるが
 	// 基本的に、どのサンプルも fmt.Println を利用している。
@@ -12,4 +12,5 @@ func main() {
 	//   https://golang.org/pkg/builtin/#println
 	//   https://qiita.com/taji-taji/items/79a49c0ee329d0b9c065
 	fmt.Println("Hello World!")
+	return nil
 }

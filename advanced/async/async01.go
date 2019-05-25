@@ -1,11 +1,11 @@
-package main
+package async
 
 import (
 	"fmt"
 	"time"
 )
 
-func main() {
+func Async01() error {
 	// タイムアウト待ちをするチャネル
 	timeoutChannel := make(chan bool)
 	go timeout(timeoutChannel)
@@ -22,6 +22,8 @@ func main() {
 		fmt.Println("timeout")
 		break
 	}
+
+	return nil
 }
 
 func readWord(ch chan string) {
