@@ -1,11 +1,11 @@
-package main
+package scope
 
 import (
-	"./mypkg"
 	"fmt"
+	"github.com/devlights/try-golang/basic/scope/mypkg"
 )
 
-func main() {
+func Scope01() error {
 	// Go言語では、「最初の文字が大文字で始まる名前」は外部から参照可能な名前となる。
 	// 他の言語でいうと public なスコープとなる。
 	// 「小文字で始まる名前」は外部から参照不可な名前となる。
@@ -19,11 +19,13 @@ func main() {
 
 	// こちらの構造体は 小文字で始まる名前 を持っているので参照できない
 	// コンパイルエラー
-	// .\main.go:13:19: hasNoPublicFields.val1 undefined (cannot refer to unexported field or method val1)
+	// .\printf02.go:13:19: hasNoPublicFields.val1 undefined (cannot refer to unexported field or method val1)
 	// hasNoPublicFields.val1 = 100
 
 	ShowValues(&hasPublicFields)
 	ShowValues(&hasNoPublicFields)
+
+	return nil
 }
 
 func ShowValues(obj mypkg.ICanDisplayValues) {

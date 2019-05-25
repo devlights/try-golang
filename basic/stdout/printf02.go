@@ -1,4 +1,4 @@
-package main
+package stdout
 
 import "fmt"
 
@@ -9,9 +9,9 @@ type MyType struct {
 	y int
 }
 
-func main() {
+func Printf02() error {
 	// ------------------------------------------------------
-	// fmt.Printf() は　C言語の printf 関数と
+	// fmt.Printf() は　C言語の stdout 関数と
 	// 同じような使い勝手を提供する。 書式については
 	// 以下を参照。
 	//     https://golang.org/pkg/fmt/#hdr-Printing
@@ -31,4 +31,6 @@ func main() {
 	// %+v は %v に加えて構造体の場合にフィールド名も出力してくれる
 	messageFormat = "Hello %+v\n"
 	fmt.Printf(messageFormat, MyType{i: 100, v: 111, x: 222, y: 333})
+
+	return nil
 }

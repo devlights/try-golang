@@ -1,7 +1,7 @@
 // 標準入力からデータを読み込むサンプル
 //
 // REFERENCES:: http://bit.ly/2W3DCM4
-package main
+package stdin
 
 import (
 	"bufio"
@@ -10,7 +10,7 @@ import (
 	"strings"
 )
 
-func main() {
+func Scanner01() error {
 	fmt.Print("Enter example-name: ")
 
 	// 標準入力から入力を読み込むには以下のようにする
@@ -26,4 +26,6 @@ func main() {
 	}
 
 	fmt.Println("END")
+
+	return nil
 }
