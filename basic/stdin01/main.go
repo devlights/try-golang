@@ -1,3 +1,6 @@
+// 標準入力からデータを読み込むサンプル
+//
+// REFERENCES:: http://bit.ly/2W3DCM4
 package main
 
 import (
