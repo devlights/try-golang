@@ -61,6 +61,7 @@ func makeMappings() map[string]func() error {
 	mapping["import01"] = import_.Import01
 	mapping["fileio01"] = io_.FileIo01
 	mapping["fileio02"] = io_.FileIo02
+	mapping["fileio03"] = io_.FileIo03
 
 	return mapping
 }
