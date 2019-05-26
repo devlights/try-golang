@@ -7,7 +7,7 @@ import (
 	"github.com/devlights/try-golang/advanced/reflection"
 	"github.com/devlights/try-golang/basic/helloworld"
 	"github.com/devlights/try-golang/basic/import_"
-	"github.com/devlights/try-golang/basic/io"
+	"github.com/devlights/try-golang/basic/io_"
 	"github.com/devlights/try-golang/basic/map_"
 	"github.com/devlights/try-golang/basic/scope"
 	"github.com/devlights/try-golang/basic/stdin"
@@ -59,7 +59,8 @@ func makeMappings() map[string]func() error {
 	mapping["async01"] = async.Async01
 	mapping["reflection01"] = reflection.Reflection01
 	mapping["import01"] = import_.Import01
-	mapping["fileio01"] = io.FileIo01
+	mapping["fileio01"] = io_.FileIo01
+	mapping["fileio02"] = io_.FileIo02
 
 	return mapping
 }
