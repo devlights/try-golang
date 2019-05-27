@@ -21,6 +21,14 @@ import (
 )
 
 func main() {
+	isOneTimeRun := false
+	for _, v := range os.Args[1:] {
+		if strings.ToLower(v) == "--onetime" {
+			isOneTimeRun = true
+			break
+		}
+	}
+
 	mapping := makeMappings()
 
 	fmt.Print("ENTER EXAMPLE NAME: ")
@@ -41,6 +49,10 @@ func main() {
 			}
 
 			fmt.Print("\n\n")
+		}
+
+		if isOneTimeRun {
+			break
 		}
 
 		fmt.Print("ENTER EXAMPLE NAME: ")
