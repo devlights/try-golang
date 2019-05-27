@@ -81,6 +81,7 @@ func makeMappings() map[string]func() error {
 	mapping["interface01"] = interface_.Interface01
 	mapping["struct01"] = struct_.Struct01
 	mapping["list01"] = list_.List01
+	mapping["list02"] = list_.List02
 
 	return mapping
 }
