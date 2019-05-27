@@ -13,6 +13,7 @@ import (
 	"github.com/devlights/try-golang/basic/scope"
 	"github.com/devlights/try-golang/basic/stdin"
 	"github.com/devlights/try-golang/basic/stdout"
+	"github.com/devlights/try-golang/basic/struct_"
 	"log"
 	"os"
 	"strings"
@@ -65,6 +66,7 @@ func makeMappings() map[string]func() error {
 	mapping["fileio03"] = io_.FileIo03
 	mapping["fileio04"] = io_.FileIo04
 	mapping["interface01"] = interface_.Interface01
+	mapping["struct01"] = struct_.Struct01
 
 	return mapping
 }
