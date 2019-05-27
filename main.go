@@ -7,6 +7,7 @@ import (
 	"github.com/devlights/try-golang/advanced/reflection"
 	"github.com/devlights/try-golang/basic/helloworld"
 	"github.com/devlights/try-golang/basic/import_"
+	"github.com/devlights/try-golang/basic/interface_"
 	"github.com/devlights/try-golang/basic/io_"
 	"github.com/devlights/try-golang/basic/map_"
 	"github.com/devlights/try-golang/basic/scope"
@@ -63,6 +64,7 @@ func makeMappings() map[string]func() error {
 	mapping["fileio02"] = io_.FileIo02
 	mapping["fileio03"] = io_.FileIo03
 	mapping["fileio04"] = io_.FileIo04
+	mapping["interface01"] = interface_.Interface01
 
 	return mapping
 }
