@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"github.com/devlights/try-golang/advanced/async"
 	"github.com/devlights/try-golang/advanced/reflection"
+	"github.com/devlights/try-golang/basic/comments"
 	"github.com/devlights/try-golang/basic/helloworld"
 	"github.com/devlights/try-golang/basic/import_"
 	"github.com/devlights/try-golang/basic/interface_"
@@ -82,6 +83,7 @@ func makeMappings() map[string]func() error {
 	mapping["struct01"] = struct_.Struct01
 	mapping["list01"] = list_.List01
 	mapping["list02"] = list_.List02
+	mapping["comment01"] = comments.Comment01
 
 	return mapping
 }
