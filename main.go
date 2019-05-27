@@ -9,6 +9,7 @@ import (
 	"github.com/devlights/try-golang/basic/import_"
 	"github.com/devlights/try-golang/basic/interface_"
 	"github.com/devlights/try-golang/basic/io_"
+	"github.com/devlights/try-golang/basic/list_"
 	"github.com/devlights/try-golang/basic/map_"
 	"github.com/devlights/try-golang/basic/scope"
 	"github.com/devlights/try-golang/basic/stdin"
@@ -67,6 +68,7 @@ func makeMappings() map[string]func() error {
 	mapping["fileio04"] = io_.FileIo04
 	mapping["interface01"] = interface_.Interface01
 	mapping["struct01"] = struct_.Struct01
+	mapping["list01"] = list_.List01
 
 	return mapping
 }
