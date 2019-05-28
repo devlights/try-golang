@@ -6,6 +6,7 @@ import (
 	"os"
 )
 
+// File入出力に関するサンプル
 func FileIo01() error {
 	// ファイルを操作する場合は os パッケージを利用する
 	filename := "README.md"

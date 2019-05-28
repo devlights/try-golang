@@ -7,6 +7,7 @@ import (
 	"os"
 )
 
+// File入出力に関するサンプル
 func FileIo02() error {
 	// 一時ファイルの作成
 	file, err := ioutil.TempFile("", "example")

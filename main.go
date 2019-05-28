@@ -11,9 +11,9 @@ import (
 	"github.com/devlights/try-golang/basic/import_"
 	"github.com/devlights/try-golang/basic/interface_"
 	"github.com/devlights/try-golang/basic/io_"
-	"github.com/devlights/try-golang/basic/list_"
 	"github.com/devlights/try-golang/basic/map_"
 	"github.com/devlights/try-golang/basic/scope"
+	"github.com/devlights/try-golang/basic/slice_"
 	"github.com/devlights/try-golang/basic/stdin"
 	"github.com/devlights/try-golang/basic/stdout"
 	"github.com/devlights/try-golang/basic/struct_"
@@ -85,9 +85,9 @@ func makeMappings() map[string]func() error {
 	mapping["interface01"] = interface_.Interface01
 	mapping["struct01"] = struct_.Struct01
 	mapping["array01"] = array_.Array01
-	mapping["list01"] = list_.List01
-	mapping["list02"] = list_.List02
-	mapping["list03"] = list_.List03
+	mapping["list01"] = slice_.Slice01
+	mapping["list02"] = slice_.Slice02
+	mapping["list03"] = slice_.Slice03
 	mapping["comment01"] = comments.Comment01
 
 	return mapping

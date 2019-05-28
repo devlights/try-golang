@@ -26,6 +26,7 @@ func (*MySt02) MyMethod() int {
 	return 20
 }
 
+// interface に関するサンプル
 func Interface01() error {
 	var list []MyInterface
 

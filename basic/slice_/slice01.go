@@ -1,8 +1,9 @@
-package list_
+package slice_
 
 import "fmt"
 
-func List01() error {
+// スライスについてのサンプル
+func Slice01() error {
 	// int のスライスを宣言
 	// GO言語では、サイズ指定しているものは「配列」
 	// スライスは配列への参照を持つデータ構造のこと。

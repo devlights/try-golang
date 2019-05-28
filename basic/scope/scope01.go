@@ -5,6 +5,8 @@ import (
 	"github.com/devlights/try-golang/basic/scope/mypkg"
 )
 
+// スコープについてのサンプル
+//noinspection GoNameStartsWithPackageName
 func Scope01() error {
 	// Go言語では、「最初の文字が大文字で始まる名前」は外部から参照可能な名前となる。
 	// 他の言語でいうと public なスコープとなる。

@@ -5,6 +5,7 @@ import (
 	"strings"
 )
 
+// マップについてのサンプル
 func Map01() error {
 	// マップの宣言
 	map1 := make(map[int]string)

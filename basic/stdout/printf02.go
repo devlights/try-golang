@@ -9,6 +9,7 @@ type MyType struct {
 	y int
 }
 
+// 標準出力についてのサンプル
 func Printf02() error {
 	// ------------------------------------------------------
 	// fmt.Printf() は　C言語の stdout 関数と

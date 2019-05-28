@@ -21,7 +21,7 @@ package comments
 
 import "fmt"
 
-// Comment01 GO言語のコメントスタイルについてのサンプル
+// GO言語のコメントスタイルについてのサンプル
 func Comment01() error {
 	// GO言語には、javadoc のようにソースコードのコメント
 	// を利用してドキュメントを生成する機能がある。

@@ -9,7 +9,8 @@ import (
 	"reflect"
 )
 
-// reflect.TypeOf() のサンプルです。
+// reflect.TypeOf() のサンプル
+//noinspection GoNameStartsWithPackageName
 func Reflection01() error {
 	// 特定の値の型を調べる場合には、reflect.TypeOf() を利用する
 	// C# でいう、 "hello world".GetType() と同じような感じ

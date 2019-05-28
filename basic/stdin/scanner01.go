@@ -10,6 +10,7 @@ import (
 	"strings"
 )
 
+// 標準入力についてのサンプル
 func Scanner01() error {
 	fmt.Print("Enter example-name: ")
 

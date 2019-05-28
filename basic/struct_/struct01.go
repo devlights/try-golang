@@ -29,6 +29,7 @@ func updateValuePtr(m *MyStruct) {
 	m.Value += 10
 }
 
+// 構造体についてのサンプル
 //noinspection GoUnhandledErrorResult
 func Struct01() error {
 	// ポインタと通常の2パターンを生成
