@@ -22,6 +22,7 @@ import (
 )
 
 func main() {
+	// 一度実行したら終了モード (--onetime) が有効かどうか
 	isOneTimeRun := false
 	for _, v := range os.Args[1:] {
 		if strings.ToLower(v) == "--onetime" {
@@ -69,6 +70,7 @@ func makeMappings() map[string]func() error {
 	mapping["printf01"] = stdout.Printf01
 	mapping["printf02"] = stdout.Printf02
 	mapping["printf03"] = stdout.Printf03
+	mapping["println01"] = stdout.Println01
 	mapping["scanner01"] = stdin.Scanner01
 	mapping["map01"] = map_.Map01
 	mapping["scope01"] = scope.Scope01
