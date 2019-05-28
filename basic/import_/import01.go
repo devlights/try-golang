@@ -4,6 +4,7 @@ import (
 	_ "fmt"
 )
 
+// GO言語の import に関するサンプル
 func Import01() error {
 	// Go言語では「不要な宣言を許可しない」というポリシーがあるため
 	// 利用していない import があると、コンパイルエラーになる

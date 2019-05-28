@@ -3,6 +3,7 @@ package helloworld
 
 import "fmt"
 
+// GO言語でのHelloWorldサンプル
 func HelloWorld() error {
 	// Golang には、 ビルドイン関数の println と
 	// fmt.Println という　名前の似ている２つの関数があるが

@@ -2,6 +2,7 @@ package stdout
 
 import "fmt"
 
+// 標準出力についてのサンプル
 func Printf03() error {
 	data := MyData{30, "hello world"}
 

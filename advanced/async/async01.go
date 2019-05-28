@@ -5,6 +5,8 @@ import (
 	"time"
 )
 
+// 非同期処理 (goroutine) についてのサンプル
+//noinspection GoNameStartsWithPackageName
 func Async01() error {
 	// タイムアウト待ちをするチャネル
 	timeoutChannel := make(chan bool)

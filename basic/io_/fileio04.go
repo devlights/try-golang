@@ -8,6 +8,7 @@ import (
 	"time"
 )
 
+// File入出力に関するサンプル
 func FileIo04() error {
 	// ファイルの情報を取得するには、 os.Stat() を利用する
 	fname := "README.md"

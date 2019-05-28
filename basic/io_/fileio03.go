@@ -7,6 +7,7 @@ import (
 	"path/filepath"
 )
 
+// File入出力に関するサンプル
 func FileIo03() error {
 	// ディレクトリパスを生成
 	dname := "try-golang-fileio03"

@@ -2,6 +2,7 @@ package stdout
 
 import "fmt"
 
+// 標準出力についてのサンプル
 func Println01() error {
 	hello := "hello"
 	world := "world"

@@ -1,8 +1,9 @@
-package list_
+package slice_
 
 import "fmt"
 
-func List02() error {
+// スライスについてのサンプル
+func Slice02() error {
 	// スライスは make() からでも作れる
 	// make() は、 slice, map, chan を生成する関数
 	l1 := make([]int, 0, 5)

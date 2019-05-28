@@ -1,8 +1,9 @@
-package list_
+package slice_
 
 import "fmt"
 
-func List03() error {
+// スライスについてのサンプル
+func Slice03() error {
 	// REFERENCES:: http://bit.ly/2W6PsVM
 	// GO言語には、python の del l[1] のように
 	// サクッと要素を削除する方法が存在しない

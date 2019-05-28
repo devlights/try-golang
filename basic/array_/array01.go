@@ -2,6 +2,7 @@ package array_
 
 import "fmt"
 
+// 配列に関するサンプル
 func Array01() error {
 	// サイズが固定化されているものが配列
 	// スライスは配列の一部分を指し示す参照
