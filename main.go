@@ -85,9 +85,10 @@ func makeMappings() map[string]func() error {
 	mapping["interface01"] = interface_.Interface01
 	mapping["struct01"] = struct_.Struct01
 	mapping["array01"] = array_.Array01
-	mapping["list01"] = slice_.Slice01
-	mapping["list02"] = slice_.Slice02
-	mapping["list03"] = slice_.Slice03
+	mapping["slice01"] = slice_.Slice01
+	mapping["slice02"] = slice_.Slice02
+	mapping["slice03"] = slice_.Slice03
+	mapping["slice04"] = slice_.Slice04
 	mapping["comment01"] = comments.Comment01
 
 	return mapping
