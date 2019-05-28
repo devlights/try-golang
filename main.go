@@ -87,6 +87,7 @@ func makeMappings() map[string]func() error {
 	mapping["array01"] = array_.Array01
 	mapping["list01"] = list_.List01
 	mapping["list02"] = list_.List02
+	mapping["list03"] = list_.List03
 	mapping["comment01"] = comments.Comment01
 
 	return mapping
