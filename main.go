@@ -2,6 +2,7 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
 	"github.com/devlights/try-golang/advanced/async"
 	"github.com/devlights/try-golang/advanced/reflection"
@@ -23,14 +24,11 @@ import (
 )
 
 func main() {
-	// 一度実行したら終了モード (--onetime) が有効かどうか
-	isOneTimeRun := false
-	for _, v := range os.Args[1:] {
-		if strings.ToLower(v) == "--onetime" {
-			isOneTimeRun = true
-			break
-		}
-	}
+	var (
+		onetime = flag.Bool("onetime", false, "run only one time")
+	)
+
+	flag.Parse()
 
 	mapping := makeMappings()
 
@@ -54,7 +52,7 @@ func main() {
 			fmt.Print("\n\n")
 		}
 
-		if isOneTimeRun {
+		if *onetime {
 			break
 		}
 
