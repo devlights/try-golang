@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"github.com/devlights/try-golang/advanced/async"
+	"github.com/devlights/try-golang/advanced/closure"
 	"github.com/devlights/try-golang/advanced/reflection"
 	"github.com/devlights/try-golang/basic/array_"
 	"github.com/devlights/try-golang/basic/comments"
@@ -88,6 +89,7 @@ func makeMappings() map[string]func() error {
 	mapping["slice03"] = slice_.Slice03
 	mapping["slice04"] = slice_.Slice04
 	mapping["comment01"] = comments.Comment01
+	mapping["closure01"] = closure.Closure01
 
 	return mapping
 }
