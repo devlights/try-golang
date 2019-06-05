@@ -88,6 +88,7 @@ func makeMappings() map[string]func() error {
 	mapping["slice02"] = slice_.Slice02
 	mapping["slice03"] = slice_.Slice03
 	mapping["slice04"] = slice_.Slice04
+	mapping["slice05"] = slice_.Slice05
 	mapping["comment01"] = comments.Comment01
 	mapping["closure01"] = closure.Closure01
 
