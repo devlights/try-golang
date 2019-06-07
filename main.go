@@ -18,6 +18,7 @@ import (
 	"github.com/devlights/try-golang/basic/slice_"
 	"github.com/devlights/try-golang/basic/stdin"
 	"github.com/devlights/try-golang/basic/stdout"
+	"github.com/devlights/try-golang/basic/string_"
 	"github.com/devlights/try-golang/basic/struct_"
 	"log"
 	"os"
@@ -54,6 +55,7 @@ func init() {
 	mapping["slice05"] = slice_.Slice05
 	mapping["comment01"] = comments.Comment01
 	mapping["closure01"] = closure.Closure01
+	mapping["string01"] = string_.String01
 }
 
 // メインエントリポイント
