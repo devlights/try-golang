@@ -20,13 +20,17 @@ import (
 	"github.com/devlights/try-golang/basic/stdout"
 	"github.com/devlights/try-golang/basic/string_"
 	"github.com/devlights/try-golang/basic/struct_"
+	"github.com/devlights/try-golang/basic/type_"
 	"log"
 	"os"
 	"strings"
 )
 
+// サンプル名とサンプル呼び出し関数のマッピング定義の型
+type SampleMapping map[string]func() error
+
 // サンプル関数のマッピング
-var mapping = make(map[string]func() error)
+var mapping = make(SampleMapping)
 
 // 初期化関数
 func init() {
@@ -56,6 +60,7 @@ func init() {
 	mapping["comment01"] = comments.Comment01
 	mapping["closure01"] = closure.Closure01
 	mapping["string01"] = string_.String01
+	mapping["type01"] = type_.Type01
 }
 
 // メインエントリポイント
