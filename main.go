@@ -14,6 +14,7 @@ import (
 	"github.com/devlights/try-golang/basic/interface_"
 	"github.com/devlights/try-golang/basic/io_"
 	"github.com/devlights/try-golang/basic/map_"
+	"github.com/devlights/try-golang/basic/os_"
 	"github.com/devlights/try-golang/basic/scope"
 	"github.com/devlights/try-golang/basic/slice_"
 	"github.com/devlights/try-golang/basic/stdin"
@@ -50,6 +51,7 @@ func init() {
 	mapping["fileio03"] = io_.FileIo03
 	mapping["fileio04"] = io_.FileIo04
 	mapping["interface01"] = interface_.Interface01
+	mapping["os01"] = os_.Os01
 	mapping["struct01"] = struct_.Struct01
 	mapping["struct02"] = struct_.Struct02
 	mapping["array01"] = array_.Array01
