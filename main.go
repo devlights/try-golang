@@ -55,6 +55,7 @@ func init() {
 	mapping["struct01"] = struct_.Struct01
 	mapping["struct02"] = struct_.Struct02
 	mapping["struct03"] = struct_.Struct03
+	mapping["struct04"] = struct_.Struct04
 	mapping["array01"] = array_.Array01
 	mapping["slice01"] = slice_.Slice01
 	mapping["slice02"] = slice_.Slice02
