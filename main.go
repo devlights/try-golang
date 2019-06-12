@@ -31,7 +31,7 @@ import (
 type SampleMapping map[string]func() error
 
 // マッピング生成
-func (m SampleMapping) makeMapping() {
+func (m SampleMapping) MakeMapping() {
 	m["helloworld"] = helloworld.HelloWorld
 	m["printf01"] = stdout.Printf01
 	m["printf02"] = stdout.Printf02
@@ -70,7 +70,7 @@ var mapping = make(SampleMapping)
 
 // 初期化関数
 func init() {
-	mapping.makeMapping()
+	mapping.MakeMapping()
 }
 
 // メインエントリポイント
