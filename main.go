@@ -22,7 +22,6 @@ import (
 	"github.com/devlights/try-golang/basic/stdout"
 	"github.com/devlights/try-golang/basic/string_"
 	"github.com/devlights/try-golang/basic/struct_"
-	"github.com/devlights/try-golang/basic/type_"
 	"log"
 	"os"
 	"strings"
@@ -31,43 +30,47 @@ import (
 // サンプル名とサンプル呼び出し関数のマッピング定義の型
 type SampleMapping map[string]func() error
 
+// マッピング生成
+func (m SampleMapping) makeMapping() {
+	m["helloworld"] = helloworld.HelloWorld
+	m["printf01"] = stdout.Printf01
+	m["printf02"] = stdout.Printf02
+	m["printf03"] = stdout.Printf03
+	m["println01"] = stdout.Println01
+	m["scanner01"] = stdin.Scanner01
+	m["map01"] = map_.Map01
+	m["scope01"] = scope.Scope01
+	m["async01"] = async.Async01
+	m["reflection01"] = reflection.Reflection01
+	m["import01"] = import_.Import01
+	m["fileio01"] = io_.FileIo01
+	m["fileio02"] = io_.FileIo02
+	m["fileio03"] = io_.FileIo03
+	m["fileio04"] = io_.FileIo04
+	m["interface01"] = interface_.Interface01
+	m["os01"] = os_.Os01
+	m["runtime01"] = runtime_.Runtime01
+	m["struct01"] = struct_.Struct01
+	m["struct02"] = struct_.Struct02
+	m["struct03"] = struct_.Struct03
+	m["struct04"] = struct_.Struct04
+	m["array01"] = array_.Array01
+	m["slice01"] = slice_.Slice01
+	m["slice02"] = slice_.Slice02
+	m["slice03"] = slice_.Slice03
+	m["slice04"] = slice_.Slice04
+	m["slice05"] = slice_.Slice05
+	m["comment01"] = comments.Comment01
+	m["closure01"] = closure.Closure01
+	m["string01"] = string_.String01
+}
+
 // サンプル関数のマッピング
 var mapping = make(SampleMapping)
 
 // 初期化関数
 func init() {
-	mapping["helloworld"] = helloworld.HelloWorld
-	mapping["printf01"] = stdout.Printf01
-	mapping["printf02"] = stdout.Printf02
-	mapping["printf03"] = stdout.Printf03
-	mapping["println01"] = stdout.Println01
-	mapping["scanner01"] = stdin.Scanner01
-	mapping["map01"] = map_.Map01
-	mapping["scope01"] = scope.Scope01
-	mapping["async01"] = async.Async01
-	mapping["reflection01"] = reflection.Reflection01
-	mapping["import01"] = import_.Import01
-	mapping["fileio01"] = io_.FileIo01
-	mapping["fileio02"] = io_.FileIo02
-	mapping["fileio03"] = io_.FileIo03
-	mapping["fileio04"] = io_.FileIo04
-	mapping["interface01"] = interface_.Interface01
-	mapping["os01"] = os_.Os01
-	mapping["runtime01"] = runtime_.Runtime01
-	mapping["struct01"] = struct_.Struct01
-	mapping["struct02"] = struct_.Struct02
-	mapping["struct03"] = struct_.Struct03
-	mapping["struct04"] = struct_.Struct04
-	mapping["array01"] = array_.Array01
-	mapping["slice01"] = slice_.Slice01
-	mapping["slice02"] = slice_.Slice02
-	mapping["slice03"] = slice_.Slice03
-	mapping["slice04"] = slice_.Slice04
-	mapping["slice05"] = slice_.Slice05
-	mapping["comment01"] = comments.Comment01
-	mapping["closure01"] = closure.Closure01
-	mapping["string01"] = string_.String01
-	mapping["type01"] = type_.Type01
+	mapping.makeMapping()
 }
 
 // メインエントリポイント
