@@ -13,6 +13,7 @@ import (
 	"github.com/devlights/try-golang/basic/import_"
 	"github.com/devlights/try-golang/basic/interface_"
 	"github.com/devlights/try-golang/basic/io_"
+	"github.com/devlights/try-golang/basic/iota_"
 	"github.com/devlights/try-golang/basic/map_"
 	"github.com/devlights/try-golang/basic/os_"
 	"github.com/devlights/try-golang/basic/runtime_"
@@ -43,6 +44,7 @@ func (m SampleMapping) MakeMapping() {
 	m["async01"] = async.Async01
 	m["reflection01"] = reflection.Reflection01
 	m["import01"] = import_.Import01
+	m["iota01"] = iota_.Iota01
 	m["fileio01"] = io_.FileIo01
 	m["fileio02"] = io_.FileIo02
 	m["fileio03"] = io_.FileIo03
