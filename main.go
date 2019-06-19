@@ -9,6 +9,7 @@ import (
 	"github.com/devlights/try-golang/advanced/reflection"
 	"github.com/devlights/try-golang/basic/array_"
 	"github.com/devlights/try-golang/basic/comments"
+	"github.com/devlights/try-golang/basic/error_"
 	"github.com/devlights/try-golang/basic/helloworld"
 	"github.com/devlights/try-golang/basic/import_"
 	"github.com/devlights/try-golang/basic/interface_"
@@ -33,6 +34,7 @@ type SampleMapping map[string]func() error
 
 // マッピング生成
 func (m SampleMapping) MakeMapping() {
+	m["error01"] = error_.Error01
 	m["helloworld"] = helloworld.HelloWorld
 	m["printf01"] = stdout.Printf01
 	m["printf02"] = stdout.Printf02
