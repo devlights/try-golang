@@ -70,6 +70,7 @@ func (m SampleMapping) MakeMapping() {
 	m["string01"] = string_.String01
 	m["set01"] = sets.Set01
 	m["set02"] = sets.Set02
+	m["set03"] = sets.Set03
 }
 
 // サンプル関数のマッピング
