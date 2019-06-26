@@ -7,6 +7,7 @@ import (
 	"github.com/devlights/try-golang/advanced/async"
 	"github.com/devlights/try-golang/advanced/closure"
 	"github.com/devlights/try-golang/advanced/reflection"
+	"github.com/devlights/try-golang/advanced/sets"
 	"github.com/devlights/try-golang/basic/array_"
 	"github.com/devlights/try-golang/basic/comments"
 	"github.com/devlights/try-golang/basic/error_"
@@ -67,6 +68,11 @@ func (m SampleMapping) MakeMapping() {
 	m["comment01"] = comments.Comment01
 	m["closure01"] = closure.Closure01
 	m["string01"] = string_.String01
+	m["set01"] = sets.Set01
+	m["set02"] = sets.Set02
+	m["set03"] = sets.Set03
+	m["set04"] = sets.Set04
+	m["set05"] = sets.Set05
 }
 
 // サンプル関数のマッピング
