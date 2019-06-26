@@ -13,7 +13,7 @@ func Set05() error {
 
 	s3 := s1.SymmetricDifference(s2)
 
-	fmt.Println(s3)
+	fmt.Println(s3) // -> "hello","golang","python"
 
 	return nil
 }

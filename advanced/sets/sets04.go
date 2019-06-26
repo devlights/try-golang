@@ -13,7 +13,7 @@ func Set04() error {
 
 	s3 := s1.Intersect(s2)
 
-	fmt.Println(s3)
+	fmt.Println(s3) // -> "world"
 
 	return nil
 }

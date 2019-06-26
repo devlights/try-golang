@@ -13,7 +13,7 @@ func Set03() error {
 
 	s3 := s1.Difference(s2)
 
-	fmt.Println(s3)
+	fmt.Println(s3) // -> "hello"
 
 	return nil
 }

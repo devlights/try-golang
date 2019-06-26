@@ -18,7 +18,7 @@ func Set01() error {
 	s1.Add("hello")
 
 	// 集合なので重複項目は存在しない
-	fmt.Println(s1)
+	fmt.Println(s1) // -> "hello","world"
 
 	return nil
 }

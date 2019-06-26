@@ -13,7 +13,7 @@ func Set02() error {
 
 	s3 := s1.Union(s2)
 
-	fmt.Println(s3)
+	fmt.Println(s3) // -> "hello","world","golang","python"
 
 	return nil
 }
