@@ -9,7 +9,7 @@ import (
 // REFERENCES:: https://github.com/deckarep/golang-set
 func Set01() error {
 
-	// 新しい sets を生成
+	// 新しい 集合 を生成
 	s1 := mapset.NewSet()
 
 	// データを設定

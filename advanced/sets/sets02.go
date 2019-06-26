@@ -7,7 +7,7 @@ import (
 
 func Set02() error {
 
-	// Set.Union の 確認
+	// Set.Union の 確認 (和集合)
 	s1 := mapset.NewSet("hello", "world")
 	s2 := mapset.NewSet("golang", "world", "python")
 

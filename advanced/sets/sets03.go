@@ -7,7 +7,7 @@ import (
 
 func Set03() error {
 
-	// Set.Difference の 確認
+	// Set.Difference の 確認 (差集合)
 	s1 := mapset.NewSet("hello", "world")
 	s2 := mapset.NewSet("golang", "world", "python")
 
