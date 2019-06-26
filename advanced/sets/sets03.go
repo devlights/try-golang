@@ -2,7 +2,7 @@ package sets
 
 import (
 	"fmt"
-	mapset "github.com/deckarep/golang-set"
+	"github.com/deckarep/golang-set"
 )
 
 func Set03() error {
