@@ -73,6 +73,7 @@ func (m SampleMapping) MakeMapping() {
 	m["set03"] = sets.Set03
 	m["set04"] = sets.Set04
 	m["set05"] = sets.Set05
+	m["mapset01"] = sets.MapSet01
 }
 
 // サンプル関数のマッピング
