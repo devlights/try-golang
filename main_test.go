@@ -1,6 +1,9 @@
 package main
 
-import "testing"
+import (
+	"github.com/devlights/try-golang/basic/helloworld"
+	"testing"
+)
 
 // SampleMapping.MakeMappings の テスト
 func TestMakeMapping(t *testing.T) {
@@ -28,4 +31,21 @@ func TestRetriveExample_Success(t *testing.T) {
 	if sut["helloworld"] == nil {
 		t.Errorf("[NG] Example object is nil")
 	}
+}
+
+// ExampleHelloworld -- helloworld サンプルの実行
+//
+// golang には、「Examples」 という機能がある.
+// https://golang.org/pkg/testing/#hdr-Examples
+// コメントで Output: という行を書いて、その行またはその下に
+// 実行された結果を記載することでユニットテスト時に検証してくれる.
+// 実装した関数の動作サンプルとして記載するのにちょうど良い。
+// 出力結果の比較は、「標準出力」に出た結果と比較される。
+//
+// 命名規則は、Exampleで始める名前となっていること。
+func ExampleHelloworld() {
+
+	_ = helloworld.HelloWorld()
+
+	// Output: Hello World!
 }
