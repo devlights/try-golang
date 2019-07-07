@@ -10,6 +10,7 @@ import (
 	"github.com/devlights/try-golang/advanced/sets"
 	"github.com/devlights/try-golang/basic/array_"
 	"github.com/devlights/try-golang/basic/comments"
+	"github.com/devlights/try-golang/basic/defer_"
 	"github.com/devlights/try-golang/basic/error_"
 	"github.com/devlights/try-golang/basic/helloworld"
 	"github.com/devlights/try-golang/basic/import_"
@@ -74,6 +75,7 @@ func (m SampleMapping) MakeMapping() {
 	m["set04"] = sets.Set04
 	m["set05"] = sets.Set05
 	m["mapset01"] = sets.MapSet01
+	m["defer01"] = defer_.Defer01
 }
 
 // サンプル関数のマッピング
