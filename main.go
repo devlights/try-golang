@@ -84,6 +84,7 @@ func (m SampleMapping) MakeMapping() {
 	m["short_assignment_statement"] = variables.ShortAssignmentStatement
 	m["const_statement_declare"] = constants.ConstStatementDeclares
 	m["function_one_return_value"] = functions.FunctionOneReturnValue
+	m["function_multi_return_value"] = functions.FunctionMultiReturnValue
 }
 
 // サンプル関数のマッピング
