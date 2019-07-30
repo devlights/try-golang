@@ -78,6 +78,7 @@ func (m SampleMapping) MakeMapping() {
 	m["mapset01"] = sets.MapSet01
 	m["defer01"] = defer_.Defer01
 	m["var_statement_declare"] = variables.VarStatementDeclares
+	m["package_scope_variable"] = variables.PackageScopeVariable
 }
 
 // サンプル関数のマッピング
