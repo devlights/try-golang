@@ -26,6 +26,7 @@ import (
 	"github.com/devlights/try-golang/basic/stdout"
 	"github.com/devlights/try-golang/basic/string_"
 	"github.com/devlights/try-golang/basic/struct_"
+	"github.com/devlights/try-golang/basic/variables"
 	"log"
 	"os"
 	"strings"
@@ -76,6 +77,7 @@ func (m SampleMapping) MakeMapping() {
 	m["set05"] = sets.Set05
 	m["mapset01"] = sets.MapSet01
 	m["defer01"] = defer_.Defer01
+	m["var_statement_declare"] = variables.VarStatementDeclares
 }
 
 // サンプル関数のマッピング
