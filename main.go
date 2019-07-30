@@ -10,6 +10,7 @@ import (
 	"github.com/devlights/try-golang/advanced/sets"
 	"github.com/devlights/try-golang/basic/array_"
 	"github.com/devlights/try-golang/basic/comments"
+	"github.com/devlights/try-golang/basic/constants"
 	"github.com/devlights/try-golang/basic/defer_"
 	"github.com/devlights/try-golang/basic/error_"
 	"github.com/devlights/try-golang/basic/helloworld"
@@ -80,6 +81,7 @@ func (m SampleMapping) MakeMapping() {
 	m["var_statement_declare"] = variables.VarStatementDeclares
 	m["package_scope_variable"] = variables.PackageScopeVariable
 	m["short_assignment_statement"] = variables.ShortAssignmentStatement
+	m["const_statement_declare"] = constants.ConstStatementDeclares
 }
 
 // サンプル関数のマッピング
