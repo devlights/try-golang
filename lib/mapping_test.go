@@ -1,4 +1,4 @@
-package main
+package lib
 
 import (
 	"github.com/devlights/try-golang/basic/helloworld"
