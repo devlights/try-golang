@@ -45,6 +45,7 @@ func (m SampleMapping) MakeMapping() {
 	m["map_for"] = map_.MapFor
 	m["map_initialize"] = map_.MapInitialize
 	m["map_delete"] = map_.MapDelete
+	m["map_access"] = map_.MapAccess
 	m["scope01"] = scope.Scope01
 	m["async01"] = async.Async01
 	m["reflection01"] = reflection.Reflection01
