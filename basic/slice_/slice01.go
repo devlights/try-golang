@@ -36,6 +36,7 @@ func Slice01() error {
 	// スライスは参照なので別の変数に代入すると
 	// 両方とも同じ参照を示す。(Java や C# や Python と同じ)
 	l2 := l1
+	//noinspection GoNilness
 	fmt.Printf("l1: %d\nl2: %d\n", &l1[0], &l2[0])
 
 	// 配列は実態なので別の変数に代入すると

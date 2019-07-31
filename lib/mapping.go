@@ -25,6 +25,7 @@ import (
 	"github.com/devlights/try-golang/basic/stdout"
 	"github.com/devlights/try-golang/basic/string_"
 	"github.com/devlights/try-golang/basic/struct_"
+	"github.com/devlights/try-golang/basic/type_"
 	"github.com/devlights/try-golang/basic/variables"
 )
 
@@ -80,4 +81,5 @@ func (m SampleMapping) MakeMapping() {
 	m["function_one_return_value"] = functions.FunctionOneReturnValue
 	m["function_multi_return_value"] = functions.FunctionMultiReturnValue
 	m["function_named_return_value"] = functions.FunctionNamedReturnValue
+	m["type01"] = type_.Type01
 }
