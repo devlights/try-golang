@@ -41,7 +41,7 @@ func (m SampleMapping) MakeMapping() {
 	m["printf03"] = stdout.Printf03
 	m["println01"] = stdout.Println01
 	m["scanner01"] = stdin.Scanner01
-	m["map01"] = map_.Map01
+	m["map_basic"] = map_.MapBasic
 	m["scope01"] = scope.Scope01
 	m["async01"] = async.Async01
 	m["reflection01"] = reflection.Reflection01
