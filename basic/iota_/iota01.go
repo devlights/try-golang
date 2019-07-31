@@ -11,6 +11,7 @@ const (
 
 type ByteSize int64
 
+//noinspection GoUnusedConst
 const (
 	_           = iota // 最初の iota の値は捨てる
 	KB ByteSize = 1 << (10 * iota)

@@ -1,4 +1,4 @@
-package main
+package lib
 
 import (
 	"github.com/devlights/try-golang/basic/helloworld"
@@ -43,7 +43,7 @@ func TestRetriveExample_Success(t *testing.T) {
 // 出力結果の比較は、「標準出力」に出た結果と比較される。
 //
 // 命名規則は、Exampleで始める名前となっていること。
-func ExampleHelloworld() {
+func ExampleHelloWorld() {
 
 	_ = helloworld.HelloWorld()
 
