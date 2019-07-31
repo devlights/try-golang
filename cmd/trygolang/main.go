@@ -7,6 +7,7 @@ import (
 	"github.com/devlights/try-golang/lib"
 	"log"
 	"os"
+	"sort"
 	"strings"
 )
 
@@ -18,10 +19,30 @@ func init() {
 
 func main() {
 	var (
-		onetime = flag.Bool("onetime", false, "run only one time")
+		onetime   = flag.Bool("onetime", false, "run only one time")
+		showNames = flag.Bool("list", false, "show all example names")
 	)
 
 	flag.Parse()
+
+	if *showNames {
+		names := make([]string, 0, len(mapping))
+
+		for k := range mapping {
+			names = append(names, k)
+		}
+
+		sort.Slice(names, func(i, j int) bool {
+			return names[i] < names[j]
+		})
+
+		fmt.Println("[Examples]")
+		for _, v := range names {
+			fmt.Printf("\t%s\n", v)
+		}
+
+		return
+	}
 
 	fmt.Print("ENTER EXAMPLE NAME: ")
 
