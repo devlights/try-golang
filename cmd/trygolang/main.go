@@ -66,6 +66,7 @@ func main() {
 			break
 		}
 
+		candidates = make([]string, 0, len(mapping))
 		for k := range mapping {
 			if strings.Contains(k, userInput) {
 				candidates = append(candidates, k)
@@ -78,7 +79,9 @@ func main() {
 			fmt.Printf("Not found...Try Again")
 			goto nextinput
 		case numberOfCandidate == 1:
+			userInput = candidates[0]
 			if v, ok := mapping[userInput]; ok {
+				fmt.Printf("[Name] %q\n", userInput)
 				if err := v(); err != nil {
 					log.Fatal(err)
 				}
