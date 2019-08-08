@@ -19,5 +19,25 @@ $ go version
 go version go1.12 darwin/amd64
 ```
 
-# IDE
+## IDE
 - JetBrains GoLand
+
+## Run
+
+```sh
+$ go run cmd/trygolang/main.go
+```
+
+## Test
+
+```sh
+$ go test github.com/devlights/try-golang/...
+```
+
+## Install (executable module only)
+
+```sh
+$ go get -u github.com/devlights/try-golang/cmd/trygolang
+$ cd $(go env GOPATH)
+$ trygolang
+```
