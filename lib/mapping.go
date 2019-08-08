@@ -17,6 +17,7 @@ import (
 	"github.com/devlights/try-golang/basic/io_"
 	"github.com/devlights/try-golang/basic/iota_"
 	"github.com/devlights/try-golang/basic/map_"
+	"github.com/devlights/try-golang/basic/math_"
 	"github.com/devlights/try-golang/basic/os_"
 	"github.com/devlights/try-golang/basic/runtime_"
 	"github.com/devlights/try-golang/basic/scope"
@@ -87,4 +88,5 @@ func (m SampleMapping) MakeMapping() {
 	m["function_multi_return_value"] = functions.FunctionMultiReturnValue
 	m["function_named_return_value"] = functions.FunctionNamedReturnValue
 	m["type01"] = type_.Type01
+	m["minmax"] = math_.MinMax
 }
