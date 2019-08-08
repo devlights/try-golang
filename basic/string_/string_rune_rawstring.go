@@ -2,8 +2,8 @@ package string_
 
 import "fmt"
 
-// Go言語における 文字と文字列とRaw文字列について
-func String01() error {
+// StringRuneRawStringは、Go言語における 文字と文字列とRaw文字列についてのサンプルです
+func StringRuneRawString() error {
 	// string. 文字列
 	string1 := "こんにちは"
 

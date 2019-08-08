@@ -72,7 +72,7 @@ func (m SampleMapping) MakeMapping() {
 	m["slice_reverse"] = slice_.SliceReverse
 	m["comment01"] = comments.Comment01
 	m["closure01"] = closure.Closure01
-	m["string01"] = string_.String01
+	m["string_rune_rawstring"] = string_.StringRuneRawString
 	m["set01"] = sets.Set01
 	m["set02"] = sets.Set02
 	m["set03"] = sets.Set03
