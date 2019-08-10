@@ -87,13 +87,31 @@ func main() {
 				}
 			}
 		case 1 < numberOfCandidate:
-			fmt.Printf("There's %d candidates found\n", len(candidates))
+			// 完全一致するものがあるか？
+			isPerfectMatchFound := false
+			for _, c := range candidates {
+				if c == userInput {
+					if v, ok := mapping[c]; ok {
+						fmt.Printf("[Name] %q\n", userInput)
+						if err := v(); err != nil {
+							log.Fatal(err)
+						}
+					}
 
-			for _, item := range candidates {
-				fmt.Printf("\t%s\n", item)
+					isPerfectMatchFound = true
+					break
+				}
 			}
 
-			goto nextinput
+			if !isPerfectMatchFound {
+				fmt.Printf("There's %d candidates found\n", len(candidates))
+
+				for _, item := range candidates {
+					fmt.Printf("\t%s\n", item)
+				}
+
+				goto nextinput
+			}
 		}
 
 		if *onetime {
