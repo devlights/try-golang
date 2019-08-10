@@ -38,6 +38,6 @@ $ go test github.com/devlights/try-golang/...
 
 ```sh
 $ go get -u github.com/devlights/try-golang/cmd/trygolang
-$ cd $(go env GOPATH)
+$ cd $(go env GOPATH)/bin
 $ trygolang
 ```
