@@ -30,10 +30,15 @@ import (
 	"github.com/devlights/try-golang/basic/variables"
 )
 
-// サンプル名とサンプル呼び出し関数のマッピング定義の型
+// SampleMappingは、サンプル名とサンプル呼び出し関数のマッピング定義を持つ型です
 type SampleMapping map[string]func() error
 
-// マッピング生成
+// NewSampleMapping は、SampleMappingのコンストラクタ関数です
+func NewSampleMapping() SampleMapping {
+	return make(SampleMapping)
+}
+
+// MakeMapping は、マッピング生成します
 func (m SampleMapping) MakeMapping() {
 	m["error01"] = error_.Error01
 	m["helloworld"] = helloworld.HelloWorld

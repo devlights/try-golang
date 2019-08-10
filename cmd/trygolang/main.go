@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"flag"
 	"fmt"
 	"github.com/devlights/try-golang/lib"
 	"log"
@@ -11,9 +10,16 @@ import (
 	"strings"
 )
 
-var mapping = make(lib.SampleMapping)
+var (
+	args    *Args
+	mapping lib.SampleMapping
+)
 
 func init() {
+	args = NewArgs()
+	args.Parse()
+
+	mapping = lib.NewSampleMapping()
 	mapping.MakeMapping()
 }
 
@@ -34,15 +40,30 @@ func printAllExampleNames() {
 	}
 }
 
+func makeCandidates(userInput string) []string {
+	candidates := make([]string, 0, len(mapping))
+	for k := range mapping {
+		if strings.Contains(k, userInput) {
+			candidates = append(candidates, k)
+		}
+	}
+
+	return candidates
+}
+
+func exec(target string) error {
+	if v, ok := mapping[target]; ok {
+		fmt.Printf("[Name] %q\n", target)
+		if err := v(); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func main() {
-	var (
-		onetime   = flag.Bool("onetime", false, "run only one time")
-		showNames = flag.Bool("list", false, "show all example names")
-	)
-
-	flag.Parse()
-
-	if *showNames {
+	if args.ShowNames {
 		printAllExampleNames()
 		return
 	}
@@ -66,37 +87,43 @@ func main() {
 			break
 		}
 
-		candidates = make([]string, 0, len(mapping))
-		for k := range mapping {
-			if strings.Contains(k, userInput) {
-				candidates = append(candidates, k)
-			}
-		}
-
+		candidates = makeCandidates(userInput)
 		numberOfCandidate = len(candidates)
+
 		switch {
 		case numberOfCandidate == 0:
 			fmt.Printf("Not found...Try Again")
 			goto nextinput
 		case numberOfCandidate == 1:
 			userInput = candidates[0]
-			if v, ok := mapping[userInput]; ok {
-				fmt.Printf("[Name] %q\n", userInput)
-				if err := v(); err != nil {
-					log.Fatal(err)
-				}
+			if err := exec(userInput); err != nil {
+				log.Fatal(err)
 			}
 		case 1 < numberOfCandidate:
-			fmt.Printf("There's %d candidates found\n", len(candidates))
+			isPerfectMatchFound := false
+			for _, c := range candidates {
+				if c == userInput {
+					if err := exec(userInput); err != nil {
+						log.Fatal(err)
+					}
 
-			for _, item := range candidates {
-				fmt.Printf("\t%s\n", item)
+					isPerfectMatchFound = true
+					break
+				}
 			}
 
-			goto nextinput
+			if !isPerfectMatchFound {
+				fmt.Printf("There's %d candidates found\n", len(candidates))
+
+				for _, item := range candidates {
+					fmt.Printf("\t%s\n", item)
+				}
+
+				goto nextinput
+			}
 		}
 
-		if *onetime {
+		if args.OneTime {
 			break
 		}
 
