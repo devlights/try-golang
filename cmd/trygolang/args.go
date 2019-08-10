@@ -2,9 +2,11 @@ package main
 
 import "flag"
 
-// Args は、プログラム引数の値を持つ構造体です１
+// Args は、プログラム引数の値を持つ構造体です
 type Args struct {
-	OneTime   bool
+	// 一度だけ実行するかどうか
+	OneTime bool
+	// 実行可能な名前を表示するかどうか
 	ShowNames bool
 }
 
