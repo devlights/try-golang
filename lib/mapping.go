@@ -26,6 +26,7 @@ import (
 	"github.com/devlights/try-golang/basic/stdout"
 	"github.com/devlights/try-golang/basic/string_"
 	"github.com/devlights/try-golang/basic/struct_"
+	"github.com/devlights/try-golang/basic/tutorial"
 	"github.com/devlights/try-golang/basic/type_"
 	"github.com/devlights/try-golang/basic/variables"
 )
@@ -95,4 +96,5 @@ func (m SampleMapping) MakeMapping() {
 	m["function_named_return_value"] = functions.FunctionNamedReturnValue
 	m["type01"] = type_.Type01
 	m["minmax"] = math_.MinMax
+	m["tutorial_gotour"] = tutorial.GoTour
 }
