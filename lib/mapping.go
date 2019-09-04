@@ -98,4 +98,5 @@ func (m SampleMapping) MakeMapping() {
 	m["minmax"] = math_.MinMax
 	m["binary_int_literals"] = literals.BinaryIntLiterals
 	m["octal_int_literals"] = literals.OctalIntLiterals
+	m["hex_int_literals"] = literals.HexIntLiterals
 }
