@@ -27,6 +27,7 @@ import (
 	"github.com/devlights/try-golang/basic/stdout"
 	"github.com/devlights/try-golang/basic/string_"
 	"github.com/devlights/try-golang/basic/struct_"
+	"github.com/devlights/try-golang/basic/tutorial"
 	"github.com/devlights/try-golang/basic/type_"
 	"github.com/devlights/try-golang/basic/variables"
 )
@@ -100,4 +101,11 @@ func (m SampleMapping) MakeMapping() {
 	m["octal_int_literals"] = literals.OctalIntLiterals
 	m["hex_int_literals"] = literals.HexIntLiterals
 	m["digit_separator"] = literals.DigitSeparators
+
+	m["tutorial_gotour_helloworld"] = tutorial.GoTourHelloWorld
+	m["tutorial_gotour_import"] = tutorial.GoTourImport
+	m["tutorial_gotour_scope"] = tutorial.GoTourScope
+	m["tutorial_gotour_functions"] = tutorial.GoTourFunctions
+	m["tutorial_gotour_basictypes"] = tutorial.GoTourBasicTypes
+	m["tutorial_gotour_zerovalue"] = tutorial.GoTourZeroValue
 }
