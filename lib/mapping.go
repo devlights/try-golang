@@ -97,9 +97,15 @@ func (m SampleMapping) MakeMapping() {
 	m["function_named_return_value"] = functions.FunctionNamedReturnValue
 	m["type01"] = type_.Type01
 	m["minmax"] = math_.MinMax
-	m["tutorial_gotour"] = tutorial.GoTour
 	m["binary_int_literals"] = literals.BinaryIntLiterals
 	m["octal_int_literals"] = literals.OctalIntLiterals
 	m["hex_int_literals"] = literals.HexIntLiterals
 	m["digit_separator"] = literals.DigitSeparators
+
+	m["tutorial_gotour_helloworld"] = tutorial.GoTourHelloWorld
+	m["tutorial_gotour_import"] = tutorial.GoTourImport
+	m["tutorial_gotour_scope"] = tutorial.GoTourScope
+	m["tutorial_gotour_functions"] = tutorial.GoTourFunctions
+	m["tutorial_gotour_basictypes"] = tutorial.GoTourBasicTypes
+	m["tutorial_gotour_zerovalue"] = tutorial.GoTourZeroValue
 }
