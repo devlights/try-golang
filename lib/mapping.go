@@ -16,6 +16,7 @@ import (
 	"github.com/devlights/try-golang/basic/interface_"
 	"github.com/devlights/try-golang/basic/io_"
 	"github.com/devlights/try-golang/basic/iota_"
+	"github.com/devlights/try-golang/basic/literals"
 	"github.com/devlights/try-golang/basic/map_"
 	"github.com/devlights/try-golang/basic/math_"
 	"github.com/devlights/try-golang/basic/os_"
@@ -97,4 +98,8 @@ func (m SampleMapping) MakeMapping() {
 	m["type01"] = type_.Type01
 	m["minmax"] = math_.MinMax
 	m["tutorial_gotour"] = tutorial.GoTour
+	m["binary_int_literals"] = literals.BinaryIntLiterals
+	m["octal_int_literals"] = literals.OctalIntLiterals
+	m["hex_int_literals"] = literals.HexIntLiterals
+	m["digit_separator"] = literals.DigitSeparators
 }
