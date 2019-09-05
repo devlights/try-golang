@@ -25,6 +25,11 @@ func GoTourDefer() error {
 	// 注意点として
 	//　　　defer に指定した関数の呼び出し評価は遅延されるが
 	//   関数の引数に指定された引数の値は、遅延せずにその場で評価される
+	//
+	//   defer 内では、関数の return 変数 の値を読み書きできる
+	// というのがある.
+	//
+	// 参考: https://blog.golang.org/defer-panic-and-recover
 	// ------------------------------------------------------------
 	defer func() {
 		fmt.Println("defer - begin")
@@ -40,11 +45,29 @@ func GoTourDefer() error {
 	defer fmt.Println(i)
 	i++
 
+	// defer 内で その関数の return変数 にアクセスできる
+	fmt.Println("deferReadWriteReturnValue: ", deferReadWriteReturnValue())
+
 	defer func() {
 		fmt.Println("defer - end")
 	}()
 
 	return nil
+}
+
+func deferReadWriteReturnValue() (i int) {
+	i = 0
+	defer func() {
+		// defer 内で return変数 を加算している
+		// なので、この関数の本来の処理上で return した
+		// 時点では、値は 1 だが、ここで更に加算されて
+		// 結果として 2 が返る.
+		i++
+	}()
+
+	i++
+
+	return
 }
 
 func func3() {
