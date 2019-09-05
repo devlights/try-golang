@@ -113,4 +113,5 @@ func (m SampleMapping) MakeMapping() {
 	m["tutorial_gotour_forloop"] = tutorial.GoTourForLoop
 	m["tutorial_gotour_if"] = tutorial.GoTourIf
 	m["tutorial_gotour_switch"] = tutorial.GoTourSwitch
+	m["tutorial_gotour_defer"] = tutorial.GoTourDefer
 }
