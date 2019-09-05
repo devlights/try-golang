@@ -110,4 +110,5 @@ func (m SampleMapping) MakeMapping() {
 	m["tutorial_gotour_zerovalue"] = tutorial.GoTourZeroValue
 	m["tutorial_gotour_typeconvert_basictypes"] = tutorial.GoTourTypeConvertBasicTypes
 	m["tutorial_gotour_const"] = tutorial.GoTourConstant
+	m["tutorial_gotour_forloop"] = tutorial.GoTourForLoop
 }
