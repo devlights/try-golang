@@ -16,7 +16,7 @@ BuildVersion:	18E226
 
 ```sh
 $ go version
-go version go1.12 darwin/amd64
+go version go1.13 darwin/amd64
 ```
 
 ## IDE
@@ -25,7 +25,7 @@ go version go1.12 darwin/amd64
 ## Run
 
 ```sh
-$ go run cmd/trygolang/main.go
+$ go run cmd/trygolang/...
 ```
 
 ## Test
