@@ -21,6 +21,10 @@ func GoTourDefer() error {
 	// defer は、内部でスタックされており
 	// 関数内で後で defer を呼び出した順から着火されていく. (LIFO)
 	// つまり、関数内で最初に defer したものは、最後に実行される.
+	//
+	// 注意点として
+	//　　　defer に指定した関数の呼び出し評価は遅延されるが
+	//   関数の引数に指定された引数の値は、遅延せずにその場で評価される
 	// ------------------------------------------------------------
 	defer func() {
 		fmt.Println("defer - begin")
@@ -29,6 +33,12 @@ func GoTourDefer() error {
 	func1()
 	defer func2()
 	func3()
+
+	// defer に指定された Println(i) の i　の値は
+	// 遅延評価されず、すぐに評価されるので、0 が出力される
+	i := 0
+	defer fmt.Println(i)
+	i++
 
 	defer func() {
 		fmt.Println("defer - end")
