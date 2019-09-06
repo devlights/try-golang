@@ -120,4 +120,5 @@ func (m SampleMapping) MakeMapping() {
 	m["tutorial_gotour_slice"] = tutorial.GoTourSlice
 	m["tutorial_gotour_map"] = tutorial.GoTourMap
 	m["tutorial_gotour_method"] = tutorial.GoTourMethod
+	m["tutorial_gotour_interface"] = tutorial.GoTourInterface
 }
