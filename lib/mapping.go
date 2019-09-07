@@ -124,4 +124,5 @@ func (m SampleMapping) MakeMapping() {
 	m["tutorial_gotour_empty_interface"] = tutorial.GoTourEmptyInterface
 	m["tutorial_gotour_type_assertion"] = tutorial.GoTourTypeAssertion
 	m["tutorial_gotour_type_switch"] = tutorial.GoTourTypeSwitch
+	m["tutorial_gotour_stringer"] = tutorial.GoTourStringer
 }
