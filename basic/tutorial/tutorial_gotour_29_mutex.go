@@ -84,13 +84,13 @@ func GoTourMutex() error {
 	)
 
 	wg1.Add(times)
-	Increment(notSafe, times, &wg1)
+	increment(notSafe, times, &wg1)
 	wg1.Wait()
 
 	fmt.Printf("[NotSafeCounter] %v\n", notSafe)
 
 	wg2.Add(times)
-	Increment(safe, times, &wg2)
+	increment(safe, times, &wg2)
 	wg2.Wait()
 
 	fmt.Printf("[SafeCounter] %v\n", safe)
@@ -98,7 +98,7 @@ func GoTourMutex() error {
 	return nil
 }
 
-func Increment(inc Incrementer, times int, wg *sync.WaitGroup) {
+func increment(inc Incrementer, times int, wg *sync.WaitGroup) {
 	for i := 0; i < times; i++ {
 		go inc.Increment(wg)
 	}
