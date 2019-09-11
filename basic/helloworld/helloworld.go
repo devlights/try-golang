@@ -1,4 +1,4 @@
-// HelloWorld プログラム
+// Go言語での Hello World プログラムが配置されているパッケージです。
 package helloworld
 
 import "fmt"
