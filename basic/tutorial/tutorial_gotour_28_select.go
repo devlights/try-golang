@@ -33,45 +33,63 @@ func GoTourSelect() error {
 	// ------------------------------------------------------------
 	// 値を送信してくれる非同期処理を処理しながら、終わりを検知して抜ける
 	// ------------------------------------------------------------
-	var (
-		c1   = make(chan int)
-		quit = make(chan struct{})
-	)
-
-	func1 := func(c chan<- int, q chan<- struct{}) {
-		for i := 0; i < 5; i++ {
-			c <- i
-		}
-
-		q <- struct{}{}
-	}
-
-	go func1(c1, quit)
-
-loop:
-	for {
-		select {
-		case x := <-c1:
-			fmt.Println(x)
-		case <-quit:
-			break loop
-		}
-	}
+	channel1()
 
 	// ------------------------------------------------------------
 	// タイムアウト付きで、かつ、動かしている非同期処理の終了を待機して抜ける
+	// (context.WithTimeout版)
 	// ------------------------------------------------------------
+	channel2()
+
+	// ------------------------------------------------------------
+	// タイムアウト付きで、かつ、動かしている非同期処理の終了を待機して抜ける
+	// (time.After版)
+	// ------------------------------------------------------------
+	channel3()
+
+	// ------------------------------------------------------------
+	// どの case も準備できていない場合は、defaultが実行される
+	// ------------------------------------------------------------
+	channel4()
+
+	return nil
+}
+
+// channel4 は、どの case も準備できていない場合は、defaultが実行される場合のサンプルです.
+func channel4() {
 	var (
-		wg          sync.WaitGroup
-		c2          = make(chan int)
-		c3          = make(chan int)
-		ctx, cancel = context.WithTimeout(context.Background(), 5*time.Second)
-		x, y        int
+		ctx, cancel = context.WithTimeout(context.Background(), 2*time.Second)
 	)
 
 	defer cancel()
 
-	func2 := func(c chan<- int, q <-chan struct{}, wg *sync.WaitGroup, wait time.Duration, prefix string) {
+loop:
+	for {
+		select {
+		case <-ctx.Done():
+			fmt.Println("終わり")
+			break loop
+		default:
+			fmt.Println("まだ、どのcaseも準備できていない")
+			time.Sleep(500 * time.Millisecond)
+		}
+	}
+}
+
+// channel3　は、タイムアウト付きで、かつ、動かしている非同期処理の終了を待機して抜ける場合のサンプルです.
+// (time.After版)
+func channel3() {
+	var (
+		wg       sync.WaitGroup
+		c1       = make(chan int)
+		c2       = make(chan int)
+		quitX    = time.After(2 * time.Second)
+		quitY    = time.After(2 * time.Second)
+		quitMain = time.After(2 * time.Second)
+		x, y     int
+	)
+
+	fn := func(c chan<- int, q <-chan time.Time, wg *sync.WaitGroup, wait time.Duration, prefix string) {
 		defer wg.Done()
 
 		for i := 0; true; i++ {
@@ -88,44 +106,99 @@ loop:
 	}
 
 	wg.Add(2)
-	go func2(c2, ctx.Done(), &wg, 200*time.Millisecond, "f1")
-	go func2(c3, ctx.Done(), &wg, 300*time.Millisecond, "f2")
+	go fn(c1, quitX, &wg, 600*time.Millisecond, "f1")
+	go fn(c2, quitY, &wg, 800*time.Millisecond, "f2")
 
-loop2:
+loop:
 	for {
 		select {
-		case x = <-c2:
+		case x = <-c1:
 			fmt.Printf("%v <-f1\n", x)
-		case y = <-c3:
-			fmt.Printf("%v <-f2\n", x)
-		case <-ctx.Done():
+		case y = <-c2:
+			fmt.Printf("%v <-f2\n", y)
+		case <-quitMain:
 			wg.Wait()
-			break loop2
+			break loop
 		}
 	}
 
 	fmt.Printf("x:%v\ty:%v\n", x, y)
+}
 
-	// ------------------------------------------------------------
-	// どの case も準備できていない場合は、defaultが実行される
-	// ------------------------------------------------------------
+// channel2　は、タイムアウト付きで、かつ、動かしている非同期処理の終了を待機して抜ける場合のサンプルです.
+// (context.WithTimeout版)
+func channel2() {
 	var (
-		ctx2, cancel2 = context.WithTimeout(context.Background(), 2*time.Second)
+		wg          sync.WaitGroup
+		c1          = make(chan int)
+		c2          = make(chan int)
+		ctx, cancel = context.WithTimeout(context.Background(), 2*time.Second)
+		x, y        int
 	)
 
-	defer cancel2()
+	defer cancel()
 
-loop3:
-	for {
-		select {
-		case <-ctx2.Done():
-			fmt.Println("終わり")
-			break loop3
-		default:
-			fmt.Println("まだ、どのcaseも準備できていない")
-			time.Sleep(500 * time.Millisecond)
+	fn := func(c chan<- int, q <-chan struct{}, wg *sync.WaitGroup, wait time.Duration, prefix string) {
+		defer wg.Done()
+
+		for i := 0; true; i++ {
+			select {
+			case c <- i:
+				fmt.Printf("%s<- %v\n", prefix, i)
+			case <-q:
+				fmt.Printf("%s ****** end ******\n", prefix)
+				return
+			}
+
+			time.Sleep(wait)
 		}
 	}
 
-	return nil
+	wg.Add(2)
+
+	go fn(c1, ctx.Done(), &wg, 600*time.Millisecond, "f1")
+	go fn(c2, ctx.Done(), &wg, 800*time.Millisecond, "f2")
+
+loop:
+	for {
+		select {
+		case x = <-c1:
+			fmt.Printf("%v <-f1\n", x)
+		case y = <-c2:
+			fmt.Printf("%v <-f2\n", y)
+		case <-ctx.Done():
+			wg.Wait()
+			break loop
+		}
+	}
+
+	fmt.Printf("x:%v\ty:%v\n", x, y)
+}
+
+// channel1 は、値を送信してくれる非同期処理を処理しながら、終わりを検知して抜ける場合のサンプルです.
+func channel1() {
+	var (
+		c1   = make(chan int)
+		quit = make(chan struct{})
+	)
+
+	fn := func(c chan<- int, q chan<- struct{}) {
+		for i := 0; i < 5; i++ {
+			c <- i
+		}
+
+		q <- struct{}{}
+	}
+
+	go fn(c1, quit)
+
+loop:
+	for {
+		select {
+		case x := <-c1:
+			fmt.Println(x)
+		case <-quit:
+			break loop
+		}
+	}
 }
