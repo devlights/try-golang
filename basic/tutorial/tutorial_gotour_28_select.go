@@ -52,7 +52,58 @@ func GoTourSelect() error {
 	// ------------------------------------------------------------
 	channel4()
 
+	// ------------------------------------------------------------
+	// 非同期な処理を外から停止シグナル用チャネルを渡して停止させる
+	// ------------------------------------------------------------
+	channel5()
+
 	return nil
+}
+
+// channel5 は、非同期な処理を外から停止シグナル用チャネルを渡して停止させるサンプルです.
+func channel5() {
+	type (
+		nothing struct{}
+	)
+
+	var (
+		done       = make(chan nothing)
+		terminated <-chan nothing
+	)
+
+	fn := func(done <-chan nothing) <-chan nothing {
+		var (
+			terminated = make(chan nothing)
+		)
+
+		go func() {
+			defer fmt.Println("fn exited")
+			defer close(terminated)
+
+			for {
+				select {
+				case <-done:
+					return
+				default:
+				}
+
+				fmt.Println("processing...")
+				time.Sleep(1 * time.Second)
+			}
+		}()
+
+		return terminated
+	}
+
+	terminated = fn(done)
+
+	go func() {
+		time.Sleep(3 * time.Second)
+		close(done)
+	}()
+
+	<-terminated
+	fmt.Println("main done")
 }
 
 // channel4 は、どの case も準備できていない場合は、defaultが実行される場合のサンプルです.
