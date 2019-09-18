@@ -104,6 +104,7 @@ func (m SampleMapping) MakeMapping() {
 	m["hex_int_literals"] = literals.HexIntLiterals
 	m["digit_separator"] = literals.DigitSeparators
 	m["time_since"] = time_.TimeSince
+	m["time_after"] = time_.TimeAfter
 
 	m["tutorial_gotour_helloworld"] = tutorial.GoTourHelloWorld
 	m["tutorial_gotour_import"] = tutorial.GoTourImport
