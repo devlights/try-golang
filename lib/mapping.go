@@ -30,6 +30,7 @@ import (
 	"github.com/devlights/try-golang/basic/time_"
 	"github.com/devlights/try-golang/basic/type_"
 	"github.com/devlights/try-golang/basic/variables"
+	"github.com/devlights/try-golang/effectivego"
 	"github.com/devlights/try-golang/tutorial"
 )
 
@@ -135,4 +136,6 @@ func (m SampleMapping) MakeMapping() {
 	m["tutorial_gotour_channels"] = tutorial.GoTourChannels
 	m["tutorial_gotour_select"] = tutorial.GoTourSelect
 	m["tutorial_gotour_mutex"] = tutorial.GoTourMutex
+
+	m["effective_go_intro"] = effectivego.Introduction
 }
