@@ -2,6 +2,7 @@ package tutorial
 
 import "fmt"
 
+// Pointer は、 Tour of Go - Pointers (https://tour.golang.org/moretypes/1) の サンプルです。
 func Pointer() error {
 	// ------------------------------------------------------------
 	// Go言語のポインタ

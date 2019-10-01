@@ -2,6 +2,7 @@ package tutorial
 
 import "fmt"
 
+// Map は、 Tour of Go - Maps (https://tour.golang.org/moretypes/19) の サンプルです。
 func Map() error {
 	// ------------------------------------------------------------
 	// Go言語のマップ

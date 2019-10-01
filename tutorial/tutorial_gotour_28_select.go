@@ -7,6 +7,7 @@ import (
 	"time"
 )
 
+// Select は、 Tour of Go - Select (https://tour.golang.org/concurrency/5) の サンプルです。
 func Select() error {
 	// ------------------------------------------------------------
 	// select は、複数の goroutine を操作するために利用できる構文

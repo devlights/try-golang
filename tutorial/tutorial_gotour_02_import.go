@@ -8,6 +8,7 @@ import (
 	math2 "math" // alias設定
 )
 
+// Import は、 Tour of Go - Imports (https://tour.golang.org/basics/2) の サンプルです。
 func Import() error {
 
 	// ------------------------------------------------------------

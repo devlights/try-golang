@@ -40,6 +40,7 @@ func (i *myInt) String() string {
 	return fmt.Sprintf("myInt: %v", val)
 }
 
+// Method は、 Tour of Go - Methods (https://tour.golang.org/methods/1) の サンプルです。
 func Method() error {
 	// ------------------------------------------------------------
 	// Go言語のメソッド

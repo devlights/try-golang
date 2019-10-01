@@ -22,6 +22,7 @@ func (m *myIfImpl) String() string {
 	return "myIfImpl"
 }
 
+// EmptyInterface は、 Tour of Go - The empty interface (https://tour.golang.org/methods/14) の サンプルです。
 func EmptyInterface() error {
 	// ------------------------------------------------------------
 	// 空のインターフェース

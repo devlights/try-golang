@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// ForLoop は、 Tour of Go - For (https://tour.golang.org/flowcontrol/1) の サンプルです。
 func ForLoop() error {
 	// ------------------------------------------------------------
 	// Go言語の for は、 通常の for ループ と foreach ループ の両方を担う.

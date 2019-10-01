@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// Channels は、 Tour of Go - Channels (https://tour.golang.org/concurrency/2) の サンプルです。
 func Channels() error {
 	// ------------------------------------------------------------
 	// Go言語のチャネル型(Channel)は、チャネルオペレータ(<-)を用いて値の送受信を

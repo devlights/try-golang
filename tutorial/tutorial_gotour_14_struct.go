@@ -2,6 +2,7 @@ package tutorial
 
 import "fmt"
 
+// Struct は、 Tour of Go - Structs (https://tour.golang.org/moretypes/2) の サンプルです。
 func Struct() error {
 	// ------------------------------------------------------------
 	// Go言語の構造体

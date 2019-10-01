@@ -2,6 +2,7 @@ package tutorial
 
 import "fmt"
 
+// Array は、 Tour of Go - Arrays (https://tour.golang.org/moretypes/6) の サンプルです。
 func Array() error {
 	// ------------------------------------------------------------
 	// Go言語の配列

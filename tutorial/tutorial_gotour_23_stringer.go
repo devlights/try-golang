@@ -25,6 +25,7 @@ func (i IPAddr) String() string {
 //	return strings.Join(strs, ".")
 //}
 
+// Stringer は、 Tour of Go - Stringers (https://tour.golang.org/methods/17) の サンプルです。
 func Stringer() error {
 	// ------------------------------------------------------------
 	// fmt.Stringer インターフェースは、最もよく利用されるインターフェース

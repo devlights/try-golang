@@ -2,6 +2,7 @@ package tutorial
 
 import "fmt"
 
+// ZeroValue は、 Tour of Go - Zero values (https://tour.golang.org/basics/12) の サンプルです。
 func ZeroValue() error {
 	// ------------------------------------------------------------
 	// 初期値

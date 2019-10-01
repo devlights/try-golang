@@ -42,6 +42,7 @@ func (s *sumImpl) String() string {
 	return fmt.Sprintf("x:%v\ty:%v", s.x, s.y)
 }
 
+// Interface は、 Tour of Go - Interfaces (https://tour.golang.org/methods/9) の サンプルです。
 //noinspection GoNilness
 func Interface() error {
 	// ------------------------------------------------------------

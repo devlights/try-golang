@@ -67,6 +67,7 @@ func (c *SafeCounter) Increment(wg *sync.WaitGroup) {
 	c.Val = cur
 }
 
+// Mutex は、 Tour of Go - sync.Mutex (https://tour.golang.org/concurrency/9) の サンプルです。
 func Mutex() error {
 	// ------------------------------------------------------------
 	// Mutex

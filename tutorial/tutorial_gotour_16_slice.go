@@ -2,6 +2,7 @@ package tutorial
 
 import "fmt"
 
+// Slice は、 Tour of Go - Slices (https://tour.golang.org/moretypes/7) の サンプルです。
 func Slice() error {
 	// ------------------------------------------------------------
 	// Go言語のスライス

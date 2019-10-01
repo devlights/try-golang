@@ -7,6 +7,7 @@ import (
 	"strings"
 )
 
+// Reader は、 Tour of Go - Readers (https://tour.golang.org/methods/21) の サンプルです。
 func Reader() error {
 	// ------------------------------------------------------------
 	// Go言語の io.Reader インターフェース

@@ -2,6 +2,7 @@ package tutorial
 
 import "fmt"
 
+// BasicTypes は、 Tour of Go - Basic types (https://tour.golang.org/basics/11) の サンプルです。
 func BasicTypes() error {
 	// ------------------------------------------------------------
 	// Go言語の基本型は以下

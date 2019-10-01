@@ -2,6 +2,7 @@ package tutorial
 
 import "fmt"
 
+// Functions は、 Tour of Go - Functions (https://tour.golang.org/basics/4) の サンプルです。
 func Functions() error {
 	// ------------------------------------------------------------
 	// 関数は、０個以上の引数を受け取ることができ、０個以上の戻り値を返すことが出来る

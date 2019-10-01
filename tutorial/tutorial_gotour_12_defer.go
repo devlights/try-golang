@@ -2,6 +2,7 @@ package tutorial
 
 import "fmt"
 
+// Defer は、 Tour of Go - Defer (https://tour.golang.org/flowcontrol/12) の サンプルです。
 func Defer() error {
 	// ------------------------------------------------------------
 	// Go言語の defer について

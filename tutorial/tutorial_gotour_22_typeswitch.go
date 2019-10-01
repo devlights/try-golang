@@ -45,6 +45,7 @@ func (i *ifGoTour221Impl) func1() string {
 	return fmt.Sprintf("[func1] %T", i)
 }
 
+// TypeSwitch は、 Tour of Go - Type switches (https://tour.golang.org/methods/16) の サンプルです。
 func TypeSwitch() error {
 	// ------------------------------------------------------------
 	// Type Switch

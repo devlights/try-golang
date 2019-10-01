@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// If は、 Tour of Go - If (https://tour.golang.org/flowcontrol/5) の サンプルです。
 func If() error {
 	// ------------------------------------------------------------
 	// Go言語の if は、 他の言語の if の書き方とほぼ同様

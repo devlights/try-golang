@@ -30,6 +30,7 @@ func (i *ifGoTour20Impl) Value() string {
 	return strings.ToUpper(i.V)
 }
 
+// TypeAssertion は、 Tour of Go - Type assertions (https://tour.golang.org/methods/15) の サンプルです。
 func TypeAssertion() error {
 	// ------------------------------------------------------------
 	// Go言語の型検証 (Type Assertions)

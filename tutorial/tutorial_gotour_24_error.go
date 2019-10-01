@@ -29,6 +29,7 @@ func (e *GoTour24Error) Error() string {
 	return fmt.Sprintf("[error] %s", e.What)
 }
 
+// Error は、 Tour of Go - Errors (https://tour.golang.org/methods/19) の サンプルです。
 func Error() error {
 	// ------------------------------------------------------------
 	// Go言語のerror型

@@ -2,6 +2,7 @@ package tutorial
 
 import "fmt"
 
+// Scope は、 Tour of Go - Exported names (https://tour.golang.org/basics/3) の サンプルです。
 func Scope() error {
 	// ------------------------------------------------------------
 	// Goでは、最初の文字が大文字で始まる名前は外部に公開される。(public扱い)

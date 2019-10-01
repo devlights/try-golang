@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// Goroutine は、 Tour of Go - Goroutines (https://tour.golang.org/concurrency/1) の サンプルです。
 func Goroutine() error {
 	// ------------------------------------------------------------
 	// goroutine (ゴルーチン) は、Goのランタイムで管理される軽量スレッドのこと。

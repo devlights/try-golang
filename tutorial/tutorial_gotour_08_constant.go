@@ -5,6 +5,7 @@ import "fmt"
 // パッケージレベルでの定数宣言
 const packageScopeConstants = "hello"
 
+// Constant は、 Tour of Go - Constant (https://tour.golang.org/basics/15) の サンプルです。
 func Constant() error {
 	// ------------------------------------------------------------
 	// Go言語では、定数は const キーワードを用いて宣言する

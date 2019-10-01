@@ -7,6 +7,7 @@ import (
 	"time"
 )
 
+// Switch は、 Tour of Go - Switch (https://tour.golang.org/flowcontrol/9) の サンプルです。
 func Switch() error {
 	// ------------------------------------------------------------
 	// Go言語の switch は、他の言語に比べてとても高機能で使いやすい.
