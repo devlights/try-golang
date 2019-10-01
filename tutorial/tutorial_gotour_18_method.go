@@ -40,7 +40,7 @@ func (i *myInt) String() string {
 	return fmt.Sprintf("myInt: %v", val)
 }
 
-func GoTourMethod() error {
+func Method() error {
 	// ------------------------------------------------------------
 	// Go言語のメソッド
 	// Go言語には、クラスの仕組みは無いが、型にメソッドを定義することができる。

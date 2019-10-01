@@ -25,7 +25,7 @@ func (i IPAddr) String() string {
 //	return strings.Join(strs, ".")
 //}
 
-func GoTourStringer() error {
+func Stringer() error {
 	// ------------------------------------------------------------
 	// fmt.Stringer インターフェースは、最もよく利用されるインターフェース
 	// の一つ。以下、A Tour of Go (http://bit.ly/34wWjIq) のエクササイズ

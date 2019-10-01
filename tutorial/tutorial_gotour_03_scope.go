@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-func GoTourScope() error {
+func Scope() error {
 	// ------------------------------------------------------------
 	// Goでは、最初の文字が大文字で始まる名前は外部に公開される。(public扱い)
 	// 小文字で始まる名前は外部に公開されない。(private扱い)

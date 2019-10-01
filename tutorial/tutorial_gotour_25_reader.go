@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func GoTourReader() error {
+func Reader() error {
 	// ------------------------------------------------------------
 	// Go言語の io.Reader インターフェース
 	// io.Readerインターフェースは、何かを読み取る基本的なインターフェース

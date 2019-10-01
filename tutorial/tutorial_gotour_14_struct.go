@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-func GoTourStruct() error {
+func Struct() error {
 	// ------------------------------------------------------------
 	// Go言語の構造体
 	//

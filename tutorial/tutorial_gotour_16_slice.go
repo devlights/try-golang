@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-func GoTourSlice() error {
+func Slice() error {
 	// ------------------------------------------------------------
 	// Go言語のスライス
 	// Go言語のスライスは、他の言語でいう 可変長リスト みたいな感じ.

@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-func GoTourMap() error {
+func Map() error {
 	// ------------------------------------------------------------
 	// Go言語のマップ
 	// Go言語のマップは、他の言語のマップ/ディクショナリと同じもの.

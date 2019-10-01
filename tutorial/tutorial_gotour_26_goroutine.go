@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func GoTourGoroutine() error {
+func Goroutine() error {
 	// ------------------------------------------------------------
 	// goroutine (ゴルーチン) は、Goのランタイムで管理される軽量スレッドのこと。
 	// pythonのコルーチンと同じイメージを持ったほうが分かりやすい。

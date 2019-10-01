@@ -8,7 +8,7 @@ import (
 	math2 "math" // alias設定
 )
 
-func GoTourImport() error {
+func Import() error {
 
 	// ------------------------------------------------------------
 	// import したパッケージの利用

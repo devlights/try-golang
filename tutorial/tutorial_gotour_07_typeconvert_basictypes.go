@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-func GoTourTypeConvertBasicTypes() error {
+func TypeConvertBasicTypes() error {
 	// ------------------------------------------------------------
 	// 基本型の型変換
 	// Go言語では、キャストしたい型を関数呼び出しのように指定してキャストする.

@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-func GoTourDefer() error {
+func Defer() error {
 	// ------------------------------------------------------------
 	// Go言語の defer について
 	// defer は、 Go言語の特徴的な機能の一つ.

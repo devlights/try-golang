@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-func GoTourBasicTypes() error {
+func BasicTypes() error {
 	// ------------------------------------------------------------
 	// Go言語の基本型は以下
 	//

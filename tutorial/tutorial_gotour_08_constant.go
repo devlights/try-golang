@@ -5,7 +5,7 @@ import "fmt"
 // パッケージレベルでの定数宣言
 const packageScopeConstants = "hello"
 
-func GoTourConstant() error {
+func Constant() error {
 	// ------------------------------------------------------------
 	// Go言語では、定数は const キーワードを用いて宣言する
 	// 定数は、文字、文字列、bool値,数値でのみ利用できる

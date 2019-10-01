@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-func GoTourZeroValue() error {
+func ZeroValue() error {
 	// ------------------------------------------------------------
 	// 初期値
 	// 変数に初期値を与えずに宣言すると、「ゼロ値」が設定される

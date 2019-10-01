@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-func GoTourPointer() error {
+func Pointer() error {
 	// ------------------------------------------------------------
 	// Go言語のポインタ
 	//

@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-func GoTourFunctions() error {
+func Functions() error {
 	// ------------------------------------------------------------
 	// 関数は、０個以上の引数を受け取ることができ、０個以上の戻り値を返すことが出来る
 	// 関数は、予約語 func を指定して signature を定義する。

@@ -30,7 +30,7 @@ func (i *ifGoTour20Impl) Value() string {
 	return strings.ToUpper(i.V)
 }
 
-func GoTourTypeAssertion() error {
+func TypeAssertion() error {
 	// ------------------------------------------------------------
 	// Go言語の型検証 (Type Assertions)
 	// 他の言語でもある型検証の仕組みがGo言語にも当然ある.

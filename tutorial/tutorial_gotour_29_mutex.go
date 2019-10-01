@@ -67,7 +67,7 @@ func (c *SafeCounter) Increment(wg *sync.WaitGroup) {
 	c.Val = cur
 }
 
-func GoTourMutex() error {
+func Mutex() error {
 	// ------------------------------------------------------------
 	// Mutex
 	//

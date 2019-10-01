@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-func GoTourSelect() error {
+func Select() error {
 	// ------------------------------------------------------------
 	// select は、複数の goroutine を操作するために利用できる構文
 	// switch と似ているが違うので注意。

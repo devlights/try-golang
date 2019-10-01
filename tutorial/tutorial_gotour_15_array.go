@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-func GoTourArray() error {
+func Array() error {
 	// ------------------------------------------------------------
 	// Go言語の配列
 	// Go言語の配列は、 [要素数]型名 という形で宣言する.

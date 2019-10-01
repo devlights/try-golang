@@ -22,7 +22,7 @@ func (m *myIfImpl) String() string {
 	return "myIfImpl"
 }
 
-func GoTourEmptyInterface() error {
+func EmptyInterface() error {
 	// ------------------------------------------------------------
 	// 空のインターフェース
 	// Go言語において、メソッドを一つも持たないインターフェースを interface{} で表す.

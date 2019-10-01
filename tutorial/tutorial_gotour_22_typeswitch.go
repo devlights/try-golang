@@ -45,7 +45,7 @@ func (i *ifGoTour221Impl) func1() string {
 	return fmt.Sprintf("[func1] %T", i)
 }
 
-func GoTourTypeSwitch() error {
+func TypeSwitch() error {
 	// ------------------------------------------------------------
 	// Type Switch
 	// Go言語には、Type Switch という機能がある.

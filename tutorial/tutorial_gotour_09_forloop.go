@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-func GoTourForLoop() error {
+func ForLoop() error {
 	// ------------------------------------------------------------
 	// Go言語の for は、 通常の for ループ と foreach ループ の両方を担う.
 	// 書き方は、他の言語とほぼ同様. continue も break も同様.

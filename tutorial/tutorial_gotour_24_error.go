@@ -29,7 +29,7 @@ func (e *GoTour24Error) Error() string {
 	return fmt.Sprintf("[error] %s", e.What)
 }
 
-func GoTourError() error {
+func Error() error {
 	// ------------------------------------------------------------
 	// Go言語のerror型
 	// Go言語ではエラーの状態を error値 で表現する.

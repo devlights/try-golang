@@ -43,7 +43,7 @@ func (s *sumImpl) String() string {
 }
 
 //noinspection GoNilness
-func GoTourInterface() error {
+func Interface() error {
 	// ------------------------------------------------------------
 	// Go言語のインターフェース
 	// Go言語におけるインターフェースは、メソッドのシグネチャの集まりを定義しているもの.
