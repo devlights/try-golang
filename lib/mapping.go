@@ -28,9 +28,9 @@ import (
 	"github.com/devlights/try-golang/basic/string_"
 	"github.com/devlights/try-golang/basic/struct_"
 	"github.com/devlights/try-golang/basic/time_"
-	"github.com/devlights/try-golang/basic/tutorial"
 	"github.com/devlights/try-golang/basic/type_"
 	"github.com/devlights/try-golang/basic/variables"
+	"github.com/devlights/try-golang/tutorial"
 )
 
 // SampleMappingは、サンプル名とサンプル呼び出し関数のマッピング定義を持つ型です
