@@ -3,6 +3,8 @@ package effectivego
 // Effective Go - Introduction の 内容についてのサンプルです。
 func Introduction() error {
 	/*
+		https://golang.org/doc/effective_go.html#introduction
+
 		- Go は 新しい言語
 		- 既存の言語から拝借しているアイデアもあるが、Go独自の文化もある
 		- 言語自体の仕様については https://golang.org/ref/spec を参照
