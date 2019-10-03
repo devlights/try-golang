@@ -138,4 +138,5 @@ func (m SampleMapping) MakeMapping() {
 	m["tutorial_gotour_mutex"] = tutorial.Mutex
 
 	m["effective_go_intro"] = effectivego.Introduction
+	m["effective_go_formatting"] = effectivego.Formatting
 }
