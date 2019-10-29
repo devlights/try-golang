@@ -6,6 +6,7 @@ import (
 )
 
 // ZeroValue は、 Tour of Go - Zero values (https://tour.golang.org/basics/12) の サンプルです。
+//noinspection GoNilness
 func ZeroValue() error {
 	// ------------------------------------------------------------
 	// 初期値
@@ -16,8 +17,8 @@ func ZeroValue() error {
 	// - bool型は false
 	// - string型は ""
 	// - 配列は長さ0の配列
-	// - スライスは長さ0のスライス
-	// - マップはキーの数が0のマップ
+	// - スライスはnil
+	// - マップはnil
 	// ------------------------------------------------------------
 	var (
 		zeroInt    int
@@ -30,6 +31,14 @@ func ZeroValue() error {
 
 	_print(zeroInt, zeroBool, zeroString, zeroArray, zeroSlice, zeroMap)
 	_print(len(zeroArray), len(zeroSlice), len(zeroMap))
+
+	if zeroSlice == nil {
+		fmt.Println("zeroSlice is nil")
+	}
+
+	if zeroMap == nil {
+		fmt.Println("zeroMap is nil")
+	}
 
 	return nil
 }
