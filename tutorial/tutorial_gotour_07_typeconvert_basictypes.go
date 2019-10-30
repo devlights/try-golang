@@ -2,7 +2,7 @@ package tutorial
 
 import "fmt"
 
-// TypeConvertBasicTypes は、 Tour of Go - Zero values (https://tour.golang.org/basics/13) の サンプルです。
+// TypeConvertBasicTypes は、 Tour of Go - Type conversions (https://tour.golang.org/basics/13) の サンプルです。
 func TypeConvertBasicTypes() error {
 	// ------------------------------------------------------------
 	// 基本型の型変換
