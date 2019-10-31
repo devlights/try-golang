@@ -2,8 +2,13 @@ package tutorial
 
 import "fmt"
 
-// パッケージレベルでの定数宣言
-const packageScopeConstants = "hello"
+const (
+	// パブリックスコープな定数宣言 (先頭を大文字で開始)
+	PublicScopeConstants = "helloworld"
+
+	// パッケージレベルでの定数宣言 (先頭を小文字で開始)
+	packageScopeConstants = "hello"
+)
 
 // Constant は、 Tour of Go - Constant (https://tour.golang.org/basics/15) の サンプルです。
 func Constant() error {
@@ -18,7 +23,7 @@ func Constant() error {
 	// (cannot assign to localScopeConstants)
 	// localScopeConstants = "hoge"
 
-	fmt.Println(packageScopeConstants, localScopeConstants)
+	fmt.Println(PublicScopeConstants, packageScopeConstants, localScopeConstants)
 
 	return nil
 }
