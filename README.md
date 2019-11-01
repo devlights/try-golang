@@ -6,7 +6,7 @@ This is my TUTORIAL project for golang
 ## Environment
 
 ```sh
-$ sw_vers 
+$ sw_vers
 ProductName:	Mac OS X
 ProductVersion:	10.14.4
 BuildVersion:	18E226
@@ -25,7 +25,7 @@ go version go1.13 darwin/amd64
 ## Run
 
 ```sh
-$ go run cmd/trygolang/...
+$ go run github.com/devlights/cmd/trygolang/*.go
 ```
 
 ## Test
