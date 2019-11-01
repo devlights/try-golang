@@ -25,7 +25,7 @@ go version go1.13 darwin/amd64
 ## Run
 
 ```sh
-$ go run github.com/devlights/cmd/trygolang/*.go
+$ go run cmd/trygolang/*.go
 ```
 
 ## Test
