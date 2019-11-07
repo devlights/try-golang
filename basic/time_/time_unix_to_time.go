@@ -5,8 +5,8 @@ import (
 	"time"
 )
 
-// TimeUnix は、 time.Unix() のサンプルです.
-func TimeUnix() error {
+// TimeUnixToTime は、 time.Unix(sec, nsec) のサンプルです.
+func TimeUnixToTime() error {
 	// ------------------------------------------------------------
 	// time.Unix(sec int64, nsec int64) Time
 	//
