@@ -107,6 +107,7 @@ func (m SampleMapping) MakeMapping() {
 	m["time_since"] = time_.TimeSince
 	m["time_after"] = time_.TimeAfter
 	m["time_unix_to_time"] = time_.TimeUnixToTime
+	m["time_now"] = time_.TimeNow
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
