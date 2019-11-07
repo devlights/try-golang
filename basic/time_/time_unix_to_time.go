@@ -11,6 +11,7 @@ func TimeUnixToTime() error {
 	// time.Unix(sec int64, nsec int64) Time
 	//
 	// ref: https://golang.org/pkg/time/#Unix
+	//      https://mattn.kaoriya.net/software/lang/go/20130620173712.htm
 	//
 	// 指定されたUnix秒に基づく日付をローカルタイムで返す。
 	// 引数 sec が秒数、 nsec は ナノ秒 を表す。
