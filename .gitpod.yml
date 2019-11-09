@@ -1,3 +1,4 @@
 tasks:
     - init: go get golang.org/dl/go1.13.4
       command: go1.13.4 download
+    - command: git checkout -- go.mod go.sum
