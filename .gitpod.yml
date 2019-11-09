@@ -1,3 +1,23 @@
 tasks:
     - init: go get golang.org/dl/go1.13.4
-      command: go1.13.4 download && git checkout -- go.mod go.sum && export GOROOT=/home/gitpod/sdk/go1.13.4
+      command: > 
+          go1.13.4 download && 
+          go get -u -v \
+            github.com/acroca/go-symbols \
+            github.com/cweill/gotests/... \
+            github.com/davidrjenni/reftools/cmd/fillstruct \
+            github.com/fatih/gomodifytags \
+            github.com/haya14busa/goplay/cmd/goplay \
+            github.com/josharian/impl \
+            github.com/nsf/gocode \
+            github.com/ramya-rao-a/go-outline \
+            github.com/rogpeppe/godef \
+            github.com/uudashr/gopkgs/cmd/gopkgs \
+            github.com/zmb3/gogetdoc \
+            golang.org/x/lint/golint \
+            golang.org/x/tools/cmd/godoc \
+            golang.org/x/tools/cmd/gorename \
+            golang.org/x/tools/cmd/guru \
+            sourcegraph.com/sqs/goreturns && 
+          git checkout -- go.mod go.sum && 
+          export GOROOT=/home/gitpod/sdk/go1.13.4
