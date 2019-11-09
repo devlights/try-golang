@@ -3,6 +3,9 @@ tasks:
           cd /workspace &&
           go get golang.org/dl/go1.13.4 &&
           go1.13.4 download && 
+          export GOROOT=/home/gitpod/sdk/go1.13.4 &&
+          export PATH=${GOROOT}/bin:${PATH}
+      command: > 
           go get -u -v \
             github.com/acroca/go-symbols \
             github.com/cweill/gotests/... \
@@ -19,7 +22,5 @@ tasks:
             golang.org/x/tools/cmd/godoc \
             golang.org/x/tools/cmd/gorename \
             golang.org/x/tools/cmd/guru \
-            sourcegraph.com/sqs/goreturns 
-      command: > 
-          export GOROOT=/home/gitpod/sdk/go1.13.4 &&
-          export PATH=${GOROOT}/bin:${PATH}
+            sourcegraph.com/sqs/goreturns &&
+          cd /workspace/try-golang
