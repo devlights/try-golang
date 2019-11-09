@@ -5,7 +5,6 @@ tasks:
           go1.13.4 download && 
           export GOROOT=/home/gitpod/sdk/go1.13.4 &&
           export PATH=${GOROOT}/bin:${PATH}
-      command: > 
           go get -u -v \
             github.com/acroca/go-symbols \
             github.com/cweill/gotests/... \
