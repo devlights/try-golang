@@ -1,10 +1,10 @@
 tasks:
-    - init: > 
+    - init: >
           cd /workspace &&
           go get golang.org/dl/go1.13.4 &&
-          go1.13.4 download && 
+          go1.13.4 download &&
           export GOROOT=/home/gitpod/sdk/go1.13.4 &&
-          export PATH=${GOROOT}/bin:${PATH}
+          export PATH=${GOROOT}/bin:${PATH} &&
           go get -u -v \
             github.com/acroca/go-symbols \
             github.com/cweill/gotests/... \
