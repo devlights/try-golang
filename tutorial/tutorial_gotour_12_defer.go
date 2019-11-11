@@ -30,7 +30,9 @@ func Defer() error {
 	//   defer 内では、関数の return 変数 の値を読み書きできる
 	// というのがある.
 	//
-	// 参考: https://blog.golang.org/defer-panic-and-recover
+	// 参考：
+	// https://golang.org/doc/effective_go.html#defer
+	// https://blog.golang.org/defer-panic-and-recover
 	// ------------------------------------------------------------
 	defer func() {
 		fmt.Println("defer - begin")
