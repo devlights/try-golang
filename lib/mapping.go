@@ -25,6 +25,7 @@ import (
 	"github.com/devlights/try-golang/basic/slice_"
 	"github.com/devlights/try-golang/basic/stdin"
 	"github.com/devlights/try-golang/basic/stdout"
+	"github.com/devlights/try-golang/basic/strconv_"
 	"github.com/devlights/try-golang/basic/string_"
 	"github.com/devlights/try-golang/basic/struct_"
 	"github.com/devlights/try-golang/basic/time_"
@@ -109,6 +110,7 @@ func (m SampleMapping) MakeMapping() {
 	m["time_unix_to_time"] = time_.TimeUnixToTime
 	m["time_now"] = time_.TimeNow
 	m["time_parse"] = time_.TimeParse
+	m["hex_to_decimal_convert"] = strconv_.HexToDecimalConvert
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
