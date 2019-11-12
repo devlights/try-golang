@@ -9,15 +9,21 @@ func Pointer() error {
 	//
 	// Go言語は、C や C++ と同様に ポインタ型 を持っている
 	// 使い方もほぼ同じであるが、ポインタ演算は出来ないようになっている
+	//
+	// ポインタのゼロ値はnil.
 	// ------------------------------------------------------------
 	//noinspection GoVarAndConstTypeMayBeOmitted
 	var (
-		i   int         = 100
-		p   *int        = &i
-		arr [2]int      = [2]int{0, 0} // Go言語では、配列は要素数も含めて型となる。[1]int　と [2]int は同じ型ではない.
-		sli []int       = []int{0, 0}
-		m   map[int]int = map[int]int{1: 0, 2: 0}
+		zeroPointer *int
+		i           int         = 100
+		p           *int        = &i
+		arr         [2]int      = [2]int{0, 0} // Go言語では、配列は要素数も含めて型となる。[1]int　と [2]int は同じ型ではない.
+		sli         []int       = []int{0, 0}
+		m           map[int]int = map[int]int{1: 0, 2: 0}
 	)
+
+	//noinspection GoNilness
+	fmt.Printf("zeroPointer is nil? [%v]\n", zeroPointer == nil)
 
 	showValue(i, p)
 
