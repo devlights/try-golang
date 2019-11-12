@@ -51,20 +51,6 @@ func Pointer() error {
 	return nil
 }
 
-func updateMapPointer(m *map[int]int) {
-	// スライスと同様に、マップのポインタからは直接 マップ のキー指定（インデックス指定）
-	// が出来ないので、一旦デリファレンスをする必要がある
-	(*m)[1] = 300
-	(*m)[2] = 400
-}
-
-func updateMapNotPointer(m map[int]int) {
-	// マップもスライスと同様に内部に参照先へのポインタを持っているので
-	// わざわざポインタを取得して渡す必要はない
-	m[1] = 100
-	m[2] = 200
-}
-
 func showValue(i int, p *int) {
 	fmt.Printf("i=%d\tp=%p\t*p=%d\n", i, p, *p)
 }
@@ -103,4 +89,18 @@ func updateSlicePointer(sli *[]int) {
 	// スライスは、内部に参照先へのポインタを持っているため、ポインタ取得せずそのまま関数に渡しても問題ない
 	(*sli)[0] = 300
 	(*sli)[1] = 400
+}
+
+func updateMapNotPointer(m map[int]int) {
+	// マップもスライスと同様に内部に参照先へのポインタを持っているので
+	// わざわざポインタを取得して渡す必要はない
+	m[1] = 100
+	m[2] = 200
+}
+
+func updateMapPointer(m *map[int]int) {
+	// スライスと同様に、マップのポインタからは直接 マップ のキー指定（インデックス指定）
+	// が出来ないので、一旦デリファレンスをする必要がある
+	(*m)[1] = 300
+	(*m)[2] = 400
 }
