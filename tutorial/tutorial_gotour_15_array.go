@@ -15,6 +15,15 @@ func Array() error {
 	// 概念があるので、実際には気にならない.
 	//
 	// スライスは「可変長」で、配列は「固定長」である.
+	//
+	// C言語経験者だと、引っかかってしまう点が一つあり
+	// Goの配列は、値であるので関数に引数として配列を渡した場合
+	// 関数内で引数の配列の要素に対して値更新をしても、呼び出し元の
+	// 配列には影響しないという点がある。同じようにするには配列のポインタを
+	// 渡すようにする。
+	//
+	// C#などの経験者も、配列を関数の引数で渡す場合、頭では参照が渡っていると
+	// 認識してしまうので注意が必要。同じような動きをさせる場合はポインタで渡すこと。
 	// ------------------------------------------------------------
 	var (
 		arr [2]int
@@ -49,5 +58,32 @@ func Array() error {
 
 	fmt.Println("")
 
+	// Goの配列は値なので、そのまま渡すと配列自体がコピーされて渡る。
+	// そのため、関数内で配列の値を編集しても呼び元には影響しない。
+	fmt.Printf("[updateArray前] %v\n", arr)
+	updateArray(arr)
+	fmt.Printf("[updateArray後] %v\n", arr)
+
+	fmt.Println("")
+
+	// ポインタで渡すと望んだ動きとなる
+	fmt.Printf("[updateArray2前] %v\n", arr)
+	updateArray2(&arr)
+	fmt.Printf("[updateArray2後] %v\n", arr)
+
 	return nil
+}
+
+func updateArray2(ints *[2]int) {
+	ints[0] = 999
+	ints[1] = 998
+
+	fmt.Printf("[updateArray2中] %v\n", ints)
+}
+
+func updateArray(ints [2]int) {
+	ints[0] = 999
+	ints[1] = 998
+
+	fmt.Printf("[updateArray中] %v\n", ints)
 }
