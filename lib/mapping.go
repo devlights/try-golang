@@ -148,4 +148,5 @@ func (m SampleMapping) MakeMapping() {
 	m["effective_go_comment"] = effectivego.Commentary
 	m["effective_go_names"] = effectivego.Names
 	m["effective_go_semicolon"] = effectivego.Semicolons
+	m["effective_go_control"] = effectivego.ControlStructure
 }
