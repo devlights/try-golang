@@ -123,7 +123,7 @@ func Interface() error {
 	// インターフェース自体は nil ではなくなる
 	ifValueNilAndTypeNotNil = implNil
 	ifVal = ifValueNilAndTypeNotNil
-	fmt.Printf("[ifValueAndTypeBothNil] value:%v\ttype:%T\tis nil?:%v\n", ifVal, ifVal, ifVal == nil)
+	fmt.Printf("[ifValueNilAndTypeNotNil] value:%v\ttype:%T\tis nil?:%v\n", ifVal, ifVal, ifVal == nil)
 
 	// インターフェース自体は nil ではないので、普通にメソッドの呼び出しが行える
 	// 呼び出された側は、レシーバが nil の状態でメソッド呼び出しされる
