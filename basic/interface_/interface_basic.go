@@ -3,38 +3,39 @@ package interface_
 import "fmt"
 
 // サンプル用のインターフェース
-type MyInterface interface {
+type myInterface interface {
 	// サンプル用のインターフェースメソッド
-	MyMethod() int
+	myMethod() int
 }
 
 // サンプル用の構造体1
-type MySt01 struct {
+type mySt01 struct {
 }
 
 // サンプル用の構造体2
-type MySt02 struct {
+type mySt02 struct {
 }
 
-// impl: MyInterface::MyMethod
-func (*MySt01) MyMethod() int {
+// impl: myInterface::myMethod
+func (*mySt01) myMethod() int {
 	return 10
 }
 
-// impl: MyInterface::MyMethod
-func (*MySt02) MyMethod() int {
+// impl: myInterface::myMethod
+func (*mySt02) myMethod() int {
 	return 20
 }
 
-// interface に関するサンプル
+// Basic は、Goのインターフェースの基本に関するサンプルです.
+// see also: tutorial/tutorial_gotour_19_interface.go
 func Basic() error {
-	var list []MyInterface
+	var list []myInterface
 
-	list = append(list, &MySt01{})
-	list = append(list, &MySt02{})
+	list = append(list, &mySt01{})
+	list = append(list, &mySt02{})
 
 	for i, item := range list {
-		fmt.Printf("[%d]: [%d](%T)\n", i, item.MyMethod(), item)
+		fmt.Printf("[%d]: [%d](%T)\n", i, item.myMethod(), item)
 	}
 
 	return nil
