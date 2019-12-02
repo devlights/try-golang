@@ -2,6 +2,8 @@ package struct_
 
 import (
 	"fmt"
+	"log"
+	"time"
 	"unsafe"
 )
 
@@ -85,6 +87,28 @@ func EmptyStruct() error {
 	// es3とes4は、元々は同じ struct{} だが、異なる型別名がついているので、Go内部では全く別の型として扱われる
 	// なので、それぞれに定義したメソッドも、ちゃんと対象となる型の方に紐づく
 	fmt.Println(v5.f1(), v6.f2())
+
+	// done チャネルと空構造体の組合せ
+	// done チャネルは、処理終了を通知したいだけなので close しかしない
+	type (
+		nop struct{}
+	)
+
+	var (
+		done = make(chan nop)
+	)
+
+	go func() {
+		defer close(done)
+
+		log.Println("\t==> gorouine begin")
+		time.Sleep(2 * time.Second)
+		log.Println("\t==> gorouine end")
+	}()
+
+	log.Println("main goroutine wait start")
+	<-done
+	log.Println("main goroutine wait done")
 
 	return nil
 }
