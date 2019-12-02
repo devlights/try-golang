@@ -27,7 +27,7 @@ func (*MySt02) MyMethod() int {
 }
 
 // interface に関するサンプル
-func Interface01() error {
+func Basic() error {
 	var list []MyInterface
 
 	list = append(list, &MySt01{})

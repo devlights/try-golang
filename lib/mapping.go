@@ -66,7 +66,7 @@ func (m SampleMapping) MakeMapping() {
 	m["fileio02"] = io_.FileIo02
 	m["fileio03"] = io_.FileIo03
 	m["fileio04"] = io_.FileIo04
-	m["interface01"] = interface_.Interface01
+	m["interface_basic"] = interface_.Basic
 	m["os01"] = os_.Os01
 	m["runtime01"] = runtime_.Runtime01
 	m["struct01"] = struct_.Struct01
