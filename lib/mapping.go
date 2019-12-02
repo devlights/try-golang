@@ -30,6 +30,7 @@ import (
 	"github.com/devlights/try-golang/basic/struct_"
 	"github.com/devlights/try-golang/basic/time_"
 	"github.com/devlights/try-golang/basic/type_"
+	"github.com/devlights/try-golang/basic/unsafe_"
 	"github.com/devlights/try-golang/basic/variables"
 	"github.com/devlights/try-golang/effectivego"
 	"github.com/devlights/try-golang/tutorial"
@@ -114,6 +115,7 @@ func (m SampleMapping) MakeMapping() {
 	m["time_now"] = time_.TimeNow
 	m["time_parse"] = time_.TimeParse
 	m["hex_to_decimal_convert"] = strconv_.HexToDecimalConvert
+	m["unsafe_sizeof"] = unsafe_.Sizeof
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
