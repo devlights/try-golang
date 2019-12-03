@@ -154,4 +154,5 @@ func (m SampleMapping) MakeMapping() {
 	m["effective_go_semicolon"] = effectivego.Semicolons
 	m["effective_go_control"] = effectivego.ControlStructure
 	m["effective_go_functions"] = effectivego.Functions
+	m["effective_go_defer"] = effectivego.Defer
 }
