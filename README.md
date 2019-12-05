@@ -16,7 +16,7 @@ BuildVersion:	18E226
 
 ```sh
 $ go version
-go version go1.13 darwin/amd64
+go version go1.13.4 darwin/amd64
 ```
 
 ## IDE
