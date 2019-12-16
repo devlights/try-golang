@@ -1,5 +1,15 @@
 package effectivego
 
+import "fmt"
+
+type (
+	effectivego09st01 struct {
+		x, y int
+		b    bool
+		s    string
+	}
+)
+
 // Effective Go - Allocation with new の 内容についてのサンプルです。
 func AllocationWithNew() error {
 	/*
@@ -12,8 +22,19 @@ func AllocationWithNew() error {
 		- newは、メモリを割り当てて、ゼロ値で埋めて、そのポインタを返してくれる。
 		- Goの標準ライブラリの型はゼロ値でもうまく動くように作られている。(例: bytes.Buffer, sync.Mutexなど)
 		- newを使うとゼロ値で埋められた値が返ってくるので、それに対して各プロパティを設定したりする
-		  - が、実際は composite literals を用いて、初期化してしまうことの方が結構多い。
+		  - だが、実際は composite literals を用いて、初期化してしまうことの方が結構多い。
 	*/
+	// 以下の２つは同じ状態となる.
+	//   - d は ゼロ値で埋められた実体
+	//   - p は ゼロ値で埋められた実体のポインタ
+	var (
+		d effectivego09st01
+		p *effectivego09st01
+	)
+
+	p = new(effectivego09st01)
+
+	fmt.Printf("d:%p (%v)\tp:%p (%v)\n", &d, d, p, *p)
 
 	return nil
 }
