@@ -7,8 +7,11 @@ import (
 )
 
 // error のハンドリングについてのサンプル
-// REFERENCES::http://bit.ly/2IqmFD5, http://bit.ly/2IpThgk, http://bit.ly/2IpTzUs
-func Error01() error {
+// REFERENCES::
+//   - https://github.com/robpike/ivy/blob/master/ivy_test.go
+//   - https://stackoverflow.com/questions/9371031/how-do-i-create-crossplatform-file-paths-in-go
+//   - https://qiita.com/andromeda/items/c5195307cd08537d4fad
+func Basic() error {
 	// 最初に error を宣言しておいて、ハンドリングする関数を定義し呼び出すようにするパターン
 	var err error
 	check := func() {
