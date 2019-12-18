@@ -6,7 +6,7 @@ import (
 )
 
 var (
-	SentinelError = errors.New("example: sentinel error")
+	SentinelError = errors.New("example: sentinel error check")
 )
 
 // Sentinel は、Goにおけるエラー処理イディオムの sentinel error check についてのサンプルです.
