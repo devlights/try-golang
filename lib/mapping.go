@@ -46,7 +46,10 @@ func NewSampleMapping() SampleMapping {
 
 // MakeMapping は、マッピング生成します
 func (m SampleMapping) MakeMapping() {
-	m["error01"] = error_.Error01
+	m["error_basic"] = error_.Basic
+	m["error_sentinel"] = error_.Sentinel
+	m["error_typeassertion"] = error_.TypeAssertion
+	m["error_wrap_unwrap"] = error_.WrapAndUnwrap
 	m["helloworld"] = helloworld.HelloWorld
 	m["printf01"] = stdout.Printf01
 	m["printf02"] = stdout.Printf02
