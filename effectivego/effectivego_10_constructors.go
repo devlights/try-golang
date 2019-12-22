@@ -15,6 +15,12 @@ type (
 		boolVal   bool
 		stringVal string
 	}
+
+	effectivego10st02 struct {
+		IntVal    int
+		BoolVal   bool
+		StringVal string
+	}
 )
 
 // effectivego10st01 用のコンストラクタ関数
@@ -53,7 +59,7 @@ func withStrVal(s string) effectivego10st01option {
 	}
 }
 
-// Effective Go - Allocation with new の 内容についてのサンプルです。
+// Effective Go - Constructors and composite literals の 内容についてのサンプルです。
 func Constructors() error {
 	/*
 			https://golang.org/doc/effective_go.html#composite_literals
@@ -61,17 +67,26 @@ func Constructors() error {
 			- Go には、他の言語にあるコンストラクタの仕組みが存在しない。
 			  - なので、必要であれば自分で関数を定義して作る。
 			- 基本的に、NewXXXX のような形で関数を作ることが多い模様
+			- composite literals で初期化してしまうのも便利。
 			- オプションを渡せるようにしたい場合は「Functional Options パターン」が便利
 		      - https://commandcenter.blogspot.com/2014/01/self-referential-functions-and-design.html
 			  - https://qiita.com/weloan/items/56f1c7792088b5ede136
 	*/
+	// コンストラクタ関数を利用
 	v1 := newEffectivego10st01()
 	v2 := newEffectivego10st01(
 		withIntVal(10),
 		withStrVal("world hello"),
 	)
 
-	fmt.Printf("v1:%p (%v)\tv2:%p (%v)\n", v1, *v1, v2, *v2)
+	// Composite literalsを利用
+	v3 := effectivego10st02{
+		IntVal:    100,
+		BoolVal:   true,
+		StringVal: "hello world",
+	}
+
+	fmt.Printf("v1:%p (%v)\tv2:%p (%v)\tv3:%p (%v)\n", v1, *v1, v2, *v2, &v3, v3)
 
 	return nil
 }
