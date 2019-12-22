@@ -162,4 +162,5 @@ func (m SampleMapping) MakeMapping() {
 	m["effective_go_defer"] = effectivego.Defer
 	m["effective_go_allocation_with_new"] = effectivego.AllocationWithNew
 	m["effective_go_constructors"] = effectivego.Constructors
+	m["effective_go_allocation_with_make"] = effectivego.AllocationWithMake
 }
