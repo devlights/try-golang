@@ -24,7 +24,7 @@ func newEffectivego10st01(opts ...effectivego10st01option) *effectivego10st01 {
 	v.boolVal = true
 	v.stringVal = "hello world"
 
-	// オプションが付与されていたら適用
+	// オプションが付与されていたら適用 (Functional Options パターン)
 	for _, opt := range opts {
 		if err := opt(v); err != nil {
 			log.Fatal(err)
