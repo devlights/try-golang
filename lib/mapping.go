@@ -165,4 +165,5 @@ func (m SampleMapping) MakeMapping() {
 	m["effective_go_allocation_with_make"] = effectivego.AllocationWithMake
 	m["effective_go_arrays"] = effectivego.Arrays
 	m["effective_go_slices"] = effectivego.Slices
+	m["effective_go_two_dimentional_slices"] = effectivego.TwoDimentionalSlices
 }
