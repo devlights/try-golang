@@ -94,6 +94,7 @@ func (m SampleMapping) MakeMapping() {
 	m["closure01"] = closure.Closure01
 	m["string_rune_rawstring"] = string_.StringRuneRawString
 	m["string_to_runeslice"] = string_.StringToRuneSlice
+	m["string_rune_byte_convert"] = string_.StringRuneByteConvert
 	m["set01"] = sets.Set01
 	m["set02"] = sets.Set02
 	m["set03"] = sets.Set03
