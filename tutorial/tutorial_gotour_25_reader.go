@@ -48,5 +48,33 @@ func Reader() error {
 
 	fmt.Printf("[result] %s\n", string(results))
 
+	// (補足) 上の例ではRead用のバッファと結果用のバッファの２つを使っているが
+	//        一つのバッファで読み込み続けることも可能。２つバッファ使った方が
+	//        わかりやすいので個人的にはあまり使わない。
+	var (
+		from      = 0
+		to        = 0
+		readBytes = 0
+	)
+
+	// 1 バイトずつ読み込み
+	reader = strings.NewReader(message)
+	buf = make([]byte, len(message))
+	for {
+		from, to = readBytes, readBytes+1
+		if len(message) < to {
+			break
+		}
+
+		n, err := reader.Read(buf[from:to])
+		readBytes += n
+
+		if n == 0 || err != nil {
+			break
+		}
+	}
+
+	fmt.Printf("[result] %d bytes. (%s)\n", readBytes, string(buf))
+
 	return nil
 }
