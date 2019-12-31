@@ -51,7 +51,7 @@ func StringRuneByteConvert() error {
 		// 一旦、runeを文字列にして、そこからバイト列に変換する
 		b := []byte(string(v))
 
-		fmt.Printf("rune[%d] %d bytes\n", i, len(b))
+		fmt.Printf("rune[%d] %d byte(s)\n", i, len(b))
 	}
 
 	// ----------------------------------------------------------
@@ -61,7 +61,7 @@ func StringRuneByteConvert() error {
 	// 予めUtf-8の１文字での最大バイト数分で大きめにバッファを用意しておく
 	buf := make([]byte, len(r)*utf8.UTFMax)
 
-	// rune を一つずつデコード
+	// rune を一つずつエンコード
 	count := 0
 	for _, v := range r {
 		count += utf8.EncodeRune(buf[count:], v)
