@@ -16,7 +16,7 @@ all: clean build test
 
 .PHONY: build
 build:
-	$(GOBUILD) -o $(BIN_NAME) -v $(CMD_PKG)
+	$(GOBUILD) -o $(BIN_NAME) $(CMD_PKG)
 
 .PHONY: test
 test:
@@ -31,3 +31,4 @@ clean:
 run: clean build
 	./$(BIN_NAME) -onetime
 	rm -f ./$(BIN_NAME)
+
