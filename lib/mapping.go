@@ -6,6 +6,7 @@ import (
 	"github.com/devlights/try-golang/advanced/reflection"
 	"github.com/devlights/try-golang/advanced/sets"
 	"github.com/devlights/try-golang/basic/array_"
+	"github.com/devlights/try-golang/basic/builtin_"
 	"github.com/devlights/try-golang/basic/comments"
 	"github.com/devlights/try-golang/basic/constants"
 	"github.com/devlights/try-golang/basic/defer_"
@@ -46,6 +47,7 @@ func NewSampleMapping() SampleMapping {
 
 // MakeMapping は、マッピング生成します
 func (m SampleMapping) MakeMapping() {
+	m["builtin_print"] = builtin_.PrintFunc
 	m["error_basic"] = error_.Basic
 	m["error_sentinel"] = error_.Sentinel
 	m["error_typeassertion"] = error_.TypeAssertion
