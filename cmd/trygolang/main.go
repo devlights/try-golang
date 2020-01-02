@@ -62,12 +62,13 @@ func exec(target string) error {
 	return nil
 }
 
-func main() {
-	if args.ShowNames {
-		printAllExampleNames()
-		return
+func runOnce() {
+	if err := exec(args.ExampleName); err != nil {
+		log.Fatal(err)
 	}
+}
 
+func runLoop() {
 	fmt.Print("ENTER EXAMPLE NAME: ")
 
 	stdinScanner := bufio.NewScanner(os.Stdin)
@@ -103,10 +104,7 @@ func main() {
 			isPerfectMatchFound := false
 			for _, c := range candidates {
 				if c == userInput {
-					if err := exec(userInput); err != nil {
-						log.Fatal(err)
-					}
-
+					runOnce()
 					isPerfectMatchFound = true
 					break
 				}
@@ -131,6 +129,21 @@ func main() {
 		fmt.Print("\n\n")
 		fmt.Print("ENTER EXAMPLE NAME: ")
 	}
+}
 
-	fmt.Println("END")
+func main() {
+	if args.ShowNames {
+		printAllExampleNames()
+		os.Exit(0)
+	}
+
+	defer fmt.Println("END")
+
+	if args.ExampleName != "" {
+		runOnce()
+	} else {
+		runLoop()
+	}
+
+	os.Exit(0)
 }

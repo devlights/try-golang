@@ -8,6 +8,8 @@ type Args struct {
 	OneTime bool
 	// 実行可能な名前を表示するかどうか
 	ShowNames bool
+	// 実行するサンプル名
+	ExampleName string
 }
 
 // NewArgs は、Argsのコンストラクタ関数です
@@ -19,6 +21,7 @@ func NewArgs() *Args {
 func (a *Args) Parse() {
 	flag.BoolVar(&a.OneTime, "onetime", false, "run only one time")
 	flag.BoolVar(&a.ShowNames, "list", false, "show all example names")
+	flag.StringVar(&a.ExampleName, "example", "", "name of example")
 
 	flag.Parse()
 }

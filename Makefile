@@ -11,6 +11,8 @@ PKG_NAME=github.com/$(GITHUB_USER)/$(PRJ_NAME)
 BIN_NAME=trygolang
 CMD_PKG=$(PKG_NAME)/cmd/$(BIN_NAME)
 
+EXAMPLE=""
+
 .PHONY: all
 all: clean build test
 
@@ -29,6 +31,6 @@ clean:
 
 .PHONY: run
 run: clean build
-	./$(BIN_NAME) -onetime
+	./$(BIN_NAME) -onetime -example ${EXAMPLE}
 	rm -f ./$(BIN_NAME)
 
