@@ -62,8 +62,8 @@ func exec(target string) error {
 	return nil
 }
 
-func runOnce() {
-	if err := exec(args.ExampleName); err != nil {
+func runOnce(nameOfExample string) {
+	if err := exec(nameOfExample); err != nil {
 		log.Fatal(err)
 	}
 }
@@ -104,7 +104,7 @@ func runLoop() {
 			isPerfectMatchFound := false
 			for _, c := range candidates {
 				if c == userInput {
-					runOnce()
+					runOnce(c)
 					isPerfectMatchFound = true
 					break
 				}
@@ -140,7 +140,7 @@ func main() {
 	defer fmt.Println("END")
 
 	if args.ExampleName != "" {
-		runOnce()
+		runOnce(args.ExampleName)
 	} else {
 		runLoop()
 	}
