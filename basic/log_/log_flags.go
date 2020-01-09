@@ -17,6 +17,12 @@ func Flags() error {
 	//
 	// この状態から、日付と時刻の出力を消したい場合は、log.LstdFlags を除去すれば良い.
 	// フラグ定数は、$GOROOT/src/log/log.go の中に記載されている.
+	//
+	// REFERENCES::
+	//   https://golang.org/pkg/log/#pkg-constants
+	//   https://golang.org/pkg/log/#Flags
+	//   https://golang.org/pkg/log/#SetFlags
+	//   https://stackoverflow.com/questions/48629988/remove-timestamp-prefix-from-go-logger
 	// ----------------------------------------------------------------
 	// デフォルトの状態でログ出力
 	log.Println("デフォルト状態でログ出力")
