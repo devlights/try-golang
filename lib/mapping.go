@@ -18,6 +18,7 @@ import (
 	"github.com/devlights/try-golang/basic/io_"
 	"github.com/devlights/try-golang/basic/iota_"
 	"github.com/devlights/try-golang/basic/literals"
+	"github.com/devlights/try-golang/basic/log_"
 	"github.com/devlights/try-golang/basic/map_"
 	"github.com/devlights/try-golang/basic/math_"
 	"github.com/devlights/try-golang/basic/os_"
@@ -124,6 +125,7 @@ func (m SampleMapping) MakeMapping() {
 	m["time_parse"] = time_.TimeParse
 	m["hex_to_decimal_convert"] = strconv_.HexToDecimalConvert
 	m["unsafe_sizeof"] = unsafe_.Sizeof
+	m["log_flags"] = log_.Flags
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
