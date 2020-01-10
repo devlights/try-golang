@@ -8,17 +8,26 @@ GORUN=$(GOCMD) run
 PRJ_NAME=try-golang
 GITHUB_USER=devlights
 PKG_NAME=github.com/$(GITHUB_USER)/$(PRJ_NAME)
-BIN_NAME=trygolang
-CMD_PKG=$(PKG_NAME)/cmd/$(BIN_NAME)
+CMD_PKG=$(PKG_NAME)/cmd/trygolang
 
 EXAMPLE=""
+
+ifdef ComSpec
+	SEP=\\
+	RM_CMD=del
+	BIN_NAME=trygolang.exe
+else
+	SEP=/
+	RM_CMD=rm
+	BIN_NAME=trygolang
+endif
 
 .PHONY: all
 all: clean build test
 
 .PHONY: build
 build:
-	$(GOBUILD) -o $(BIN_NAME) $(CMD_PKG)
+	$(GOBUILD) -o $(BIN_NAME) -race $(CMD_PKG)
 
 .PHONY: test
 test:
@@ -27,10 +36,10 @@ test:
 .PHONY: clean
 clean:
 	$(GOCLEAN)
-	rm -f ./$(BIN_NAME)
+	$(RM_CMD) .$(SEP)$(BIN_NAME)
 
 .PHONY: run
 run: clean build
-	./$(BIN_NAME) -onetime -example ${EXAMPLE}
-	rm -f ./$(BIN_NAME)
+	.$(SEP)$(BIN_NAME) -onetime -example ${EXAMPLE}
+	$(RM_CMD) .$(SEP)$(BIN_NAME)
 

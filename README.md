@@ -8,12 +8,17 @@ This is my TUTORIAL project for golang
 
 ```shell script
 $ go version
-go version go1.13.4 darwin/amd64
+go version go1.13.5 linux/amd64
 ```
 
 ```shell script
 $ go version
-go version go1.13.4 windows/amd64
+go version go1.13.5 darwin/amd64
+```
+
+```shell script
+$ go version
+go version go1.13.5 windows/amd64
 ```
 
 ## IDE
@@ -33,6 +38,12 @@ or
 $ make run
 ```
 
+or
+
+```shell script
+$ make run EXAMPLE=example_name
+```
+
 ## Test
 
 ```shell script
@@ -45,10 +56,10 @@ or
 $ make test
 ```
 
-## Install (executable module only)
+## Install
 
 ```sh
-$ go get -u -v github.com/devlights/try-golang/cmd/trygolang
+$ go get -u github.com/devlights/try-golang/cmd/trygolang
 $ cd $(go env GOPATH)/bin
 $ trygolang
 ```
