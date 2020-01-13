@@ -127,6 +127,7 @@ func (m SampleMapping) MakeMapping() {
 	m["unsafe_sizeof"] = unsafe_.Sizeof
 	m["log_flags"] = log_.Flags
 	m["log_prefix"] = log_.Prefix
+	m["log_sentry_basic"] = log_.SentryBasic
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
