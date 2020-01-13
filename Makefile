@@ -18,7 +18,7 @@ ifdef ComSpec
 	BIN_NAME=trygolang.exe
 else
 	SEP=/
-	RM_CMD=rm
+	RM_CMD=rm -f
 	BIN_NAME=trygolang
 endif
 
@@ -35,11 +35,10 @@ test:
 
 .PHONY: clean
 clean:
-	$(GOCLEAN)
+	$(GOCLEAN) $(CMD_PKG)
 	$(RM_CMD) .$(SEP)$(BIN_NAME)
 
 .PHONY: run
-run: clean build
-	.$(SEP)$(BIN_NAME) -onetime -example ${EXAMPLE}
-	$(RM_CMD) .$(SEP)$(BIN_NAME)
+run: clean
+	$(GORUN) $(CMD_PKG) -onetime -example ${EXAMPLE}
 
