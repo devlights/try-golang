@@ -36,15 +36,25 @@ func SentryBasic() error {
 		log.Fatal(errSentryInit)
 	}
 
+	origFlags := log.Flags()
+	log.SetFlags(0)
+	defer log.SetFlags(origFlags)
+
+	log.Println("sentryの初期設定完了")
+
+	// 処理の終わりに Flush の呼び出しを入れておいて、メッセージの送信がちゃんと実行されるようにしておく
+	defer sentry.Flush(5 * time.Second)
+
 	// メッセージを送信
 	sentry.CaptureMessage("SentryBasic テストメッセージ")
+	log.Println("テストメッセージを送信")
 
 	// わざと存在しないファイルを指定してエラーを発生させ
 	// その情報をSentryに送る
 	_, err := os.Open("thisisnotexists.txt")
 	if err != nil {
 		sentry.CaptureException(err)
-		sentry.Flush(5 * time.Second)
+		log.Println("エラー情報を送信")
 	}
 
 	return nil
