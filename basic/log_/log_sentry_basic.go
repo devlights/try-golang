@@ -33,7 +33,7 @@ func SentryBasic() error {
 	// sentry-go 側で認識して取得してくれる.
 	errSentryInit := sentry.Init(sentry.ClientOptions{})
 	if errSentryInit != nil {
-		log.Fatal(errSentryInit)
+		return errSentryInit
 	}
 
 	origFlags := log.Flags()
