@@ -131,6 +131,7 @@ func (m SampleMapping) MakeMapping() {
 	m["log_sentry_goroutine_bad"] = log_.SentryGoroutineBad
 	m["log_sentry_goroutine_good"] = log_.SentryGoroutineGood
 	m["log_output"] = log_.Output
+	m["log_new"] = log_.NewLogger
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
