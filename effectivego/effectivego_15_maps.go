@@ -1,9 +1,7 @@
 package effectivego
 
 import (
-	"fmt"
-	"io"
-	"os"
+	"github.com/devlights/try-golang/lib/output"
 )
 
 // Effective Go - Maps の 内容についてのサンプルです。
@@ -26,14 +24,14 @@ func Maps() error {
 		"Python": 3,
 	}
 
-	stdout("(1)", m1, m2, m3)
+	output.Stdoutl("(1)", m1, m2, m3)
 
 	// マップは内部にデータへの参照を保持しているので
 	// 単純に代入すると、当然同じ参照をみることになる.
 	languages := m3
 	languages["Go"] = 999
 
-	stdout("(2)", m3, languages)
+	output.Stdoutl("(2)", m3, languages)
 
 	// マップを deep copy するには、単純にループする
 	// （スライスの場合は 組み込みの copy() があるので、それを使う)
@@ -44,11 +42,11 @@ func Maps() error {
 
 	languages["Go"] = 888
 
-	stdout("(3)", m3, languages, languages2)
+	output.Stdoutl("(3)", m3, languages, languages2)
 
 	// 存在しないキーにアクセスすると ゼロ値が返る
 	// (例： int の場合は0, string の場合は"")
-	stdout("(4)", languages["not_exists"])
+	output.Stdoutl("(4)", languages["not_exists"])
 
 	// マップの値取得の際は、value, bool の２つを受け取れる
 	// 左辺の値が一つの場合は value のみ。
@@ -57,40 +55,19 @@ func Maps() error {
 	// ２つ目の 変数名 は、暗黙でokという名前にすることが多い
 	_, ok := languages["not_exists"]
 	if !ok {
-		stdout("(5)", "key [not_exists] is not exists.")
+		output.Stdoutl("(5)", "key [not_exists] is not exists.")
 	}
 
 	// 上のイディオムはGoではまとめて以下のようにすることが多い
 	if _, ok := languages["not_exists"]; !ok {
-		stdout("(6)", "key [not_exists] is not exists.")
+		output.Stdoutl("(6)", "key [not_exists] is not exists.")
 	}
 
 	// マップのエントリを削除する場合は
 	// 組み込み関数の delete() を使用する
 	delete(languages, "Python")
 
-	stdout("(7)", m3, languages, languages2)
+	output.Stdoutl("(7)", m3, languages, languages2)
 
 	return nil
-}
-
-func stdout(prefix string, values ...interface{}) {
-	_pl(nil, prefix, values...)
-}
-
-func _pl(w io.Writer, prefix string, values ...interface{}) {
-	var (
-		writer io.Writer
-	)
-
-	writer = os.Stdout
-	if w != nil {
-		writer = w
-	}
-
-	if prefix != "" {
-		_, _ = fmt.Fprintln(writer, prefix, values)
-	} else {
-		_, _ = fmt.Fprintln(writer, values)
-	}
 }
