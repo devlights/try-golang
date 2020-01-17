@@ -178,4 +178,5 @@ func (m SampleMapping) MakeMapping() {
 	m["effective_go_slices"] = effectivego.Slices
 	m["effective_go_two_dimentional_slices"] = effectivego.TwoDimentionalSlices
 	m["effective_go_maps"] = effectivego.Maps
+	m["effective_go_printing"] = effectivego.Printing
 }
