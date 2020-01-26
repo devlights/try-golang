@@ -38,7 +38,10 @@ func (c *ExecCommand) Run() error {
 	if v, ok := mapping[target]; ok {
 		fmt.Printf("[Name] %q\n", target)
 		if err := v(); err != nil {
-			return err
+			return &ExecError{
+				Name: target,
+				Err:  err,
+			}
 		}
 	}
 
