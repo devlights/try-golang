@@ -113,6 +113,10 @@ func runLoop() {
 			if !isPerfectMatchFound {
 				fmt.Printf("There's %d candidates found\n", len(candidates))
 
+				sort.Slice(candidates, func(i, j int) bool {
+					return candidates[i] < candidates[j]
+				})
+
 				for _, item := range candidates {
 					fmt.Printf("\t%s\n", item)
 				}
