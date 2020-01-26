@@ -49,7 +49,7 @@ func NewSampleMapping() SampleMapping {
 	return make(SampleMapping)
 }
 
-// MakeMapping は、マッピング生成します
+// MakeMapping は、マッピングを生成します
 func (m SampleMapping) MakeMapping() {
 	m["builtin_print"] = builtin_.PrintFunc
 	m["error_basic"] = error_.Basic
@@ -184,4 +184,5 @@ func (m SampleMapping) MakeMapping() {
 	m["effective_go_printing"] = effectivego.Printing
 	m["effective_go_append"] = effectivego.Append
 	m["effective_go_constants"] = effectivego.Constants
+	m["effective_go_methods"] = effectivego.Methods
 }
