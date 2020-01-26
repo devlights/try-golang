@@ -124,8 +124,9 @@ func (c *RunLoopCommand) exec(target string, mapping lib.SampleMapping) error {
 func (c *RunLoopCommand) makeCandidates(userInput string, mapping lib.SampleMapping) []string {
 	candidates := make([]string, 0, len(mapping))
 	for k := range mapping {
-		if strings.Contains(k, userInput) {
-			candidates = append(candidates, k)
+		key := string(k)
+		if strings.Contains(key, userInput) {
+			candidates = append(candidates, key)
 		}
 	}
 

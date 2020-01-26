@@ -10,7 +10,8 @@ func printAllExampleNames(mapping lib.SampleMapping) {
 	names := make([]string, 0, len(mapping))
 
 	for k := range mapping {
-		names = append(names, k)
+		key := string(k)
+		names = append(names, key)
 	}
 
 	sort.Slice(names, func(i, j int) bool {

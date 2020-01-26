@@ -31,7 +31,7 @@ func NewExecCommand(args *ExecArgs) *ExecCommand {
 
 func (c *ExecCommand) Run() error {
 	var (
-		target  = c.Args.Target
+		target  = lib.SampleKey(c.Args.Target)
 		mapping = c.Args.Mapping
 	)
 

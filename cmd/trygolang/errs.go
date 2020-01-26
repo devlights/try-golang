@@ -1,10 +1,13 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"github.com/devlights/try-golang/lib"
+)
 
 type (
 	ExecError struct {
-		Name string
+		Name lib.SampleKey
 		Err  error
 	}
 )

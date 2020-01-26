@@ -38,8 +38,11 @@ import (
 	"github.com/devlights/try-golang/tutorial"
 )
 
-// SampleMappingは、サンプル名とサンプル呼び出し関数のマッピング定義を持つ型です
-type SampleMapping map[string]func() error
+type (
+	SampleKey     string                   // SampleKeyは、サンプル名を表すキーを表します
+	SampleFunc    func() error             // SampleFuncは、実行するサンプル処理を表します
+	SampleMapping map[SampleKey]SampleFunc // SampleMappingは、サンプルのマッピング定義を表します
+)
 
 // NewSampleMapping は、SampleMappingのコンストラクタ関数です
 func NewSampleMapping() SampleMapping {
@@ -180,4 +183,5 @@ func (m SampleMapping) MakeMapping() {
 	m["effective_go_maps"] = effectivego.Maps
 	m["effective_go_printing"] = effectivego.Printing
 	m["effective_go_append"] = effectivego.Append
+	m["effective_go_constants"] = effectivego.Constants
 }
