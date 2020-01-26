@@ -13,7 +13,7 @@ go version go1.13.5 linux/amd64
 
 ```shell script
 $ go version
-go version go1.13.5 darwin/amd64
+go version go1.13.6 darwin/amd64
 ```
 
 ```shell script
