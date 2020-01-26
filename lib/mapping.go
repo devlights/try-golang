@@ -97,6 +97,7 @@ func (m SampleMapping) MakeMapping() {
 	m["slice_reverse"] = slice_.SliceReverse
 	m["slice_append"] = slice_.SliceAppend
 	m["slice_pointer"] = slice_.SlicePointer
+	m["slice_copy"] = slice_.SliceCopy
 	m["comment01"] = comments.Comment01
 	m["closure01"] = closure.Closure01
 	m["string_rune_rawstring"] = string_.StringRuneRawString
