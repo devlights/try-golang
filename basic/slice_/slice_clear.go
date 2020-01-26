@@ -2,7 +2,7 @@ package slice_
 
 import "github.com/devlights/try-golang/lib/output"
 
-// SliceClear は、スライスの クリア についてのサンプルです.
+// SliceClear は、スライスのクリア、及び、nilスライスと空のスライスについてのサンプルです.
 func SliceClear() error {
 	// ----------------------------------------------------------------
 	// スライスのクリア、及び、nilスライスと空のスライスについて
