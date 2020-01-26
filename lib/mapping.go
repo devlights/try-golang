@@ -25,6 +25,7 @@ import (
 	"github.com/devlights/try-golang/basic/runtime_"
 	"github.com/devlights/try-golang/basic/scope"
 	"github.com/devlights/try-golang/basic/slice_"
+	"github.com/devlights/try-golang/basic/sort_"
 	"github.com/devlights/try-golang/basic/stdin"
 	"github.com/devlights/try-golang/basic/stdout"
 	"github.com/devlights/try-golang/basic/strconv_"
@@ -135,6 +136,7 @@ func (m SampleMapping) MakeMapping() {
 	m["log_sentry_goroutine_good"] = log_.SentryGoroutineGood
 	m["log_output"] = log_.Output
 	m["log_new"] = log_.NewLogger
+	m["sort_interface"] = sort_.SortInterface
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
