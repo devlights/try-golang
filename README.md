@@ -8,7 +8,7 @@ This is my TUTORIAL project for golang
 
 ```shell script
 $ go version
-go version go1.13.5 linux/amd64
+go version go1.13.6 linux/amd64
 ```
 
 ```shell script
@@ -18,7 +18,7 @@ go version go1.13.6 darwin/amd64
 
 ```shell script
 $ go version
-go version go1.13.5 windows/amd64
+go version go1.13.6 windows/amd64
 ```
 
 ## IDE
