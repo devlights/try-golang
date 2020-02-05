@@ -1,5 +1,5 @@
 tasks:
-  - init: go get && make && make clean
+  - init: make build && make clean
     command: go version
 image:
   file: .gitpod.Dockerfile
