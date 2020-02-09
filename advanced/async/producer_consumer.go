@@ -5,6 +5,10 @@ import (
 	"time"
 )
 
+func init() {
+	log.SetFlags(log.Flags() &^ log.LstdFlags)
+}
+
 // Main, Producer, Consumer, RemainCollector が利用するデータ
 type (
 	item  int
