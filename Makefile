@@ -13,7 +13,7 @@ CMD_PKG=$(PKG_NAME)/cmd/trygolang
 EXAMPLE=""
 
 ifdef ComSpec
-	SEP=\\
+	SEP=\
 	RM_CMD=del
 	BIN_NAME=trygolang.exe
 else
