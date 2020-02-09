@@ -70,6 +70,7 @@ func (m SampleMapping) MakeMapping() {
 	m["map_access"] = map_.MapAccess
 	m["scope01"] = scope.Scope01
 	m["async01"] = async.Async01
+	m["async_producer_consumer"] = async.ProducerConsumer
 	m["reflection01"] = reflection.Reflection01
 	m["import01"] = import_.Import01
 	m["iota01"] = iota_.Iota01
