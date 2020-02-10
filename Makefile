@@ -4,6 +4,7 @@ GOCLEAN=$(GOCMD) clean
 GOTEST=$(GOCMD) test
 GOGET=$(GOCMD) get
 GORUN=$(GOCMD) run
+GOGENERATE=$(GOCMD) generate
 
 PRJ_NAME=try-golang
 GITHUB_USER=devlights
@@ -22,23 +23,23 @@ else
 	BIN_NAME=trygolang
 endif
 
-.PHONY: all
 all: clean build test
 
-.PHONY: build
-build:
+build: generate
 	$(GOBUILD) -o $(BIN_NAME) -race $(CMD_PKG)
 
-.PHONY: test
-test:
+test: generate
 	$(GOTEST) -v ./...
 
-.PHONY: clean
 clean:
 	$(GOCLEAN) $(CMD_PKG)
 	$(RM_CMD) .$(SEP)$(BIN_NAME)
 
-.PHONY: run
-run: clean
+run: clean generate
 	$(GORUN) $(CMD_PKG) -onetime -example ${EXAMPLE}
+
+generate:
+	$(GOGENERATE) -x ./...
+
+.PHONY: all build test clean run generate
 
