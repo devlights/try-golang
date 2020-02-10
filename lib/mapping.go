@@ -3,6 +3,7 @@ package lib
 import (
 	"github.com/devlights/try-golang/advanced/async"
 	"github.com/devlights/try-golang/advanced/closure"
+	"github.com/devlights/try-golang/advanced/generate"
 	"github.com/devlights/try-golang/advanced/reflection"
 	"github.com/devlights/try-golang/advanced/sets"
 	"github.com/devlights/try-golang/basic/array_"
@@ -140,6 +141,7 @@ func (m SampleMapping) MakeMapping() {
 	m["log_output"] = log_.Output
 	m["log_new"] = log_.NewLogger
 	m["sort_interface"] = sort_.SortInterface
+	m["generate_generic_stack"] = generate.UseGenericStack
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
