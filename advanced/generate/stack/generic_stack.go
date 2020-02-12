@@ -1,4 +1,4 @@
-package generate
+package stack
 
 //go:generate genny -in=generic_stack.go -out=builtins_stack.go gen "T=BUILTINS"
 

@@ -1,19 +1,20 @@
 package generate
 
 import (
+	"github.com/devlights/try-golang/advanced/generate/stack"
 	"github.com/devlights/try-golang/lib/output"
 )
 
 func UseGenericStack() error {
-	bStack := NewBoolStack()
+	bStack := stack.NewBoolStack()
 	bStack.Push(false)
 	bStack.Push(true)
 
-	sStack := NewStringStack()
+	sStack := stack.NewStringStack()
 	sStack.Push("world")
 	sStack.Push("hello")
 
-	iStack := NewIntStack()
+	iStack := stack.NewIntStack()
 	iStack.Push(100)
 	iStack.Push(99)
 

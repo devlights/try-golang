@@ -142,6 +142,7 @@ func (m SampleMapping) MakeMapping() {
 	m["log_new"] = log_.NewLogger
 	m["sort_interface"] = sort_.SortInterface
 	m["generate_generic_stack"] = generate.UseGenericStack
+	m["generate_generic_queue"] = generate.UseGenericQueue
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
