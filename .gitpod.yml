@@ -1,5 +1,6 @@
 tasks:
-  - init: make build && make clean
+  - init: GO111MODULE=off go get github.com/cheekybits/genny; ¥
+          make build && make clean
     command: go version
 image:
   file: .gitpod.Dockerfile

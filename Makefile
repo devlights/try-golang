@@ -25,10 +25,10 @@ endif
 
 all: clean build test
 
-build: generate
+build:
 	$(GOBUILD) -o $(BIN_NAME) -race $(CMD_PKG)
 
-test: generate
+test:
 	$(GOTEST) -v ./...
 
 clean:
