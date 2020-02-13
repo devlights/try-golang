@@ -1,8 +1,10 @@
 tasks:
-  - init: GO111MODULE=off go get github.com/cheekybits/genny \
-          GO111MODULE=off go get github.com/devlights/mkghurl \
-          GO111MODULE=off go get golang.org/dl/go1.14rc1 \
+  - init: go env -w GO111MODULE=off \
+          go get github.com/cheekybits/genny \
+          go get github.com/devlights/mkghurl \
+          go get golang.org/dl/go1.14rc1 \
           go1.14rc1 download \
+          go env -u GO111MODULE
           make build && make clean
     command: go version
 image:
