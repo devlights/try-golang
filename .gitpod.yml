@@ -4,8 +4,7 @@ tasks:
           go get github.com/devlights/mkghurl &&
           go env -u GO111MODULE &&
           make build &&
-          make clean &&
-          if [ -n "$GITHUB_TOKEN" ]; then git remote set-url origin $(mkghurl try-golang); fi
-    command: go version
+          make clean
+    command: if [ -n "$GITHUB_TOKEN" ]; then git remote set-url origin $(mkghurl try-golang); fi && go version
 image:
   file: .gitpod.Dockerfile
