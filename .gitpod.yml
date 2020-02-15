@@ -1,11 +1,11 @@
 tasks:
   - init: go env -w GO111MODULE=off &&
-          go get -v github.com/cheekybits/genny &&
-          go get -v github.com/devlights/mkghurl &&
+          go get github.com/cheekybits/genny &&
+          go get github.com/devlights/mkghurl &&
           go env -u GO111MODULE &&
           make build &&
           make clean &&
-          if [ "$GITHUB_TOKEN" != "" ]; then git remote set-url origin $(mkghurl try-c); fi
+          if [ -n "$GITHUB_TOKEN" ]; then git remote set-url origin $(mkghurl try-golang); fi
     command: go version
 image:
   file: .gitpod.Dockerfile
