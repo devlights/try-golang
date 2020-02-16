@@ -146,6 +146,7 @@ func (m SampleMapping) MakeMapping() {
 	m["generate_generic_queue"] = generate.UseGenericQueue
 	m["xdg_base_directory"] = xdgspec.XdgBaseDirectory
 	m["xdg_user_directory"] = xdgspec.XdgUserDirectory
+	m["xdg_file_operation"] = xdgspec.XdgFileOperation
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
