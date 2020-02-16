@@ -17,6 +17,9 @@ func XdgBaseDirectory() error {
 	// XDG Base Directory について
 	// XDG の各値は、xdg パッケージを利用すると簡単に利用できる
 	// このパッケージは、Windows/MacOS/Unix に対応している
+	//
+	// xdg パッケージは、対象となる環境変数が設定されていれば、その値を返し
+	// 設定されていない場合は、デフォルトの値を返すようになっている。
 	// ------------------------------------------------------------
 	output.Stdoutl("[OS]", runtime.GOOS)
 
