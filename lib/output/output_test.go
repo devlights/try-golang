@@ -7,6 +7,10 @@ import (
 	"testing"
 )
 
+func init() {
+	SetPrefixFormat("%s")
+}
+
 func TestStdoutl(t *testing.T) {
 	// Arrange
 	var (

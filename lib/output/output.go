@@ -13,6 +13,26 @@ var (
 	defaultErrWriter io.Writer = os.Stderr
 )
 
+// prefix の align についての値. デフォルトは left-align
+var (
+	defaultPrefixAlignFormat = "%-20s"
+	prefixAlignFormat        = "%s"
+)
+
+func init() {
+	SetPrefixFormat(defaultPrefixAlignFormat)
+}
+
+// PrefixFormat は、現在の prefix の フォーマットを返します
+func PrefixFormat() string {
+	return prefixAlignFormat
+}
+
+// SetPrefixFormat は、指定した値を prefix のフォーマットとして設定します.
+func SetPrefixFormat(f string) {
+	prefixAlignFormat = f
+}
+
 // Writer は、現在設定されている標準出力用のio.Writerを返します.
 func Writer() io.Writer {
 	return defaultWriter
@@ -56,7 +76,8 @@ func Stderrf(prefix string, format string, values ...interface{}) {
 func _pf(w io.Writer, prefix string, format string, values ...interface{}) {
 	if prefix != "" {
 		s := fmt.Sprintf(format, values...)
-		_, _ = fmt.Fprintf(w, "%s %s", prefix, s)
+		p := fmt.Sprintf(PrefixFormat(), prefix)
+		_, _ = fmt.Fprintf(w, "%s %s", p, s)
 	} else {
 		_, _ = fmt.Fprintf(w, format, values...)
 	}
@@ -65,7 +86,8 @@ func _pf(w io.Writer, prefix string, format string, values ...interface{}) {
 func _pl(w io.Writer, prefix string, values ...interface{}) {
 	if prefix != "" {
 		s := fmt.Sprintln(values...)
-		_, _ = fmt.Fprint(w, prefix, " ", s)
+		p := fmt.Sprintf(PrefixFormat(), prefix)
+		_, _ = fmt.Fprint(w, p, " ", s)
 	} else {
 		_, _ = fmt.Fprintln(w, values...)
 	}

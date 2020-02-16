@@ -6,6 +6,7 @@ import (
 	"github.com/devlights/try-golang/advanced/generate"
 	"github.com/devlights/try-golang/advanced/reflection"
 	"github.com/devlights/try-golang/advanced/sets"
+	"github.com/devlights/try-golang/advanced/xdgspec"
 	"github.com/devlights/try-golang/basic/array_"
 	"github.com/devlights/try-golang/basic/builtin_"
 	"github.com/devlights/try-golang/basic/comments"
@@ -143,6 +144,7 @@ func (m SampleMapping) MakeMapping() {
 	m["sort_interface"] = sort_.SortInterface
 	m["generate_generic_stack"] = generate.UseGenericStack
 	m["generate_generic_queue"] = generate.UseGenericQueue
+	m["xdg_base_directory"] = xdgspec.XdgBaseDirectory
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
