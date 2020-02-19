@@ -2,16 +2,28 @@ package lib
 
 import (
 	"github.com/devlights/try-golang/basic/helloworld"
+	"github.com/devlights/try-golang/interfaces"
 	"testing"
 )
+
+type (
+	testExampleRegister struct{}
+)
+
+func (t *testExampleRegister) Regist(m interfaces.ExampleMapping) {
+	m["helloworld"] = func() error {
+		return nil
+	}
+}
 
 // SampleMapping.MakeMappings の テスト
 func TestMakeMapping(t *testing.T) {
 	// Arrange
-	sut := make(SampleMapping)
+	register := new(testExampleRegister)
+	sut := make(interfaces.ExampleMapping)
 
 	// Act
-	sut.MakeMapping()
+	sut.MakeMapping(register)
 
 	// Assert
 	if len(sut) == 0 {
@@ -22,10 +34,11 @@ func TestMakeMapping(t *testing.T) {
 // サンプルが取得できるかどうか の テスト
 func TestRetriveExample_Success(t *testing.T) {
 	// Arrange
-	sut := make(SampleMapping)
+	register := new(testExampleRegister)
+	sut := make(interfaces.ExampleMapping)
 
 	// Act
-	sut.MakeMapping()
+	sut.MakeMapping(register)
 
 	// Assert
 	if sut["helloworld"] == nil {
