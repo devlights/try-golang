@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/devlights/try-golang/lib"
+	"github.com/devlights/try-golang/interfaces"
 	"os"
 	"sort"
 	"strings"
@@ -16,11 +16,11 @@ type (
 
 	RunLoopArgs struct {
 		MainArgs *Args
-		Mapping  lib.SampleMapping
+		Mapping  interfaces.SampleMapping
 	}
 )
 
-func NewRunLoopArgs(mainArgs *Args, mapping lib.SampleMapping) *RunLoopArgs {
+func NewRunLoopArgs(mainArgs *Args, mapping interfaces.SampleMapping) *RunLoopArgs {
 	a := new(RunLoopArgs)
 	a.MainArgs = mainArgs
 	a.Mapping = mapping
@@ -110,7 +110,7 @@ func (c *RunLoopCommand) Run() error {
 	return nil
 }
 
-func (c *RunLoopCommand) exec(target string, mapping lib.SampleMapping) error {
+func (c *RunLoopCommand) exec(target string, mapping interfaces.SampleMapping) error {
 	execArgs := NewExecArgs(target, mapping)
 	execCmd := NewExecCommand(execArgs)
 
@@ -121,7 +121,7 @@ func (c *RunLoopCommand) exec(target string, mapping lib.SampleMapping) error {
 	return nil
 }
 
-func (c *RunLoopCommand) makeCandidates(userInput string, mapping lib.SampleMapping) []string {
+func (c *RunLoopCommand) makeCandidates(userInput string, mapping interfaces.SampleMapping) []string {
 	candidates := make([]string, 0, len(mapping))
 	for k := range mapping {
 		key := string(k)

@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/devlights/try-golang/interfaces"
 	"github.com/devlights/try-golang/lib"
 	"log"
 	"os"
@@ -10,14 +11,13 @@ import (
 func main() {
 	var (
 		args    *Args
-		mapping lib.SampleMapping
+		mapping interfaces.SampleMapping
 	)
 
 	args = NewArgs()
 	args.Parse()
 
-	mapping = lib.NewSampleMapping()
-	mapping.MakeMapping()
+	mapping = lib.MakeMapping()
 
 	if args.ShowNames {
 		printAllExampleNames(mapping)

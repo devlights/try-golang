@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/devlights/try-golang/lib"
+	"github.com/devlights/try-golang/interfaces"
 )
 
 type (
@@ -12,11 +12,11 @@ type (
 
 	ExecArgs struct {
 		Target  string
-		Mapping lib.SampleMapping
+		Mapping interfaces.SampleMapping
 	}
 )
 
-func NewExecArgs(target string, mapping lib.SampleMapping) *ExecArgs {
+func NewExecArgs(target string, mapping interfaces.SampleMapping) *ExecArgs {
 	a := new(ExecArgs)
 	a.Target = target
 	a.Mapping = mapping
@@ -31,7 +31,7 @@ func NewExecCommand(args *ExecArgs) *ExecCommand {
 
 func (c *ExecCommand) Run() error {
 	var (
-		target  = lib.SampleKey(c.Args.Target)
+		target  = interfaces.SampleKey(c.Args.Target)
 		mapping = c.Args.Mapping
 	)
 
