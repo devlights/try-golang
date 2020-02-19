@@ -14,6 +14,7 @@ func NewRegister() interfaces.Register {
 	return r
 }
 
+// Regist は、books パッケージ配下に存在するサンプルを登録します.
 //noinspection GoUnusedParameter
 func (r *booksExampleRegister) Regist(m interfaces.ExampleMapping) {
 }

@@ -14,6 +14,7 @@ func NewRegister() interfaces.Register {
 	return r
 }
 
+// Regist は、effectivego パッケージ配下に存在するサンプルを登録します.
 func (r *effectivegoExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["effective_go_intro"] = Introduction
 	m["effective_go_formatting"] = Formatting

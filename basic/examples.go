@@ -45,6 +45,7 @@ func NewRegister() interfaces.Register {
 	return r
 }
 
+// Regist は、basic パッケージ配下に存在するサンプルを登録します.
 func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["builtin_print"] = builtin_.PrintFunc
 	m["error_basic"] = error_.Basic

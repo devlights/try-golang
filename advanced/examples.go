@@ -21,6 +21,7 @@ func NewRegister() interfaces.Register {
 	return r
 }
 
+// Regist は、advanced パッケージ配下に存在するサンプルを登録します.
 func (r *advancedExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["async01"] = async.Async01
 	m["async_producer_consumer"] = async.ProducerConsumer

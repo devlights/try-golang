@@ -14,6 +14,7 @@ func NewRegister() interfaces.Register {
 	return r
 }
 
+// Regist は、tutorial パッケージ配下に存在するサンプルを登録します.
 func (r *tutorialExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["tutorial_gotour_helloworld"] = HelloWorld
 	m["tutorial_gotour_import"] = Import
