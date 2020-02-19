@@ -1,6 +1,8 @@
 package main
 
-import "github.com/devlights/try-golang/lib"
+import (
+	"github.com/devlights/try-golang/interfaces"
+)
 
 type (
 	RunOnceCommand struct {
@@ -12,7 +14,7 @@ type (
 	}
 )
 
-func NewRunOnceArgs(target string, mapping lib.SampleMapping) *RunOnceArgs {
+func NewRunOnceArgs(target string, mapping interfaces.ExampleMapping) *RunOnceArgs {
 	a := new(RunOnceArgs)
 	a.Target = target
 	a.Mapping = mapping

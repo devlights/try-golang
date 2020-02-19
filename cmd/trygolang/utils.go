@@ -2,11 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/devlights/try-golang/lib"
+	"github.com/devlights/try-golang/interfaces"
 	"sort"
 )
 
-func printAllExampleNames(mapping lib.SampleMapping) {
+func printAllExampleNames(mapping interfaces.ExampleMapping) {
 	names := make([]string, 0, len(mapping))
 
 	for k := range mapping {

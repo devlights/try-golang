@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"github.com/devlights/try-golang/lib"
+	"github.com/devlights/try-golang/interfaces"
 )
 
 type (
 	ExecError struct {
-		Name lib.SampleKey
+		Name interfaces.ExampleKey
 		Err  error
 	}
 )
