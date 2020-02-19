@@ -2,7 +2,7 @@ package effectivego
 
 import "fmt"
 
-// Effective Go - Two Dimentional Slices の 内容についてのサンプルです。
+// Effective Go - Two Dimensional Slices の 内容についてのサンプルです。
 func TwoDimensionalSlices() error {
 	/*
 		https://golang.org/doc/effective_go.html#two_dimensional_slices
