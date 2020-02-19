@@ -11,7 +11,7 @@ import (
 func main() {
 	var (
 		args    *Args
-		mapping interfaces.SampleMapping
+		mapping interfaces.ExampleMapping
 	)
 
 	args = NewArgs()

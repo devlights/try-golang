@@ -6,7 +6,7 @@ import (
 	"sort"
 )
 
-func printAllExampleNames(mapping interfaces.SampleMapping) {
+func printAllExampleNames(mapping interfaces.ExampleMapping) {
 	names := make([]string, 0, len(mapping))
 
 	for k := range mapping {

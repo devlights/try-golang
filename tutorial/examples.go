@@ -14,7 +14,7 @@ func NewRegister() interfaces.Register {
 	return r
 }
 
-func (r *tutorialExampleRegister) Regist(m interfaces.SampleMapping) {
+func (r *tutorialExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["tutorial_gotour_helloworld"] = HelloWorld
 	m["tutorial_gotour_import"] = Import
 	m["tutorial_gotour_scope"] = Scope

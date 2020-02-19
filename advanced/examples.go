@@ -21,7 +21,7 @@ func NewRegister() interfaces.Register {
 	return r
 }
 
-func (r *advancedExampleRegister) Regist(m interfaces.SampleMapping) {
+func (r *advancedExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["async01"] = async.Async01
 	m["async_producer_consumer"] = async.ProducerConsumer
 	m["closure01"] = closure.Closure01

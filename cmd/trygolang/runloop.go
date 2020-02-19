@@ -16,11 +16,11 @@ type (
 
 	RunLoopArgs struct {
 		MainArgs *Args
-		Mapping  interfaces.SampleMapping
+		Mapping  interfaces.ExampleMapping
 	}
 )
 
-func NewRunLoopArgs(mainArgs *Args, mapping interfaces.SampleMapping) *RunLoopArgs {
+func NewRunLoopArgs(mainArgs *Args, mapping interfaces.ExampleMapping) *RunLoopArgs {
 	a := new(RunLoopArgs)
 	a.MainArgs = mainArgs
 	a.Mapping = mapping
@@ -110,7 +110,7 @@ func (c *RunLoopCommand) Run() error {
 	return nil
 }
 
-func (c *RunLoopCommand) exec(target string, mapping interfaces.SampleMapping) error {
+func (c *RunLoopCommand) exec(target string, mapping interfaces.ExampleMapping) error {
 	execArgs := NewExecArgs(target, mapping)
 	execCmd := NewExecCommand(execArgs)
 
@@ -121,7 +121,7 @@ func (c *RunLoopCommand) exec(target string, mapping interfaces.SampleMapping) e
 	return nil
 }
 
-func (c *RunLoopCommand) makeCandidates(userInput string, mapping interfaces.SampleMapping) []string {
+func (c *RunLoopCommand) makeCandidates(userInput string, mapping interfaces.ExampleMapping) []string {
 	candidates := make([]string, 0, len(mapping))
 	for k := range mapping {
 		key := string(k)

@@ -10,7 +10,7 @@ import (
 )
 
 // MakeMapping は、サンプル実行のためのマッピング情報を生成します.
-func MakeMapping() interfaces.SampleMapping {
+func MakeMapping() interfaces.ExampleMapping {
 	mapping := interfaces.NewSampleMapping()
 
 	mapping.MakeMapping(

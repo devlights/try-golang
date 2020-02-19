@@ -7,7 +7,7 @@ import (
 
 type (
 	ExecError struct {
-		Name interfaces.SampleKey
+		Name interfaces.ExampleKey
 		Err  error
 	}
 )

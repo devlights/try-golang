@@ -14,7 +14,7 @@ type (
 	}
 )
 
-func NewRunOnceArgs(target string, mapping interfaces.SampleMapping) *RunOnceArgs {
+func NewRunOnceArgs(target string, mapping interfaces.ExampleMapping) *RunOnceArgs {
 	a := new(RunOnceArgs)
 	a.Target = target
 	a.Mapping = mapping

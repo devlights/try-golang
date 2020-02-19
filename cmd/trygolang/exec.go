@@ -12,11 +12,11 @@ type (
 
 	ExecArgs struct {
 		Target  string
-		Mapping interfaces.SampleMapping
+		Mapping interfaces.ExampleMapping
 	}
 )
 
-func NewExecArgs(target string, mapping interfaces.SampleMapping) *ExecArgs {
+func NewExecArgs(target string, mapping interfaces.ExampleMapping) *ExecArgs {
 	a := new(ExecArgs)
 	a.Target = target
 	a.Mapping = mapping
@@ -31,7 +31,7 @@ func NewExecCommand(args *ExecArgs) *ExecCommand {
 
 func (c *ExecCommand) Run() error {
 	var (
-		target  = interfaces.SampleKey(c.Args.Target)
+		target  = interfaces.ExampleKey(c.Args.Target)
 		mapping = c.Args.Mapping
 	)
 

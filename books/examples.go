@@ -15,5 +15,5 @@ func NewRegister() interfaces.Register {
 }
 
 //noinspection GoUnusedParameter
-func (r *booksExampleRegister) Regist(m interfaces.SampleMapping) {
+func (r *booksExampleRegister) Regist(m interfaces.ExampleMapping) {
 }

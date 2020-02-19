@@ -14,7 +14,7 @@ func NewRegister() interfaces.Register {
 	return r
 }
 
-func (r *effectivegoExampleRegister) Regist(m interfaces.SampleMapping) {
+func (r *effectivegoExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["effective_go_intro"] = Introduction
 	m["effective_go_formatting"] = Formatting
 	m["effective_go_comment"] = Commentary

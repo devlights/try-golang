@@ -45,7 +45,7 @@ func NewRegister() interfaces.Register {
 	return r
 }
 
-func (r *basicExampleRegister) Regist(m interfaces.SampleMapping) {
+func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["builtin_print"] = builtin_.PrintFunc
 	m["error_basic"] = error_.Basic
 	m["error_sentinel"] = error_.Sentinel
