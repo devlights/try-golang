@@ -29,7 +29,7 @@ func (r *effectivegoExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["effective_go_allocation_with_make"] = AllocationWithMake
 	m["effective_go_arrays"] = Arrays
 	m["effective_go_slices"] = Slices
-	m["effective_go_two_dimentional_slices"] = TwoDimentionalSlices
+	m["effective_go_two_dimensional_slices"] = TwoDimensionalSlices
 	m["effective_go_maps"] = Maps
 	m["effective_go_printing"] = Printing
 	m["effective_go_append"] = Append

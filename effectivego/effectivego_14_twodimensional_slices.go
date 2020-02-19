@@ -3,11 +3,11 @@ package effectivego
 import "fmt"
 
 // Effective Go - Two Dimentional Slices の 内容についてのサンプルです。
-func TwoDimentionalSlices() error {
+func TwoDimensionalSlices() error {
 	/*
 		https://golang.org/doc/effective_go.html#two_dimensional_slices
 
-		- Two Dimentional Slicesとは、２次元スライスのこと
+		- Two Dimensional Slicesとは、２次元スライスのこと
 		- ２次元の配列の場合、変数宣言時に全次元がゼロ値が埋まる
 		- ２次元のスライスの場合、最初のmake()で生成されるのは１次元目のみ。２次元目はまだnilのまま。
 		  - 自分でその都度割り当てていく
