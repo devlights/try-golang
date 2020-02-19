@@ -3,6 +3,7 @@ package lib
 import (
 	"github.com/devlights/try-golang/advanced/async"
 	"github.com/devlights/try-golang/advanced/closure"
+	"github.com/devlights/try-golang/advanced/crypto"
 	"github.com/devlights/try-golang/advanced/generate"
 	"github.com/devlights/try-golang/advanced/reflection"
 	"github.com/devlights/try-golang/advanced/sets"
@@ -147,6 +148,7 @@ func (m SampleMapping) MakeMapping() {
 	m["xdg_base_directory"] = xdgspec.XdgBaseDirectory
 	m["xdg_user_directory"] = xdgspec.XdgUserDirectory
 	m["xdg_file_operation"] = xdgspec.XdgFileOperation
+	m["crypto_bcrypt_password_hash"] = crypto.BcryptPasswordHash
 
 	m["tutorial_gotour_helloworld"] = tutorial.HelloWorld
 	m["tutorial_gotour_import"] = tutorial.Import
