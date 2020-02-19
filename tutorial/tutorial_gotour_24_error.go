@@ -60,6 +60,120 @@ var (
 
 // Error は、 Tour of Go - Errors (https://tour.golang.org/methods/19) の サンプルです。
 func Error() error {
+
+	aboutGoError()
+	fmt.Println("----------------------------------------------------")
+	aboutGo113Error()
+
+	return nil
+}
+
+func aboutGo113Error() {
+	// ------------------------------------------------------
+	// Go 1.13 より前と 1.13 以降ではエラー処理のセオリーがちょっと異なる
+	//   - https://blog.golang.org/go1.13-errors
+	//
+	// Go 1.13 より前
+	//   - (1) どのエラーなのかを判定するためにパッケージ変数でエラーをしたりする
+	//     - errors.New を利用して変数定義
+	//   - (2) 明示的に 独自のエラー型 を定義して、型検証して判定したりする
+	//
+	// 上記のどちらの場合でも、エラーを多段階で内包しているような場合
+	// 元の情報を取り出すという過程が必要となる場合がある。
+	// しかし、(1)の場合は既に値がテキストとなっているので、なくなってしまっっている.
+	// また、(2)の場合も、内部に 内包するエラー　を 保持して、自分で参照したりする
+	// 必要があった。 1.13までは言語自体に共通的なやり方が無かった。
+	//
+	// Go 1.13 より、errorsパッケージに以下の関数が追加された.
+	//    - (1) Unwrap()
+	//    - (2) Is()
+	//    - (3) As()
+	// どれも、ヘルパー関数的な位置づけとなっている。
+	// Unwrap()は、エラーを内包している場合に、この名前で関数定義しておくと errors.Unwrap() で自動的に呼び出される.
+	// Is()は、エラーを値として定義している場合に使う. 型に Is(error) bool というメソッドを定義しておくと errors.Is() で自動的に呼び出される.
+	// As()は、エラーを型として定義している場合に使う. 型に As(interface{}) bool というメソッドを定義しておくと errors.As() で自動的に呼び出される.
+	//
+	// また、fmt の書式化文字列に %w というものが追加された.
+	// このフォーマット指示子で error をフォーマットしておくと
+	// 自動で Unwrap 可能な状態にしてくれる. (4)
+	//
+	// ただし、pkg/errors や golang.org/x/xerrors に存在するスタックトレース付きの書式化文字列はサポートされていない。
+	// (: %v とか : %w とか %+v とか %+w とか)
+	// ------------------------------------------------------
+	// 1.13 以降 (1)
+	//   errors.Unwrap ができたので共通手順で内包しているエラーが取り出せるようになった。
+	e4 := &goTour24Error4{
+		message: "e4",
+		inner:   goTour24Error5,
+	}
+
+	innerError := errors.Unwrap(e4)
+	if innerError != nil {
+		fmt.Printf("(1) Root: %v\tInner: %v\n", *e4, innerError)
+	}
+
+	// 1.13 以降 (2)
+	//   前は innerError == goTour24Error5 としていた
+	if errors.Is(innerError, goTour24Error5) {
+		fmt.Printf("(2) innerError type: %T\n", innerError)
+	}
+
+	// 1.13 以降 (3)
+	makeError := func() error {
+		return &goTour24Error2{
+			goTour24Error: goTour24Error{
+				When: time.Now(),
+				What: "error raised2",
+			},
+		}
+	}
+
+	e5 := &goTour24Error4{
+		message: "e5",
+		inner:   makeError(),
+	}
+
+	innerError2 := errors.Unwrap(e5)
+	if innerError2 != nil {
+		fmt.Printf("(3-1) Root: %v\tInner: %v\n", *e5, innerError2)
+	}
+
+	var ie *goTour24Error2
+	if errors.As(innerError2, &ie) {
+		fmt.Printf("(3-2) innerError type: %T\n", ie)
+	}
+
+	// (4) %w フォーマット指示子
+	myError3 := fmt.Errorf("my error 3")
+	myError4 := fmt.Errorf("my error 4 (%w)", myError3)
+
+	var myError5 error = myError4
+
+	fmt.Println("(4-0)", myError5)
+
+	// myError4 は、内部で %w を用いて myError3 を組み込んでいるので Is() で判定可能
+	if errors.Is(myError5, myError3) {
+		fmt.Println("(4-1) errors.Is(myError5, myError3) == true")
+	}
+
+	// 当然 myError4 を Is() で聞いても問題ない
+	if errors.Is(myError5, myError4) {
+		fmt.Println("(4-2) errors.Is(myError5, myError4) == true")
+	}
+
+	// %w で書式化している場合、自動的に Unwrap 可能な状態になっている
+	myError6 := errors.Unwrap(myError5)
+	fmt.Println("(4-3)", myError6)
+
+	switch {
+	case errors.Is(myError6, myError4):
+		fmt.Println("(4-4) myError6.Is(myError4) == true")
+	case errors.Is(myError6, myError3):
+		fmt.Println("(4-4) myError6.Is(myError3) == true")
+	}
+}
+
+func aboutGoError() {
 	// ------------------------------------------------------------
 	// Go言語のerror型
 	//
@@ -178,102 +292,4 @@ func Error() error {
 			fmt.Println("(5)", err)
 		}
 	}
-
-	fmt.Println("----------------------------------------------------")
-
-	// ------------------------------------------------------
-	// Go 1.13 より前と 1.13 以降ではエラー処理のセオリーがちょっと異なる
-	//   - https://blog.golang.org/go1.13-errors
-	//
-	// Go 1.13 より前
-	//   - (1) どのエラーなのかを判定するためにパッケージ変数でエラーをしたりする
-	//     - errors.New を利用して変数定義
-	//   - (2) 明示的に 独自のエラー型 を定義して、型検証して判定したりする
-	//
-	// 上記のどちらの場合でも、エラーを多段階で内包しているような場合
-	// 元の情報を取り出すという過程が必要となる場合がある。
-	// しかし、(1)の場合は既に値がテキストとなっているので、なくなってしまっっている.
-	// また、(2)の場合も、内部に 内包するエラー　を 保持して、自分で参照したりする
-	// 必要があった。 1.13までは言語自体に共通的なやり方が無かった。
-	//
-	// Go 1.13 より、errorsパッケージに以下の関数が追加された.
-	//    - (1) Unwrap()
-	//    - (2) Is()
-	//    - (3) As()
-	// どれも、ヘルパー関数的な位置づけとなっている。
-	// Unwrap()は、エラーを内包している場合に、この名前で関数定義しておくと errors.Unwrap() で自動的に呼び出される.
-	// Is()は、エラーを値として定義している場合に使う. 型に Is(error) bool というメソッドを定義しておくと errors.Is() で自動的に呼び出される.
-	// As()は、エラーを型として定義している場合に使う. 型に As(interface{}) bool というメソッドを定義しておくと errors.As() で自動的に呼び出される.
-	//
-	// また、fmt の書式化文字列に %w というものが追加された.
-	// このフォーマット指示子で error をフォーマットしておくと
-	// 自動で Unwrap 可能な状態にしてくれる. (4)
-	//
-	// ただし、pkg/errors や golang.org/x/xerrors に存在するスタックトレース付きの書式化文字列はサポートされていない。
-	// (: %v とか : %w とか %+v とか %+w とか)
-	// ------------------------------------------------------
-	// 1.13 以降 (1)
-	//   errors.Unwrap ができたので共通手順で内包しているエラーが取り出せるようになった。
-	e4 := &goTour24Error4{
-		message: "e4",
-		inner:   goTour24Error5,
-	}
-
-	innerError := errors.Unwrap(e4)
-	if innerError != nil {
-		fmt.Printf("(1) Root: %v\tInner: %v\n", *e4, innerError)
-	}
-
-	// 1.13 以降 (2)
-	//   前は innerError == goTour24Error5 としていた
-	if errors.Is(innerError, goTour24Error5) {
-		fmt.Printf("(2) innerError type: %T\n", innerError)
-	}
-
-	// 1.13 以降 (3)
-	e5 := &goTour24Error4{
-		message: "e5",
-		inner:   run2(),
-	}
-
-	innerError2 := errors.Unwrap(e5)
-	if innerError2 != nil {
-		fmt.Printf("(3-1) Root: %v\tInner: %v\n", *e5, innerError2)
-	}
-
-	var ie *goTour24Error2
-	if errors.As(innerError2, &ie) {
-		fmt.Printf("(3-2) innerError type: %T\n", ie)
-	}
-
-	// (4) %w フォーマット指示子
-	myError3 := fmt.Errorf("my error 3")
-	myError4 := fmt.Errorf("my error 4 (%w)", myError3)
-
-	var myError5 error = myError4
-
-	fmt.Println("(4-0)", myError5)
-
-	// myError4 は、内部で %w を用いて myError3 を組み込んでいるので Is() で判定可能
-	if errors.Is(myError5, myError3) {
-		fmt.Println("(4-1) errors.Is(myError5, myError3) == true")
-	}
-
-	// 当然 myError4 を Is() で聞いても問題ない
-	if errors.Is(myError5, myError4) {
-		fmt.Println("(4-2) errors.Is(myError5, myError4) == true")
-	}
-
-	// %w で書式化している場合、自動的に Unwrap 可能な状態になっている
-	myError6 := errors.Unwrap(myError5)
-	fmt.Println("(4-3)", myError6)
-
-	switch {
-	case errors.Is(myError6, myError4):
-		fmt.Println("(4-4) myError6.Is(myError4) == true")
-	case errors.Is(myError6, myError3):
-		fmt.Println("(4-4) myError6.Is(myError3) == true")
-	}
-
-	return nil
 }
