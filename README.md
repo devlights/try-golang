@@ -24,7 +24,7 @@ go version go1.13.6 windows/amd64
 
 ## IDE
 
-- JetBrains GoLand
+  - JetBrains GoLand
 
 ## Run
 
