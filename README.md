@@ -2,6 +2,7 @@
 This is my TUTORIAL project for golang
 
 ![try-golang - Go Version](https://img.shields.io/badge/go-1.13-blue.svg)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/7161abf0cf984775aa4cc5deb8f47998)](https://app.codacy.com/manual/devlights/try-golang?utm_source=github.com&utm_medium=referral&utm_content=devlights/try-golang&utm_campaign=Badge_Grade_Settings)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-golang/badge)](https://www.codefactor.io/repository/github/devlights/try-golang)
 [![Go Report Card](https://goreportcard.com/badge/github.com/devlights/try-golang)](https://goreportcard.com/report/github.com/devlights/try-golang)
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-golang) 
