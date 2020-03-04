@@ -98,6 +98,7 @@ func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["string_rune_byte_convert"] = string_.StringRuneByteConvert
 	m["mapset01"] = sets.MapSet01
 	m["defer01"] = defer_.Defer01
+	m["defer_in_loop"] = defer_.DeferInLoop
 	m["var_statement_declare"] = variables.VarStatementDeclares
 	m["package_scope_variable"] = variables.PackageScopeVariable
 	m["short_assignment_statement"] = variables.ShortAssignmentStatement
