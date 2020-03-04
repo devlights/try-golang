@@ -5,6 +5,9 @@ GOTEST=$(GOCMD) test
 GOGET=$(GOCMD) get
 GORUN=$(GOCMD) run
 GOGENERATE=$(GOCMD) generate
+DOCKER=docker
+DOCKER_BUILD=$(DOCKER) build
+DOCKER_RUN=$(DOCKER) run
 
 PRJ_NAME=try-golang
 GITHUB_USER=devlights
@@ -14,7 +17,7 @@ CMD_PKG=$(PKG_NAME)/cmd/trygolang
 EXAMPLE=""
 
 ifdef ComSpec
-	SEP=\
+	SEP=\\
 	RM_CMD=del
 	BIN_NAME=trygolang.exe
 else
@@ -26,7 +29,7 @@ endif
 all: clean build test
 
 build:
-	$(GOBUILD) -o $(BIN_NAME) -race $(CMD_PKG)
+	$(GOBUILD) -o $(BIN_NAME) $(CMD_PKG)
 
 test:
 	$(GOTEST) -v ./...
@@ -41,5 +44,16 @@ run: clean generate
 generate:
 	$(GOGENERATE) -x ./...
 
-.PHONY: all build test clean run generate
+docker-build:
+	$(DOCKER_BUILD) -t try-golang .
+
+docker-run: docker-build
+	$(DOCKER_RUN) -it --rm --name try-golang try-golang
+
+docker-sh: docker-build
+	$(DOCKER_RUN) -it --rm --name try-golang try-golang bash
+
+docker: docker-run
+
+.PHONY: all build test clean run generate docker-build docker-run docker-sh docker
 

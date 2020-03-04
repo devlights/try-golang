@@ -45,6 +45,12 @@ or
 $ make run EXAMPLE=example_name
 ```
 
+or
+
+```shell script
+$ make docker
+```
+
 ## Test
 
 ```shell script
