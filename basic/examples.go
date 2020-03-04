@@ -102,6 +102,7 @@ func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["var_statement_declare"] = variables.VarStatementDeclares
 	m["package_scope_variable"] = variables.PackageScopeVariable
 	m["short_assignment_statement"] = variables.ShortAssignmentStatement
+	m["shadowing_variable"] = variables.ShadowingVariable
 	m["const_statement_declare"] = constants.ConstStatementDeclares
 	m["function_one_return_value"] = functions.FunctionOneReturnValue
 	m["function_multi_return_value"] = functions.FunctionMultiReturnValue
