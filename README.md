@@ -66,9 +66,12 @@ $ make test
 ## Install
 
 ```shell script
-$ go env -w GO111MODULE=off
-$ go get -u github.com/devlights/try-golang/cmd/trygolang
-$ go env -u GO111MODULE
-$ cd $(go env GOPATH)/bin
-$ trygolang
+$ cd cmd/trygolang
+$ go install
+```
+
+or 
+
+```shell script
+$ make install
 ```
