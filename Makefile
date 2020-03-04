@@ -17,7 +17,7 @@ CMD_PKG=$(PKG_NAME)/cmd/trygolang
 EXAMPLE=""
 
 ifdef ComSpec
-	SEP=\\
+	SEP="\\"
 	RM_CMD=del
 	BIN_NAME=trygolang.exe
 else
@@ -38,7 +38,7 @@ clean:
 	$(GOCLEAN) $(CMD_PKG)
 	$(RM_CMD) .$(SEP)$(BIN_NAME)
 
-run: clean generate
+run: clean
 	$(GORUN) $(CMD_PKG) -onetime -example ${EXAMPLE}
 
 generate:
