@@ -5,8 +5,8 @@ import (
 	"runtime"
 )
 
-// runtime.Version() のサンプル
-func Runtime01() error {
+// RuntimeVersion は、runtime.Version() のサンプルです。
+func RuntimeVersion() error {
 	// runtime.Version() で 現在利用している Go のバージョンが取得できる
 	ver := runtime.Version()
 	fmt.Println(ver)
