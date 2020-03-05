@@ -63,6 +63,7 @@ func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["map_initialize"] = map_.MapInitialize
 	m["map_delete"] = map_.MapDelete
 	m["map_access"] = map_.MapAccess
+	m["map_deep_equal"] = map_.MapDeepEqual
 	m["scope01"] = scope.Scope01
 	m["import01"] = import_.Import01
 	m["iota01"] = iota_.Iota01
