@@ -93,6 +93,7 @@ func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["slice_pointer"] = slice_.SlicePointer
 	m["slice_copy"] = slice_.SliceCopy
 	m["slice_clear"] = slice_.SliceClear
+	m["slice_deep_equal"] = slice_.SliceDeepEqual
 	m["comment01"] = comments.Comment01
 	m["string_rune_rawstring"] = string_.StringRuneRawString
 	m["string_to_runeslice"] = string_.StringToRuneSlice
