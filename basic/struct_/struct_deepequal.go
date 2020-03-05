@@ -11,6 +11,7 @@ import (
 //   - https://golang.org/ref/spec#Comparison_operators
 //   - https://golang.org/pkg/reflect/#DeepEqual
 //   - https://qiita.com/Sekky0905/items/1ff4979d80b163e0aeb6
+//   - https://medium.com/golangspec/comparison-operators-in-go-910d9d788ec0
 //   - https://stackoverflow.com/questions/24534072/how-to-compare-if-two-structs-slices-or-maps-are-equal
 //   - https://github.com/google/go-cmp
 func StructDeepEqual() error {
