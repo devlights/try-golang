@@ -36,17 +36,17 @@ import (
 )
 
 type (
-	basicExampleRegister struct{}
+	register struct{}
 )
 
 // NewRegister は、basic パッケージ用の lib.Register を返します.
 func NewRegister() interfaces.Register {
-	r := new(basicExampleRegister)
+	r := new(register)
 	return r
 }
 
 // Regist は、basic パッケージ配下に存在するサンプルを登録します.
-func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
+func (r *register) Regist(m interfaces.ExampleMapping) {
 	m["builtin_print"] = builtin_.PrintFunc
 	m["error_basic"] = error_.Basic
 	m["error_sentinel"] = error_.Sentinel
