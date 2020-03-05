@@ -83,6 +83,7 @@ func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["struct04"] = struct_.Struct04
 	m["struct_anonymous_struct"] = struct_.StructAnonymousStruct
 	m["struct_empty_struct"] = struct_.EmptyStruct
+	m["struct_deep_equal"] = struct_.StructDeepEqual
 	m["array01"] = array_.Array01
 	m["slice01"] = slice_.Slice01
 	m["slice02"] = slice_.Slice02
