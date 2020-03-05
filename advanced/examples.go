@@ -12,36 +12,23 @@ import (
 )
 
 type (
-	advancedExampleRegister struct{}
+	register struct{}
 )
 
 // NewRegister は、advanced パッケージ用の lib.Register を返します.
 func NewRegister() interfaces.Register {
-	r := new(advancedExampleRegister)
+	r := new(register)
 	return r
 }
 
 // Regist は、advanced パッケージ配下に存在するサンプルを登録します.
-func (r *advancedExampleRegister) Regist(m interfaces.ExampleMapping) {
+func (r *register) Regist(m interfaces.ExampleMapping) {
 
-	register := async.NewRegister()
-	register.Regist(m)
-
-	register = closure.NewRegister()
-	register.Regist(m)
-
-	register = crypto.NewRegister()
-	register.Regist(m)
-
-	register = generate.NewRegister()
-	register.Regist(m)
-
-	register = reflection.NewRegister()
-	register.Regist(m)
-
-	register = sets.NewRegister()
-	register.Regist(m)
-
-	register = xdgspec.NewRegister()
-	register.Regist(m)
+	async.NewRegister().Regist(m)
+	closure.NewRegister().Regist(m)
+	crypto.NewRegister().Regist(m)
+	generate.NewRegister().Regist(m)
+	reflection.NewRegister().Regist(m)
+	sets.NewRegister().Regist(m)
+	xdgspec.NewRegister().Regist(m)
 }
