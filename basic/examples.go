@@ -74,7 +74,8 @@ func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["interface_composition"] = interface_.Composition
 	m["interface_ducktyping"] = interface_.DuckTyping
 	m["os01"] = os_.Os01
-	m["runtime01"] = runtime_.RuntimeVersion
+	m["runtime_version"] = runtime_.RuntimeVersion
+	m["runtime_memorystats"] = runtime_.RuntimeMemoryStats
 	m["struct01"] = struct_.Struct01
 	m["struct02"] = struct_.Struct02
 	m["struct03"] = struct_.Struct03
