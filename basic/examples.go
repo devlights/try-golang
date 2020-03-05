@@ -63,6 +63,7 @@ func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["map_initialize"] = map_.MapInitialize
 	m["map_delete"] = map_.MapDelete
 	m["map_access"] = map_.MapAccess
+	m["map_deep_equal"] = map_.MapDeepEqual
 	m["scope01"] = scope.Scope01
 	m["import01"] = import_.Import01
 	m["iota01"] = iota_.Iota01
@@ -82,6 +83,7 @@ func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["struct04"] = struct_.Struct04
 	m["struct_anonymous_struct"] = struct_.StructAnonymousStruct
 	m["struct_empty_struct"] = struct_.EmptyStruct
+	m["struct_deep_equal"] = struct_.StructDeepEqual
 	m["array01"] = array_.Array01
 	m["slice01"] = slice_.Slice01
 	m["slice02"] = slice_.Slice02
@@ -93,6 +95,7 @@ func (r *basicExampleRegister) Regist(m interfaces.ExampleMapping) {
 	m["slice_pointer"] = slice_.SlicePointer
 	m["slice_copy"] = slice_.SliceCopy
 	m["slice_clear"] = slice_.SliceClear
+	m["slice_deep_equal"] = slice_.SliceDeepEqual
 	m["comment01"] = comments.Comment01
 	m["string_rune_rawstring"] = string_.StringRuneRawString
 	m["string_to_runeslice"] = string_.StringToRuneSlice
