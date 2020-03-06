@@ -6,6 +6,7 @@ import "fmt"
 //
 // REFERNCES::
 //   - https://mattn.kaoriya.net/software/lang/go/20151212021608.htm
+//   - https://stackoverflow.com/questions/45617758/defer-in-the-loop-what-will-be-better
 func DeferInLoop() error {
 	// --------------------------------------------------------------
 	// 上のURLに書かれているように、deferは内部でLIFOキューで管理されている

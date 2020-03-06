@@ -15,4 +15,5 @@ func NewRegister() interfaces.Register {
 func (r *register) Regist(m interfaces.ExampleMapping) {
 	m["defer01"] = Defer01
 	m["defer_in_loop"] = DeferInLoop
+	m["defer_in_loop_manyfiles"] = DeferInLoopManyFiles
 }
