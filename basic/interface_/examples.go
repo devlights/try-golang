@@ -16,4 +16,5 @@ func (r *register) Regist(m interfaces.ExampleMapping) {
 	m["interface_basic"] = Basic
 	m["interface_composition"] = Composition
 	m["interface_ducktyping"] = DuckTyping
+	m["interface_verify_compliance"] = VerifyInterfaceCompliance
 }
