@@ -14,7 +14,7 @@ import (
 // DeferInLoopManyFiles は、deferをループ内で利用したい場合のやり方についてのサンプルです。
 // ループ内で大量のファイルを開いて defer で close しようとしている場合の対処について。
 //
-// REFERNCES::
+// REFERENCES::
 //   - https://mattn.kaoriya.net/software/lang/go/20151212021608.htm
 //   - https://stackoverflow.com/questions/45617758/defer-in-the-loop-what-will-be-better
 func DeferInLoopManyFiles() error {
