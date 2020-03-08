@@ -3,12 +3,12 @@ package main
 import (
 	"fmt"
 
-	"github.com/devlights/try-golang/interfaces"
+	"github.com/devlights/try-golang/mappings"
 )
 
 type (
 	ExecError struct {
-		Name interfaces.ExampleKey
+		Name mappings.ExampleKey
 		Err  error
 	}
 )

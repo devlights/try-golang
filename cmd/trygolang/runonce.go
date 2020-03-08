@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/devlights/try-golang/interfaces"
+	"github.com/devlights/try-golang/mappings"
 )
 
 type (
@@ -14,7 +14,7 @@ type (
 	}
 )
 
-func NewRunOnceArgs(target string, mapping interfaces.ExampleMapping) *RunOnceArgs {
+func NewRunOnceArgs(target string, mapping mappings.ExampleMapping) *RunOnceArgs {
 	a := new(RunOnceArgs)
 	a.Target = target
 	a.Mapping = mapping

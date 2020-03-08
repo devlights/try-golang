@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/devlights/try-golang/lib/output"
+	"github.com/devlights/try-golang/output"
 )
 
 type (

@@ -4,7 +4,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/devlights/try-golang/lib/output"
+	"github.com/devlights/try-golang/output"
 )
 
 // FilePathWalk は、filepaths.Walk() のサンプルです.

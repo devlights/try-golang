@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/devlights/try-golang/interfaces"
+	"github.com/devlights/try-golang/mappings"
 )
 
-func printAllExampleNames(mapping interfaces.ExampleMapping) {
+func printAllExampleNames(mapping mappings.ExampleMapping) {
 	names := make([]string, 0, len(mapping))
 
 	for k := range mapping {

@@ -1,7 +1,7 @@
 package tutorial
 
 import (
-	"github.com/devlights/try-golang/interfaces"
+	"github.com/devlights/try-golang/mappings"
 )
 
 type (
@@ -9,13 +9,13 @@ type (
 )
 
 // NewRegister は、tutorial パッケージ用の lib.Register を返します.
-func NewRegister() interfaces.Register {
+func NewRegister() mappings.Register {
 	r := new(tutorialExampleRegister)
 	return r
 }
 
 // Regist は、tutorial パッケージ配下に存在するサンプルを登録します.
-func (r *tutorialExampleRegister) Regist(m interfaces.ExampleMapping) {
+func (r *tutorialExampleRegister) Regist(m mappings.ExampleMapping) {
 	m["tutorial_gotour_helloworld"] = HelloWorld
 	m["tutorial_gotour_import"] = Import
 	m["tutorial_gotour_scope"] = Scope

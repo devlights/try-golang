@@ -6,7 +6,7 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/devlights/try-golang/lib/output"
+	"github.com/devlights/try-golang/output"
 	"github.com/devlights/try-golang/util/enumerable"
 	"github.com/devlights/try-golang/util/mem"
 )

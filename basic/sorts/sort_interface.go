@@ -3,7 +3,7 @@ package sorts
 import (
 	"sort"
 
-	"github.com/devlights/try-golang/lib/output"
+	"github.com/devlights/try-golang/output"
 )
 
 type (

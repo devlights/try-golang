@@ -7,7 +7,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/devlights/try-golang/lib/output"
+	"github.com/devlights/try-golang/output"
 )
 
 // RuntimeMemoryStats は、runtime.MemoryStats() のサンプルです.

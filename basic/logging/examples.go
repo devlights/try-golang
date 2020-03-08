@@ -1,18 +1,18 @@
 package logging
 
 import (
-	"github.com/devlights/try-golang/interfaces"
+	"github.com/devlights/try-golang/mappings"
 )
 
 type (
 	register struct{}
 )
 
-func NewRegister() interfaces.Register {
+func NewRegister() mappings.Register {
 	return new(register)
 }
 
-func (r *register) Regist(m interfaces.ExampleMapping) {
+func (r *register) Regist(m mappings.ExampleMapping) {
 	m["log_flags"] = Flags
 	m["log_prefix"] = Prefix
 	m["log_sentry_basic"] = SentryBasic

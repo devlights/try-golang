@@ -4,7 +4,7 @@ import (
 	"reflect"
 	"strconv"
 
-	"github.com/devlights/try-golang/lib/output"
+	"github.com/devlights/try-golang/output"
 )
 
 // MapDeepEqual は、マップに対して reflect.DeepEqual() した場合のサンプルです.

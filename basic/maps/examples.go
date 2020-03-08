@@ -1,18 +1,18 @@
 package maps
 
 import (
-	"github.com/devlights/try-golang/interfaces"
+	"github.com/devlights/try-golang/mappings"
 )
 
 type (
 	register struct{}
 )
 
-func NewRegister() interfaces.Register {
+func NewRegister() mappings.Register {
 	return new(register)
 }
 
-func (r *register) Regist(m interfaces.ExampleMapping) {
+func (r *register) Regist(m mappings.ExampleMapping) {
 	m["map_basic"] = MapBasic
 	m["map_for"] = MapFor
 	m["map_initialize"] = MapInitialize

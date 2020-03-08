@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/devlights/try-golang/interfaces"
+	"github.com/devlights/try-golang/mappings"
 )
 
 type (
@@ -13,11 +13,11 @@ type (
 
 	ExecArgs struct {
 		Target  string
-		Mapping interfaces.ExampleMapping
+		Mapping mappings.ExampleMapping
 	}
 )
 
-func NewExecArgs(target string, mapping interfaces.ExampleMapping) *ExecArgs {
+func NewExecArgs(target string, mapping mappings.ExampleMapping) *ExecArgs {
 	a := new(ExecArgs)
 	a.Target = target
 	a.Mapping = mapping
@@ -32,7 +32,7 @@ func NewExecCommand(args *ExecArgs) *ExecCommand {
 
 func (c *ExecCommand) Run() error {
 	var (
-		target  = interfaces.ExampleKey(c.Args.Target)
+		target  = mappings.ExampleKey(c.Args.Target)
 		mapping = c.Args.Mapping
 	)
 

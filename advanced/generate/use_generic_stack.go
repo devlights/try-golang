@@ -2,7 +2,7 @@ package generate
 
 import (
 	"github.com/devlights/try-golang/advanced/generate/stack"
-	"github.com/devlights/try-golang/lib/output"
+	"github.com/devlights/try-golang/output"
 )
 
 func UseGenericStack() error {

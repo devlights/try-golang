@@ -1,6 +1,6 @@
 package effectivego
 
-import "github.com/devlights/try-golang/lib/output"
+import "github.com/devlights/try-golang/output"
 
 // Effective Go - Printing の 内容についてのサンプルです。
 func Printing() error {

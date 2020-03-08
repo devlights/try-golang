@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/devlights/try-golang/interfaces"
+	"github.com/devlights/try-golang/mappings"
 )
 
 type (
@@ -17,11 +17,11 @@ type (
 
 	RunLoopArgs struct {
 		MainArgs *Args
-		Mapping  interfaces.ExampleMapping
+		Mapping  mappings.ExampleMapping
 	}
 )
 
-func NewRunLoopArgs(mainArgs *Args, mapping interfaces.ExampleMapping) *RunLoopArgs {
+func NewRunLoopArgs(mainArgs *Args, mapping mappings.ExampleMapping) *RunLoopArgs {
 	a := new(RunLoopArgs)
 	a.MainArgs = mainArgs
 	a.Mapping = mapping
@@ -111,7 +111,7 @@ func (c *RunLoopCommand) Run() error {
 	return nil
 }
 
-func (c *RunLoopCommand) exec(target string, mapping interfaces.ExampleMapping) error {
+func (c *RunLoopCommand) exec(target string, mapping mappings.ExampleMapping) error {
 	execArgs := NewExecArgs(target, mapping)
 	execCmd := NewExecCommand(execArgs)
 
@@ -122,7 +122,7 @@ func (c *RunLoopCommand) exec(target string, mapping interfaces.ExampleMapping) 
 	return nil
 }
 
-func (c *RunLoopCommand) makeCandidates(userInput string, mapping interfaces.ExampleMapping) []string {
+func (c *RunLoopCommand) makeCandidates(userInput string, mapping mappings.ExampleMapping) []string {
 	candidates := make([]string, 0, len(mapping))
 	for k := range mapping {
 		key := string(k)
