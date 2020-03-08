@@ -6,8 +6,8 @@ import "fmt"
 func VarStatementDeclares() error {
 	// var により 変数を宣言することが可能
 	// Go は、型の指定を後ろに配置するタイプ
-	var i int = 0
-	var s string = "hello"
+	var i = 0
+	var s = "hello"
 
 	// 初期値を設定している場合、型は省略可能
 	var i2 = 1

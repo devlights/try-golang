@@ -13,7 +13,7 @@ func (i IPAddr) String() string {
 }
 
 // 別回答
-//func (i IPAddr) String() string {
+// func (i IPAddr) String() string {
 //	var (
 //		strs = make([]string, 0, len(i))
 //	)
@@ -23,7 +23,7 @@ func (i IPAddr) String() string {
 //	}
 //
 //	return strings.Join(strs, ".")
-//}
+// }
 
 // Stringer は、 Tour of Go - Stringers (https://tour.golang.org/methods/17) の サンプルです。
 func Stringer() error {

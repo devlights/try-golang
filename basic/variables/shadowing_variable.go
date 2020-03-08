@@ -2,6 +2,7 @@ package variables
 
 import (
 	"fmt"
+
 	"github.com/devlights/try-golang/lib/output"
 )
 

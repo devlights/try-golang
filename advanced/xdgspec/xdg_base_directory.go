@@ -1,9 +1,10 @@
 package xdgspec
 
 import (
+	"runtime"
+
 	"github.com/adrg/xdg"
 	"github.com/devlights/try-golang/lib/output"
-	"runtime"
 )
 
 // XdgBaseDirectory は、XDG Base Directory についてのサンプルです.

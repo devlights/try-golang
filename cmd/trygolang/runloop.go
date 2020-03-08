@@ -3,10 +3,11 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/devlights/try-golang/interfaces"
 	"os"
 	"sort"
 	"strings"
+
+	"github.com/devlights/try-golang/interfaces"
 )
 
 type (

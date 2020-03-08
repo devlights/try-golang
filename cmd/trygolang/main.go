@@ -2,10 +2,11 @@ package main
 
 import (
 	"fmt"
-	"github.com/devlights/try-golang/interfaces"
-	"github.com/devlights/try-golang/lib"
 	"log"
 	"os"
+
+	"github.com/devlights/try-golang/interfaces"
+	"github.com/devlights/try-golang/lib"
 )
 
 func main() {

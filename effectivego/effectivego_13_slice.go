@@ -12,7 +12,7 @@ func Slices() error {
 
 		- スライスは内部にデータとなる配列の参照を保持している
 		- スライスを関数の引数として渡す場合は少し注意が必要。
-		  - basic/slice_/slice_pointer.go を参照
+		  - basic/slices/slice_pointer.go を参照
 		- スライスをパラメータに取る標準ライブラリは多い。(os.Fileなど)
 		- 配列を ary[x:y] のようにスライシングすることでもスライスは取得できる
 		- スライスに要素を追加するには append() を利用する

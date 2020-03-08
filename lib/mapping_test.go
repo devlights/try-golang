@@ -1,9 +1,10 @@
 package lib
 
 import (
+	"testing"
+
 	"github.com/devlights/try-golang/basic/helloworld"
 	"github.com/devlights/try-golang/interfaces"
-	"testing"
 )
 
 type (

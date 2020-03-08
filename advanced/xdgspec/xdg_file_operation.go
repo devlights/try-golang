@@ -1,12 +1,13 @@
 package xdgspec
 
 import (
-	"github.com/adrg/xdg"
-	"github.com/devlights/try-golang/lib/output"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"runtime"
+
+	"github.com/adrg/xdg"
+	"github.com/devlights/try-golang/lib/output"
 )
 
 // XdgFileOperation は、[xdg](https://github.com/adrg/xdg) を利用して

@@ -2,8 +2,9 @@ package mem
 
 import (
 	"fmt"
-	"github.com/devlights/try-golang/lib/output"
 	"runtime"
+
+	"github.com/devlights/try-golang/lib/output"
 )
 
 type (
