@@ -7,6 +7,7 @@ import (
 	"github.com/devlights/try-golang/basic/constants"
 	"github.com/devlights/try-golang/basic/defer_"
 	"github.com/devlights/try-golang/basic/error_"
+	"github.com/devlights/try-golang/basic/filepath_"
 	"github.com/devlights/try-golang/basic/functions"
 	"github.com/devlights/try-golang/basic/helloworld"
 	"github.com/devlights/try-golang/basic/import_"
@@ -53,6 +54,7 @@ func (r *register) Regist(m interfaces.ExampleMapping) {
 	constants.NewRegister().Regist(m)
 	defer_.NewRegister().Regist(m)
 	error_.NewRegister().Regist(m)
+	filepath_.NewRegister().Regist(m)
 	functions.NewRegister().Regist(m)
 	helloworld.NewRegister().Regist(m)
 	import_.NewRegister().Regist(m)
