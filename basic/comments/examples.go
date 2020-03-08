@@ -13,5 +13,5 @@ func NewRegister() interfaces.Register {
 }
 
 func (r *register) Regist(m interfaces.ExampleMapping) {
-	m["comment01"] = Comment01
+	m["comment_basic_usage"] = Basic
 }

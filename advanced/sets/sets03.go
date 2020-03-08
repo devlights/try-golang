@@ -2,6 +2,7 @@ package sets
 
 import (
 	"fmt"
+
 	"github.com/deckarep/golang-set"
 )
 

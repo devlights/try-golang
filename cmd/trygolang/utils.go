@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/devlights/try-golang/interfaces"
 	"sort"
+
+	"github.com/devlights/try-golang/interfaces"
 )
 
 func printAllExampleNames(mapping interfaces.ExampleMapping) {

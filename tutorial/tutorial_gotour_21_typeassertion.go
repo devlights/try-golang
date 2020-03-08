@@ -97,12 +97,12 @@ func TypeAssertion() error {
 	// impossible type assertion: *ifGoTour20NotImpl does not implement
 	// ifGoTour20 (missing Value method)
 	// とコンパイルエラーとなる
-	//if t, ok := i2.(*ifGoTour20NotImpl); ok {}
+	// if t, ok := i2.(*ifGoTour20NotImpl); ok {}
 
 	// 変換元にインターフェース以外を設定すると
 	// invalid type assertion: impl.(ifGoTour20) (non-interface type *ifGoTour20Impl on left)
 	// とコンパイルエラーとなる.
-	//if t, ok := impl.(ifGoTour20); ok {}
+	// if t, ok := impl.(ifGoTour20); ok {}
 
 	// 別のインターフェースへの変換も出来る
 	if t, ok := i2.(fmt.Stringer); ok {

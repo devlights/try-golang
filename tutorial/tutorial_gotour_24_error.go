@@ -147,7 +147,7 @@ func aboutGo113Error() {
 	myError3 := fmt.Errorf("my error 3")
 	myError4 := fmt.Errorf("my error 4 (%w)", myError3)
 
-	var myError5 error = myError4
+	var myError5 = myError4
 
 	fmt.Println("(4-0)", myError5)
 

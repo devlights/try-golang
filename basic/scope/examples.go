@@ -13,5 +13,5 @@ func NewRegister() interfaces.Register {
 }
 
 func (r *register) Regist(m interfaces.ExampleMapping) {
-	m["scope01"] = Scope01
+	m["scope_basic"] = Basic
 }
