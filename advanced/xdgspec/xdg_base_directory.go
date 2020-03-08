@@ -4,7 +4,7 @@ import (
 	"runtime"
 
 	"github.com/adrg/xdg"
-	"github.com/devlights/try-golang/lib/output"
+	"github.com/devlights/try-golang/output"
 )
 
 // XdgBaseDirectory は、XDG Base Directory についてのサンプルです.

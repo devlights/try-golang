@@ -1,7 +1,7 @@
 package effectivego
 
 import (
-	"github.com/devlights/try-golang/lib/output"
+	"github.com/devlights/try-golang/output"
 )
 
 // Effective Go - Maps の 内容についてのサンプルです。

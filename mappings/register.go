@@ -1,4 +1,4 @@
-package interfaces
+package mappings
 
 type (
 	// Register は、各パッケージ毎のサンプルを登録するためのインターフェースです.

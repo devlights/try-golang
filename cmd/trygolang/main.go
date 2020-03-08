@@ -5,20 +5,20 @@ import (
 	"log"
 	"os"
 
-	"github.com/devlights/try-golang/interfaces"
-	"github.com/devlights/try-golang/lib"
+	"github.com/devlights/try-golang/builder"
+	"github.com/devlights/try-golang/mappings"
 )
 
 func main() {
 	var (
 		args    *Args
-		mapping interfaces.ExampleMapping
+		mapping mappings.ExampleMapping
 	)
 
 	args = NewArgs()
 	args.Parse()
 
-	mapping = lib.MakeMapping()
+	mapping = builder.BuildMappings()
 
 	if args.ShowNames {
 		printAllExampleNames(mapping)

@@ -3,7 +3,7 @@ package variables
 import (
 	"fmt"
 
-	"github.com/devlights/try-golang/lib/output"
+	"github.com/devlights/try-golang/output"
 )
 
 // ShadowingVariable は、変数のshadowingについてのサンプルです。

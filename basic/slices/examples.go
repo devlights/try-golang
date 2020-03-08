@@ -1,18 +1,18 @@
 package slices
 
 import (
-	"github.com/devlights/try-golang/interfaces"
+	"github.com/devlights/try-golang/mappings"
 )
 
 type (
 	register struct{}
 )
 
-func NewRegister() interfaces.Register {
+func NewRegister() mappings.Register {
 	return new(register)
 }
 
-func (r *register) Regist(m interfaces.ExampleMapping) {
+func (r *register) Regist(m mappings.ExampleMapping) {
 	m["slice_basic01"] = Basic01
 	m["slice_basic02"] = Basic02
 	m["slice_basic03"] = Basic03

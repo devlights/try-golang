@@ -1,4 +1,4 @@
-package interfaces
+package mappings
 
 type (
 	// SampleKeyは、サンプル名を表すキーを表します

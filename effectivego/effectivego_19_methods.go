@@ -3,7 +3,7 @@ package effectivego
 import (
 	"fmt"
 
-	"github.com/devlights/try-golang/lib/output"
+	"github.com/devlights/try-golang/output"
 )
 
 type (
