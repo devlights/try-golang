@@ -9,12 +9,15 @@ import (
 )
 
 // ErrWithErrGroup は、拡張ライブラリ golang.org/x/sync/errgroup でエラー情報を呼び元に伝播させるサンプルです.
+//
+// https://pkg.go.dev/golang.org/x/sync/errgroup?tab=doc#example-Group-JustErrors
 func ErrWithErrGroup() error {
 	var (
 		loopRange = enumerable.NewRange(1, 6)
 		waitGrp   = errgroup.Group{}
 	)
 
+	// ----------------------------------------------------------------------------------------
 	// errgroup.Group は、sync.WaitGroup のように待ち合わせを行う機能に加えて
 	// 発生したエラーを収集し、呼び元に返すことが可能となっている
 	// 返してくれるエラーは、最初に発生したエラー情報となっている
@@ -25,6 +28,7 @@ func ErrWithErrGroup() error {
 	//
 	// 待ち合わせを実施したい箇所で、Wait() メソッドを呼び出すことにより非同期処理全部が完了するまで
 	// 呼び元をブロックする。
+	// ----------------------------------------------------------------------------------------
 	for loopRange.Next() {
 		i := loopRange.Current()
 		waitGrp.Go(func() error {
@@ -35,10 +39,9 @@ func ErrWithErrGroup() error {
 			err := randomErr(prefix)
 			if err != nil {
 				output.Stderrl(prefix, "\tERROR!!")
-				return err
 			}
 
-			return nil
+			return err
 		})
 	}
 
