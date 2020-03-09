@@ -1,4 +1,4 @@
-package variables
+package loopiterator
 
 import (
 	"strconv"
@@ -6,11 +6,11 @@ import (
 	"github.com/devlights/try-golang/output"
 )
 
-// UsingRefToLoopIteratorVariable は、Goにてループ変数を扱う際によくある間違いについてのサンプルです.
+// CommonMistakePattern は、Goにてループ変数を扱う際によくある間違いについてのサンプルです.
 //
 // REFERENCES::
 //   - https://github.com/golang/go/wiki/CommonMistakes#using-reference-to-loop-iterator-variable
-func UsingRefToLoopIteratorVariable() error {
+func CommonMistakePattern() error {
 	// -------------------------------------------------------------------------
 	// Goのループ変数は他の言語に無いクセがあり、ループ毎にループ変数を割り当てて
 	// 処理するのではなく、ループ全体で一つの値を使い回すようになっている。

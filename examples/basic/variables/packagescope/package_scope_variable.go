@@ -1,4 +1,4 @@
-package variables
+package packagescope
 
 import "fmt"
 
@@ -11,8 +11,8 @@ var (
 	PkgScopeVal1 = "public  package scope variable"
 )
 
-// PackageScopeVariable -- パッケージ スコープな変数のサンプル
-func PackageScopeVariable() error {
+// Basic -- パッケージ スコープな変数のサンプル
+func Basic() error {
 
 	fmt.Printf("%#v\n%#v\n", pkgScopeVal1, PkgScopeVal1)
 
