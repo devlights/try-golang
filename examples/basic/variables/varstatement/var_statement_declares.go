@@ -1,9 +1,9 @@
-package variables
+package varstatement
 
 import "fmt"
 
-// VarStatementDeclares -- var による 変数 の宣言についてのサンプル
-func VarStatementDeclares() error {
+// Basic -- var による 変数 の宣言についてのサンプル
+func Basic() error {
 	// var により 変数を宣言することが可能
 	// Go は、型の指定を後ろに配置するタイプ
 	var i = 0

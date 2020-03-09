@@ -1,4 +1,4 @@
-package variables
+package shadowing
 
 import (
 	"fmt"
@@ -6,11 +6,11 @@ import (
 	"github.com/devlights/try-golang/output"
 )
 
-// ShadowingVariable は、変数のshadowingについてのサンプルです。
+// Basic は、変数のshadowingについてのサンプルです。
 //
 // REFERENCES::
 //   - https://devlights.hatenablog.com/entry/2020/03/04/183433
-func ShadowingVariable() error {
+func Basic() error {
 	// --------------------------------------------------------------
 	// 変数のshadowingが発生すると一見ちゃんとしているように見えて
 	// 後で値を見たときに、予想外の状態になっていることが多い。
