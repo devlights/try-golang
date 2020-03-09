@@ -3,6 +3,7 @@ package withcontext
 import (
 	"context"
 	"fmt"
+	"time"
 
 	"github.com/devlights/try-golang/output"
 	"github.com/devlights/try-golang/util/enumerable"
@@ -39,13 +40,16 @@ func ErrGroupWithContext() error {
 		errGrp.Go(func() error {
 			prefix := fmt.Sprintf("[go func %02d]", i)
 
+			// キャンセルすることを確認したいので、意図的に少しだけ隙間を空ける
+			time.Sleep(1 * time.Microsecond)
+
 			select {
 			case <-errGrpCtx.Done():
 				// だれかが初めにエラーを返した時点でこのコンテキストがキャンセルされる
 				// main-goroutine側はWait() を呼び出しているため、この Wait() が return した
 				// タイミングでもコンテキストはキャンセルされる.
 				output.Stderrl(prefix, "CANCEL!!")
-				return nil
+				return errGrpCtx.Err()
 			default:
 				output.Stderrl(prefix, "start")
 				defer output.Stderrl(prefix, "end")
