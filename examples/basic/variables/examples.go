@@ -17,4 +17,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["package_scope_variable"] = PackageScopeVariable
 	m["short_assignment_statement"] = ShortAssignmentStatement
 	m["shadowing_variable"] = ShadowingVariable
+	m["using_ref_to_loop_iterator_variable"] = UsingRefToLoopIteratorVariable
 }
