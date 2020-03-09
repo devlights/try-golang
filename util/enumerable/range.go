@@ -25,7 +25,7 @@ func NewRange(start, end int) Range {
 	return &enumerableRange{
 		start:   start,
 		end:     end,
-		current: 0,
+		current: start,
 	}
 }
 
@@ -38,7 +38,7 @@ func (e *enumerableRange) End() int {
 }
 
 func (e *enumerableRange) Next() bool {
-	if e.current == (e.end - 1) {
+	if e.current == e.end {
 		return false
 	}
 
@@ -47,11 +47,15 @@ func (e *enumerableRange) Next() bool {
 }
 
 func (e *enumerableRange) Current() int {
-	return e.current
+	if e.start == e.current {
+		return e.current
+	}
+
+	return e.current - 1
 }
 
 func (e *enumerableRange) Reset() (int, error) {
 	cur := e.current
-	e.current = 0
+	e.current = e.start
 	return cur, nil
 }
