@@ -58,7 +58,7 @@ func ErrWithWaitGroup() error {
 
 func randomErr(message string) error {
 	i := rand.Intn(100)
-	if i > 50 {
+	if i > 30 {
 		return fmt.Errorf("randomErr [%d][%s]", i, message)
 	}
 

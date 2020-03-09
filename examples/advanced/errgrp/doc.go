@@ -1,5 +1,5 @@
 /*
-Package errgrp は、 sync.ErrGroup のサンプルが配置されています。
+Package errgrp は、 golang.org/x/sync/errgroup のサンプルが配置されています。
 
 
 REFERENCES::

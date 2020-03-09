@@ -15,4 +15,5 @@ func NewRegister() mappings.Register {
 
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["errgrp_error_with_waitgroup"] = cmpwaitgroup.ErrWithWaitGroup
+	m["errgrp_error_with_errgroup"] = cmpwaitgroup.ErrWithErrGroup
 }
