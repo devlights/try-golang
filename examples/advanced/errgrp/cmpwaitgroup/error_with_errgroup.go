@@ -35,10 +35,9 @@ func ErrWithErrGroup() error {
 			err := randomErr(prefix)
 			if err != nil {
 				output.Stderrl(prefix, "\tERROR!!")
-				return err
 			}
 
-			return nil
+			return err
 		})
 	}
 
