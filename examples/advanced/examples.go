@@ -1,13 +1,13 @@
 package advanced
 
 import (
-	"github.com/devlights/try-golang/advanced/async"
-	"github.com/devlights/try-golang/advanced/closure"
-	"github.com/devlights/try-golang/advanced/crypto"
-	"github.com/devlights/try-golang/advanced/generate"
-	"github.com/devlights/try-golang/advanced/reflection"
-	"github.com/devlights/try-golang/advanced/sets"
-	"github.com/devlights/try-golang/advanced/xdgspec"
+	"github.com/devlights/try-golang/examples/advanced/async"
+	"github.com/devlights/try-golang/examples/advanced/closure"
+	"github.com/devlights/try-golang/examples/advanced/crypto"
+	"github.com/devlights/try-golang/examples/advanced/generate"
+	"github.com/devlights/try-golang/examples/advanced/reflection"
+	"github.com/devlights/try-golang/examples/advanced/sets"
+	"github.com/devlights/try-golang/examples/advanced/xdgspec"
 	"github.com/devlights/try-golang/mappings"
 )
 

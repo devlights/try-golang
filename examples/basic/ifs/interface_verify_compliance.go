@@ -1,7 +1,7 @@
 package ifs
 
 import (
-	"github.com/devlights/try-golang/basic/ifs/command"
+	"github.com/devlights/try-golang/examples/basic/ifs/command"
 )
 
 // VerifyInterfaceCompliance は、インターフェースの実装を検証するやり方のサンプルです.

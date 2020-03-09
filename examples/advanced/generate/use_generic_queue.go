@@ -1,7 +1,7 @@
 package generate
 
 import (
-	"github.com/devlights/try-golang/advanced/generate/queue"
+	"github.com/devlights/try-golang/examples/advanced/generate/queue"
 	"github.com/devlights/try-golang/output"
 )
 

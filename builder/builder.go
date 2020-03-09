@@ -1,10 +1,10 @@
 package builder
 
 import (
-	"github.com/devlights/try-golang/advanced"
-	"github.com/devlights/try-golang/basic"
 	"github.com/devlights/try-golang/books"
 	"github.com/devlights/try-golang/effectivego"
+	"github.com/devlights/try-golang/examples/advanced"
+	"github.com/devlights/try-golang/examples/basic"
 	"github.com/devlights/try-golang/mappings"
 	"github.com/devlights/try-golang/tutorial"
 )
