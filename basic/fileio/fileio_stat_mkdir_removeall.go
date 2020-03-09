@@ -48,13 +48,13 @@ func StatMkdirRemoveAll() error {
 	}
 
 	// データ書き込み
-	if _, err := file.WriteString("hello world"); err != nil {
+	if _, err = file.WriteString("hello world"); err != nil {
 		log.Fatal(err)
 		return err
 	}
 
 	// 閉じる
-	if err := file.Close(); err != nil {
+	if err = file.Close(); err != nil {
 		log.Fatal(err)
 		return err
 	}

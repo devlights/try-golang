@@ -17,7 +17,7 @@ type (
 
 // Main, Producer, Consumer, RemainCollector の間で利用されるチャネル達
 type (
-	done      <-chan empty
+	doneCh    <-chan empty
 	itemCh    <-chan item
 	terminate <-chan empty
 )
@@ -39,11 +39,11 @@ func ProducerConsumer() error {
 	)
 
 	// 生産者 生成
-	itemCh, termProducer := makeProducer(done)
+	consumerCh, termProducer := makeProducer(done)
 	// 消費者 生成
-	termConsumer := makeConsumer(done, itemCh)
+	termConsumer := makeConsumer(done, consumerCh)
 	// 残り物収集班 生成
-	termRemainCollect := makeRemainCollector(done, termConsumer, itemCh)
+	termRemainCollect := makeRemainCollector(done, termConsumer, consumerCh)
 
 	select {
 	case <-time.After(10 * time.Second):
@@ -68,7 +68,7 @@ func ProducerConsumer() error {
 //
 // 戻り値として、生産したアイテムを受け取ることができるチャネルと
 // 自身の処理が終了したことを知らせるチャネルを返します。
-func makeProducer(done done) (itemCh, terminate) {
+func makeProducer(done doneCh) (itemCh, terminate) {
 	ch := make(chan item, 100)
 	termCh := make(chan empty)
 
@@ -102,7 +102,7 @@ func makeProducer(done done) (itemCh, terminate) {
 //
 // 戻り値として
 // 自身の処理が終了したことを知らせるチャネルを返します。
-func makeConsumer(done done, itemCh itemCh) terminate {
+func makeConsumer(done doneCh, itemCh itemCh) terminate {
 	termCh := make(chan empty)
 
 	go func() {
@@ -115,12 +115,12 @@ func makeConsumer(done done, itemCh itemCh) terminate {
 			case <-time.After(consumerInterval):
 				// 消費出来るタイミングが訪れたため活動を開始するが
 				// 処理を実施するのは与えられた猶予時間分だけ動くようにする
-				timeout := time.After(consumerProcInterval)
+				timeoutCh := time.After(consumerProcInterval)
 
 			L:
 				for {
 					select {
-					case <-timeout:
+					case <-timeoutCh:
 						// 消費猶予時間が終わったので今回分のターンは終わり
 						break L
 					case v, ok := <-itemCh:
@@ -149,7 +149,7 @@ func makeConsumer(done done, itemCh itemCh) terminate {
 //
 // 戻り値として
 // 自身の処理が終了したことを知らせるチャネルを返します。
-func makeRemainCollector(done done, termConsumer terminate, itemCh itemCh) terminate {
+func makeRemainCollector(done doneCh, termConsumer terminate, itemCh itemCh) terminate {
 	termCh := make(chan empty)
 
 	go func() {

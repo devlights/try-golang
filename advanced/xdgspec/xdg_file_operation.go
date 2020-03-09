@@ -57,7 +57,7 @@ func XdgFileOperation() error {
 		return err
 	}
 
-	if bytes, err := ioutil.ReadFile(dataFile); err == nil {
+	if bytes, readErr := ioutil.ReadFile(dataFile); readErr == nil {
 		output.Stdoutl("[ioutil.ReadFile]", string(bytes))
 	}
 
@@ -65,10 +65,10 @@ func XdgFileOperation() error {
 	// 存在しない場合は、err に値が入る.
 	// xdg.DataFile() と違い、こちらは親ディレクトリを作ったりはしてくれない.
 	// 既にファイルが存在する場合に利用する.
-	dataFile2, err := xdg.SearchDataFile("try-golang/mydata.txt")
-	if err != nil {
-		output.Stderrl("[xdg.SearchDataFile]", err)
-		return err
+	dataFile2, searchErr := xdg.SearchDataFile("try-golang/mydata.txt")
+	if searchErr != nil {
+		output.Stderrl("[xdg.SearchDataFile]", searchErr)
+		return searchErr
 	}
 
 	output.Stdoutl("[xdg.SearchDataFile]", dataFile2)
