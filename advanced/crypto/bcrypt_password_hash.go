@@ -56,7 +56,7 @@ func readPassword() ([]byte, error) {
 
 	output.Stdoutf("ENTER Password: ", "")
 
-	password, err := terminal.ReadPassword(syscall.Stdin)
+	password, err := terminal.ReadPassword(int(syscall.Stdin))
 	if err != nil {
 		return nil, err
 	}

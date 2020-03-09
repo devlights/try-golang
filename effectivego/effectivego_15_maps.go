@@ -59,7 +59,7 @@ func Maps() error {
 	}
 
 	// 上のイディオムはGoではまとめて以下のようにすることが多い
-	if _, ok := languages["not_exists"]; !ok {
+	if _, ok = languages["not_exists"]; !ok {
 		output.Stdoutl("(6)", "key [not_exists] is not exists.")
 	}
 
