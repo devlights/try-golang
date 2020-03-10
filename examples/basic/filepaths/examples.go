@@ -14,4 +14,5 @@ func NewRegister() mappings.Register {
 
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["filepath_walk"] = FilePathWalk
+	m["filepath_glob"] = FilePathGlob
 }
