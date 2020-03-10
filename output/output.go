@@ -1,4 +1,3 @@
-// output は、サンプル実行時の出力部分を抽象化するパッケージです.
 package output
 
 import (
@@ -71,6 +70,17 @@ func Stdoutf(prefix string, format string, values ...interface{}) {
 // Stderrf は、指定された接頭辞と書式付きの値を標準出力に出力します.
 func Stderrf(prefix string, format string, values ...interface{}) {
 	_pf(ErrWriter(), prefix, format, values...)
+}
+
+// StdoutHr は、水平線コメントを標準出力に出力します.
+func StdoutHr() {
+	_pl(Writer(), "--------------------------------------------------")
+}
+
+// StderrHr は、水平線コメントを標準エラー出力に出力します.
+//noinspection GoUnusedExportedFunction
+func StderrHr() {
+	_pl(ErrWriter(), "--------------------------------------------------")
 }
 
 func _pf(w io.Writer, prefix string, format string, values ...interface{}) {
