@@ -1,6 +1,6 @@
 module github.com/devlights/try-golang
 
-go 1.13
+go 1.14
 
 require (
 	github.com/adrg/xdg v0.2.1
