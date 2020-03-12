@@ -3,7 +3,7 @@ package tutorial08
 import "fmt"
 
 const (
-	// パブリックスコープな定数宣言 (先頭を大文字で開始)
+	// PublicScopeConstants -- パブリックスコープな定数宣言 (先頭を大文字で開始)
 	PublicScopeConstants = "helloworld"
 
 	// パッケージレベルでの定数宣言 (先頭を小文字で開始)

@@ -2,7 +2,7 @@ package structs
 
 import "fmt"
 
-// サンプル用の構造体
+// MyStruct -- サンプル用の構造体
 type MyStruct struct {
 	// 値
 	Value int
@@ -11,12 +11,12 @@ type MyStruct struct {
 // 構造体にメソッドを追加する場合は外側で関数を定義して紐付ける
 // 紐付ける際に設定するレシーバーの型により、紐づけ先が異なる
 
-// レシーバーがポインタの場合のメソッド
+// Method1 -- レシーバーがポインタの場合のメソッド
 func (m *MyStruct) Method1() int {
 	return m.Value
 }
 
-// レシーバーがポインタではない場合のメソッド
+// Method2 -- レシーバーがポインタではない場合のメソッド
 func (m MyStruct) Method2() int {
 	return m.Value * 2
 }
@@ -29,7 +29,7 @@ func updateValuePtr(m *MyStruct) {
 	m.Value += 10
 }
 
-// 構造体についてのサンプル
+// Basic01 -- 構造体についてのサンプル
 //noinspection GoUnhandledErrorResult
 func Basic01() error {
 	// ポインタと通常の2パターンを生成

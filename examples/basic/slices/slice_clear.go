@@ -1,6 +1,6 @@
 package slices
 
-import "github.com/devlights/try-golang/output"
+import "github.com/devlights/gomy/output"
 
 // SliceClear は、スライスのクリア、及び、nilスライスと空のスライスについてのサンプルです.
 func SliceClear() error {

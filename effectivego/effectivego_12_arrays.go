@@ -2,7 +2,7 @@ package effectivego
 
 import "fmt"
 
-// Effective Go - Arrays の 内容についてのサンプルです。
+// Arrays -- Effective Go - Arrays の 内容についてのサンプルです。
 func Arrays() error {
 	/*
 		https://golang.org/doc/effective_go.html#arrays

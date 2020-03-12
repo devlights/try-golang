@@ -1,7 +1,3 @@
-// reflect パッケージのサンプルです。
-//
-// 型オブジェクトの取得について。
-// 参考情報：http://bit.ly/2UON9BD
 package reflection
 
 import (
@@ -9,9 +5,9 @@ import (
 	"reflect"
 )
 
-// reflect.TypeOf() のサンプル
+// TypeOf -- reflect.TypeOf() のサンプル
 //noinspection GoNameStartsWithPackageName
-func Reflection01() error {
+func TypeOf() error {
 	// 特定の値の型を調べる場合には、reflect.TypeOf() を利用する
 	// C# でいう、 "hello world".GetType() と同じような感じ
 	// Name メソッドで名前を取得できる

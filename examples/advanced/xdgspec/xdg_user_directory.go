@@ -4,7 +4,7 @@ import (
 	"runtime"
 
 	"github.com/adrg/xdg"
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
 // XdgUserDirectory は、XDG User Directory についてのサンプルです.

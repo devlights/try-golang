@@ -2,7 +2,7 @@ package effectivego
 
 import "fmt"
 
-// Effective Go - Semicolons の 内容についてのサンプルです。
+// Semicolons -- Effective Go - Semicolons の 内容についてのサンプルです。
 func Semicolons() error {
 	/*
 		https://golang.org/doc/effective_go.html#semicolons

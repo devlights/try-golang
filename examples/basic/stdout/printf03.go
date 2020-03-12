@@ -2,7 +2,7 @@ package stdout
 
 import "fmt"
 
-// 標準出力についてのサンプル
+// Printf03 -- 標準出力についてのサンプル
 func Printf03() error {
 	data := MyData{30, "hello world"}
 
@@ -14,27 +14,30 @@ func Printf03() error {
 	return nil
 }
 
-// サンプル用の構造体
+// MyData -- サンプル用の構造体
 type MyData struct {
 	val1 int
 	val2 string
 }
 
-// 慣習として メソッドレシーバーの名前は構造体名の先頭一文字にする模様。
+// GetValue -- 慣習として メソッドレシーバーの名前は構造体名の先頭一文字にする模様。
 // self や this にすると警告が表示される
 //     https://qiita.com/hnakamur/items/c99e3048f8902702a5a1
 func (m *MyData) GetValue() string {
 	return fmt.Sprintf("%v", m)
 }
 
+// GetValue2 -- 出力用メソッド
 func (m *MyData) GetValue2() string {
 	return fmt.Sprintf("%+v", m)
 }
 
+// GetValue3 -- 出力用メソッド
 func (m *MyData) GetValue3() string {
 	return fmt.Sprintf("%#v", m)
 }
 
+// GetValue4 -- 出力用メソッド
 func (m *MyData) GetValue4() string {
 	return fmt.Sprintf("%T", m)
 }

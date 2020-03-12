@@ -3,7 +3,7 @@ package filepaths
 import (
 	"path/filepath"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
 // FilePathGlob は、 filepath.Glob() の動作についてのサンプルです.

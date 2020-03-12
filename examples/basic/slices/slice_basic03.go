@@ -2,7 +2,7 @@ package slices
 
 import "fmt"
 
-// スライスについてのサンプル
+// Basic03 -- スライスについてのサンプル
 func Basic03() error {
 	// REFERENCES:: http://bit.ly/2W6PsVM
 	// GO言語には、python の del l[1] のように

@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// Effective Go - Functions の 内容についてのサンプルです。
+// Functions -- Effective Go - Functions の 内容についてのサンプルです。
 func Functions() error {
 	/*
 		https://golang.org/doc/effective_go.html#functions

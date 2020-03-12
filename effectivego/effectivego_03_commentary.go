@@ -1,6 +1,6 @@
 package effectivego
 
-// Effective Go - Commentary の 内容についてのサンプルです。
+// Commentary -- Effective Go - Commentary の 内容についてのサンプルです。
 func Commentary() error {
 	/*
 		https://golang.org/doc/effective_go.html#commentary

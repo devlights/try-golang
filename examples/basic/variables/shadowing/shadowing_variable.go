@@ -3,7 +3,7 @@ package shadowing
 import (
 	"fmt"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
 // Basic は、変数のshadowingについてのサンプルです。

@@ -1,4 +1,4 @@
 /*
-Go言語の定数についてのサンプルが配置されているパッケージです。
+Package constants -- Go言語の定数についてのサンプルが配置されているパッケージです。
 */
 package constants

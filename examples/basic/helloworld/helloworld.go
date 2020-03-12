@@ -1,9 +1,9 @@
-// Go言語での Hello World プログラムが配置されているパッケージです。
+// Package helloworld -- Go言語での Hello World プログラムが配置されているパッケージです。
 package helloworld
 
 import "fmt"
 
-// GO言語でのHelloWorldサンプル
+// HelloWorld -- GO言語でのHelloWorldサンプル
 func HelloWorld() error {
 	// Golang には、 ビルドイン関数の println と
 	// fmt.Println という　名前の似ている２つの関数があるが

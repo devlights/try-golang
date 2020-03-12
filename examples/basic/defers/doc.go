@@ -1,4 +1,4 @@
 /*
-defer についてのサンプルが配置されているパッケージです。
+Package defers -- についてのサンプルが配置されているパッケージです。
 */
 package defers

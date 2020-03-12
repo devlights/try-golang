@@ -18,7 +18,7 @@ func (p *point) SetX(x int) {
 	p.x = x
 }
 
-// Effective Go - Names の 内容についてのサンプルです。
+// Names -- Effective Go - Names の 内容についてのサンプルです。
 func Names() error {
 	/*
 		https://golang.org/doc/effective_go.html#names

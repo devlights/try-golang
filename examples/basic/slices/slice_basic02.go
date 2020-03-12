@@ -2,7 +2,7 @@ package slices
 
 import "fmt"
 
-// スライスについてのサンプル
+// Basic02 -- スライスについてのサンプル
 func Basic02() error {
 	// スライスは make() からでも作れる
 	// make() は、 slice, map, chan を生成する関数

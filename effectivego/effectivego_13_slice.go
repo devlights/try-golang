@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-// Effective Go - Slices の 内容についてのサンプルです。
+// Slices -- Effective Go - Slices の 内容についてのサンプルです。
 func Slices() error {
 	/*
 		https://golang.org/doc/effective_go.html#slices

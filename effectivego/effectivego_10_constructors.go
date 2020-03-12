@@ -59,7 +59,7 @@ func withStrVal(s string) effectivego10st01option {
 	}
 }
 
-// Effective Go - Constructors and composite literals の 内容についてのサンプルです。
+// Constructors -- Effective Go - Constructors and composite literals の 内容についてのサンプルです。
 func Constructors() error {
 	/*
 			https://golang.org/doc/effective_go.html#composite_literals

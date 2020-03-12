@@ -1,6 +1,6 @@
 package effectivego
 
-// Effective Go - Introduction の 内容についてのサンプルです。
+// Introduction -- Effective Go - Introduction の 内容についてのサンプルです。
 func Introduction() error {
 	/*
 		https://golang.org/doc/effective_go.html#introduction

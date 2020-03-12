@@ -3,7 +3,7 @@ package loopiterator
 import (
 	"strconv"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
 // CommonMistakePattern は、Goにてループ変数を扱う際によくある間違いについてのサンプルです.

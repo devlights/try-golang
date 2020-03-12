@@ -1,10 +1,10 @@
 package effectivego
 
 import (
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
-// Effective Go - Maps の 内容についてのサンプルです。
+// Maps -- Effective Go - Maps の 内容についてのサンプルです。
 func Maps() error {
 	/*
 		https://golang.org/doc/effective_go.html#maps

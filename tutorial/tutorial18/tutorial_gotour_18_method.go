@@ -17,7 +17,7 @@ func newPoint(x, y int) *point {
 	return &point{x, y}
 }
 
-// 自身の状態を指定された値に変更します
+// Change -- 自身の状態を指定された値に変更します
 func (p *point) Change(x, y int) {
 	p.x, p.y = x, y
 }

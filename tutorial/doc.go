@@ -1,5 +1,5 @@
 /*
-Tour of Go (https://tour.golang.org/) の サンプルが配置されているパッケージです。
+Package tutorial -- Tour of Go (https://tour.golang.org/) の サンプルが配置されているパッケージです。
 
 Go の プログラムは、パッケージで構成される。
 規約により、パッケージ名はimportパスの最後の要素の名前となる。

@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-// Writer は、 log.Writer() と log.SetOutput() の挙動を確認するサンプルです.
+// Output -- Writer は、 log.Writer() と log.SetOutput() の挙動を確認するサンプルです.
 func Output() error {
 	// ----------------------------------------------------------------
 	// log.Writer() と log.SetOutput() について

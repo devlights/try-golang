@@ -3,7 +3,7 @@ package structs
 import (
 	"reflect"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
 // StructDeepEqual は、構造体に対して reflect.DeepEqual() した場合のサンプルです.

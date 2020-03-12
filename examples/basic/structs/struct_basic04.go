@@ -7,7 +7,7 @@ type MySt01 struct {
 	value string
 }
 
-// 組み込み関数 new() のサンプル
+// Basic04 -- 組み込み関数 new() のサンプル
 func Basic04() error {
 
 	st01 := &MySt01{

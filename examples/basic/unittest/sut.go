@@ -5,10 +5,10 @@ import (
 	"math"
 )
 
-// int32 の計算にてオーバーフローが発生した場合のエラーです。
+// ErrOverflow -- int32 の計算にてオーバーフローが発生した場合のエラーです。
 var ErrOverflow = errors.New("int32 overflow")
 
-// int32 の計算にてアンダーフローが発生した場合のエラーです。
+// ErrUnderflow -- int32 の計算にてアンダーフローが発生した場合のエラーです。
 var ErrUnderflow = errors.New("int32 underflow")
 
 // Add は、指定された int32 を足し合わせた結果を返します。

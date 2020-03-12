@@ -1,13 +1,13 @@
 package mappings
 
 type (
-	// SampleKeyは、サンプル名を表すキーを表します
+	// 	ExampleKey は、サンプル名を表すキーを表します
 	ExampleKey string
 
-	// SampleFuncは、実行するサンプル処理を表します
+	// ExampleFunc は、実行するサンプル処理を表します
 	ExampleFunc func() error
 
-	// SampleMappingは、サンプルのマッピング定義を表します
+	// ExampleMapping は、サンプルのマッピング定義を表します
 	ExampleMapping map[ExampleKey]ExampleFunc
 )
 

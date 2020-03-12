@@ -3,24 +3,24 @@ package sorts
 import (
 	"sort"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
 type (
 	Sequence []int
 )
 
-// sort.Interface の 実装
+// Len -- sort.Interface の 実装
 func (s Sequence) Len() int {
 	return len(s)
 }
 
-// sort.Interface の 実装
+// Less -- sort.Interface の 実装
 func (s Sequence) Less(i, j int) bool {
 	return s[i] < s[j]
 }
 
-// sort.Interface の 実装
+// Swap -- sort.Interface の 実装
 func (s Sequence) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }

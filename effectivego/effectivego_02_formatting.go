@@ -1,6 +1,6 @@
 package effectivego
 
-// Effective Go - Formatting の 内容についてのサンプルです。
+// Formatting -- Effective Go - Formatting の 内容についてのサンプルです。
 func Formatting() error {
 	/*
 		https://golang.org/doc/effective_go.html#formatting

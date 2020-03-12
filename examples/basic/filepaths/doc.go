@@ -1,4 +1,4 @@
 /*
-path/filepath パッケージに関するサンプルが配置されているパッケージです。
+Package filepaths -- path/filepath パッケージに関するサンプルが配置されているパッケージです。
 */
 package filepaths
