@@ -9,7 +9,7 @@ type mm struct {
 	min, max interface{}
 }
 
-// MinMaxは各数値型の最小値と最大値を表示するサンプルです
+// MinMax -- MinMaxは各数値型の最小値と最大値を表示するサンプルです
 func MinMax() error {
 
 	// 各数値型の最小値と最大値は math パッケージに定義されている

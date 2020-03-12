@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 	"golang.org/x/sync/errgroup"
 )
 

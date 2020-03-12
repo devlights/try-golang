@@ -2,7 +2,7 @@ package slices
 
 import "fmt"
 
-// スライスについてのサンプル
+// Basic01 -- スライスについてのサンプル
 func Basic01() error {
 	// int のスライスを宣言
 	// GO言語では、サイズ指定しているものは「配列」

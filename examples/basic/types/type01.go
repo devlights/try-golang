@@ -2,20 +2,22 @@ package types
 
 import "fmt"
 
-// int に対して別名を定義
+// MyInt1 -- int に対して別名を定義
 type MyInt1 int
+
+// MyInt2 -- int に対して別名を定義
 type MyInt2 int
 
-// 配列に対して別名を定義
+// MyIntArray -- 配列に対して別名を定義
 type MyIntArray [3]int
 
-// 構造体の定義も struct で定義した内容を type で名前定義しているのと同じ
+// KeyValuePair -- 構造体の定義も struct で定義した内容を type で名前定義しているのと同じ
 type KeyValuePair struct {
 	Key   string
 	Value interface{}
 }
 
-// *KeyValuePair を生成
+// NewKeyValuePair -- *KeyValuePair を生成
 func NewKeyValuePair(k string, v string) *KeyValuePair {
 	return &KeyValuePair{Key: k, Value: v}
 }

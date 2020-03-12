@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/devlights/try-golang/output"
-	"github.com/devlights/try-golang/util/enumerable"
+	"github.com/devlights/gomy/enumerable"
+	"github.com/devlights/gomy/output"
 	"golang.org/x/sync/errgroup"
 )
 

@@ -2,7 +2,7 @@ package slices
 
 import "fmt"
 
-// 値渡しと参照渡しについて
+// Basic05 -- 値渡しと参照渡しについて
 func Basic05() error {
 	// GO言語では 配列は値, スライスは参照となる
 	// 配列をそのまま渡すと「値渡し」となる

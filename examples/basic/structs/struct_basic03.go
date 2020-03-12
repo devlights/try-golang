@@ -17,7 +17,7 @@ type B struct {
 	ValueB string
 }
 
-// 構造体間で共有するフィールド郡を共通化
+// Basic03 -- 構造体間で共有するフィールド郡を共通化
 func Basic03() error {
 	// 複合リテラルを用いて初期化する場合
 	// 以下のようにBaseの部分は明示的に

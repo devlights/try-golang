@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-// Effective Go - Control structures の 内容についてのサンプルです。
+// ControlStructure -- Effective Go - Control structures の 内容についてのサンプルです。
 func ControlStructure() error {
 	/*
 		https://golang.org/doc/effective_go.html#control-structures

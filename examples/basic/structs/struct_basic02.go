@@ -12,7 +12,7 @@ type IntPair struct {
 	sl []int
 }
 
-// 構造体が値型であることの確認
+// Basic02 -- 構造体が値型であることの確認
 //noinspection GoNilness
 func Basic02() error {
 

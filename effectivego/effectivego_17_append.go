@@ -1,8 +1,8 @@
 package effectivego
 
-import "github.com/devlights/try-golang/output"
+import "github.com/devlights/gomy/output"
 
-// Effective Go - Append の 内容についてのサンプルです。
+// Append -- Effective Go - Append の 内容についてのサンプルです。
 func Append() error {
 	/*
 		https://golang.org/doc/effective_go.html#append

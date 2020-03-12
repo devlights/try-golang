@@ -1,8 +1,8 @@
 package generate
 
 import (
+	"github.com/devlights/gomy/output"
 	"github.com/devlights/try-golang/examples/advanced/generate/queue"
-	"github.com/devlights/try-golang/output"
 )
 
 func UseGenericQueue() error {

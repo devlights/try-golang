@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"reflect"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
 // SliceDeepEqual は、スライスに対して reflect.DeepEqual() した場合のサンプルです.

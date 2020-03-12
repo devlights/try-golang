@@ -10,7 +10,7 @@ type (
 	}
 )
 
-// Effective Go - Allocation with new の 内容についてのサンプルです。
+// AllocationWithNew -- Effective Go - Allocation with new の 内容についてのサンプルです。
 func AllocationWithNew() error {
 	/*
 		https://golang.org/doc/effective_go.html#allocation_new

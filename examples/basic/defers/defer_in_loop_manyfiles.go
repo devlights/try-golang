@@ -6,9 +6,9 @@ import (
 	"os"
 	"runtime"
 
-	"github.com/devlights/try-golang/output"
-	"github.com/devlights/try-golang/util/enumerable"
-	"github.com/devlights/try-golang/util/mem"
+	"github.com/devlights/gomy/enumerable"
+	"github.com/devlights/gomy/mem"
+	"github.com/devlights/gomy/output"
 )
 
 // DeferInLoopManyFiles は、deferをループ内で利用したい場合のやり方についてのサンプルです。

@@ -7,7 +7,7 @@ import (
 	"runtime"
 
 	"github.com/adrg/xdg"
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
 // XdgFileOperation は、[xdg](https://github.com/adrg/xdg) を利用して

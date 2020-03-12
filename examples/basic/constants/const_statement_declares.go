@@ -2,7 +2,7 @@ package constants
 
 import "fmt"
 
-// 定数 の 宣言
+// Pi -- 定数 の 宣言
 const Pi = 3.14
 
 // 定数 を 一気に宣言

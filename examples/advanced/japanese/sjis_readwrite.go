@@ -4,7 +4,7 @@ import (
 	"io/ioutil"
 	"os"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 	"golang.org/x/text/encoding/japanese"
 	"golang.org/x/text/transform"
 )

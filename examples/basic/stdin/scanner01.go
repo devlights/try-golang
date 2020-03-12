@@ -1,6 +1,3 @@
-// 標準入力からデータを読み込むサンプル
-//
-// REFERENCES:: http://bit.ly/2W3DCM4
 package stdin
 
 import (
@@ -10,7 +7,7 @@ import (
 	"strings"
 )
 
-// 標準入力についてのサンプル
+// Scanner01 -- 標準入力についてのサンプル
 func Scanner01() error {
 	fmt.Print("Enter example-name: ")
 

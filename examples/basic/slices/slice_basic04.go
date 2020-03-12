@@ -2,7 +2,7 @@ package slices
 
 import "fmt"
 
-// スライスについてのサンプル
+// Basic04 -- スライスについてのサンプル
 // 空のスライスとnilなスライスの違い
 func Basic04() error {
 	// REFERENCES:: http://bit.ly/2I3cwuD

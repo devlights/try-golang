@@ -3,7 +3,7 @@ package effectivego
 import (
 	"fmt"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
 type ConstInt int
@@ -57,7 +57,7 @@ func init() {
 
 }
 
-// Effective Go - Constants の 内容についてのサンプルです。
+// Constants -- Effective Go - Constants の 内容についてのサンプルです。
 func Constants() error {
 	/*
 		https://golang.org/doc/effective_go.html#constants

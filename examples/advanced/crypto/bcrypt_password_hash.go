@@ -3,7 +3,7 @@ package crypto
 import (
 	"syscall"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 	"golang.org/x/crypto/bcrypt"
 	"golang.org/x/crypto/ssh/terminal"
 )

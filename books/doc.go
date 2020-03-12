@@ -1,5 +1,5 @@
 /*
-このパッケージには、書籍を読んで作ったサンプルが配置されています。
+Package books -- 書籍を読んで作ったサンプルが配置されています。
 
 - concurrency
   - Concurrency in Go (Go言語による並行処理)

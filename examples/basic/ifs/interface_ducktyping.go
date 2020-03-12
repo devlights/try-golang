@@ -10,12 +10,12 @@ type (
 	helloImpl struct{}
 )
 
-// ダックタイピング対象の関数
+// Hello -- ダックタイピング対象の関数
 func (helloImpl) Hello() string {
 	return "hello world"
 }
 
-// Go で、インターフェースの仕組みを用いたPythonチックなダックタイピングのやり方のサンプルです.
+// DuckTyping -- Go で、インターフェースの仕組みを用いたPythonチックなダックタイピングのやり方のサンプルです.
 func DuckTyping() error {
 	// ----------------------------------------------------------------
 	// GoでPythonのようにダックタイピングするTips

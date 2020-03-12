@@ -2,7 +2,7 @@ package strs
 
 import "fmt"
 
-// StringToRuneSliceは、文字列とルーンスライスの遷移を表示するサンプルです
+// StringToRuneSlice は、文字列とルーンスライスの遷移を表示するサンプルです
 func StringToRuneSlice() error {
 
 	// Go の 文字列 は、他の言語と同様に immutable となっている

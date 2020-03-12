@@ -5,6 +5,7 @@ import (
 	"time"
 )
 
+// AllocationWithMake -- Effective Go - Allocation with new の 内容についてのサンプルです。
 func AllocationWithMake() error {
 	/*
 		https://golang.org/doc/effective_go.html#allocation_make

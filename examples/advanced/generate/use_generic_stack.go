@@ -1,8 +1,8 @@
 package generate
 
 import (
+	"github.com/devlights/gomy/output"
 	"github.com/devlights/try-golang/examples/advanced/generate/stack"
-	"github.com/devlights/try-golang/output"
 )
 
 func UseGenericStack() error {

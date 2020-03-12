@@ -3,7 +3,7 @@ package effectivego
 import (
 	"fmt"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
 type (
@@ -31,7 +31,7 @@ func (s *limitedByteSlice) Write(data []byte) (n int, err error) {
 	return len(v), nil
 }
 
-// Effective Go - Methods の 内容についてのサンプルです。
+// Methods -- Effective Go - Methods の 内容についてのサンプルです。
 func Methods() error {
 	/*
 		https://golang.org/doc/effective_go.html#methods

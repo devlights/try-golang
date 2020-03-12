@@ -1,6 +1,6 @@
 package slices
 
-import "github.com/devlights/try-golang/output"
+import "github.com/devlights/gomy/output"
 
 // SliceCopy は、スライスの コピー についてのサンプルです.
 func SliceCopy() error {

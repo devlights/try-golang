@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-// error のハンドリングについてのサンプル
+// Basic -- error のハンドリングについてのサンプル
 // REFERENCES::
 //   - https://github.com/robpike/ivy/blob/master/ivy_test.go
 //   - https://stackoverflow.com/questions/9371031/how-do-i-create-crossplatform-file-paths-in-go

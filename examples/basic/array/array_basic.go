@@ -4,7 +4,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/devlights/try-golang/output"
+	"github.com/devlights/gomy/output"
 )
 
 // Basic は、Goにおける配列の基本的な使い方についてのサンプルです.

@@ -2,7 +2,7 @@ package effectivego
 
 import "fmt"
 
-// Effective Go - Defer の 内容についてのサンプルです。
+// Defer -- Effective Go - Defer の 内容についてのサンプルです。
 func Defer() error {
 	/*
 		https://golang.org/doc/effective_go.html#defer

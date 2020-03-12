@@ -25,7 +25,7 @@ func (i *ifGoTour20Impl) String() string {
 	return i.Value()
 }
 
-// impl tutorial.ifGoTour20
+// Value -- impl tutorial.ifGoTour20
 func (i *ifGoTour20Impl) Value() string {
 	return strings.ToUpper(i.V)
 }
