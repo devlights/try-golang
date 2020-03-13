@@ -1,16 +1,16 @@
 /*
-Package unittest -- Go言語の ユニットテスト についてのサンプルが配置されているパッケージです。
+Package testings -- Go言語の ユニットテスト についてのサンプルが配置されているパッケージです。
 
 このパッケージのみ、バイナリ実行でサンプルを動かすことができません。
 実行する場合は
 
-$ cd basic/unittest
+$ cd basic/testings
 
 $ go test -v ./...
 
 とするか
 
-$ go test -v github.com/devlights/try-golang/basic/unittest
+$ go test -v github.com/devlights/try-golang/basic/testings
 
 としてください。
 
@@ -20,4 +20,4 @@ https://medium.com/better-programming/easy-guide-to-unit-testing-in-golang-4fc1e
 
 https://github.com/golang/go/wiki/LearnTesting
 */
-package unittest
+package testings

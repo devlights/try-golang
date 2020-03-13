@@ -1,4 +1,4 @@
-package unittest
+package testings
 
 import (
 	"math"
