@@ -40,7 +40,6 @@ func TestTLog(t *testing.T) {
 		・
 		・
 		Downloaded 100.0% (133885977 / 133885977 bytes)
-		Unpacking C:\Users\kusaka\sdk\go1.13\go1.13.windows-amd64.zip ...
 		Success. You may now run 'go1.13'
 
 		$ go1.13 version
