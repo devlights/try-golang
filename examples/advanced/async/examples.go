@@ -16,4 +16,5 @@ func NewRegister() mappings.Register {
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["async01"] = Async01
 	m["async_producer_consumer"] = ProducerConsumer
+	m["async_dir_walk_recursive"] = DirWalkRecursive
 }
