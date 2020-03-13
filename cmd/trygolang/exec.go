@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 
 	"github.com/devlights/try-golang/mappings"
 )
@@ -38,6 +39,11 @@ func (c *ExecCommand) Run() error {
 
 	if v, ok := mapping[target]; ok {
 		fmt.Printf("[Name] %q\n", target)
+
+		defer func(start time.Time) {
+			fmt.Printf("\n\n[Elapsed] %s\n", time.Since(start))
+		}(time.Now())
+
 		if err := v(); err != nil {
 			return &ExecError{
 				Name: target,
