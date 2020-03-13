@@ -17,6 +17,7 @@ func TestTLog(t *testing.T) {
 	//
 	// REFERENCES::
 	//   - https://dave.cheney.net/2020/03/10/go-test-v-streaming-output
+	//   - https://devlights.hatenablog.com/entry/2019/11/07/003735
 	// ----------------------------------------------------------------------
 	for i := 0; i < 5; i++ {
 		fmt.Printf("fmt %d\n", i)
