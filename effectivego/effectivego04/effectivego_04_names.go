@@ -1,4 +1,4 @@
-package effectivego
+package effectivego04
 
 import "fmt"
 
