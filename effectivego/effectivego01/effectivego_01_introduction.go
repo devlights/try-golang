@@ -1,4 +1,4 @@
-package effectivego
+package effectivego01
 
 // Introduction -- Effective Go - Introduction の 内容についてのサンプルです。
 func Introduction() error {

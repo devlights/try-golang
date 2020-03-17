@@ -1,4 +1,4 @@
-package effectivego
+package effectivego02
 
 // Formatting -- Effective Go - Formatting の 内容についてのサンプルです。
 func Formatting() error {

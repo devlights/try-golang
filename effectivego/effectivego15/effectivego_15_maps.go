@@ -1,4 +1,4 @@
-package effectivego
+package effectivego15
 
 import (
 	"github.com/devlights/gomy/output"

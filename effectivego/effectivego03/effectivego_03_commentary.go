@@ -1,4 +1,4 @@
-package effectivego
+package effectivego03
 
 // Commentary -- Effective Go - Commentary の 内容についてのサンプルです。
 func Commentary() error {
