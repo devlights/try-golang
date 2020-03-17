@@ -21,6 +21,7 @@ import (
 	"github.com/devlights/try-golang/effectivego/effectivego18"
 	"github.com/devlights/try-golang/effectivego/effectivego19"
 	"github.com/devlights/try-golang/effectivego/effectivego20"
+	"github.com/devlights/try-golang/effectivego/effectivego21"
 	"github.com/devlights/try-golang/mappings"
 )
 
@@ -56,4 +57,5 @@ func (r *effectivegoExampleRegister) Regist(m mappings.ExampleMapping) {
 	m["effective_go_constants"] = effectivego18.Constants
 	m["effective_go_methods"] = effectivego19.Methods
 	m["effective_go_interfaces"] = effectivego20.Interfaces
+	m["effective_go_interface_conversion"] = effectivego21.InterfaceConversion
 }
