@@ -35,4 +35,5 @@ func (r *effectivegoExampleRegister) Regist(m mappings.ExampleMapping) {
 	m["effective_go_append"] = Append
 	m["effective_go_constants"] = Constants
 	m["effective_go_methods"] = Methods
+	m["effective_go_interfaces"] = Interfaces
 }
