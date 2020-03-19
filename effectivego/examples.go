@@ -27,6 +27,7 @@ import (
 	"github.com/devlights/try-golang/effectivego/effectivego24"
 	"github.com/devlights/try-golang/effectivego/effectivego25"
 	"github.com/devlights/try-golang/effectivego/effectivego26"
+	"github.com/devlights/try-golang/effectivego/effectivego27"
 	"github.com/devlights/try-golang/mappings"
 )
 
@@ -68,4 +69,5 @@ func (r *effectivegoExampleRegister) Regist(m mappings.ExampleMapping) {
 	m["effectivego_24_embedding"] = effectivego24.Embedding
 	m["effectivego_25_concurrency_share_by_communicating"] = effectivego25.ShareByCommunicating
 	m["effectivego_26_concurrency_channels"] = effectivego26.Channels
+	m["effectivego_27_concurrency_channels_of_channels"] = effectivego27.ChannelsOfChannels
 }
