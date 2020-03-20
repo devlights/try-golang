@@ -31,6 +31,7 @@ func Basic() error {
 	return nil
 }
 
+// ShowValues -- サンプル関数
 func ShowValues(obj mypkg.ICanDisplayValues) {
 	fmt.Printf("[%T] %s\n", obj, obj.GetValues())
 }

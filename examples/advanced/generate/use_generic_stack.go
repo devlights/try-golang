@@ -5,6 +5,7 @@ import (
 	"github.com/devlights/try-golang/examples/advanced/generate/stack"
 )
 
+// UseGenericStack -- genny で自動生成されたスタックを利用するサンプルです。
 func UseGenericStack() error {
 	bStack := stack.NewBoolStack()
 	bStack.Push(false)

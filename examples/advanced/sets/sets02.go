@@ -6,6 +6,7 @@ import (
 	"github.com/deckarep/golang-set"
 )
 
+// Set02 -- Set.Union() の 動作確認のサンプルです。
 func Set02() error {
 
 	// Set.Union の 確認 (和集合)

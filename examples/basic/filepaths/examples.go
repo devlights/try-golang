@@ -8,6 +8,7 @@ type (
 	register struct{}
 )
 
+// NewRegister -- このパッケージ用のサンプルを登録する mappings.Register を生成します。
 func NewRegister() mappings.Register {
 	return &register{}
 }

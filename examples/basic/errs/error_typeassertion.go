@@ -6,6 +6,7 @@ import (
 )
 
 type (
+	// TypeAssertionError -- type assertion check
 	TypeAssertionError struct{}
 )
 

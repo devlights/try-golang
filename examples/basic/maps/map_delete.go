@@ -2,6 +2,7 @@ package maps
 
 import "fmt"
 
+// MapDelete -- マップの要素を削除するサンプルです。
 func MapDelete() error {
 
 	var (

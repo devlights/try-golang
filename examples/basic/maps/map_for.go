@@ -2,6 +2,7 @@ package maps
 
 import "fmt"
 
+// MapFor -- マップをループするサンプルです。
 func MapFor() error {
 
 	m := map[string]int{

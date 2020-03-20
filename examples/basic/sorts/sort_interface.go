@@ -7,24 +7,25 @@ import (
 )
 
 type (
-	Sequence []int
+	sequence []int
 )
 
 // Len -- sort.Interface の 実装
-func (s Sequence) Len() int {
+func (s sequence) Len() int {
 	return len(s)
 }
 
 // Less -- sort.Interface の 実装
-func (s Sequence) Less(i, j int) bool {
+func (s sequence) Less(i, j int) bool {
 	return s[i] < s[j]
 }
 
 // Swap -- sort.Interface の 実装
-func (s Sequence) Swap(i, j int) {
+func (s sequence) Swap(i, j int) {
 	s[i], s[j] = s[j], s[i]
 }
 
+// SortInterface -- sort.Sort() の際に必要となるインターフェースについてのサンプルです。
 func SortInterface() error {
 	// -------------------------------------------
 	// sort.Sort() について
@@ -42,7 +43,7 @@ func SortInterface() error {
 	// Swapは、指定された要素を入れ替えるための処理を記述する.
 	// -------------------------------------------
 	var (
-		s = Sequence{66, 1, 77, 773, 87, 32}
+		s = sequence{66, 1, 77, 773, 87, 32}
 	)
 
 	// Sequence型は、sort.Interfaceを実装しているので

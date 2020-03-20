@@ -2,6 +2,7 @@ package maps
 
 import "fmt"
 
+// MapAccess -- マップに対する操作に関してのサンプルです。
 func MapAccess() error {
 
 	var (

@@ -6,6 +6,7 @@ import (
 	mapset "github.com/deckarep/golang-set"
 )
 
+// Set04 -- Set.Intersect の動作確認のサンプルです。
 func Set04() error {
 
 	// Set.Intersect の 確認 (積集合)

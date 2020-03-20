@@ -6,6 +6,7 @@ import (
 	"github.com/deckarep/golang-set"
 )
 
+// Set03 -- Set.Difference() の動作確認のサンプルです。
 func Set03() error {
 
 	// Set.Difference の 確認 (差集合)

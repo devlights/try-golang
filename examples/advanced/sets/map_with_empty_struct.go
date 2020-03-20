@@ -2,6 +2,7 @@ package sets
 
 import "fmt"
 
+// MapSet01 -- map を set の代用として利用できることを確認するサンプルです。
 func MapSet01() error {
 
 	// map を set の代用として利用できる

@@ -5,6 +5,7 @@ import (
 	"github.com/devlights/try-golang/examples/advanced/generate/queue"
 )
 
+// UseGenericQueue -- genny で自動生成されたキューを利用するサンプルです。
 func UseGenericQueue() error {
 
 	bQueue := queue.NewBoolQueue()

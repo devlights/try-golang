@@ -8,6 +8,7 @@ func toDoubleTheNumber(x int) (int, int) {
 	return x, x * 2
 }
 
+// FunctionMultiReturnValue -- 複数の戻り値を持つ関数を定義できることを確認するサンプルです。
 func FunctionMultiReturnValue() error {
 
 	var (

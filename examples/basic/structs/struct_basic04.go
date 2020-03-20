@@ -2,7 +2,7 @@ package structs
 
 import "fmt"
 
-type MySt01 struct {
+type mySt01 struct {
 	key   int
 	value string
 }
@@ -10,13 +10,13 @@ type MySt01 struct {
 // Basic04 -- 組み込み関数 new() のサンプル
 func Basic04() error {
 
-	st01 := &MySt01{
+	st01 := &mySt01{
 		key:   100,
 		value: "hello world",
 	}
 
 	// 組み込み関数 new() は指定した型のポインタを生成する関数
-	st02 := new(MySt01)
+	st02 := new(mySt01)
 	st02.key = 200
 	st02.value = "world hello"
 

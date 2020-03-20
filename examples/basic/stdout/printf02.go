@@ -2,7 +2,7 @@ package stdout
 
 import "fmt"
 
-type MyType struct {
+type myType struct {
 	i int
 	v int
 	x int
@@ -27,18 +27,18 @@ func Printf02() error {
 
 	// %v は デフォルトのフォーマットを用いて値を表示
 	messageFormat = "[%%v] Hello %v\n"
-	fmt.Printf(messageFormat, MyType{i: 100, v: 111, x: 222, y: 333})
+	fmt.Printf(messageFormat, myType{i: 100, v: 111, x: 222, y: 333})
 
 	// %#v は、Goのリテラル表現で値を出力
 	messageFormat = "[%%#v] Hello %#v\n"
-	fmt.Printf(messageFormat, MyType{i: 100, v: 111, x: 222, y: 333})
+	fmt.Printf(messageFormat, myType{i: 100, v: 111, x: 222, y: 333})
 
 	// %+v は %v に加えて構造体の場合にフィールド名も出力
 	messageFormat = "[%%+v] Hello %+v\n"
-	fmt.Printf(messageFormat, MyType{i: 100, v: 111, x: 222, y: 333})
+	fmt.Printf(messageFormat, myType{i: 100, v: 111, x: 222, y: 333})
 
 	// %T は データの型情報を出力
-	data := MyType{i: 100, v: 111, x: 222, y: 333}
+	data := myType{i: 100, v: 111, x: 222, y: 333}
 	intArray := [...]int{1, 2, 3}
 	intSlice := []int{1, 2, 3}
 	intKeyMap := map[int]string{1: "apple"}
