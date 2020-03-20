@@ -2,12 +2,14 @@ package enum
 
 import "fmt"
 
+// 定数
 const (
 	FirstValue int = iota // 最初の値は 0 からスタート
 	SecondValue
 	ThirdValue
 )
 
+// ByteSize -- バイトサイズ
 type ByteSize int64
 
 //noinspection GoUnusedConst
@@ -19,8 +21,10 @@ const (
 	TB
 )
 
+// Weekday -- 曜日
 type Weekday int
 
+// 曜日
 const (
 	Sunday  Weekday = iota + 1 // iota は 0
 	_                          // iota が加算

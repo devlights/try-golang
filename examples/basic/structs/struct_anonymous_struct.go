@@ -2,6 +2,7 @@ package structs
 
 import "fmt"
 
+// StructAnonymousStruct -- 匿名構造体についてのサンプルです。
 func StructAnonymousStruct() error {
 	// ------------------------------------------------------------
 	// Go言語では、匿名なstructを構築することが出来る

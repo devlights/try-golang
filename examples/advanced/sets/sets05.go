@@ -6,6 +6,7 @@ import (
 	mapset "github.com/deckarep/golang-set"
 )
 
+// Set05 -- Set.SymmetricDifference() の動作確認のサンプルです。
 func Set05() error {
 
 	// Set.SymmetricDifference() の 確認 (対象差)

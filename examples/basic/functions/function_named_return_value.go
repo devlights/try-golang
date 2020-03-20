@@ -17,6 +17,7 @@ func multiNamedReturnValue(s string) (original string, r string) {
 	return
 }
 
+// FunctionNamedReturnValue -- Goでは関数の戻り値に名前を付与しておくことが出来ることを確認するサンプルです。
 func FunctionNamedReturnValue() error {
 
 	var (

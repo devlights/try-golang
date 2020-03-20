@@ -5,7 +5,7 @@ import (
 	"reflect"
 )
 
-type IntPair struct {
+type intPair struct {
 	x  int
 	y  int
 	s  string
@@ -18,7 +18,7 @@ func Basic02() error {
 
 	// 構造体は値型なので宣言した時点でメモリ上に領域が確保される
 	// 各フィールドは初期値で初期化される
-	var s01 IntPair
+	var s01 intPair
 	fmt.Printf("%#v\n", s01)
 
 	// スライスは参照なので宣言した時点では nil

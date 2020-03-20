@@ -2,6 +2,7 @@ package maps
 
 import "fmt"
 
+// MapInitialize -- マップの初期化に関するサンプルです。
 func MapInitialize() error {
 
 	// var で 定義して make で割当

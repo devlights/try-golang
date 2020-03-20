@@ -6,7 +6,8 @@ import (
 )
 
 var (
-	SentinelError = errors.New("example: sentinel error check")
+	// ErrSentinel -- sentinel error check
+	ErrSentinel = errors.New("example: sentinel error check")
 )
 
 // Sentinel は、Goにおけるエラー処理イディオムの sentinel error check についてのサンプルです.
@@ -24,18 +25,18 @@ func Sentinel() error {
 	// 部分を errors.Is() で判定できるようになった。
 	// ----------------------------------------------------------------
 	raise := func() error {
-		return SentinelError
+		return ErrSentinel
 	}
 
 	if err := raise(); err != nil {
 
 		// Go 1.13 より前のバージョンでは == で比較していた
-		if err == SentinelError {
+		if err == ErrSentinel {
 			fmt.Printf("Go 1.13 より前 (==で判定): %v\n", err)
 		}
 
 		// Go 1.13 からは errors.Is() があるので、そちらを使った方がシンプルかつ高機能
-		if errors.Is(err, SentinelError) {
+		if errors.Is(err, ErrSentinel) {
 			fmt.Printf("Go 1.13 以降 (errors.Is()で判定): %v\n", err)
 		}
 	}

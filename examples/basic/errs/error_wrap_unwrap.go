@@ -6,6 +6,7 @@ import (
 )
 
 type (
+	// WrapError -- wrap error object
 	WrapError struct {
 		InnerError error
 	}
@@ -15,6 +16,7 @@ func (w *WrapError) Error() string {
 	return fmt.Sprintf("example: WrapError(%v)", w.InnerError)
 }
 
+// Unwrap -- 内包しているエラーを返します。
 func (w *WrapError) Unwrap() error {
 	return w.InnerError
 }
@@ -42,7 +44,7 @@ func WrapAndUnwrap() error {
 	// 使うべきである。
 	// ----------------------------------------------------------------
 	// %w を fmt.Errorf にて利用することで、簡単に埋め込みのエラーを作れる
-	e1 := makeError(SentinelError)
+	e1 := makeError(ErrSentinel)
 	dump(e1)
 
 	// 埋め込まれた内部エラーを取得

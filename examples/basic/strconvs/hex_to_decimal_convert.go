@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-// HexToDecimalConvert　は、16進数文字列を10進数に変換するサンプルです.
+// HexToDecimalConvert -- 16進数文字列を10進数に変換するサンプルです.
 // (strconv.ParseInt() の 例)
 func HexToDecimalConvert() error {
 	// -------------------------------------------------------------------
