@@ -20,4 +20,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["async_producer_consumer"] = ProducerConsumer
 	m["async_dir_walk_recursive"] = DirWalkRecursive
 	m["async_take_first_10items"] = TakeFirst10Items
+	m["async_ordone_one_input"] = OrDoneOneInput
 }
