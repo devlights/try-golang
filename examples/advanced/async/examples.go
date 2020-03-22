@@ -1,6 +1,8 @@
 package async
 
 import (
+	"github.com/devlights/try-golang/examples/advanced/async/fanin"
+	"github.com/devlights/try-golang/examples/advanced/async/flatten"
 	"github.com/devlights/try-golang/mappings"
 )
 
@@ -21,4 +23,6 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["async_dir_walk_recursive"] = DirWalkRecursive
 	m["async_take_first_10items"] = TakeFirst10Items
 	m["async_ordone_one_input"] = OrDoneOneInput
+	m["async_ordone_multi_input_flatten"] = flatten.OrDoneMultiInputFlatten
+	m["async_ordone_multi_input_fanin"] = fanin.OrDoneMultiInputFanIn
 }
