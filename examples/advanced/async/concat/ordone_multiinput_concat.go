@@ -1,4 +1,4 @@
-package flatten
+package concat
 
 import (
 	"context"
@@ -10,8 +10,8 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// OrDoneMultiInputFlatten -- chans.OrDone() と chans.Flatten() を利用して処理するサンプルです。（入力チャネルが複数の場合)
-func OrDoneMultiInputFlatten() error {
+// OrDoneMultiInputConcat -- chans.OrDone() と chans.Concat() を利用して処理するサンプルです。（入力チャネルが複数の場合)
+func OrDoneMultiInputConcat() error {
 	var (
 		numGoroutine   = 5                      // 並行起動するデータ取得ゴルーチンの数
 		takeCount      = 2                      // データ取得チャネル毎にいくつデータを取得するかの数
@@ -43,7 +43,7 @@ func OrDoneMultiInputFlatten() error {
 	}
 
 	// 複数の取得チャネルを纏めてしまって、出力 (出力順序は守る)
-	for v := range chans.OrDone(mainCtx.Done(), chans.Flatten(mainCtx.Done(), takeChList...)) {
+	for v := range chans.OrDone(mainCtx.Done(), chans.Concat(mainCtx.Done(), takeChList...)) {
 		output.Stdoutl("[main]", v)
 	}
 
