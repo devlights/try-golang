@@ -18,7 +18,7 @@ func OrDoneMultiInputConcat() error {
 		dataInInterval = 100 * time.Millisecond // データ投入時のインターバル
 	)
 
-	// timeLimit 秒後に完了するコンテキストを生成
+	// コンテキストを生成
 	var (
 		rootCtx         = context.Background()
 		mainCtx, cancel = context.WithCancel(rootCtx)

@@ -17,7 +17,8 @@ func OrDoneMultiInputFanIn() error {
 		takeCount      = 2                      // データ取得チャネル毎にいくつデータを取得するかの数
 		dataInInterval = 100 * time.Millisecond // データ投入時のインターバル
 	)
-	// timeLimit 秒後に完了するコンテキストを生成
+
+	// コンテキストを生成
 	var (
 		rootCtx         = context.Background()
 		mainCtx, cancel = context.WithCancel(rootCtx)
