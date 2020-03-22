@@ -31,6 +31,8 @@ func OrDoneMultiInputFanIn() error {
 		takeChList = make([]<-chan interface{}, 0, numGoroutine)
 	)
 
+	defer close(srcCh)
+
 	// srcCh に データを投入していくゴルーチン起動
 	doneChList = append(doneChList, gen(mainCtx.Done(), srcCh, dataInInterval))
 
@@ -46,14 +48,6 @@ func OrDoneMultiInputFanIn() error {
 	for v := range chans.FanIn(mainCtx.Done(), takeChList...) {
 		output.Stdoutl("[main]", v)
 	}
-
-	// srcChは無限シーケンスを使っているのでループの終了が出来るよう
-	// 余っている分を吸い出す
-	go func() {
-		defer close(srcCh)
-		for range srcCh {
-		}
-	}()
 
 	cancel()
 	<-chans.WhenAll(doneChList...)
