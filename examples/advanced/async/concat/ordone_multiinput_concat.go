@@ -43,7 +43,7 @@ func OrDoneMultiInputConcat() error {
 	}
 
 	// 複数の取得チャネルを纏めてしまって、出力 (出力順序は守る)
-	for v := range chans.OrDone(mainCtx.Done(), chans.Concat(mainCtx.Done(), takeChList...)) {
+	for v := range chans.Concat(mainCtx.Done(), takeChList...) {
 		output.Stdoutl("[main]", v)
 	}
 

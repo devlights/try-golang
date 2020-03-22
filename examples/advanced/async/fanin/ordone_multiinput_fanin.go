@@ -43,7 +43,7 @@ func OrDoneMultiInputFanIn() error {
 	}
 
 	// 複数の取得チャネルを纏めてしまって、出力 (出力順序は問わない)
-	for v := range chans.OrDone(mainCtx.Done(), chans.FanIn(mainCtx.Done(), takeChList...)) {
+	for v := range chans.FanIn(mainCtx.Done(), takeChList...) {
 		output.Stdoutl("[main]", v)
 	}
 
