@@ -34,6 +34,8 @@ func MultiInput() error {
 		doneChList = make([]<-chan struct{}, 0, numGoroutine)
 	)
 
+	defer close(srcCh)
+
 	// -------------------------------------------------------
 	// [Send] 100ms 毎に srcCh にデータを送り続けるゴルーチン起動
 	// -------------------------------------------------------
