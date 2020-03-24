@@ -1,4 +1,4 @@
-package async
+package ordone
 
 import (
 	"context"
@@ -8,8 +8,8 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// OrDoneOneInput -- chans.OrDone() を利用して処理するサンプルです。（入力チャネルが一つの場合)
-func OrDoneOneInput() error {
+// OneInput -- chans.OrDone() を利用して処理するサンプルです。（入力チャネルが一つの場合)
+func OneInput() error {
 	// 3 秒後に終了するコンテキストを生成
 	var (
 		rootCtx         = context.Background()

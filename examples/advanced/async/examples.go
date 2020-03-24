@@ -3,6 +3,7 @@ package async
 import (
 	"github.com/devlights/try-golang/examples/advanced/async/concat"
 	"github.com/devlights/try-golang/examples/advanced/async/fanin"
+	"github.com/devlights/try-golang/examples/advanced/async/ordone"
 	"github.com/devlights/try-golang/mappings"
 )
 
@@ -22,7 +23,8 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["async_producer_consumer"] = ProducerConsumer
 	m["async_dir_walk_recursive"] = DirWalkRecursive
 	m["async_take_first_10items"] = TakeFirst10Items
-	m["async_ordone_one_input"] = OrDoneOneInput
+	m["async_ordone_one_input"] = ordone.OneInput
+	m["async_ordone_multi_input"] = ordone.MultiInput
 	m["async_multi_channel_concat"] = concat.MultiChannelConcat
 	m["async_multi_channel_fanin"] = fanin.MultiChannelFanIn
 }
