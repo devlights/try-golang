@@ -10,8 +10,8 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// OrDoneMultiInputConcat -- chans.OrDone() と chans.Concat() を利用して処理するサンプルです。（入力チャネルが複数の場合)
-func OrDoneMultiInputConcat() error {
+// MultiChannelConcat -- chans.Concat() を利用して処理するサンプルです。
+func MultiChannelConcat() error {
 	var (
 		numGoroutine   = 5                      // 並行起動するデータ取得ゴルーチンの数
 		takeCount      = 2                      // データ取得チャネル毎にいくつデータを取得するかの数

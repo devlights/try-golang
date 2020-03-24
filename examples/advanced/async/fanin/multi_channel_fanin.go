@@ -10,8 +10,8 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// OrDoneMultiInputFanIn -- chans.OrDone() と chans.FanIn() を利用して処理するサンプルです。（入力チャネルが複数の場合)
-func OrDoneMultiInputFanIn() error {
+// MultiChannelFanIn -- chans.FanIn() を利用して処理するサンプルです。（入力チャネルが複数の場合)
+func MultiChannelFanIn() error {
 	var (
 		numGoroutine   = 5                      // 並行起動するデータ取得ゴルーチンの数
 		takeCount      = 2                      // データ取得チャネル毎にいくつデータを取得するかの数

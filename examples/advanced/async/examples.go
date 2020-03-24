@@ -23,6 +23,6 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["async_dir_walk_recursive"] = DirWalkRecursive
 	m["async_take_first_10items"] = TakeFirst10Items
 	m["async_ordone_one_input"] = OrDoneOneInput
-	m["async_ordone_multi_input_concat"] = concat.OrDoneMultiInputConcat
-	m["async_ordone_multi_input_fanin"] = fanin.OrDoneMultiInputFanIn
+	m["async_multi_channel_concat"] = concat.MultiChannelConcat
+	m["async_multi_channel_fanin"] = fanin.MultiChannelFanIn
 }
