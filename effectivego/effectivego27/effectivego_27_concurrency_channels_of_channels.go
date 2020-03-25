@@ -102,7 +102,7 @@ func ChannelsOfChannels() error {
 			resultCh: make(chan int),
 		})
 
-		resultChList = append(resultChList, chans.ToInterfaceFromInt(resultCh))
+		resultChList = append(resultChList, chans.FromIntCh(resultCh))
 	}
 
 	// 結果を取得
