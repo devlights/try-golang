@@ -27,4 +27,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["async_ordone_multi_input"] = ordone.MultiInput
 	m["async_multi_channel_concat"] = concat.MultiChannelConcat
 	m["async_multi_channel_fanin"] = fanin.MultiChannelFanIn
+	m["async_ordered_after_async_proc"] = OrderedAfterAsyncProc
 }
