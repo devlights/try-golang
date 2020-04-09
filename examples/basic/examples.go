@@ -2,6 +2,7 @@ package basic
 
 import (
 	"github.com/devlights/try-golang/examples/basic/array"
+	"github.com/devlights/try-golang/examples/basic/binaries"
 	"github.com/devlights/try-golang/examples/basic/builtins"
 	"github.com/devlights/try-golang/examples/basic/comments"
 	"github.com/devlights/try-golang/examples/basic/constants"
@@ -49,6 +50,7 @@ func NewRegister() mappings.Register {
 func (r *register) Regist(m mappings.ExampleMapping) {
 
 	array.NewRegister().Regist(m)
+	binaries.NewRegister().Regist(m)
 	builtins.NewRegister().Regist(m)
 	comments.NewRegister().Regist(m)
 	constants.NewRegister().Regist(m)
