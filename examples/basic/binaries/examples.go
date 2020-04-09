@@ -1,6 +1,7 @@
 package binaries
 
 import (
+	"github.com/devlights/try-golang/examples/basic/binaries/readwrite"
 	"github.com/devlights/try-golang/mappings"
 )
 
@@ -15,5 +16,5 @@ func NewRegister() mappings.Register {
 
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["binary_byteorder"] = ByteOrder
-	m["binary_readwrite"] = ReadWrite
+	m["binary_readwrite"] = readwrite.ReadWrite
 }
