@@ -2,8 +2,8 @@ package slices
 
 import "fmt"
 
-// SliceAppend は、スライスの append 利用時についてのサンプルです.
-func SliceAppend() error {
+// Append は、スライスの append 利用時についてのサンプルです.
+func Append() error {
 	// ----------------------------------------------------------------
 	// Go の スライス に対しての append の利用
 	//

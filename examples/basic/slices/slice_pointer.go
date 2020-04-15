@@ -2,8 +2,8 @@ package slices
 
 import "fmt"
 
-// SlicePointer は、スライスの ポインタ 利用時についてのサンプルです.
-func SlicePointer() error {
+// Pointer は、スライスの ポインタ 利用時についてのサンプルです.
+func Pointer() error {
 	// ----------------------------------------------------------------
 	// スライスのポインタ利用について
 	//
