@@ -2,8 +2,8 @@ package slices
 
 import "github.com/devlights/gomy/output"
 
-// SliceCopy は、スライスの コピー についてのサンプルです.
-func SliceCopy() error {
+// Copy は、スライスの コピー についてのサンプルです.
+func Copy() error {
 	// ----------------------------------------------------------------
 	// スライスのコピーについて
 	//

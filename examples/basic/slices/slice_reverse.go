@@ -30,8 +30,8 @@ func reverseStrs(s []string) {
 	}
 }
 
-// SliceReverse -- スライスのリバース処理についてのサンプルです。
-func SliceReverse() error {
+// Reverse -- スライスのリバース処理についてのサンプルです。
+func Reverse() error {
 
 	var (
 		ints = []int{

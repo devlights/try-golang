@@ -2,8 +2,8 @@ package slices
 
 import "github.com/devlights/gomy/output"
 
-// SliceClear は、スライスのクリア、及び、nilスライスと空のスライスについてのサンプルです.
-func SliceClear() error {
+// Clear は、スライスのクリア、及び、nilスライスと空のスライスについてのサンプルです.
+func Clear() error {
 	// ----------------------------------------------------------------
 	// スライスのクリア、及び、nilスライスと空のスライスについて
 	//
