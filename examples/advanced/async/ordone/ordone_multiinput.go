@@ -28,12 +28,13 @@ func MultiInput() error {
 
 	// コンテキストとチャネル関連
 	var (
-		rootCtx    = context.Background()
-		mainCtx, _ = context.WithTimeout(rootCtx, timeLimit)
-		srcCh      = make(chan interface{})
-		doneChList = make([]<-chan struct{}, 0, numGoroutine)
+		rootCtx         = context.Background()
+		mainCtx, cancel = context.WithTimeout(rootCtx, timeLimit)
+		srcCh           = make(chan interface{})
+		doneChList      = make([]<-chan struct{}, 0, numGoroutine)
 	)
 
+	defer cancel()
 	defer close(srcCh)
 
 	// -------------------------------------------------------
