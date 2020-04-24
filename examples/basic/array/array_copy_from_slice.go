@@ -13,6 +13,8 @@ func CopyFromSlice() error {
 	//
 	// [参考]
 	// https://stackoverflow.com/a/30285971
+	// https://blog.golang.org/slices-intro
+	// https://blog.golang.org/slices
 	// ----------------------------------------------
 	var (
 		slice = []int{1, 2, 3, 4, 5}
