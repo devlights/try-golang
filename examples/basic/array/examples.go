@@ -15,4 +15,5 @@ func NewRegister() mappings.Register {
 
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["array_basic_usage"] = Basic
+	m["array_copy_from_slice"] = CopyFromSlice
 }
