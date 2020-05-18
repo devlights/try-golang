@@ -6,8 +6,8 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// SortSliceUnStable -- スライスのソートについてのサンプルです. (unstable sort)
-func SortSliceUnStable() error {
+// SortSliceStable -- スライスのソートについてのサンプルです. (stable sort)
+func SortSliceStable() error {
 	// -----------------------------------------------
 	// スライスのソートについて
 	//
@@ -37,27 +37,12 @@ func SortSliceUnStable() error {
 
 	output.Stdoutl("before", sli1)
 
-	// sort.Slice は 非安定ソート
-	sort.Slice(sli1, func(i, j int) bool {
+	// sort.SliceStable は 安定ソート、つまり、同値の場合に元の順序がキープされる
+	sort.SliceStable(sli1, func(i, j int) bool {
 		return sli1[i] < sli1[j]
 	})
 
 	output.Stdoutl("after", sli1)
-
-	// sort.Slice にスライス以外を渡すと panic する
-	// 参照: https://blog.golang.org/defer-panic-and-recover
-	defer func() {
-		if r := recover(); r != nil {
-			output.Stdoutl("recover", r)
-		}
-	}()
-
-	s := "helloworld"
-	sort.Slice(s, func(i, j int) bool {
-		return s[i] < s[j]
-	})
-
-	output.Stdoutl("ここには来ない")
 
 	return nil
 }

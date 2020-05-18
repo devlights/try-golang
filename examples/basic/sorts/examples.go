@@ -16,4 +16,5 @@ func NewRegister() mappings.Register {
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["sort_interface"] = SortInterface
 	m["sort_slice_unstable"] = SortSliceUnStable
+	m["sort_slice_stable"] = SortSliceStable
 }
