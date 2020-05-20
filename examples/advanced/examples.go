@@ -6,6 +6,7 @@ import (
 	"github.com/devlights/try-golang/examples/advanced/crypto"
 	"github.com/devlights/try-golang/examples/advanced/errgrp"
 	"github.com/devlights/try-golang/examples/advanced/generate"
+	"github.com/devlights/try-golang/examples/advanced/gocmp"
 	"github.com/devlights/try-golang/examples/advanced/japanese"
 	"github.com/devlights/try-golang/examples/advanced/reflection"
 	"github.com/devlights/try-golang/examples/advanced/sets"
@@ -30,6 +31,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	crypto.NewRegister().Regist(m)
 	errgrp.NewRegister().Regist(m)
 	generate.NewRegister().Regist(m)
+	gocmp.NewRegister().Regist(m)
 	japanese.NewRegister().Regist(m)
 	reflection.NewRegister().Regist(m)
 	sets.NewRegister().Regist(m)
