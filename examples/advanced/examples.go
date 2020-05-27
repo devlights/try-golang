@@ -4,6 +4,7 @@ import (
 	"github.com/devlights/try-golang/examples/advanced/async"
 	"github.com/devlights/try-golang/examples/advanced/closure"
 	"github.com/devlights/try-golang/examples/advanced/crypto"
+	"github.com/devlights/try-golang/examples/advanced/deepcopy"
 	"github.com/devlights/try-golang/examples/advanced/errgrp"
 	"github.com/devlights/try-golang/examples/advanced/generate"
 	"github.com/devlights/try-golang/examples/advanced/gocmp"
@@ -29,6 +30,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	async.NewRegister().Regist(m)
 	closure.NewRegister().Regist(m)
 	crypto.NewRegister().Regist(m)
+	deepcopy.NewRegister().Regist(m)
 	errgrp.NewRegister().Regist(m)
 	generate.NewRegister().Regist(m)
 	gocmp.NewRegister().Regist(m)
