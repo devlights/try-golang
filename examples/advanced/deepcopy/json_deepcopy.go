@@ -1,21 +1,20 @@
 package deepcopy
 
 import (
-	"bytes"
-	"encoding/gob"
+	"encoding/json"
 	"fmt"
 
 	"github.com/devlights/gomy/output"
 )
 
-// GobDeepCopy -- encoding/gob を利用した deep-copy のサンプルです.
+// JsonDeepCopy -- encoding/json を利用した deep-copy のサンプルです.
 //
 // REFERENCES:
 //   - https://stackoverflow.com/questions/46790190/quicker-way-to-deepcopy-objects-in-golang
 //   - https://stackoverflow.com/questions/37618399/efficient-go-serialization-of-struct-to-disk/37620399#37620399
 //   - https://www.reddit.com/r/golang/comments/2vzmp7/deepcopy_of_a_slice_of_structs/
 //   - https://groups.google.com/forum/#!topic/golang-nuts/vK6P0dmQI84
-func GobDeepCopy() error {
+func JsonDeepCopy() error {
 	// --------------------------------------------------------------------------
 	// encoding/gob パッケージを利用した deep-copy
 	//
@@ -26,20 +25,15 @@ func GobDeepCopy() error {
 	//   - encoding/gob 使う
 	//   - encoding/json 使う
 	//
-	// 以下は encoding/gob を利用した方法
+	// 以下は encoding/json を利用した方法
 	// --------------------------------------------------------------------------
 	pa := func(v interface{}) string {
 		return fmt.Sprintf("%p", v)
 	}
 
 	clone := func(from, to interface{}) {
-		buf := new(bytes.Buffer)
-
-		enc := gob.NewEncoder(buf)
-		dec := gob.NewDecoder(buf)
-
-		_ = enc.Encode(from)
-		_ = dec.Decode(to)
+		b, _ := json.Marshal(from)
+		_ = json.Unmarshal(b, to)
 	}
 
 	// --------------------------------------------------------------------------

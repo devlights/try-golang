@@ -16,4 +16,5 @@ func NewRegister() mappings.Register {
 // Regist -- サンプルを登録します。
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["deepcopy_gob"] = GobDeepCopy
+	m["deepcopy_json"] = JsonDeepCopy
 }
