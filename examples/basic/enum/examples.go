@@ -16,4 +16,5 @@ func NewRegister() mappings.Register {
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["iota_basic"] = Basic
 	m["go_enums"] = GoEnums
+	m["go_iota"] = GoIota
 }
