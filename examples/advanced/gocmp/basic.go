@@ -9,15 +9,18 @@ import (
 )
 
 type (
+	// A -- サンプル用構造体
 	A struct {
 		PublicField string
 	}
 
+	// B -- サンプル用構造体
 	B struct {
 		A
 		privateField string
 	}
 
+	// C -- サンプル用構造体
 	C A
 )
 

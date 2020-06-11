@@ -7,6 +7,7 @@ import (
 )
 
 const (
+	// Poison -- Poison pill pattern
 	Poison = "die"
 )
 

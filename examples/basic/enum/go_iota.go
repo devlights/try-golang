@@ -74,8 +74,7 @@ func GoIota() error {
 		// 上で一行に2つの iota のパターンを利用しているため
 		// V5,
 
-		// iota をリセットするのであればオッケイ
-		V5 = iota
+		V5 = iota // iota をリセットするのであればオッケイ
 	)
 
 	output.Stdoutl("iota multiple2", V1, V2, V3, V4, V5)

@@ -12,10 +12,12 @@ type (
 	}
 )
 
+// NewMyString -- 新しい myString を生成して返します.
 func NewMyString() *myString {
 	return &myString{}
 }
 
+// Set -- データを設定します.
 func (s *myString) Set(val string) {
 	s.value = val
 }

@@ -12,10 +12,12 @@ type (
 	limitedByteSlice        []byte
 )
 
+// Append -- データを追加します.
 func (s valueReceiverIntSlice) Append(data ...int) []int {
 	return append(s, data...)
 }
 
+// Append -- データを追加します.
 func (s *pointerReceiverIntSlice) Append(data ...int) {
 	v := *s
 	v = append(v, data...)

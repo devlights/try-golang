@@ -6,6 +6,7 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
+// ConstInt -- サンプル用定数型
 type ConstInt int
 
 func (c ConstInt) String() string {

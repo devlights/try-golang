@@ -5,22 +5,25 @@
 package stack
 
 type (
+	// BoolStack -- スタック
 	BoolStack struct {
 		items []bool
 	}
 )
 
-//noinspection GoUnusedExportedFunction
+// NewBoolStack -- 新しいスタックを生成して返します.
 func NewBoolStack() *BoolStack {
 	v := new(BoolStack)
 	v.items = make([]bool, 0, 0)
 	return v
 }
 
+// Push -- データを投入します.
 func (s *BoolStack) Push(v bool) {
 	s.items = append(s.items, v)
 }
 
+// Pop -- データを取り出します.
 func (s *BoolStack) Pop() bool {
 	last := s.items[len(s.items)-1]
 	s.items = s.items[:len(s.items)-1]
@@ -28,298 +31,25 @@ func (s *BoolStack) Pop() bool {
 }
 
 type (
-	ByteStack struct {
-		items []byte
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewByteStack() *ByteStack {
-	v := new(ByteStack)
-	v.items = make([]byte, 0, 0)
-	return v
-}
-
-func (s *ByteStack) Push(v byte) {
-	s.items = append(s.items, v)
-}
-
-func (s *ByteStack) Pop() byte {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Complex128Stack struct {
-		items []complex128
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewComplex128Stack() *Complex128Stack {
-	v := new(Complex128Stack)
-	v.items = make([]complex128, 0, 0)
-	return v
-}
-
-func (s *Complex128Stack) Push(v complex128) {
-	s.items = append(s.items, v)
-}
-
-func (s *Complex128Stack) Pop() complex128 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Complex64Stack struct {
-		items []complex64
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewComplex64Stack() *Complex64Stack {
-	v := new(Complex64Stack)
-	v.items = make([]complex64, 0, 0)
-	return v
-}
-
-func (s *Complex64Stack) Push(v complex64) {
-	s.items = append(s.items, v)
-}
-
-func (s *Complex64Stack) Pop() complex64 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	ErrorStack struct {
-		items []error
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewErrorStack() *ErrorStack {
-	v := new(ErrorStack)
-	v.items = make([]error, 0, 0)
-	return v
-}
-
-func (s *ErrorStack) Push(v error) {
-	s.items = append(s.items, v)
-}
-
-func (s *ErrorStack) Pop() error {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Float32Stack struct {
-		items []float32
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewFloat32Stack() *Float32Stack {
-	v := new(Float32Stack)
-	v.items = make([]float32, 0, 0)
-	return v
-}
-
-func (s *Float32Stack) Push(v float32) {
-	s.items = append(s.items, v)
-}
-
-func (s *Float32Stack) Pop() float32 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Float64Stack struct {
-		items []float64
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewFloat64Stack() *Float64Stack {
-	v := new(Float64Stack)
-	v.items = make([]float64, 0, 0)
-	return v
-}
-
-func (s *Float64Stack) Push(v float64) {
-	s.items = append(s.items, v)
-}
-
-func (s *Float64Stack) Pop() float64 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	IntStack struct {
-		items []int
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewIntStack() *IntStack {
-	v := new(IntStack)
-	v.items = make([]int, 0, 0)
-	return v
-}
-
-func (s *IntStack) Push(v int) {
-	s.items = append(s.items, v)
-}
-
-func (s *IntStack) Pop() int {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Int16Stack struct {
-		items []int16
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewInt16Stack() *Int16Stack {
-	v := new(Int16Stack)
-	v.items = make([]int16, 0, 0)
-	return v
-}
-
-func (s *Int16Stack) Push(v int16) {
-	s.items = append(s.items, v)
-}
-
-func (s *Int16Stack) Pop() int16 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Int32Stack struct {
-		items []int32
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewInt32Stack() *Int32Stack {
-	v := new(Int32Stack)
-	v.items = make([]int32, 0, 0)
-	return v
-}
-
-func (s *Int32Stack) Push(v int32) {
-	s.items = append(s.items, v)
-}
-
-func (s *Int32Stack) Pop() int32 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Int64Stack struct {
-		items []int64
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewInt64Stack() *Int64Stack {
-	v := new(Int64Stack)
-	v.items = make([]int64, 0, 0)
-	return v
-}
-
-func (s *Int64Stack) Push(v int64) {
-	s.items = append(s.items, v)
-}
-
-func (s *Int64Stack) Pop() int64 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Int8Stack struct {
-		items []int8
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewInt8Stack() *Int8Stack {
-	v := new(Int8Stack)
-	v.items = make([]int8, 0, 0)
-	return v
-}
-
-func (s *Int8Stack) Push(v int8) {
-	s.items = append(s.items, v)
-}
-
-func (s *Int8Stack) Pop() int8 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	RuneStack struct {
-		items []rune
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewRuneStack() *RuneStack {
-	v := new(RuneStack)
-	v.items = make([]rune, 0, 0)
-	return v
-}
-
-func (s *RuneStack) Push(v rune) {
-	s.items = append(s.items, v)
-}
-
-func (s *RuneStack) Pop() rune {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
+	// StringStack -- スタック
 	StringStack struct {
 		items []string
 	}
 )
 
-//noinspection GoUnusedExportedFunction
+// NewStringStack -- 新しいスタックを生成して返します.
 func NewStringStack() *StringStack {
 	v := new(StringStack)
 	v.items = make([]string, 0, 0)
 	return v
 }
 
+// Push -- データを投入します.
 func (s *StringStack) Push(v string) {
 	s.items = append(s.items, v)
 }
 
+// Pop -- データを取り出します.
 func (s *StringStack) Pop() string {
 	last := s.items[len(s.items)-1]
 	s.items = s.items[:len(s.items)-1]
@@ -327,138 +57,26 @@ func (s *StringStack) Pop() string {
 }
 
 type (
-	UintStack struct {
-		items []uint
+	// IntStack -- スタック
+	IntStack struct {
+		items []int
 	}
 )
 
-//noinspection GoUnusedExportedFunction
-func NewUintStack() *UintStack {
-	v := new(UintStack)
-	v.items = make([]uint, 0, 0)
+// NewIntStack -- 新しいスタックを生成して返します.
+func NewIntStack() *IntStack {
+	v := new(IntStack)
+	v.items = make([]int, 0, 0)
 	return v
 }
 
-func (s *UintStack) Push(v uint) {
+// Push -- データを投入します.
+func (s *IntStack) Push(v int) {
 	s.items = append(s.items, v)
 }
 
-func (s *UintStack) Pop() uint {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Uint16Stack struct {
-		items []uint16
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewUint16Stack() *Uint16Stack {
-	v := new(Uint16Stack)
-	v.items = make([]uint16, 0, 0)
-	return v
-}
-
-func (s *Uint16Stack) Push(v uint16) {
-	s.items = append(s.items, v)
-}
-
-func (s *Uint16Stack) Pop() uint16 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Uint32Stack struct {
-		items []uint32
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewUint32Stack() *Uint32Stack {
-	v := new(Uint32Stack)
-	v.items = make([]uint32, 0, 0)
-	return v
-}
-
-func (s *Uint32Stack) Push(v uint32) {
-	s.items = append(s.items, v)
-}
-
-func (s *Uint32Stack) Pop() uint32 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Uint64Stack struct {
-		items []uint64
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewUint64Stack() *Uint64Stack {
-	v := new(Uint64Stack)
-	v.items = make([]uint64, 0, 0)
-	return v
-}
-
-func (s *Uint64Stack) Push(v uint64) {
-	s.items = append(s.items, v)
-}
-
-func (s *Uint64Stack) Pop() uint64 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	Uint8Stack struct {
-		items []uint8
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewUint8Stack() *Uint8Stack {
-	v := new(Uint8Stack)
-	v.items = make([]uint8, 0, 0)
-	return v
-}
-
-func (s *Uint8Stack) Push(v uint8) {
-	s.items = append(s.items, v)
-}
-
-func (s *Uint8Stack) Pop() uint8 {
-	last := s.items[len(s.items)-1]
-	s.items = s.items[:len(s.items)-1]
-	return last
-}
-
-type (
-	UintptrStack struct {
-		items []uintptr
-	}
-)
-
-//noinspection GoUnusedExportedFunction
-func NewUintptrStack() *UintptrStack {
-	v := new(UintptrStack)
-	v.items = make([]uintptr, 0, 0)
-	return v
-}
-
-func (s *UintptrStack) Push(v uintptr) {
-	s.items = append(s.items, v)
-}
-
-func (s *UintptrStack) Pop() uintptr {
+// Pop -- データを取り出します.
+func (s *IntStack) Pop() int {
 	last := s.items[len(s.items)-1]
 	s.items = s.items[:len(s.items)-1]
 	return last
