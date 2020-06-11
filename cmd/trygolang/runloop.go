@@ -11,16 +11,19 @@ import (
 )
 
 type (
+	// RunLoopCommand -- 実行をループ処理するコマンド
 	RunLoopCommand struct {
 		Args *RunLoopArgs
 	}
 
+	// RunLoopArgs -- RunLoopCommand の引数データを表します.
 	RunLoopArgs struct {
-		MainArgs *Args
-		Mapping  mappings.ExampleMapping
+		MainArgs *Args                   // 引数
+		Mapping  mappings.ExampleMapping // マッピング情報
 	}
 )
 
+// NewRunLoopArgs -- 新しい RunLoopArgs を生成して返します.
 func NewRunLoopArgs(mainArgs *Args, mapping mappings.ExampleMapping) *RunLoopArgs {
 	a := new(RunLoopArgs)
 	a.MainArgs = mainArgs
@@ -28,12 +31,14 @@ func NewRunLoopArgs(mainArgs *Args, mapping mappings.ExampleMapping) *RunLoopArg
 	return a
 }
 
+// NewRunLoopCommand -- 新しい RunLoopCommand を生成して返します.
 func NewRunLoopCommand(args *RunLoopArgs) *RunLoopCommand {
 	c := new(RunLoopCommand)
 	c.Args = args
 	return c
 }
 
+// Run -- 実行します.
 func (c *RunLoopCommand) Run() error {
 	var (
 		mainArgs = c.Args.MainArgs

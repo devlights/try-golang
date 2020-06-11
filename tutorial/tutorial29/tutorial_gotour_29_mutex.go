@@ -7,7 +7,9 @@ import (
 )
 
 type (
+	// Incrementer -- 何かを加算する振る舞いを持ちます.
 	Incrementer interface {
+		// Increment -- 加算します.
 		Increment(wg *sync.WaitGroup)
 	}
 )
@@ -17,10 +19,12 @@ type (
 		Val int
 	}
 
+	// NotSafeCounter -- 安全ではないカウンター
 	NotSafeCounter struct {
 		counter
 	}
 
+	// SafeCounter -- 安全なカウンター
 	SafeCounter struct {
 		counter
 		mux sync.Mutex
@@ -31,18 +35,21 @@ func (c *counter) String() string {
 	return fmt.Sprintf("Val: %d", c.Val)
 }
 
+// NewNotSafeCounter -- 安全ではないカウンターを返します.
 func NewNotSafeCounter() Incrementer {
 	return &NotSafeCounter{
 		counter{Val: 0},
 	}
 }
 
+// NewSafeCounter -- 安全なカウンターを返します.
 func NewSafeCounter() Incrementer {
 	return &SafeCounter{
 		counter: counter{Val: 0},
 	}
 }
 
+// Increment -- 加算します.
 func (c *NotSafeCounter) Increment(wg *sync.WaitGroup) {
 	defer wg.Done()
 
@@ -53,6 +60,7 @@ func (c *NotSafeCounter) Increment(wg *sync.WaitGroup) {
 	c.Val = cur
 }
 
+// Increment -- 加算します.
 func (c *SafeCounter) Increment(wg *sync.WaitGroup) {
 	defer wg.Done()
 

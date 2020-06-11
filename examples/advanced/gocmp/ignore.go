@@ -10,6 +10,7 @@ import (
 )
 
 type (
+	// D -- サンプル用構造体
 	D struct {
 		StrField     string    // パブリックな文字列フィールド
 		TimeField    time.Time // パブリックな日付フィールド

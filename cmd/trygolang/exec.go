@@ -8,16 +8,19 @@ import (
 )
 
 type (
+	// ExecCommand -- 処理実行を行うコマンド
 	ExecCommand struct {
-		Args *ExecArgs
+		Args *ExecArgs // 引数
 	}
 
+	// ExecArgs -- ExecCommand の 引数データ を表します.
 	ExecArgs struct {
-		Target  string
-		Mapping mappings.ExampleMapping
+		Target  string                  // 対象
+		Mapping mappings.ExampleMapping // マッピング情報
 	}
 )
 
+// NewExecArgs -- 新しい ExecArgs を生成して返します.
 func NewExecArgs(target string, mapping mappings.ExampleMapping) *ExecArgs {
 	a := new(ExecArgs)
 	a.Target = target
@@ -25,12 +28,14 @@ func NewExecArgs(target string, mapping mappings.ExampleMapping) *ExecArgs {
 	return a
 }
 
+// NewExecCommand -- 新しい ExecCommand を生成して返します.
 func NewExecCommand(args *ExecArgs) *ExecCommand {
 	c := new(ExecCommand)
 	c.Args = args
 	return c
 }
 
+// Run -- 実行します.
 func (c *ExecCommand) Run() error {
 	var (
 		target  = mappings.ExampleKey(c.Args.Target)

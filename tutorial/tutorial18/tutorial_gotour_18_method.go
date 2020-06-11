@@ -27,10 +27,12 @@ func (p *point) String() string {
 	return fmt.Sprintf("X:%v\tY:%v", p.x, p.y)
 }
 
+// Double -- 2 倍
 func (i *myInt) Double() myInt {
 	return (*i) * 2
 }
 
+// ToInt -- int に変換
 func (i *myInt) ToInt() int {
 	return int(*i)
 }

@@ -5,6 +5,7 @@ import (
 )
 
 type (
+	// IPAddr -- IPアドレスを表します.
 	IPAddr [4]byte
 )
 
