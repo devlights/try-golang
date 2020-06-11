@@ -19,6 +19,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/logging"
 	"github.com/devlights/try-golang/examples/basic/maps"
 	"github.com/devlights/try-golang/examples/basic/maths"
+	"github.com/devlights/try-golang/examples/basic/network"
 	"github.com/devlights/try-golang/examples/basic/runtimes"
 	"github.com/devlights/try-golang/examples/basic/scope"
 	"github.com/devlights/try-golang/examples/basic/slices"
@@ -67,6 +68,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	logging.NewRegister().Regist(m)
 	maps.NewRegister().Regist(m)
 	maths.NewRegister().Regist(m)
+	network.NewRegister().Regist(m)
 	runtimes.NewRegister().Regist(m)
 	scope.NewRegister().Regist(m)
 	slices.NewRegister().Regist(m)
