@@ -13,6 +13,7 @@ func NewRegister() mappings.Register {
 	return new(register)
 }
 
+// Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["fileio_open_read"] = OpenRead
 	m["fileio_open_write"] = OpenWrite

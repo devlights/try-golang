@@ -14,6 +14,7 @@ func NewRegister() mappings.Register {
 	return r
 }
 
+// Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["xdg_base_directory"] = XdgBaseDirectory
 	m["xdg_user_directory"] = XdgUserDirectory

@@ -13,6 +13,7 @@ func NewRegister() mappings.Register {
 	return new(register)
 }
 
+// Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["comment_basic_usage"] = Basic
 }

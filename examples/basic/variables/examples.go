@@ -18,6 +18,7 @@ func NewRegister() mappings.Register {
 	return new(register)
 }
 
+// Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["var_statement_declare"] = varstatement.Basic
 	m["package_scope_variable"] = packagescope.Basic

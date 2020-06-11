@@ -13,6 +13,7 @@ func NewRegister() mappings.Register {
 	return new(register)
 }
 
+// Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["function_one_return_value"] = FunctionOneReturnValue
 	m["function_multi_return_value"] = FunctionMultiReturnValue
