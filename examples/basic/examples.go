@@ -6,6 +6,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/builtins"
 	"github.com/devlights/try-golang/examples/basic/comments"
 	"github.com/devlights/try-golang/examples/basic/constants"
+	"github.com/devlights/try-golang/examples/basic/convert"
 	"github.com/devlights/try-golang/examples/basic/defers"
 	"github.com/devlights/try-golang/examples/basic/enum"
 	"github.com/devlights/try-golang/examples/basic/errs"
@@ -55,6 +56,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	builtins.NewRegister().Regist(m)
 	comments.NewRegister().Regist(m)
 	constants.NewRegister().Regist(m)
+	convert.NewRegister().Regist(m)
 	defers.NewRegister().Regist(m)
 	enum.NewRegister().Regist(m)
 	errs.NewRegister().Regist(m)
