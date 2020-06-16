@@ -19,4 +19,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["fileio_open_write"] = OpenWrite
 	m["fileio_stat_mkdir_removeall"] = StatMkdirRemoveAll
 	m["fileio_stat"] = Stat
+	m["fileio_null_writer"] = NullWriter
 }
