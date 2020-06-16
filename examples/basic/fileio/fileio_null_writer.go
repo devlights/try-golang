@@ -22,7 +22,7 @@ func NullWriter() error {
 	// ----------------------------------------------------------------
 	var (
 		urls = []string{
-			"https://www.alexa.com/topsites/",
+			"https://www.alexa.com/topsites/", // このサイトは大きいので取得に時間がかかる
 			"https://www.google.co.jp/",
 			"https://golang.org/",
 			"https://github.com/",
