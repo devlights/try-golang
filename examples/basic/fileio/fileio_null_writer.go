@@ -11,6 +11,10 @@ import (
 )
 
 // NullWriter -- ioutil.Discard のサンプルです.
+//
+// REFERENCES:
+//   - https://golang.org/pkg/io/ioutil/#pkg-variables
+//   - https://stackoverflow.com/a/25344458
 func NullWriter() error {
 	// ----------------------------------------------------------------
 	// ioutil.Discard は、io.Writer を実装しているけど何もしません。
