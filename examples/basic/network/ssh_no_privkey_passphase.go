@@ -3,6 +3,7 @@ package network
 import (
 	"errors"
 	"fmt"
+	"io"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -178,7 +179,7 @@ func sshWithPasswordWithInsecureHostKey() returnCode {
 
 	defer func() {
 		e := sess.Close()
-		if e != nil {
+		if e != nil && e != io.EOF {
 			output.Stderrl("[sess.Close]", e)
 		}
 	}()
@@ -243,7 +244,7 @@ func sshWithPasswordWithFixedHostKey() returnCode {
 
 	defer func() {
 		e := sess.Close()
-		if e != nil {
+		if e != nil && e != io.EOF {
 			output.Stderrl("[sess.Close]", e)
 		}
 	}()
@@ -324,7 +325,7 @@ func sshWithKeyFileWithInsecureHostKey() returnCode {
 
 	defer func() {
 		e := sess.Close()
-		if e != nil {
+		if e != nil && e != io.EOF {
 			output.Stderrl("[sess.Close]", e)
 		}
 	}()
@@ -414,7 +415,7 @@ func sshWithKeyFileWithFixedHostKey() returnCode {
 
 	defer func() {
 		e := sess.Close()
-		if e != nil {
+		if e != nil && e != io.EOF {
 			output.Stderrl("[sess.Close]", e)
 		}
 	}()
