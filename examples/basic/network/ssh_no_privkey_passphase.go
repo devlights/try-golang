@@ -52,6 +52,9 @@ var (
 //
 // - $HOST_KEY: リモートサーバの公開鍵 (ssh-keyscan -4 -t ecdsa remote-host の結果)
 //
+// REFERENCES:
+//   - https://stackoverflow.com/questions/60879023/getting-eof-as-error-in-golang-ssh-session-close
+//
 //noinspection GoErrorStringFormat
 func SSHNoPrivKeyPassPhase() error {
 	sshUser = os.ExpandEnv("$SSH_USER")
@@ -178,6 +181,11 @@ func sshWithPasswordWithInsecureHostKey() returnCode {
 	}
 
 	defer func() {
+		// see: https://stackoverflow.com/questions/60879023/getting-eof-as-error-in-golang-ssh-session-close
+		//
+		// sess.Run() は、コマンドを実行後にセッションをcloseしている.
+		// そのため、sess.Run() 後に sess.Close() を呼ぶと io.EOF が返却される.
+		// 既にセッションは sess.Run() で適切にクローズされているため、このエラーは無視しても良い
 		e := sess.Close()
 		if e != nil && e != io.EOF {
 			output.Stderrl("[sess.Close]", e)
@@ -243,6 +251,11 @@ func sshWithPasswordWithFixedHostKey() returnCode {
 	}
 
 	defer func() {
+		// see: https://stackoverflow.com/questions/60879023/getting-eof-as-error-in-golang-ssh-session-close
+		//
+		// sess.Run() は、コマンドを実行後にセッションをcloseしている.
+		// そのため、sess.Run() 後に sess.Close() を呼ぶと io.EOF が返却される.
+		// 既にセッションは sess.Run() で適切にクローズされているため、このエラーは無視しても良い
 		e := sess.Close()
 		if e != nil && e != io.EOF {
 			output.Stderrl("[sess.Close]", e)
@@ -324,6 +337,11 @@ func sshWithKeyFileWithInsecureHostKey() returnCode {
 	}
 
 	defer func() {
+		// see: https://stackoverflow.com/questions/60879023/getting-eof-as-error-in-golang-ssh-session-close
+		//
+		// sess.Run() は、コマンドを実行後にセッションをcloseしている.
+		// そのため、sess.Run() 後に sess.Close() を呼ぶと io.EOF が返却される.
+		// 既にセッションは sess.Run() で適切にクローズされているため、このエラーは無視しても良い
 		e := sess.Close()
 		if e != nil && e != io.EOF {
 			output.Stderrl("[sess.Close]", e)
@@ -414,6 +432,11 @@ func sshWithKeyFileWithFixedHostKey() returnCode {
 	}
 
 	defer func() {
+		// see: https://stackoverflow.com/questions/60879023/getting-eof-as-error-in-golang-ssh-session-close
+		//
+		// sess.Run() は、コマンドを実行後にセッションをcloseしている.
+		// そのため、sess.Run() 後に sess.Close() を呼ぶと io.EOF が返却される.
+		// 既にセッションは sess.Run() で適切にクローズされているため、このエラーは無視しても良い
 		e := sess.Close()
 		if e != nil && e != io.EOF {
 			output.Stderrl("[sess.Close]", e)
