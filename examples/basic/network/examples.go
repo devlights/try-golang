@@ -16,5 +16,6 @@ func NewRegister() mappings.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["ipaddress_parse"] = IpAddressParse
-	m["ssh_no_passphase"] = SSHNoPrivKeyPassPhase
+	m["ssh_no_privkey_passphrase"] = SSHNoPrivKeyPassPhrase
+	m["ssh_with_privkey_passphrase"] = SSHWithPrivKeyPassPhrase
 }

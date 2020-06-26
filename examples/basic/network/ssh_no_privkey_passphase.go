@@ -40,7 +40,7 @@ var (
 	hostKey string // リモートホストの公開鍵 (ssh-keyscan の 結果)(e.g: xxx.xxx.xxx.xxx ecdsa-sha2-nistp256 xxxxxxxxxxx)
 )
 
-// SSHNoPrivKeyPassPhase -- 秘密鍵のパスフレーズ無しのSSH接続サンプルです.
+// SSHNoPrivKeyPassPhrase -- 秘密鍵のパスフレーズ無しのSSH接続サンプルです.
 //
 // 本サンプルを実行するには、以下の環境変数が設定されている必要があります。
 //
@@ -56,7 +56,7 @@ var (
 //   - https://stackoverflow.com/questions/60879023/getting-eof-as-error-in-golang-ssh-session-close
 //
 //noinspection GoErrorStringFormat
-func SSHNoPrivKeyPassPhase() error {
+func SSHNoPrivKeyPassPhrase() error {
 	sshUser = os.ExpandEnv("$SSH_USER")
 	sshPass = os.ExpandEnv("$SSH_PASS")
 	sshHost = os.ExpandEnv("$SSH_HOST")
