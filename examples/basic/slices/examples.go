@@ -27,4 +27,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["slice_clear"] = Clear
 	m["slice_deep_equal"] = DeepEqual
 	m["slice_concat"] = Concat
+	m["slice_remove_all_elements"] = RemoveAllElements
 }
