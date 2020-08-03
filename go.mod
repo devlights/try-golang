@@ -6,7 +6,7 @@ require (
 	github.com/adrg/xdg v0.2.1
 	github.com/cheekybits/genny v1.0.0
 	github.com/deckarep/golang-set v1.7.1
-	github.com/devlights/gomy v0.2.1
+	github.com/devlights/gomy v0.2.7
 	github.com/getsentry/sentry-go v0.4.0
 	github.com/google/go-cmp v0.4.1
 	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9
