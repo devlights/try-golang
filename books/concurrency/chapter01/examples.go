@@ -17,4 +17,5 @@ func NewRegister() mappings.Register {
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["books_concurrency_ch01_racecondition"] = RaceCondition
 	m["books_concurrency_ch01_racecondition_fix_with_mutex"] = RaceConditionFixWithMutex
+	m["books_concurrency_ch01_racecondition_fix_with_channel"] = RaceConditionFixWithChannel
 }
