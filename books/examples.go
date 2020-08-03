@@ -1,6 +1,7 @@
 package books
 
 import (
+	"github.com/devlights/try-golang/books/concurrency"
 	"github.com/devlights/try-golang/mappings"
 )
 
@@ -17,4 +18,5 @@ func NewRegister() mappings.Register {
 // Regist は、books パッケージ配下に存在するサンプルを登録します.
 //noinspection GoUnusedParameter
 func (r *booksExampleRegister) Regist(m mappings.ExampleMapping) {
+	concurrency.NewRegister().Regist(m)
 }
