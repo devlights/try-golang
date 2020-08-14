@@ -42,21 +42,23 @@ func UsingNopCloser() error {
 	// そのタイミングで Close はしてほしくない場合などで利用できる.
 	// ------------------------------------------------------------
 	var (
-		b = []byte("hello")
-		r = bytes.NewReader(b)
+		r         = bytes.NewReader([]byte("hello"))
+		reader    = &_readcloserimpl{reader: r}
+		nopcloser = ioutil.NopCloser(reader)
 	)
 
-	reader := &_readcloserimpl{reader: r}
-	nopcloser := ioutil.NopCloser(reader)
-
+	// NopCloser は、Close のみ何もしないインターフェースなので
+	// Readは問題なく実行できる
 	buf := make([]byte, 3)
 	_, _ = nopcloser.Read(buf)
 	output.Stdoutl("[nopcloser.Read]", buf)
 
+	// Close を呼び出しても何も起きない
 	output.Stdoutl(">>", "before NopCloser.Close")
 	_ = nopcloser.Close()
 	output.Stdoutl(">>", "after  NopCloser.Close")
 
+	// 実際の io.Closer の Close を呼び出し
 	_ = reader.Close()
 
 	return nil
