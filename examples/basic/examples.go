@@ -17,6 +17,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/helloworld"
 	"github.com/devlights/try-golang/examples/basic/ifs"
 	"github.com/devlights/try-golang/examples/basic/imports"
+	"github.com/devlights/try-golang/examples/basic/iointerfaces"
 	"github.com/devlights/try-golang/examples/basic/literals"
 	"github.com/devlights/try-golang/examples/basic/logging"
 	"github.com/devlights/try-golang/examples/basic/maps"
@@ -68,6 +69,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	helloworld.NewRegister().Regist(m)
 	ifs.NewRegister().Regist(m)
 	imports.NewRegister().Regist(m)
+	iointerfaces.NewRegister().Regist(m)
 	literals.NewRegister().Regist(m)
 	logging.NewRegister().Regist(m)
 	maps.NewRegister().Regist(m)
