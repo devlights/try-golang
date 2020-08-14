@@ -18,4 +18,5 @@ func NewRegister() mappings.Register {
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["binary_byteorder"] = ByteOrder
 	m["binary_readwrite"] = readwrite.ReadWrite
+	m["binary_using_hex_dumper"] = UsingHexDumper
 }
