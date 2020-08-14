@@ -1,0 +1,8 @@
+# サンプルリスト
+
+このディレクトリには以下のサンプルがあります。
+
+|file|example name|note|
+|----|------------|----|
+|package\_scope\_variable.go|package\_scope\_variable|パッケージ スコープな変数のサンプル|
+
