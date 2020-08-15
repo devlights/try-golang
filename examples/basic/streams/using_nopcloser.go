@@ -1,4 +1,4 @@
-package iointerfaces
+package streams
 
 import (
 	"bytes"

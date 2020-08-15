@@ -1,4 +1,4 @@
 /*
-Package iointerfaces -- ioパッケージ配下やそれに関わるインターフェースについてのサンプルが配置されています.
+Package streams -- ストリーム関連のインターフェースについてのサンプルが配置されています.
 */
-package iointerfaces
+package streams
