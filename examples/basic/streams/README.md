@@ -4,6 +4,6 @@
 
 |file|example name|note|
 |----|------------|----|
-|using\_nopcloser.go|iointerfaces\_nopcloser|ioutil.NopCloser についてのサンプルです.|
+|using\_nopcloser.go|streams\_nopcloser|ioutil.NopCloser についてのサンプルです.|
 
 
