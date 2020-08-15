@@ -16,4 +16,7 @@ func NewRegister() mappings.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["scope_basic"] = Basic
+	m["scope_common_mistake1"] = CommonMistake1
+	m["scope_common_mistake2"] = CommonMistake2
+	m["scope_common_mistake3"] = CommonMistake3
 }
