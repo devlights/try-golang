@@ -1,6 +1,7 @@
 package variables
 
 import (
+	"github.com/devlights/try-golang/examples/basic/variables/function_returns_address_of_local_variable"
 	"github.com/devlights/try-golang/examples/basic/variables/loopiterator"
 	"github.com/devlights/try-golang/examples/basic/variables/packagescope"
 	"github.com/devlights/try-golang/examples/basic/variables/shadowing"
@@ -25,5 +26,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["short_assignment_statement"] = shortassignment.Basic
 	m["shadowing_variable"] = shadowing.Basic
 	m["using_ref_to_loop_iterator_variable"] = loopiterator.CommonMistakePattern
-	m["passing_loop_variable_to_goroutine_by_pointer"] = loopiterator.PassingLoopVariableToGoroutineByPointer
+	m["function_returns_address_of_local_variable"] = function_returns_address_of_local_variable.FunctionReturnsAddressOfLocalVariable
 }
