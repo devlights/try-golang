@@ -67,7 +67,7 @@ func Basic() error {
 
 	// 特定のビットを立てる
 	x |= (1 << 5)
-	output.Stdoutf("[x != (1 << 5)]", "%08b\n", x)
+	output.Stdoutf("[x |= (1 << 5)]", "%08b\n", x)
 
 	output.StdoutHr()
 
