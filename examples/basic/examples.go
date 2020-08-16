@@ -3,6 +3,7 @@ package basic
 import (
 	"github.com/devlights/try-golang/examples/basic/array"
 	"github.com/devlights/try-golang/examples/basic/binaries"
+	"github.com/devlights/try-golang/examples/basic/bitop"
 	"github.com/devlights/try-golang/examples/basic/builtins"
 	"github.com/devlights/try-golang/examples/basic/byteop"
 	"github.com/devlights/try-golang/examples/basic/comments"
@@ -56,6 +57,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 
 	array.NewRegister().Regist(m)
 	binaries.NewRegister().Regist(m)
+	bitop.NewRegister().Regist(m)
 	builtins.NewRegister().Regist(m)
 	byteop.NewRegister().Regist(m)
 	comments.NewRegister().Regist(m)
