@@ -55,6 +55,7 @@ func Basic() error {
 	output.StdoutHr()
 
 	// 特定のビットが立っているか検査
+	//goland:noinspection GoBoolExpressions
 	if x&(1<<5) != 0 {
 		output.Stdoutl("[x&(1<<5)]", "ON")
 	}
@@ -62,20 +63,20 @@ func Basic() error {
 	output.StdoutHr()
 
 	// 特定のビットを落とす
-	x &^= (1 << 5)
-	output.Stdoutf("[x &^= (1 << 5)]", "%08b\n", x)
+	x &^= 1 << 5
+	output.Stdoutf("[x &^= 1 << 5]", "%08b\n", x)
 
 	// 特定のビットを立てる
-	x |= (1 << 5)
-	output.Stdoutf("[x |= (1 << 5)]", "%08b\n", x)
+	x |= 1 << 5
+	output.Stdoutf("[x |= 1 << 5]", "%08b\n", x)
 
 	output.StdoutHr()
 
 	// 特定のビットをトグル
-	x ^= (1 << 7)
-	output.Stdoutf("[x ^= (1 << 7)]", "%08b\n", x)
-	x ^= (1 << 7)
-	output.Stdoutf("[x ^= (1 << 7)]", "%08b\n", x)
+	x ^= 1 << 7
+	output.Stdoutf("[x ^= 1 << 7]", "%08b\n", x)
+	x ^= 1 << 7
+	output.Stdoutf("[x ^= 1 << 7]", "%08b\n", x)
 
 	output.StdoutHr()
 
