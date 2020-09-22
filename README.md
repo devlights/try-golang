@@ -1,7 +1,7 @@
 # try-golang
 This is my TUTORIAL project for golang
 
-![try-golang - Go Version](https://img.shields.io/badge/go-1.14-blue.svg)
+![try-golang - Go Version](https://img.shields.io/badge/go-1.15-blue.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-golang/badge/master)](https://www.codefactor.io/repository/github/devlights/try-golang/overview/master)
 [![Go Report Card](https://goreportcard.com/badge/github.com/devlights/try-golang)](https://goreportcard.com/report/github.com/devlights/try-golang)
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
@@ -12,17 +12,7 @@ This is my TUTORIAL project for golang
 
 ```shell script
 $ go version
-go version go1.14 linux/amd64
-```
-
-```shell script
-$ go version
-go version go1.14 darwin/amd64
-```
-
-```shell script
-$ go version
-go version go1.14 windows/amd64
+go version go1.15 linux/arm64
 ```
 
 ## IDE
