@@ -1,4 +1,4 @@
-package testings
+package testlog
 
 import (
 	"fmt"
