@@ -1,0 +1,7 @@
+# サンプルリスト
+
+このディレクトリには以下のサンプルがあります。
+
+|file|example name|note|
+|----|------------|----|
+|bcrypt\_password\_hash.go|crypto_bcrypt_password_hash|bcrypt パッケージを利用してパスワードのハッシュ化をしてみるサンプルです|
