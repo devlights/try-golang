@@ -15,8 +15,11 @@ $ go version
 go version go1.15 linux/arm64
 ```
 
-## IDE
+## The editor I use
 
+- Vim
+- Gitpod
+- VSCode
 - JetBrains GoLand
 
 ## Run
