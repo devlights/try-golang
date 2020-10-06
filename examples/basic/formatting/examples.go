@@ -15,5 +15,6 @@ func NewRegister() mappings.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
+	m["formatting_adverb_asterisk"] = AdverbAsterisk
 	m["formatting_adverb_explicit_argument_indexes"] = AdverbExplicitArgumentIndexes
 }
