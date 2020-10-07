@@ -18,4 +18,4 @@
 |slice\_concat.go|slice\_concat|２つのスライスの結合に関するサンプルです.|
 |slice\_remove\_all\_elements.go|slice\_remove\_all\_elements|スライスの全要素を削除するサンプルです.|
 |slice\_keep\_allocated\_memory.go|slice\_keep\_allocated\_memory|スライスのメモリ状態をキープしたままで len を 0 にするサンプルです.|
-
+|slice\_nil\_append.go|slice\_nil\_append|Nilなスライスに対して append した場合の挙動についてのサンプル|

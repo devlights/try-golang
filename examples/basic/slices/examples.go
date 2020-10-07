@@ -29,4 +29,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["slice_concat"] = Concat
 	m["slice_remove_all_elements"] = RemoveAllElements
 	m["slice_keep_allocated_memory"] = KeepAllocatedMemory
+	m["slice_nil_append"] = NilAppend
 }
