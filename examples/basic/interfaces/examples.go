@@ -1,4 +1,4 @@
-package ifs
+package interfaces
 
 import (
 	"github.com/devlights/try-golang/mappings"
@@ -19,4 +19,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["interface_composition"] = Composition
 	m["interface_ducktyping"] = DuckTyping
 	m["interface_verify_compliance"] = VerifyInterfaceCompliance
+	m["interface_nil_notnil"] = NilOrNotNil
 }

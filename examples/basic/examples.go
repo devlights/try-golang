@@ -17,7 +17,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/formatting"
 	"github.com/devlights/try-golang/examples/basic/functions"
 	"github.com/devlights/try-golang/examples/basic/helloworld"
-	"github.com/devlights/try-golang/examples/basic/ifs"
+	"github.com/devlights/try-golang/examples/basic/interfaces"
 	"github.com/devlights/try-golang/examples/basic/imports"
 	"github.com/devlights/try-golang/examples/basic/internalpkg"
 	"github.com/devlights/try-golang/examples/basic/literals"
@@ -72,7 +72,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	formatting.NewRegister().Regist(m)
 	functions.NewRegister().Regist(m)
 	helloworld.NewRegister().Regist(m)
-	ifs.NewRegister().Regist(m)
+	interfaces.NewRegister().Regist(m)
 	imports.NewRegister().Regist(m)
 	internalpkg.NewRegister().Regist(m)
 	streams.NewRegister().Regist(m)
