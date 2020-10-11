@@ -1,4 +1,4 @@
-package ifs
+package interfaces
 
 import (
 	"github.com/devlights/try-golang/mappings"
