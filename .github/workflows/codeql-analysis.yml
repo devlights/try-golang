@@ -63,9 +63,11 @@ jobs:
     #    and modify them (or add more) to build your code if your project
     #    uses a compiled language
 
-    - run: |
-        go get -v -d ./...
-        make build
+    - name: Get dependencies
+      run: go get -v -t -d ./...
+
+    - name: Build
+      run: cd cmd/trygolang && go build
 
     - name: Perform CodeQL Analysis
       uses: github/codeql-action/analyze@v1
