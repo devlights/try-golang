@@ -12,4 +12,5 @@
 |struct\_empty\_struct.go|struct\_empty\_struct|空の構造体についサンプルです.|
 |struct\_deepequal.go|struct\_deep\_equal|構造体に対して reflect.DeepEqual() した場合のサンプルです.|
 |struct\_blank\_identifier.go|struct\_blank\_identifier|構造体定義時に blank identifier を意図的に用意して初期化時にフィールド名の指定を必須にするやり方のサンプルです.|
+|struct\_same\_method|struct\_same\_method\_on\_each\_type.go|レシーバの型が異なる同名メソッド定義のサンプルです|
 
