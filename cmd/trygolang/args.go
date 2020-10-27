@@ -10,6 +10,8 @@ type Args struct {
 	ShowNames bool
 	// 実行するサンプル名
 	ExampleName string
+	// VSCodeで実行されているかどうか
+	RunWithVsCode bool
 }
 
 // NewArgs は、Argsのコンストラクタ関数です
@@ -22,6 +24,7 @@ func (a *Args) Parse() {
 	flag.BoolVar(&a.OneTime, "onetime", false, "run only one time")
 	flag.BoolVar(&a.ShowNames, "list", false, "show all example names")
 	flag.StringVar(&a.ExampleName, "example", "", "name of example")
+	flag.BoolVar(&a.RunWithVsCode, "vscode", false, "run with vscode")
 
 	flag.Parse()
 }
