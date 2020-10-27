@@ -10,7 +10,7 @@
             "program": "${workspaceFolder}/trygolang",
             "env": {},
             "args": ["-onetime", "-vscode"],
-            "preLaunchTask": "${defaultBuildTask}"
+            "preLaunchTask": "Build"
         }
     ]
 }
