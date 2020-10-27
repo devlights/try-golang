@@ -22,8 +22,11 @@ func main() {
 
 	if args.RunWithVsCode {
 		if _, err := os.Stat(".target"); os.IsNotExist(err) {
+			log.Println("--------------------------------------------------------")
 			log.Println("VSCode 経由で実行する場合は .target ファイルが必要です")
 			log.Println("(.target ファイルの中に実行したいサンプル名を入れてください)")
+			log.Println("例: $ echo 'helloworld' > .target ")
+			log.Println("--------------------------------------------------------")
 			log.Fatal("終了します...")
 		}
 
