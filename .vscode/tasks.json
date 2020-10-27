@@ -5,15 +5,51 @@
             "label": "Build",
             "type": "shell",
             "command": "go build github.com/devlights/try-golang/cmd/trygolang",
+            "dependsOn": [
+                "Clean"
+            ],
             "group": {
                 "kind": "build",
                 "isDefault": true
-            }
+            },
+            "problemMatcher": [
+                "$go"
+            ]
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "${workspaceFolder}/trygolang -onetime",
+            "windows": {
+                "command": "${workspaceFolder}\\trygolang.exe -onetime"
+            },
+            "dependsOn": [
+                "Build"
+            ],
+            "problemMatcher": [
+            ]
         },
         {
             "label": "Clean",
             "type": "shell",
-            "command": "rm ${workspaceFolder}/trygolang"
+            "command": "rm -f ${workspaceFolder}/trygolang",
+            "windows": {
+                "command": "del ${workspaceFolder}\\trygolang.exe"
+            },
+            "problemMatcher": [
+            ]
+        },
+        {
+            "label": "Test",
+            "type": "shell",
+            "command": "go test ./...",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$go"
+            ]
         }
     ]
 }
