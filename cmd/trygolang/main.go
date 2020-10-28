@@ -12,27 +12,36 @@ import (
 )
 
 func main() {
+	const (
+		logFlags = 0
+	)
+
 	var (
 		args    *Args
 		mapping mappings.ExampleMapping
+		appLog  *log.Logger
+		errLog  *log.Logger
 	)
+
+	appLog = log.New(os.Stdout, "", logFlags)
+	errLog = log.New(os.Stderr, "[Error] ", logFlags)
 
 	args = NewArgs()
 	args.Parse()
 
 	if args.RunWithVsCode {
 		if _, err := os.Stat(".target"); os.IsNotExist(err) {
-			log.Println("--------------------------------------------------------")
-			log.Println("VSCode 経由で実行する場合は .target ファイルが必要です")
-			log.Println("(.target ファイルの中に実行したいサンプル名を入れてください)")
-			log.Println("例: $ echo 'helloworld' > .target ")
-			log.Println("--------------------------------------------------------")
-			log.Fatal("終了します...")
+			appLog.Println("--------------------------------------------------------")
+			appLog.Println("VSCode 経由で実行する場合は .target ファイルが必要です")
+			appLog.Println("(.target ファイルの中に実行したいサンプル名を入れてください)")
+			appLog.Println("例: $ echo 'helloworld' > .target ")
+			appLog.Println("--------------------------------------------------------")
+			appLog.Fatal("終了します...")
 		}
 
 		b, err := ioutil.ReadFile(".target")
 		if err != nil {
-			log.Fatalf("Cannot read .target file")
+			errLog.Fatalf("Cannot read .target file")
 		}
 
 		args.ExampleName = strings.TrimRight(string(b), "\n")
@@ -41,7 +50,11 @@ func main() {
 	mapping = builder.BuildMappings()
 
 	if args.ShowNames {
-		printAllExampleNames(mapping)
+		appLog.Println("[Examples]")
+		for _, v := range mapping.AllExampleNames() {
+			appLog.Printf("\t%s", v)
+		}
+
 		os.Exit(0)
 	}
 
@@ -55,7 +68,7 @@ func main() {
 	}
 
 	if err := cmd.Run(); err != nil {
-		log.Fatal(err)
+		errLog.Fatal(err)
 	}
 
 	os.Exit(0)
