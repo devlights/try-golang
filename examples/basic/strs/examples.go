@@ -18,4 +18,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["string_rune_rawstring"] = StringRuneRawString
 	m["string_to_runeslice"] = StringToRuneSlice
 	m["string_rune_byte_convert"] = StringRuneByteConvert
+	m["string_chop_newline"] = ChopNewLine
 }
