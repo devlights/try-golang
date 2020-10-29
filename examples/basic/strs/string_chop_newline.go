@@ -20,7 +20,6 @@ func ChopNewLine() error {
 
 	// 末尾の改行を削除
 	chopLF := chop(withLF)
-
 	output.Stdoutl("[has newline? (chopped)(LF)      ]", strings.HasSuffix(chopLF, "\n"))
 	output.Stdoutl("[equal? (chopped==withoutNewLine)]", chopLF == withoutNewLine)
 
