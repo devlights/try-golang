@@ -44,7 +44,7 @@ func main() {
 			errLog.Fatalf("Cannot read .target file")
 		}
 
-		args.ExampleName = strings.TrimRight(string(b), "\n")
+		args.ExampleName = chop(string(b))
 	}
 
 	mapping = builder.BuildMappings()
@@ -72,4 +72,13 @@ func main() {
 	}
 
 	os.Exit(0)
+}
+
+func chop(s string) string {
+	s = strings.TrimRight(s, "\n")
+	if strings.HasSuffix(s, "\r") {
+		s = strings.TrimRight(s, "\r")
+	}
+
+	return s
 }
