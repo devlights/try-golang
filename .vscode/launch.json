@@ -7,6 +7,9 @@
             "request": "launch",
             "mode": "exec",
             "program": "${workspaceFolder}/trygolang",
+            "windows": {
+                "program": "${workspaceFolder}\\trygolang.exe"
+            },
             "env": {},
             "args": ["-onetime", "-vscode"],
             "preLaunchTask": "Build"

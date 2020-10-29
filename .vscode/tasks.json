@@ -34,7 +34,7 @@
             "type": "shell",
             "command": "rm -f ${workspaceFolder}/trygolang",
             "windows": {
-                "command": "del ${workspaceFolder}\\trygolang.exe"
+                "command": "if (Test-Path ${workspaceFolder}\\trygolang.exe) { Remove-Item -Force -Path ${workspaceFolder}\\trygolang.exe }"
             },
             "problemMatcher": [
             ]
