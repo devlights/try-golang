@@ -7,6 +7,8 @@ import (
 	"os"
 	"strings"
 
+	"github.com/devlights/gomy/logops"
+	"github.com/devlights/gomy/strops"
 	"github.com/devlights/try-golang/builder"
 	"github.com/devlights/try-golang/mappings"
 )
@@ -19,12 +21,11 @@ func main() {
 	var (
 		args    *Args
 		mapping mappings.ExampleMapping
-		appLog  *log.Logger
-		errLog  *log.Logger
 	)
 
-	appLog = log.New(os.Stdout, "", logFlags)
-	errLog = log.New(os.Stderr, "[Error] ", logFlags)
+	appLog, errLog, _ := logops.Default.Logger(true, func(_, e, _ *log.Logger) {
+		e.SetPrefix("[Error] ")
+	})
 
 	args = NewArgs()
 	args.Parse()
@@ -44,7 +45,7 @@ func main() {
 			errLog.Fatalf("Cannot read .target file")
 		}
 
-		args.ExampleName = chop(string(b))
+		args.ExampleName = strops.Chop(string(b))
 	}
 
 	mapping = builder.BuildMappings()
