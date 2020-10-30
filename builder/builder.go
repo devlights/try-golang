@@ -1,7 +1,6 @@
 package builder
 
 import (
-	"github.com/devlights/try-golang/books"
 	"github.com/devlights/try-golang/effectivego"
 	"github.com/devlights/try-golang/examples/advanced"
 	"github.com/devlights/try-golang/examples/basic"
@@ -16,7 +15,6 @@ func BuildMappings() mappings.ExampleMapping {
 	m.MakeMapping(
 		advanced.NewRegister(),
 		basic.NewRegister(),
-		books.NewRegister(),
 		effectivego.NewRegister(),
 		tutorial.NewRegister(),
 	)
