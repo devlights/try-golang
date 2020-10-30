@@ -31,7 +31,7 @@ func RaceCondition() error {
 	if data == 0 {
 		output.Stdoutl("[result]", "data is zero")
 	} else {
-		output.Stdoutl("[reslt]", "data is non-zero")
+		output.Stdoutl("[reslt]", "data is non-zero", data)
 	}
 
 	return nil
