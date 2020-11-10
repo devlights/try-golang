@@ -9,4 +9,5 @@
 |time\_unix\_to\_time.go|time\_unix\_to\_time|time.Unix(sec, nsec) のサンプルです.|
 |time\_now.go|time\_now|time.Now() のサンプルです.|
 |time\_parse.go|time\_parse|time.Parse() のサンプルです.|
+|time\_tick\_and\_ticker.go|time\_tick\_and\_ticker|time.Tick と time.NewTicker の利用シーンの違いについてのサンプルです|
 
