@@ -2,8 +2,8 @@ package internalpkg
 
 import (
 	"github.com/devlights/gomy/output"
-	"github.com/devlights/try-golang/examples/basic/internalpkg/a/b"
-	"github.com/devlights/try-golang/examples/basic/internalpkg/internal/sub1"
+	"github.com/devlights/try-golang/internal/examples/basic/internalpkg/a/b"
+	"github.com/devlights/try-golang/internal/examples/basic/internalpkg/internal/sub1"
 	// Compile Error: use of internal package github.com/devlights/try-golang/examples/basic/internalpkg/internal/internal/sub2 not allowed
 	// "github.com/devlights/try-golang/examples/basic/internalpkg/internal/internal/sub2"
 )

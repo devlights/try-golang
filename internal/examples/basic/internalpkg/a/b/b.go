@@ -3,7 +3,7 @@ package b
 import (
 	"strings"
 
-	"github.com/devlights/try-golang/examples/basic/internalpkg/internal/sub1"
+	"github.com/devlights/try-golang/internal/examples/basic/internalpkg/internal/sub1"
 )
 
 // B -- サンプルから呼び出される関数

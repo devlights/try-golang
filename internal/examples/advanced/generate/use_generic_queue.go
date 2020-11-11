@@ -2,7 +2,7 @@ package generate
 
 import (
 	"github.com/devlights/gomy/output"
-	"github.com/devlights/try-golang/examples/advanced/generate/queue"
+	"github.com/devlights/try-golang/internal/examples/advanced/generate/queue"
 )
 
 // UseGenericQueue -- genny で自動生成されたキューを利用するサンプルです。

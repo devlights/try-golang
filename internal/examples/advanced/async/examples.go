@@ -1,10 +1,10 @@
 package async
 
 import (
-	"github.com/devlights/try-golang/examples/advanced/async/concat"
-	"github.com/devlights/try-golang/examples/advanced/async/fanin"
-	"github.com/devlights/try-golang/examples/advanced/async/ordone"
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/internal/examples/advanced/async/concat"
+	"github.com/devlights/try-golang/internal/examples/advanced/async/fanin"
+	"github.com/devlights/try-golang/internal/examples/advanced/async/ordone"
+	"github.com/devlights/try-golang/pkg/mappings"
 )
 
 type (

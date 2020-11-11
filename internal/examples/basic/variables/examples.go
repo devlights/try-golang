@@ -1,13 +1,13 @@
 package variables
 
 import (
-	"github.com/devlights/try-golang/examples/basic/variables/function_returns_address_of_local_variable"
-	"github.com/devlights/try-golang/examples/basic/variables/loopiterator"
-	"github.com/devlights/try-golang/examples/basic/variables/packagescope"
-	"github.com/devlights/try-golang/examples/basic/variables/shadowing"
-	"github.com/devlights/try-golang/examples/basic/variables/shortassignment"
-	"github.com/devlights/try-golang/examples/basic/variables/varstatement"
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/internal/examples/basic/variables/function_returns_address_of_local_variable"
+	"github.com/devlights/try-golang/internal/examples/basic/variables/loopiterator"
+	"github.com/devlights/try-golang/internal/examples/basic/variables/packagescope"
+	"github.com/devlights/try-golang/internal/examples/basic/variables/shadowing"
+	"github.com/devlights/try-golang/internal/examples/basic/variables/shortassignment"
+	"github.com/devlights/try-golang/internal/examples/basic/variables/varstatement"
+	"github.com/devlights/try-golang/pkg/mappings"
 )
 
 type (

@@ -1,10 +1,10 @@
 package errgrp
 
 import (
-	"github.com/devlights/try-golang/examples/advanced/errgrp/cmpwaitgroup"
-	"github.com/devlights/try-golang/examples/advanced/errgrp/pipeline"
-	"github.com/devlights/try-golang/examples/advanced/errgrp/withcontext"
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/internal/examples/advanced/errgrp/cmpwaitgroup"
+	"github.com/devlights/try-golang/internal/examples/advanced/errgrp/pipeline"
+	"github.com/devlights/try-golang/internal/examples/advanced/errgrp/withcontext"
+	"github.com/devlights/try-golang/pkg/mappings"
 )
 
 type (

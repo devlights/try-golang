@@ -3,7 +3,7 @@ package scope
 import (
 	"fmt"
 
-	"github.com/devlights/try-golang/examples/basic/scope/mypkg"
+	"github.com/devlights/try-golang/internal/examples/basic/scope/mypkg"
 )
 
 // Basic は、スコープについての基本的な事項についてのサンプルです.

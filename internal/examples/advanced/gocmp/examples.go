@@ -1,7 +1,7 @@
 package gocmp
 
 import (
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/pkg/mappings"
 )
 
 type (

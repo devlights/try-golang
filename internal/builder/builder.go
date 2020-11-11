@@ -1,11 +1,11 @@
 package builder
 
 import (
-	"github.com/devlights/try-golang/effectivego"
-	"github.com/devlights/try-golang/examples/advanced"
-	"github.com/devlights/try-golang/examples/basic"
-	"github.com/devlights/try-golang/mappings"
-	"github.com/devlights/try-golang/tutorial"
+	"github.com/devlights/try-golang/internal/effectivego"
+	"github.com/devlights/try-golang/internal/examples/advanced"
+	"github.com/devlights/try-golang/internal/examples/basic"
+	"github.com/devlights/try-golang/pkg/mappings"
+	"github.com/devlights/try-golang/internal/tutorial"
 )
 
 // BuildMappings は、サンプル実行のためのマッピング情報を構築します.

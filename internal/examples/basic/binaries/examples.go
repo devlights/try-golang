@@ -1,8 +1,8 @@
 package binaries
 
 import (
-	"github.com/devlights/try-golang/examples/basic/binaries/readwrite"
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/internal/examples/basic/binaries/readwrite"
+	"github.com/devlights/try-golang/pkg/mappings"
 )
 
 type (

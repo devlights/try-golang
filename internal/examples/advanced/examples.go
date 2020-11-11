@@ -1,18 +1,18 @@
 package advanced
 
 import (
-	"github.com/devlights/try-golang/examples/advanced/async"
-	"github.com/devlights/try-golang/examples/advanced/closure"
-	"github.com/devlights/try-golang/examples/advanced/crypto"
-	"github.com/devlights/try-golang/examples/advanced/deepcopy"
-	"github.com/devlights/try-golang/examples/advanced/errgrp"
-	"github.com/devlights/try-golang/examples/advanced/generate"
-	"github.com/devlights/try-golang/examples/advanced/gocmp"
-	"github.com/devlights/try-golang/examples/advanced/japanese"
-	"github.com/devlights/try-golang/examples/advanced/reflection"
-	"github.com/devlights/try-golang/examples/advanced/sets"
-	"github.com/devlights/try-golang/examples/advanced/xdgspec"
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/internal/examples/advanced/async"
+	"github.com/devlights/try-golang/internal/examples/advanced/closure"
+	"github.com/devlights/try-golang/internal/examples/advanced/crypto"
+	"github.com/devlights/try-golang/internal/examples/advanced/deepcopy"
+	"github.com/devlights/try-golang/internal/examples/advanced/errgrp"
+	"github.com/devlights/try-golang/internal/examples/advanced/generate"
+	"github.com/devlights/try-golang/internal/examples/advanced/gocmp"
+	"github.com/devlights/try-golang/internal/examples/advanced/japanese"
+	"github.com/devlights/try-golang/internal/examples/advanced/reflection"
+	"github.com/devlights/try-golang/internal/examples/advanced/sets"
+	"github.com/devlights/try-golang/internal/examples/advanced/xdgspec"
+	"github.com/devlights/try-golang/pkg/mappings"
 )
 
 type (
