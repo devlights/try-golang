@@ -3,7 +3,7 @@ package sets
 import (
 	"fmt"
 
-	"github.com/deckarep/golang-set"
+	mapset "github.com/deckarep/golang-set"
 )
 
 // Set01 - mapset.NewSet() の サンプル

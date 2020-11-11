@@ -1,7 +1,6 @@
 package tutorial
 
 import (
-	"github.com/devlights/try-golang/pkg/mappings"
 	"github.com/devlights/try-golang/internal/tutorial/tutorial01"
 	"github.com/devlights/try-golang/internal/tutorial/tutorial02"
 	"github.com/devlights/try-golang/internal/tutorial/tutorial03"
@@ -31,6 +30,7 @@ import (
 	"github.com/devlights/try-golang/internal/tutorial/tutorial27"
 	"github.com/devlights/try-golang/internal/tutorial/tutorial28"
 	"github.com/devlights/try-golang/internal/tutorial/tutorial29"
+	"github.com/devlights/try-golang/pkg/mappings"
 )
 
 type (

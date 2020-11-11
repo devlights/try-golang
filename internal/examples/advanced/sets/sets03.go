@@ -3,7 +3,7 @@ package sets
 import (
 	"fmt"
 
-	"github.com/deckarep/golang-set"
+	mapset "github.com/deckarep/golang-set"
 )
 
 // Set03 -- Set.Difference() の動作確認のサンプルです。

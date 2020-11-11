@@ -3,7 +3,7 @@ package sets
 import (
 	"fmt"
 
-	"github.com/deckarep/golang-set"
+	mapset "github.com/deckarep/golang-set"
 )
 
 // Set02 -- Set.Union() の 動作確認のサンプルです。
