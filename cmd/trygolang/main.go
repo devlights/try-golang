@@ -5,7 +5,6 @@ import (
 	"io/ioutil"
 	"log"
 	"os"
-	"strings"
 
 	"github.com/devlights/gomy/logops"
 	"github.com/devlights/gomy/strops"
@@ -73,13 +72,4 @@ func main() {
 	}
 
 	os.Exit(0)
-}
-
-func chop(s string) string {
-	s = strings.TrimRight(s, "\n")
-	if strings.HasSuffix(s, "\r") {
-		s = strings.TrimRight(s, "\r")
-	}
-
-	return s
 }
