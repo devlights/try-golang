@@ -1,0 +1,11 @@
+# サンプルリスト
+
+このディレクトリには以下のサンプルがあります。
+
+|file|example name|note|
+|----|------------|----|
+|nonstop.go|goroutines\_nonstop|ゴルーチンを待ち合わせ無しで走らせるサンプルです|
+|withdonechannel.go|goroutines\_with\_done\_channel|doneチャネルを用いて待ち合わせを行うサンプルです|
+|withwaitgroup.go|goroutines\_with\_waitgroup|sync.WaitGroupを用いて待ち合わせを行うパターンです|
+|withcontextcancel.go|goroutines\_with\_context\_cancel|context.Contextを用いて待ち合わせを行うサンプルです|
+|withcontexttimeout.go|goroutines\_with\_context\_timeout|context.Contextを用いてタイムアウト付きで待ち合わせを行うサンプルです|

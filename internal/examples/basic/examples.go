@@ -16,6 +16,7 @@ import (
 	"github.com/devlights/try-golang/internal/examples/basic/filepaths"
 	"github.com/devlights/try-golang/internal/examples/basic/formatting"
 	"github.com/devlights/try-golang/internal/examples/basic/functions"
+	"github.com/devlights/try-golang/internal/examples/basic/goroutines"
 	"github.com/devlights/try-golang/internal/examples/basic/helloworld"
 	"github.com/devlights/try-golang/internal/examples/basic/imports"
 	"github.com/devlights/try-golang/internal/examples/basic/interfaces"
@@ -71,6 +72,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	filepaths.NewRegister().Regist(m)
 	formatting.NewRegister().Regist(m)
 	functions.NewRegister().Regist(m)
+	goroutines.NewRegister().Regist(m)
 	helloworld.NewRegister().Regist(m)
 	interfaces.NewRegister().Regist(m)
 	imports.NewRegister().Regist(m)
