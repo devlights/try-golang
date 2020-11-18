@@ -32,11 +32,11 @@ all: clean build test
 
 .PHONY: build
 build:
-	$(GOBUILD) -o $(BIN_NAME) $(CMD_PKG)
+	$(GOBUILD) -race -o $(BIN_NAME) $(CMD_PKG)
 
 .PHONY: test
 test:
-	$(GOTEST) -v ./...
+	$(GOTEST) -race -v ./...
 
 .PHONY: clean
 clean:
@@ -49,7 +49,7 @@ install:
 
 .PHONY: run
 run:
-	$(GORUN) $(CMD_PKG) -onetime -example ${EXAMPLE}
+	$(GORUN) -race $(CMD_PKG) -onetime -example ${EXAMPLE}
 
 .PHONY: generate
 generate:

@@ -20,4 +20,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["goroutines_with_waitgroup"] = WithWaitGroup
 	m["goroutines_with_context_cancel"] = WithContextCancel
 	m["goroutines_with_context_timeout"] = WithContextTimeout
+	m["goroutines_select_nil_chan_1"] = SelectNilChan1
 }
