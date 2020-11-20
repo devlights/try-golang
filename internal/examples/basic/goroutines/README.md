@@ -10,3 +10,4 @@
 |withcontextcancel.go|goroutines\_with\_context\_cancel|context.Contextを用いて待ち合わせを行うサンプルです|
 |withcontexttimeout.go|goroutines\_with\_context\_timeout|context.Contextを用いてタイムアウト付きで待ち合わせを行うサンプルです|
 |selectnilchan1.go|goroutines\_select\_nil\_chan\_1|select ステートメントで nil チャネル を使って選択されるチャネルの有効・無効を切り替えるサンプルです (1)|
+|selectnilchan2.go|goroutines\_select\_nil\_chan\_2|select ステートメントで nil チャネル を使って選択されるチャネルの有効・無効を切り替えるサンプルです (2)|
