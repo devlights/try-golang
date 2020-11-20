@@ -93,7 +93,11 @@ func g(pCtx context.Context, timeout time.Duration, logger *log.Logger) context.
 			}
 
 			logger.Println("processing...", time.Now().UTC().Unix())
-			time.Sleep(1 * time.Second)
+
+			select {
+			case <-ctx.Done():
+			case <-time.After(1 * time.Second):
+			}
 		}
 	}()
 
