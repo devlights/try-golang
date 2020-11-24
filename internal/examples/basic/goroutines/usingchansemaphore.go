@@ -14,6 +14,13 @@ import (
 )
 
 // UsingChanSemaphore -- チャネルでセマフォの動作を行わせるサンプルです.
+//
+// REFERENCES::
+//   - https://ja.wikipedia.org/wiki/%E3%82%BB%E3%83%9E%E3%83%95%E3%82%A9
+//   - https://blog.lufia.org/entry/2018/01/26/141300
+//   - https://motemen.hatenablog.com/entry/2017/12/go-channel-resource-pool
+//   - https://mattn.kaoriya.net/software/lang/go/20171221111857.htm
+//   - https://qiita.com/ReSTARTR/items/ee943512243aedb3aa25
 func UsingChanSemaphore() error {
 	// バイナリセマフォを使ったサンプル
 	output.StdoutHr()
