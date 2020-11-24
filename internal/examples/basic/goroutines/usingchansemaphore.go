@@ -33,7 +33,7 @@ func UsingChanSemaphore() error {
 	return nil
 }
 
-func cntsem() {
+func binsem() {
 	// ユーティリティ
 	var (
 		iter = func(n int) []struct{} { return make([]struct{}, n) }
@@ -42,7 +42,7 @@ func cntsem() {
 
 	// ロガー
 	var (
-		mainLog = log.New(os.Stdout, "[main][cntsem] ", 0)
+		mainLog = log.New(os.Stdout, "[main][binsem] ", 0)
 		semLog  = log.New(os.Stderr, ">>> [semaphore] >>> ", 0)
 		gLog    = log.New(ioutil.Discard, "[goroutine] >>> >>> ", 0)
 	)
@@ -52,10 +52,10 @@ func cntsem() {
 		sem chansemaphore.Semaphore
 	)
 
-	sem = countingsemaphore.New(3)
+	sem = binarysemaphore.New()
 	mainLog.Println("start", now())
 
-	for i := range iter(5) {
+	for i := range iter(3) {
 		wg.Add(1)
 
 		go func(no int) {
@@ -80,7 +80,7 @@ func cntsem() {
 	mainLog.Println("end  ", now())
 }
 
-func binsem() {
+func cntsem() {
 	// ユーティリティ
 	var (
 		iter = func(n int) []struct{} { return make([]struct{}, n) }
@@ -89,7 +89,7 @@ func binsem() {
 
 	// ロガー
 	var (
-		mainLog = log.New(os.Stdout, "[main][binsem] ", 0)
+		mainLog = log.New(os.Stdout, "[main][cntsem] ", 0)
 		semLog  = log.New(os.Stderr, ">>> [semaphore] >>> ", 0)
 		gLog    = log.New(ioutil.Discard, "[goroutine] >>> >>> ", 0)
 	)
@@ -99,10 +99,10 @@ func binsem() {
 		sem chansemaphore.Semaphore
 	)
 
-	sem = binarysemaphore.New()
+	sem = countingsemaphore.New(3)
 	mainLog.Println("start", now())
 
-	for i := range iter(3) {
+	for i := range iter(5) {
 		wg.Add(1)
 
 		go func(no int) {
