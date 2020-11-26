@@ -23,4 +23,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["goroutines_select_nil_chan_1"] = SelectNilChan1
 	m["goroutines_select_nil_chan_2"] = SelectNilChan2
 	m["goroutines_using_chan_semaphore"] = UsingChanSemaphore
+	m["goroutines_using_mutex"] = UsingMutex
 }
