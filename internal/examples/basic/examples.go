@@ -9,6 +9,7 @@ import (
 	"github.com/devlights/try-golang/internal/examples/basic/comments"
 	"github.com/devlights/try-golang/internal/examples/basic/constants"
 	"github.com/devlights/try-golang/internal/examples/basic/convert"
+	"github.com/devlights/try-golang/internal/examples/basic/cryptos"
 	"github.com/devlights/try-golang/internal/examples/basic/defers"
 	"github.com/devlights/try-golang/internal/examples/basic/enum"
 	"github.com/devlights/try-golang/internal/examples/basic/errs"
@@ -65,6 +66,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	comments.NewRegister().Regist(m)
 	constants.NewRegister().Regist(m)
 	convert.NewRegister().Regist(m)
+	cryptos.NewRegister().Regist(m)
 	defers.NewRegister().Regist(m)
 	enum.NewRegister().Regist(m)
 	errs.NewRegister().Regist(m)
