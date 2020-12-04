@@ -4,5 +4,6 @@
 
 |file|example name|note|
 |----|------------|----|
-|helloworld.go|helloworld|GO言語でのHelloWorldサンプル|
+|normal.go|helloworld_normal|GO言語でのHelloWorldサンプル|
+|async.go|helloworld_async|GO言語でのHelloWorldサンプル (非同期版)|
 
