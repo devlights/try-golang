@@ -3,8 +3,8 @@ package helloworld
 
 import "fmt"
 
-// HelloWorld -- GO言語でのHelloWorldサンプル
-func HelloWorld() error {
+// Normal -- GO言語でのHelloWorldサンプル
+func Normal() error {
 	// Golang には、 ビルドイン関数の println と
 	// fmt.Println という　名前の似ている２つの関数があるが
 	// 基本的に、どのサンプルも fmt.Println を利用している。
