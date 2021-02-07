@@ -1,6 +1,6 @@
-FROM golang:1.13
+FROM golang:latest
 
-ENV CGO_ENABLED=0
+ENV CGO_ENABLED=1
 ENV GOOS=linux
 ENV GOARCH=amd64
 

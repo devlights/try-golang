@@ -57,15 +57,15 @@ generate:
 
 .PHONY: docker-build
 docker-build:
-	$(DOCKER_BUILD) -t try-golang .
+	sudo $(DOCKER_BUILD) -t try-golang .
 
 .PHONY: docker-run
 docker-run: docker-build
-	$(DOCKER_RUN) -it --rm --name try-golang try-golang
+	sudo $(DOCKER_RUN) -it --rm --name try-golang try-golang
 
 .PHONY: docker-sh
 docker-sh: docker-build
-	$(DOCKER_RUN) -it --rm --name try-golang try-golang bash
+	sudo $(DOCKER_RUN) -it --rm --name try-golang try-golang bash
 
 .PHONY: docker
 docker: docker-run

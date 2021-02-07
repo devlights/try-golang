@@ -47,6 +47,20 @@ or
 $ make docker
 ```
 
+### Run Docker on Gitpod
+
+type following command in first terminal:
+
+```shell script
+$ sudo docker-up
+```
+
+Launch new terminal and type following command:
+
+```shell
+$ make docker
+```
+
 ## Test
 
 ```shell script
