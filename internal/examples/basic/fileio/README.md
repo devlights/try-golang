@@ -10,4 +10,5 @@
 |fileio\_stat.go|fileio\_stat|ファイル情報を取得するサンプルです.|
 |fileio\_null\_writer.go|fileio\_null\_writer|ioutil.Discard のサンプルです.|
 |fileio\_stdin.go|fileio\_stdin\_scanner|os.Stdin と bufio.Scanner のサンプルです.|
+|fileio\_permission.go|fileio\_stat\_permission|os.FileMode でパーミッションを判定するサンプルです.|
 
