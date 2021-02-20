@@ -31,28 +31,28 @@ endif
 all: clean build test
 
 .PHONY: build
-build:
+build: installgo116
 	$(GOBUILD) -race -o $(BIN_NAME) $(CMD_PKG)
 
 .PHONY: test
-test:
+test: installgo116
 	$(GOTEST) -race -v ./...
 
 .PHONY: clean
-clean:
+clean: installgo116
 	$(GOCLEAN) -i $(CMD_PKG)
 	$(RM_CMD) $(BIN_NAME)
 
 .PHONY: install
-install:
+install: installgo116
 	$(GOINSTALL) $(BIN_DIR)
 
 .PHONY: run
-run:
+run: installgo116
 	$(GORUN) -race $(CMD_PKG) -onetime -example ${EXAMPLE}
 
 .PHONY: generate
-generate:
+generate: installgo116
 	$(GOGENERATE) -x ./...
 
 .PHONY: docker-build
