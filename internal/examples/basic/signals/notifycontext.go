@@ -9,33 +9,30 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// NotifyWithContext は、 Go 1.16 から追加された signal.NotifyContext のサンプルです.
+// NotifyContext は、 Go 1.16 から追加された signal.NotifyContext のサンプルです.
 //
 // REFERENCES:
 //   - https://golang.org/pkg/os/signal/#NotifyContext
-func NotifyWithContext() error {
+func NotifyContext() error {
 	var (
 		rootCtx          = context.Background()
 		mainCtx, mainCxl = context.WithCancel(rootCtx)
 		procCtx, procCxl = context.WithTimeout(mainCtx, 5*time.Second)
+		sigCtx, sigCxl   = signal.NotifyContext(procCtx, os.Interrupt)
 	)
 
 	defer mainCxl()
 	defer procCxl()
+	defer sigCxl()
 
-	sigCtx, sigStop := signal.NotifyContext(procCtx, os.Interrupt)
-	defer sigStop()
+	<-sigCtx.Done()
+	sigCxl()
 
-	select {
-	case <-sigCtx.Done():
-		switch e := sigCtx.Err(); e {
-		case context.Canceled:
-			output.Stdoutl("[Interrupt]", "Ctrl-C")
-		case context.DeadlineExceeded:
-			output.Stdoutl("[Timeout]", "procCtx.Done()")
-		default:
-			return e
-		}
+	switch sigCtx.Err() {
+	case context.Canceled:
+		output.Stdoutl("[Interrupt]", "Ctrl-C")
+	case context.DeadlineExceeded:
+		output.Stdoutl("[Timeout]", "procCtx.Done()")
 	}
 
 	return nil

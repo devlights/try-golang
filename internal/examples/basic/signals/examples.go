@@ -15,5 +15,5 @@ func NewRegister() mappings.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
-	m["signal_notify_context"] = NotifyWithContext
+	m["signal_notify_context"] = NotifyContext
 }
