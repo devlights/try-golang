@@ -13,7 +13,3 @@ USER gitpod
 RUN sudo apt update && \
     sudo apt install -yq info bc && \
     sudo rm -rf /var/lib/apt/lists/*
-
-RUN cd /tmp && go get golang.org/dl/go1.16 && go1.16 download
-ENV GOROOT=/home/gitpod/sdk/go1.16
-ENV PATH=$GOROOT/bin:$PATH
