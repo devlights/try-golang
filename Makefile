@@ -30,29 +30,34 @@ endif
 .PHONY: all
 all: clean build test
 
+.PHONY: prepare
+prepare:
+	GO111MODULE=off go get golang.org/dl/go1.16
+	go1.16 download
+
 .PHONY: build
-build: installgo116
+build: prepare
 	$(GOBUILD) -race -o $(BIN_NAME) $(CMD_PKG)
 
 .PHONY: test
-test: installgo116
+test: prepare
 	$(GOTEST) -race -v ./...
 
 .PHONY: clean
-clean: installgo116
+clean: prepare
 	$(GOCLEAN) -i $(CMD_PKG)
 	$(RM_CMD) $(BIN_NAME)
 
 .PHONY: install
-install: installgo116
+install: prepare
 	$(GOINSTALL) $(BIN_DIR)
 
 .PHONY: run
-run: installgo116
+run: prepare
 	$(GORUN) -race $(CMD_PKG) -onetime -example ${EXAMPLE}
 
 .PHONY: generate
-generate: installgo116
+generate: prepare
 	$(GOGENERATE) -x ./...
 
 .PHONY: docker-build
@@ -69,7 +74,3 @@ docker-sh: docker-build
 
 .PHONY: docker
 docker: docker-run
-
-installgo116:
-	GO111MODULE=off go get golang.org/dl/go1.16
-	go1.16 download
