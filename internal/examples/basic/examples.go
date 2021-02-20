@@ -29,6 +29,7 @@ import (
 	"github.com/devlights/try-golang/internal/examples/basic/network"
 	"github.com/devlights/try-golang/internal/examples/basic/runtimes"
 	"github.com/devlights/try-golang/internal/examples/basic/scope"
+	"github.com/devlights/try-golang/internal/examples/basic/signals"
 	"github.com/devlights/try-golang/internal/examples/basic/slices"
 	"github.com/devlights/try-golang/internal/examples/basic/sorts"
 	"github.com/devlights/try-golang/internal/examples/basic/stdin"
@@ -87,6 +88,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	network.NewRegister().Regist(m)
 	runtimes.NewRegister().Regist(m)
 	scope.NewRegister().Regist(m)
+	signals.NewRegister().Regist(m)
 	slices.NewRegister().Regist(m)
 	sorts.NewRegister().Regist(m)
 	stdin.NewRegister().Regist(m)
