@@ -2,4 +2,3 @@ image:
   file: .gitpod.Dockerfile
 tasks:
   - init: go get golang.org/dl/go1.16 && go1.16 download && go mod tidy && export GOROOT=/home/gitpod/sdk/go1.16 && export PATH=$GOROOT/bin:$PATH
-    command: go get -d ./...
