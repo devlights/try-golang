@@ -73,4 +73,3 @@ docker: docker-run
 installgo116:
 	GO111MODULE=off go get golang.org/dl/go1.16
 	go1.16 download
-	go mod tidy
