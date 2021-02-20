@@ -1,4 +1,4 @@
-GOCMD=go
+GOCMD=go1.16
 GOBUILD=$(GOCMD) build
 GOCLEAN=$(GOCMD) clean
 GOINSTALL=$(GOCMD) install
@@ -69,3 +69,8 @@ docker-sh: docker-build
 
 .PHONY: docker
 docker: docker-run
+
+installgo116:
+	GO111MODULE=off go get golang.org/dl/go1.16
+	go1.16 download
+	go mod tidy
