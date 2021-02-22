@@ -34,6 +34,7 @@ all: clean build test
 prepare:
 	GO111MODULE=off go get golang.org/dl/go1.16
 	go1.16 download
+	go1.16 get -d ./...
 
 .PHONY: build
 build: prepare
