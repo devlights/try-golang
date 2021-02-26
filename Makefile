@@ -1,4 +1,4 @@
-GOCMD=go1.16
+GOCMD=go
 GOBUILD=$(GOCMD) build
 GOCLEAN=$(GOCMD) clean
 GOINSTALL=$(GOCMD) install
@@ -32,9 +32,9 @@ all: clean build test
 
 .PHONY: prepare
 prepare:
-	GO111MODULE=off go get golang.org/dl/go1.16
-	go1.16 download
-	go1.16 get -d ./...
+#	GO111MODULE=off go get golang.org/dl/go1.16
+#	go1.16 download
+	$(GOCMD) get -d ./...
 
 .PHONY: build
 build: prepare
