@@ -2,8 +2,18 @@
 	go build 時に -ldflags を指定して内部の変数に外部から値を注入するサンプルです.
 
 	例:
-		$ go build -race -ldflags "-X main.version=$(git describe --tag --abbrev=0) -X main.revision=$(git rev-list -1 HEAD)"
-		$ go run  -race -ldflags "-X main.version=$(git describe --tag --abbrev=0) -X main.revision=$(git rev-list -1 HEAD)" .
+		$ go build -race -ldflags \
+			" \
+				-X main.version=$(git describe --tag --abbrev=0) \
+				-X main.revision=$(git rev-list -1 HEAD) \
+				-X main.build=$(git describe --tags) \
+			"
+		$ go run  -race -ldflags \
+			" \
+				-X main.version=$(git describe --tag --abbrev=0) \
+				-X main.revision=$(git rev-list -1 HEAD) \
+				-X main.build=$(git describe --tags) \
+			" .
 */
 package main
 
@@ -25,6 +35,7 @@ import (
 var (
 	version  string
 	revision string
+	build    string
 )
 
 func main() {
@@ -34,5 +45,6 @@ func main() {
 func run() int {
 	fmt.Printf("Version : %s\n", version)
 	fmt.Printf("Revision: %s\n", revision)
+	fmt.Printf("Build   : %s\n", build)
 	return 0
 }
