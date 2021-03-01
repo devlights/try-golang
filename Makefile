@@ -75,3 +75,16 @@ docker-sh: docker-build
 
 .PHONY: docker
 docker: docker-run
+
+build_with_ldflags:
+	@echo '--- go build with -ldflags ---'
+	cd ./cmd/build_with_ldflags \
+		&& $(GOBUILD) -race -ldflags "-X main.version=$(shell git describe --tag --abbrev=0) -X main.revision=$(shell git rev-list -1 HEAD)"
+	@cd ./cmd/build_with_ldflags && ./build_with_ldflags
+	@cd ./cmd/build_with_ldflags && go clean
+	@echo ''
+
+	@echo '--- go run with -ldflags ---'
+	cd ./cmd/build_with_ldflags \
+		&& $(GORUN) -race -ldflags "-X main.version=$(shell git describe --tag --abbrev=0) -X main.revision=$(shell git rev-list -1 HEAD)" .
+	@echo ''
