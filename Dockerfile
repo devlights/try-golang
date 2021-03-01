@@ -1,4 +1,4 @@
-FROM golang:latest
+FROM golang:1.16
 
 ENV CGO_ENABLED=1
 ENV GOOS=linux
