@@ -98,3 +98,12 @@ ldflags_example:
 			 	-X main.build=$(shell git describe --tags) \
 			" .
 	@echo ''
+
+embed_example:
+	@echo '--- version and revision with embed pkg ---'
+	git describe --tags --abbrev=0 > ./cmd/version_and_revision/with_embed/version.txt
+	git rev-list -1 HEAD > ./cmd/version_and_revision/with_embed/revision.txt
+	git describe --tags > ./cmd/version_and_revision/with_embed/build.txt
+	
+	@echo ''
+	@go run -race ./cmd/version_and_revision/with_embed/
