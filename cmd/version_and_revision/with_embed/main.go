@@ -35,9 +35,9 @@ func main() {
 }
 
 func run() int {
-	fmt.Printf("Version : %s\n", version)
-	fmt.Printf("Revision: %s\n", revision)
-	fmt.Printf("Build   : %s\n", build)
+	fmt.Printf("Version : %s", version)
+	fmt.Printf("Revision: %s", revision)
+	fmt.Printf("Build   : %s", build)
 
 	return 0
 }
