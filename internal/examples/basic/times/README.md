@@ -10,4 +10,6 @@
 |time\_now.go|time\_now|time.Now() のサンプルです.|
 |time\_parse.go|time\_parse|time.Parse() のサンプルです.|
 |time\_tick\_and\_ticker.go|time\_tick\_and\_ticker|time.Tick と time.NewTicker の利用シーンの違いについてのサンプルです|
+|time\_timer.go|time\_timer|time.NewTimer のサンプルです|
+|time\_afterfunc.go|time\_afterfunc|time.AfterFunc のサンプルです|
 
