@@ -21,4 +21,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["time_now"] = TimeNow
 	m["time_parse"] = TimeParse
 	m["time_tick_and_ticker"] = TickAndTicker
+	m["time_timer"] = Timer
 }
