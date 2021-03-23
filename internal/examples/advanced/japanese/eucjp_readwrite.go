@@ -90,5 +90,5 @@ func EucJpReadWrite() error {
 		return nil
 	}()
 
-	return nil
+	return err
 }
