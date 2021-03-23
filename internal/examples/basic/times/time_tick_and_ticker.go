@@ -76,6 +76,7 @@ LOOP:
 		case <-done:
 			// 非同期処理が終わったのでメインの出力に切り替え
 			// 再びこのチャネルが select で選択されないように nil を設定しておく
+			//lint:ignore SA1015 サンプルなのでOK
 			tick = time.Tick(500 * time.Millisecond)
 			done = nil
 
