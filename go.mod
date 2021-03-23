@@ -6,7 +6,7 @@ require (
 	github.com/adrg/xdg v0.3.0
 	github.com/cheekybits/genny v1.0.0
 	github.com/deckarep/golang-set v1.7.1
-	github.com/devlights/gomy v0.2.18
+	github.com/devlights/gomy v0.3.0
 	github.com/getsentry/sentry-go v0.10.0
 	github.com/go-errors/errors v1.1.1 // indirect
 	github.com/google/go-cmp v0.5.4

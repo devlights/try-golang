@@ -90,5 +90,5 @@ func SjisReadWrite() error {
 		return nil
 	}()
 
-	return nil
+	return err
 }
