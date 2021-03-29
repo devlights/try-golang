@@ -6,6 +6,7 @@ import (
 	"github.com/devlights/try-golang/internal/examples/basic/bitop"
 	"github.com/devlights/try-golang/internal/examples/basic/builtins"
 	"github.com/devlights/try-golang/internal/examples/basic/byteop"
+	"github.com/devlights/try-golang/internal/examples/basic/cmdexec"
 	"github.com/devlights/try-golang/internal/examples/basic/comments"
 	"github.com/devlights/try-golang/internal/examples/basic/constants"
 	"github.com/devlights/try-golang/internal/examples/basic/convert"
@@ -64,6 +65,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	bitop.NewRegister().Regist(m)
 	builtins.NewRegister().Regist(m)
 	byteop.NewRegister().Regist(m)
+	cmdexec.NewRegister().Regist(m)
 	comments.NewRegister().Regist(m)
 	constants.NewRegister().Regist(m)
 	convert.NewRegister().Regist(m)
