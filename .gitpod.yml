@@ -1,4 +1,9 @@
+
 image:
   file: .gitpod.Dockerfile
 tasks:
   - command: make prepare
+
+vscode:
+  extensions:
+    - golang.go
