@@ -1,3 +1,7 @@
+// staticcheck の 警告 を無視するやり方についてのサンプルです.
+//
+// REFERENCES:
+//   - https://staticcheck.io/docs#line-based-linter-directives
 package main
 
 import (
