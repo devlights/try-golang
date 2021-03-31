@@ -1,6 +1,0 @@
-{
-    "go.useLanguageServer": true,
-    "go.formatTool": "goimports",
-    "go.lintTool": "staticcheck"
-    //"go.goroot": "/home/gitpod/sdk/go1.16"
-}
