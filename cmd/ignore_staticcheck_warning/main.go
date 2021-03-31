@@ -16,7 +16,7 @@ func main() {
 	}
 	defer f.Close()
 
-	//lint:ignore SA4006 Acknowledged. Okey.
+	//lint:ignore SA4006 It's ok because this is just a example.
 	err = fn1()
 }
 
