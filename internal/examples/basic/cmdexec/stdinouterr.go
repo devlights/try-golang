@@ -45,7 +45,8 @@ func Stdinouterr() error {
 		return err
 	}
 
-	output.Stdoutf("[Output]", "\n%s\n%s", fd1, fd2)
+	output.Stdoutf("[Stdout]", "\n%s\n", fd1)
+	output.Stdoutf("[Stderr]", "\n%s\n", fd2)
 
 	return nil
 }
