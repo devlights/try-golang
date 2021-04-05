@@ -17,4 +17,5 @@ func NewRegister() mappings.Register {
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["cmdexec_oneshot"] = OneShot
 	m["cmdexec_oneshot_with_stderr"] = OneShotWithStderr
+	m["cmdexec_stdinouterr"] = Stdinouterr
 }
