@@ -13,10 +13,6 @@ import (
 )
 
 func main() {
-	const (
-		logFlags = 0
-	)
-
 	var (
 		args    *Args
 		mapping mappings.ExampleMapping
