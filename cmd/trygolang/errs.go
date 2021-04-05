@@ -15,7 +15,7 @@ type (
 )
 
 func (e *ExecError) Error() string {
-	return fmt.Sprintf("[Error] %s (%s)", e.Err.Error(), e.Name)
+	return fmt.Sprintf("%s (%s)", e.Err.Error(), e.Name)
 }
 
 // Unwrap -- 内部エラーを返します.
