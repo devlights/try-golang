@@ -30,13 +30,15 @@ func WithContext() error {
 	defer procCxl()
 
 	var (
-		cmd *exec.Cmd
-		out []byte
-		err error
+		cmd *exec.Cmd // コマンド
+		err error     // エラー
 	)
 
-	cmd = exec.CommandContext(procCtx, Shell, "-c", "sleep 1; echo ...done...")
-	out, err = cmd.Output()
+	//
+	// コマンドは２秒かかるようにして実行するが、渡している context は 500ms でタイムアウトする
+	//
+	cmd = exec.CommandContext(procCtx, Shell, "-c", "sleep 2")
+	err = cmd.Run()
 	if err != nil {
 		var exitErr *exec.ExitError
 		if errors.Is(procCtx.Err(), context.DeadlineExceeded) && errors.As(err, &exitErr) {
@@ -46,8 +48,6 @@ func WithContext() error {
 			return err
 		}
 	}
-
-	output.Stdoutl("[output]", string(out))
 
 	return nil
 }
