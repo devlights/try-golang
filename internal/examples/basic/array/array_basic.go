@@ -8,6 +8,9 @@ import (
 )
 
 // Basic は、Goにおける配列の基本的な使い方についてのサンプルです.
+//
+// REFERENCES:
+//   - https://dave.cheney.net/2018/07/12/slices-from-the-ground-up
 func Basic() error {
 	// サイズが固定化されているものが配列
 	// スライスは配列の一部分を指し示す参照
