@@ -3,6 +3,9 @@ package slices
 import "fmt"
 
 // Pointer は、スライスの ポインタ 利用時についてのサンプルです.
+//
+// REFERENCES:
+//   - https://dave.cheney.net/2018/07/12/slices-from-the-ground-up
 func Pointer() error {
 	// ----------------------------------------------------------------
 	// スライスのポインタ利用について
