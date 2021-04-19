@@ -91,8 +91,10 @@ func StringSliceToInterfaceSlice() error {
 		myInt2 int
 	)
 
-	var i1 myInt1
-	var i2 myInt2
+	var (
+		i1 myInt1
+		i2 myInt2
+	)
 
 	// これはコンパイルエラー
 	// 同じ型からのエイリアスであるが、ランタイムから見ると明確に異なる型として認識している
