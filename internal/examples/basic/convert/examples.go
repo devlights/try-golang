@@ -15,5 +15,6 @@ func NewRegister() mappings.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
-	m["string_slice_to_interface_slice"] = StringSliceToInterfaceSlice
+	m["convert_string_slice_to_interface_slice"] = StringSliceToInterfaceSlice
+	m["convert_int_to_str"] = IntToStr
 }
