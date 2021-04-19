@@ -20,9 +20,7 @@ func Concat() error {
 	// (1)
 	sli3 := make([]int, 0, len(sli1)+len(sli2))
 	for _, s := range [][]int{sli1, sli2} {
-		for _, v := range s {
-			sli3 = append(sli3, v)
-		}
+		sli3 = append(sli3, s...)
 	}
 
 	output.Stdoutl("[sli1]", sli1)
@@ -31,8 +29,7 @@ func Concat() error {
 	output.StdoutHr()
 
 	// (2)
-	sli4 := make([]int, 0, len(sli1)+len(sli2))
-	sli4 = append(sli1, sli2...)
+	sli4 := append(sli1, sli2...)
 
 	output.Stdoutl("[sli1]", sli1)
 	output.Stdoutl("[sli2]", sli2)

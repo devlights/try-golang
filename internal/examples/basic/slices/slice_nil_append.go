@@ -11,9 +11,7 @@ func NilAppend() error {
 	output.Stdoutl("[len(ints)]", len(ints))
 
 	// Nil な スライスに対して append をしても問題なく追加できる
-	for _, v := range []int{1, 2, 3, 4} {
-		ints = append(ints, v)
-	}
+	ints = append(ints, []int{1, 2, 3, 4}...)
 
 	output.Stdoutl("[ints]", ints)
 

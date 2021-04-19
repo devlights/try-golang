@@ -35,7 +35,7 @@ func Append() error {
 	// 変わってしまう。
 	// ----------------------------------------------------------------
 	var (
-		zeroCapSlice = make([]int, 0, 0)
+		zeroCapSlice = make([]int, 0)
 		manyCapSlice = make([]int, 0, 15)
 	)
 
@@ -61,7 +61,7 @@ func Append() error {
 	// 安全なのが、関数に引数で渡して更新するのではなく、関数内で別途スライスを作って戻り値として返すようにすること.
 	// 呼び元は、受け取ったデータを自分で管理しているスライスに追加する.
 	var (
-		zeroCapSlice2 = make([]int, 0, 0)
+		zeroCapSlice2 = make([]int, 0)
 		manyCapSlice2 = make([]int, 0, 15)
 	)
 

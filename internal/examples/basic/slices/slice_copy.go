@@ -23,7 +23,7 @@ func Copy() error {
 	// 組み込み関数 copy() 利用
 	// ここで、s2 の長さを0にして宣言すると一切コピーされない
 	s1 := []int{1, 2, 3}
-	s2 := make([]int, len(s1), len(s1))
+	s2 := make([]int, len(s1))
 	copy(s2, s1)
 
 	// 空のスライスに append()
