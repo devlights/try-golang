@@ -17,4 +17,5 @@ func NewRegister() mappings.Register {
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["convert_string_slice_to_interface_slice"] = StringSliceToInterfaceSlice
 	m["convert_int_to_str"] = IntToStr
+	m["convert_struct_to_str"] = StructToStr
 }
