@@ -28,7 +28,7 @@ func SortSliceStable() error {
 	// スライス以外を渡すと panic する。
 	// -----------------------------------------------
 	var (
-		sli1 = make([]int, 0, 0)
+		sli1 = make([]int, 0)
 	)
 
 	for i := 10; i > 0; i-- {

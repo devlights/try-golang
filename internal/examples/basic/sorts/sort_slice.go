@@ -28,7 +28,7 @@ func SortSliceUnStable() error {
 	// スライス以外を渡すと panic する。
 	// -----------------------------------------------
 	var (
-		sli1 = make([]int, 0, 0)
+		sli1 = make([]int, 0)
 	)
 
 	for i := 10; i > 0; i-- {
@@ -53,6 +53,7 @@ func SortSliceUnStable() error {
 	}()
 
 	s := "helloworld"
+	//lint:ignore SA1028 It's ok because this is just a example.
 	sort.Slice(s, func(i, j int) bool {
 		return s[i] < s[j]
 	})

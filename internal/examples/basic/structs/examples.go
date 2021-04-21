@@ -24,4 +24,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	m["struct_deep_equal"] = StructDeepEqual
 	m["struct_blank_identifier"] = BlankIdentifier
 	m["struct_same_method"] = SameMethodOnEachTypes
+	m["struct_memory_padding"] = MemoryPadding
 }
