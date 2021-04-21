@@ -5,6 +5,7 @@ import (
 	"reflect"
 )
 
+//lint:ignore U1000 It's ok because this is just a example.
 type intPair struct {
 	x  int
 	y  int
