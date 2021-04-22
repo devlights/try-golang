@@ -1,5 +1,17 @@
 package types
 
+// Struct4Bytes は、メンバーのサイズで見ると 3bytes なのに、メモリ上のサイズが 4bytes になる構造体です.
+type Struct4Bytes struct {
+	Flag  bool
+	Value int16
+}
+
+// Struct8Bytes は、メンバーのサイズで見ると 5bytes なのに、メモリ上のサイズが 8bytes になる構造体です.
+type Struct8Bytes struct {
+	Flag  bool
+	Value int32
+}
+
 // MemoryPadding は、メンバー定義順によってメモリのパディングが発生する構造体です.
 type MemoryPadding struct {
 	Flag1    bool
