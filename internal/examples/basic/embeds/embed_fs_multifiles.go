@@ -11,6 +11,7 @@ import (
 //go:embed helloworld.txt
 var content embed.FS
 
+// EmbedFsMultifiles は、embed パッケージの機能を確認するサンプルです (embed.FSとして複数ファイルを操作)
 func EmbedFsMultifiles() error {
 	var (
 		buf []byte
@@ -31,12 +32,12 @@ func EmbedFsMultifiles() error {
 	//
 	// 埋め込まれたディレクトリの操作
 	//
-	dirs, err := content.ReadDir("data")
+	entries, err := content.ReadDir("data")
 	if err != nil {
 		return err
 	}
 
-	for _, entry := range dirs {
+	for _, entry := range entries {
 		if entry.IsDir() {
 			continue
 		}
