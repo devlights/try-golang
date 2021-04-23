@@ -9,6 +9,7 @@ import (
 	"github.com/devlights/gomy/logops"
 	"github.com/devlights/gomy/strops"
 	"github.com/devlights/try-golang/internal/builder"
+	"github.com/devlights/try-golang/pkg/command"
 	"github.com/devlights/try-golang/pkg/mappings"
 )
 
@@ -56,7 +57,7 @@ func main() {
 
 	defer fmt.Println("END")
 
-	var cmd Command
+	var cmd command.Cmd
 	if args.ExampleName != "" {
 		cmd = NewRunOnceCommand(NewRunOnceArgs(args.ExampleName, mapping))
 	} else {
