@@ -1,4 +1,4 @@
-package main
+package command
 
 import (
 	"bufio"
@@ -18,15 +18,15 @@ type (
 
 	// RunLoopArgs -- RunLoopCommand の引数データを表します.
 	RunLoopArgs struct {
-		MainArgs *Args                   // 引数
-		Mapping  mappings.ExampleMapping // マッピング情報
+		OneTime bool                    // 一回実行で完了するかどうか
+		Mapping mappings.ExampleMapping // マッピング情報
 	}
 )
 
 // NewRunLoopArgs -- 新しい RunLoopArgs を生成して返します.
-func NewRunLoopArgs(mainArgs *Args, mapping mappings.ExampleMapping) *RunLoopArgs {
+func NewRunLoopArgs(oneTime bool, mapping mappings.ExampleMapping) *RunLoopArgs {
 	a := new(RunLoopArgs)
-	a.MainArgs = mainArgs
+	a.OneTime = oneTime
 	a.Mapping = mapping
 	return a
 }
@@ -41,8 +41,8 @@ func NewRunLoopCommand(args *RunLoopArgs) *RunLoopCommand {
 // Run -- 実行します.
 func (c *RunLoopCommand) Run() error {
 	var (
-		mainArgs = c.Args.MainArgs
-		mapping  = c.Args.Mapping
+		oneTime = c.Args.OneTime
+		mapping = c.Args.Mapping
 	)
 
 	fmt.Print("ENTER EXAMPLE NAME: ")
@@ -104,7 +104,7 @@ func (c *RunLoopCommand) Run() error {
 			}
 		}
 
-		if mainArgs.OneTime {
+		if oneTime {
 			break
 		}
 

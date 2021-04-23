@@ -59,9 +59,9 @@ func main() {
 
 	var cmd command.Cmd
 	if args.ExampleName != "" {
-		cmd = NewRunOnceCommand(NewRunOnceArgs(args.ExampleName, mapping))
+		cmd = command.NewRunOnceCommand(command.NewRunOnceArgs(args.ExampleName, mapping))
 	} else {
-		cmd = NewRunLoopCommand(NewRunLoopArgs(args, mapping))
+		cmd = command.NewRunLoopCommand(command.NewRunLoopArgs(args.OneTime, mapping))
 	}
 
 	if err := cmd.Run(); err != nil {
