@@ -11,4 +11,4 @@
 |fileio\_null\_writer.go|fileio\_null\_writer|ioutil.Discard のサンプルです.|
 |fileio\_stdin.go|fileio\_stdin\_scanner|os.Stdin と bufio.Scanner のサンプルです.|
 |fileio\_permission.go|fileio\_stat\_permission|os.FileMode でパーミッションを判定するサンプルです.|
-
+|fileio\_fs\_dirfs.go|fileio\_fs\_dirfs|os.DirFS() を利用してファイルの読み込みを行うサンプルです.|
