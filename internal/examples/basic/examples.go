@@ -11,6 +11,7 @@ import (
 	"github.com/devlights/try-golang/internal/examples/basic/constants"
 	"github.com/devlights/try-golang/internal/examples/basic/convert"
 	"github.com/devlights/try-golang/internal/examples/basic/cryptos"
+	"github.com/devlights/try-golang/internal/examples/basic/databases"
 	"github.com/devlights/try-golang/internal/examples/basic/defers"
 	"github.com/devlights/try-golang/internal/examples/basic/embeds"
 	"github.com/devlights/try-golang/internal/examples/basic/enum"
@@ -72,6 +73,7 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	constants.NewRegister().Regist(m)
 	convert.NewRegister().Regist(m)
 	cryptos.NewRegister().Regist(m)
+	databases.NewRegister().Regist(m)
 	defers.NewRegister().Regist(m)
 	embeds.NewRegister().Regist(m)
 	enum.NewRegister().Regist(m)

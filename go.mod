@@ -10,6 +10,7 @@ require (
 	github.com/getsentry/sentry-go v0.10.0
 	github.com/go-errors/errors v1.1.1 // indirect
 	github.com/google/go-cmp v0.5.4
+	github.com/mattn/go-sqlite3 v1.14.7
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/stretchr/testify v1.7.0 // indirect
 	golang.org/x/crypto v0.0.0-20210218145215-b8e89b74b9df
