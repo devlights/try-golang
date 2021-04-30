@@ -31,10 +31,19 @@ endif
 all: clean build test
 
 .PHONY: prepare
-prepare:
-#	GO111MODULE=off go get golang.org/dl/go1.16
-#	go1.16 download
+prepare: \
+	_go_get \
+	_download_sqlite3_database
+
+_go_get:
 	$(GOCMD) get -d ./...
+
+_download_sqlite3_database:
+	@if [ ! -e "chinook.db" ]; then\
+		wget https://www.sqlitetutorial.net/wp-content/uploads/2018/03/chinook.zip;\
+		unzip -o chinook.zip;\
+		rm -f chinook.zip;\
+	fi
 
 .PHONY: build
 build: prepare
