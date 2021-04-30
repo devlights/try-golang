@@ -16,4 +16,5 @@ func NewRegister() mappings.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
 	m["db_open"] = Open
+	m["db_ping"] = Ping
 }
