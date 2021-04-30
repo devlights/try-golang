@@ -11,6 +11,13 @@ import (
 )
 
 // Ping は、 (*sql.DB).Ping の使い方についてのサンプルです.
+//
+// REFERENCES:
+//   - https://pkg.go.dev/database/sql
+//   - https://github.com/golang/go/wiki/SQLDrivers
+//   - https://github.com/golang/go/wiki/SQLInterface
+//   - http://go-database-sql.org/
+//   - https://sourjp.github.io/posts/go-db/
 func Ping() error {
 	var (
 		rootCtx          = context.Background()
