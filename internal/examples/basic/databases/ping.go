@@ -7,7 +7,7 @@ import (
 
 	"github.com/devlights/gomy/output"
 	"github.com/devlights/gomy/times"
-	_ "github.com/mattn/go-sqlite3"
+	_ "modernc.org/sqlite"
 )
 
 // Ping は、 (*sql.DB).Ping の使い方についてのサンプルです.
@@ -33,7 +33,11 @@ func Ping() error {
 	if db, err = sql.Open(Driver, Dsn); err != nil {
 		return err
 	}
-	defer db.Close()
+	defer func() {
+		if err = db.Close(); err != nil {
+			output.Stderrf("[Error]", "db.Close: %s", err)
+		}
+	}()
 
 	//
 	// Ping -- 生存確認を行う
@@ -91,7 +95,7 @@ func heartbeat(ctx context.Context, db *sql.DB, interval time.Duration) context.
 			select {
 			case <-ctx.Done():
 				break LOOP
-			case t := <-time.After(1 * time.Second):
+			case t := <-time.After(interval):
 				pt := times.HHmmss(t)
 
 				if err := db.Ping(); err != nil {
