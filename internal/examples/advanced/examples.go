@@ -6,7 +6,6 @@ import (
 	"github.com/devlights/try-golang/internal/examples/advanced/crypto"
 	"github.com/devlights/try-golang/internal/examples/advanced/deepcopy"
 	"github.com/devlights/try-golang/internal/examples/advanced/errgrp"
-	"github.com/devlights/try-golang/internal/examples/advanced/generate"
 	"github.com/devlights/try-golang/internal/examples/advanced/gocmp"
 	"github.com/devlights/try-golang/internal/examples/advanced/japanese"
 	"github.com/devlights/try-golang/internal/examples/advanced/reflection"
@@ -32,7 +31,6 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	crypto.NewRegister().Regist(m)
 	deepcopy.NewRegister().Regist(m)
 	errgrp.NewRegister().Regist(m)
-	generate.NewRegister().Regist(m)
 	gocmp.NewRegister().Regist(m)
 	japanese.NewRegister().Regist(m)
 	reflection.NewRegister().Regist(m)
