@@ -16,5 +16,5 @@ func NewRegister() mappings.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mappings.ExampleMapping) {
-	m["reflection01"] = TypeOf
+	m["reflect_typeof"] = TypeOf
 }
