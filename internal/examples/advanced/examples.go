@@ -8,7 +8,6 @@ import (
 	"github.com/devlights/try-golang/internal/examples/advanced/errgrp"
 	"github.com/devlights/try-golang/internal/examples/advanced/japanese"
 	"github.com/devlights/try-golang/internal/examples/advanced/reflection"
-	"github.com/devlights/try-golang/internal/examples/advanced/sets"
 	"github.com/devlights/try-golang/internal/examples/advanced/xdgspec"
 	"github.com/devlights/try-golang/pkg/mappings"
 )
@@ -32,6 +31,5 @@ func (r *register) Regist(m mappings.ExampleMapping) {
 	errgrp.NewRegister().Regist(m)
 	japanese.NewRegister().Regist(m)
 	reflection.NewRegister().Regist(m)
-	sets.NewRegister().Regist(m)
 	xdgspec.NewRegister().Regist(m)
 }
