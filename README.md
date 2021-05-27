@@ -4,10 +4,9 @@ This is my TUTORIAL project for golang
 
 ![try-golang - Go Version](https://img.shields.io/badge/go-1.16-blue.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-golang/badge/master)](https://www.codefactor.io/repository/github/devlights/try-golang/overview/master)
-[![Go Report Card](https://goreportcard.com/badge/github.com/devlights/try-golang)](https://goreportcard.com/report/github.com/devlights/try-golang)
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
+
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-golang) 
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/devlights/try-golang)](https://pkg.go.dev/github.com/devlights/try-golang)
 
 ## GO version
 
