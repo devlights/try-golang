@@ -8,7 +8,7 @@ import (
 	"github.com/devlights/try-golang/examples/advanced/errgrp"
 	"github.com/devlights/try-golang/examples/advanced/japanese"
 	"github.com/devlights/try-golang/examples/advanced/reflection"
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/mapping"
 )
 
 type (
@@ -16,13 +16,13 @@ type (
 )
 
 // NewRegister は、advanced パッケージ用の lib.Register を返します.
-func NewRegister() mappings.Register {
+func NewRegister() mapping.Register {
 	r := new(register)
 	return r
 }
 
 // Regist は、advanced パッケージ配下に存在するサンプルを登録します.
-func (r *register) Regist(m mappings.ExampleMapping) {
+func (r *register) Regist(m mapping.ExampleMapping) {
 	async.NewRegister().Regist(m)
 	closure.NewRegister().Regist(m)
 	crypto.NewRegister().Regist(m)

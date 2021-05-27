@@ -47,7 +47,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/types"
 	"github.com/devlights/try-golang/examples/basic/unsafes"
 	"github.com/devlights/try-golang/examples/basic/variables"
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/mapping"
 )
 
 type (
@@ -55,13 +55,13 @@ type (
 )
 
 // NewRegister は、basic パッケージ用の lib.Register を返します.
-func NewRegister() mappings.Register {
+func NewRegister() mapping.Register {
 	r := new(register)
 	return r
 }
 
 // Regist は、basic パッケージ配下に存在するサンプルを登録します.
-func (r *register) Regist(m mappings.ExampleMapping) {
+func (r *register) Regist(m mapping.ExampleMapping) {
 
 	array.NewRegister().Regist(m)
 	binaries.NewRegister().Regist(m)

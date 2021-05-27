@@ -1,4 +1,4 @@
-package mappings
+package mapping
 
 import (
 	"sort"

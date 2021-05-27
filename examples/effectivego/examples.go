@@ -30,7 +30,7 @@ import (
 	"github.com/devlights/try-golang/examples/effectivego/effectivego27"
 	"github.com/devlights/try-golang/examples/effectivego/effectivego28"
 	"github.com/devlights/try-golang/examples/effectivego/effectivego29"
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/mapping"
 )
 
 type (
@@ -38,13 +38,13 @@ type (
 )
 
 // NewRegister は、effectivego パッケージ用の lib.Register を返します.
-func NewRegister() mappings.Register {
+func NewRegister() mapping.Register {
 	r := new(effectivegoExampleRegister)
 	return r
 }
 
 // Regist は、effectivego パッケージ配下に存在するサンプルを登録します.
-func (r *effectivegoExampleRegister) Regist(m mappings.ExampleMapping) {
+func (r *effectivegoExampleRegister) Regist(m mapping.ExampleMapping) {
 	m["effectivego_01_intro"] = effectivego01.Introduction
 	m["effectivego_02_formatting"] = effectivego02.Formatting
 	m["effectivego_03_comment"] = effectivego03.Commentary

@@ -1,8 +1,6 @@
 package command
 
-import (
-	"github.com/devlights/try-golang/mappings"
-)
+import "github.com/devlights/try-golang/mapping"
 
 type (
 	// RunOnceCommand -- 一度だけ実行するコマンド
@@ -17,10 +15,10 @@ type (
 )
 
 // NewRunOnceArgs -- 新しい RunOnceArgs を生成して返します.
-func NewRunOnceArgs(target string, mapping mappings.ExampleMapping) *RunOnceArgs {
+func NewRunOnceArgs(target string, m mapping.ExampleMapping) *RunOnceArgs {
 	a := new(RunOnceArgs)
 	a.Target = target
-	a.Mapping = mapping
+	a.Mapping = m
 	return a
 }
 

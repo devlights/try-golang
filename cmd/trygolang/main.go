@@ -10,13 +10,13 @@ import (
 	"github.com/devlights/gomy/strops"
 	"github.com/devlights/try-golang/builder"
 	"github.com/devlights/try-golang/command"
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/mapping"
 )
 
 func main() {
 	var (
 		args    *Args
-		mapping mappings.ExampleMapping
+		mapping mapping.ExampleMapping
 	)
 
 	appLog, errLog, _ := logops.Default.Logger(true, func(_, e, _ *log.Logger) {
