@@ -27,6 +27,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/internalpkg"
 	"github.com/devlights/try-golang/examples/basic/literals"
 	"github.com/devlights/try-golang/examples/basic/logging"
+	"github.com/devlights/try-golang/examples/basic/loops"
 	"github.com/devlights/try-golang/examples/basic/maps"
 	"github.com/devlights/try-golang/examples/basic/maths"
 	"github.com/devlights/try-golang/examples/basic/methods"
@@ -90,6 +91,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	streams.NewRegister().Regist(m)
 	literals.NewRegister().Regist(m)
 	logging.NewRegister().Regist(m)
+	loops.NewRegister().Regist(m)
 	maps.NewRegister().Regist(m)
 	maths.NewRegister().Regist(m)
 	methods.NewRegister().Regist(m)
