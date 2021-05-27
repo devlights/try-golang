@@ -30,7 +30,7 @@ import (
 	"github.com/devlights/try-golang/examples/gotour/gotour27"
 	"github.com/devlights/try-golang/examples/gotour/gotour28"
 	"github.com/devlights/try-golang/examples/gotour/gotour29"
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/mapping"
 )
 
 type (
@@ -38,13 +38,13 @@ type (
 )
 
 // NewRegister は、gotour パッケージ用の lib.Register を返します.
-func NewRegister() mappings.Register {
+func NewRegister() mapping.Register {
 	r := new(gotourExampleRegister)
 	return r
 }
 
 // Regist は、gotour パッケージ配下に存在するサンプルを登録します.
-func (r *gotourExampleRegister) Regist(m mappings.ExampleMapping) {
+func (r *gotourExampleRegister) Regist(m mapping.ExampleMapping) {
 	m["gotour_01_helloworld"] = gotour01.HelloWorld
 	m["gotour_02_import"] = gotour02.Import
 	m["gotour_03_scope"] = gotour03.Scope

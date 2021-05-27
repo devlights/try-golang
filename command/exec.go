@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/mapping"
 )
 
 type (
@@ -15,16 +15,16 @@ type (
 
 	// ExecArgs -- ExecCommand の 引数データ を表します.
 	ExecArgs struct {
-		Target  string                  // 対象
-		Mapping mappings.ExampleMapping // マッピング情報
+		Target  string                 // 対象
+		Mapping mapping.ExampleMapping // マッピング情報
 	}
 )
 
 // NewExecArgs -- 新しい ExecArgs を生成して返します.
-func NewExecArgs(target string, mapping mappings.ExampleMapping) *ExecArgs {
+func NewExecArgs(target string, m mapping.ExampleMapping) *ExecArgs {
 	a := new(ExecArgs)
 	a.Target = target
-	a.Mapping = mapping
+	a.Mapping = m
 	return a
 }
 
@@ -38,7 +38,7 @@ func NewExecCommand(args *ExecArgs) *ExecCommand {
 // Run -- 実行します.
 func (c *ExecCommand) Run() error {
 	var (
-		target  = mappings.ExampleKey(c.Args.Target)
+		target  = mapping.ExampleKey(c.Args.Target)
 		mapping = c.Args.Mapping
 	)
 

@@ -3,14 +3,14 @@ package command
 import (
 	"fmt"
 
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/mapping"
 )
 
 type (
 	// ExecError -- 実行時エラーを表します.
 	ExecError struct {
-		Name mappings.ExampleKey // 名称
-		Err  error               // エラー
+		Name mapping.ExampleKey // 名称
+		Err  error              // エラー
 	}
 )
 

@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/devlights/try-golang/mappings"
+	"github.com/devlights/try-golang/mapping"
 )
 
 type (
@@ -18,16 +18,16 @@ type (
 
 	// RunLoopArgs -- RunLoopCommand の引数データを表します.
 	RunLoopArgs struct {
-		OneTime bool                    // 一回実行で完了するかどうか
-		Mapping mappings.ExampleMapping // マッピング情報
+		OneTime bool                   // 一回実行で完了するかどうか
+		Mapping mapping.ExampleMapping // マッピング情報
 	}
 )
 
 // NewRunLoopArgs -- 新しい RunLoopArgs を生成して返します.
-func NewRunLoopArgs(oneTime bool, mapping mappings.ExampleMapping) *RunLoopArgs {
+func NewRunLoopArgs(oneTime bool, m mapping.ExampleMapping) *RunLoopArgs {
 	a := new(RunLoopArgs)
 	a.OneTime = oneTime
-	a.Mapping = mapping
+	a.Mapping = m
 	return a
 }
 
@@ -116,7 +116,7 @@ func (c *RunLoopCommand) Run() error {
 	return nil
 }
 
-func (c *RunLoopCommand) exec(target string, mapping mappings.ExampleMapping) error {
+func (c *RunLoopCommand) exec(target string, mapping mapping.ExampleMapping) error {
 	execArgs := NewExecArgs(target, mapping)
 	execCmd := NewExecCommand(execArgs)
 
@@ -127,7 +127,7 @@ func (c *RunLoopCommand) exec(target string, mapping mappings.ExampleMapping) er
 	return nil
 }
 
-func (c *RunLoopCommand) makeCandidates(userInput string, mapping mappings.ExampleMapping) []string {
+func (c *RunLoopCommand) makeCandidates(userInput string, mapping mapping.ExampleMapping) []string {
 	candidates := make([]string, 0, len(mapping))
 	for k := range mapping {
 		key := string(k)

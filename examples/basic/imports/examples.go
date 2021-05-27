@@ -1,19 +1,17 @@
 package imports
 
-import (
-	"github.com/devlights/try-golang/mappings"
-)
+import "github.com/devlights/try-golang/mapping"
 
 type (
 	register struct{}
 )
 
-// NewRegister -- このパッケージ用のサンプルを登録する mappings.Register を生成します。
-func NewRegister() mappings.Register {
+// NewRegister -- このパッケージ用のサンプルを登録する mapping.Register を生成します。
+func NewRegister() mapping.Register {
 	return new(register)
 }
 
 // Regist -- 登録します.
-func (r *register) Regist(m mappings.ExampleMapping) {
+func (r *register) Regist(m mapping.ExampleMapping) {
 	m["import01"] = Basic
 }
