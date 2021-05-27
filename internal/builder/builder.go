@@ -1,10 +1,10 @@
 package builder
 
 import (
-	"github.com/devlights/try-golang/internal/effectivego"
 	"github.com/devlights/try-golang/internal/examples/advanced"
 	"github.com/devlights/try-golang/internal/examples/basic"
-	"github.com/devlights/try-golang/internal/gotour"
+	"github.com/devlights/try-golang/internal/examples/effectivego"
+	"github.com/devlights/try-golang/internal/examples/gotour"
 	"github.com/devlights/try-golang/pkg/mappings"
 )
 
