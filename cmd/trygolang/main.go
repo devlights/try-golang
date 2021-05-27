@@ -8,9 +8,9 @@ import (
 
 	"github.com/devlights/gomy/logops"
 	"github.com/devlights/gomy/strops"
-	"github.com/devlights/try-golang/internal/builder"
-	"github.com/devlights/try-golang/pkg/command"
-	"github.com/devlights/try-golang/pkg/mappings"
+	"github.com/devlights/try-golang/builder"
+	"github.com/devlights/try-golang/command"
+	"github.com/devlights/try-golang/mappings"
 )
 
 func main() {
