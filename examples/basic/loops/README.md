@@ -9,3 +9,5 @@
 |channel\_loop.go|loops\_channel\_loop|チャネルをループさせる場合のサンプルです|
 |map\_loop.go|loops\_map\_loop|map のループについてのサンプルです|
 |range\_loop.go|loops\_range\_loop|単純に指定回数ループするためのサンプルです|
+|infinite\_loop.go|loops\_infinite\_loop|無限ループのサンプルです|
+|slice\_loop.go|loops\_slice\_loop|スライスのループについてのサンプルです|
