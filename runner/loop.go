@@ -1,4 +1,4 @@
-package command
+package runner
 
 import (
 	"bufio"
@@ -11,35 +11,35 @@ import (
 )
 
 type (
-	// RunLoopCommand -- 実行をループ処理するコマンド
-	RunLoopCommand struct {
-		Args *RunLoopArgs
+	// Loop -- 実行をループ処理するコマンド
+	Loop struct {
+		Args *LoopArgs
 	}
 
-	// RunLoopArgs -- RunLoopCommand の引数データを表します.
-	RunLoopArgs struct {
+	// LoopArgs -- Loop の引数データを表します.
+	LoopArgs struct {
 		OneTime bool                   // 一回実行で完了するかどうか
 		Mapping mapping.ExampleMapping // マッピング情報
 	}
 )
 
-// NewRunLoopArgs -- 新しい RunLoopArgs を生成して返します.
-func NewRunLoopArgs(oneTime bool, m mapping.ExampleMapping) *RunLoopArgs {
-	a := new(RunLoopArgs)
+// NewLoopArgs -- 新しい LoopArgs を生成して返します.
+func NewLoopArgs(oneTime bool, m mapping.ExampleMapping) *LoopArgs {
+	a := new(LoopArgs)
 	a.OneTime = oneTime
 	a.Mapping = m
 	return a
 }
 
-// NewRunLoopCommand -- 新しい RunLoopCommand を生成して返します.
-func NewRunLoopCommand(args *RunLoopArgs) *RunLoopCommand {
-	c := new(RunLoopCommand)
+// NewLoop -- 新しい Loop を生成して返します.
+func NewLoop(args *LoopArgs) *Loop {
+	c := new(Loop)
 	c.Args = args
 	return c
 }
 
 // Run -- 実行します.
-func (c *RunLoopCommand) Run() error {
+func (c *Loop) Run() error {
 	var (
 		oneTime = c.Args.OneTime
 		mapping = c.Args.Mapping
@@ -116,9 +116,9 @@ func (c *RunLoopCommand) Run() error {
 	return nil
 }
 
-func (c *RunLoopCommand) exec(target string, mapping mapping.ExampleMapping) error {
+func (c *Loop) exec(target string, mapping mapping.ExampleMapping) error {
 	execArgs := NewExecArgs(target, mapping)
-	execCmd := NewExecCommand(execArgs)
+	execCmd := NewExec(execArgs)
 
 	if err := execCmd.Run(); err != nil {
 		return err
@@ -127,7 +127,7 @@ func (c *RunLoopCommand) exec(target string, mapping mapping.ExampleMapping) err
 	return nil
 }
 
-func (c *RunLoopCommand) makeCandidates(userInput string, mapping mapping.ExampleMapping) []string {
+func (c *Loop) makeCandidates(userInput string, mapping mapping.ExampleMapping) []string {
 	candidates := make([]string, 0, len(mapping))
 	for k := range mapping {
 		key := string(k)

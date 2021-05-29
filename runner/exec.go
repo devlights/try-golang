@@ -1,4 +1,4 @@
-package command
+package runner
 
 import (
 	"fmt"
@@ -8,8 +8,8 @@ import (
 )
 
 type (
-	// ExecCommand -- 処理実行を行うコマンド
-	ExecCommand struct {
+	// Exec -- 処理実行を行うコマンド
+	Exec struct {
 		Args *ExecArgs // 引数
 	}
 
@@ -28,15 +28,15 @@ func NewExecArgs(target string, m mapping.ExampleMapping) *ExecArgs {
 	return a
 }
 
-// NewExecCommand -- 新しい ExecCommand を生成して返します.
-func NewExecCommand(args *ExecArgs) *ExecCommand {
-	c := new(ExecCommand)
+// NewExec -- 新しい Exec を生成して返します.
+func NewExec(args *ExecArgs) *Exec {
+	c := new(Exec)
 	c.Args = args
 	return c
 }
 
 // Run -- 実行します.
-func (c *ExecCommand) Run() error {
+func (c *Exec) Run() error {
 	var (
 		target  = mapping.ExampleKey(c.Args.Target)
 		mapping = c.Args.Mapping
