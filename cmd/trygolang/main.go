@@ -9,8 +9,8 @@ import (
 	"github.com/devlights/gomy/logops"
 	"github.com/devlights/gomy/strops"
 	"github.com/devlights/try-golang/builder"
-	"github.com/devlights/try-golang/command"
 	"github.com/devlights/try-golang/mapping"
+	"github.com/devlights/try-golang/runner"
 )
 
 func main() {
@@ -57,14 +57,14 @@ func main() {
 
 	defer fmt.Println("END")
 
-	var cmd command.Cmd
+	var r runner.Runner
 	if args.ExampleName != "" {
-		cmd = command.NewRunOnceCommand(command.NewRunOnceArgs(args.ExampleName, mapping))
+		r = runner.NewOnce(runner.NewOnceArgs(args.ExampleName, mapping))
 	} else {
-		cmd = command.NewRunLoopCommand(command.NewRunLoopArgs(args.OneTime, mapping))
+		r = runner.NewLoop(runner.NewLoopArgs(args.OneTime, mapping))
 	}
 
-	if err := cmd.Run(); err != nil {
+	if err := r.Run(); err != nil {
 		errLog.Fatal(err)
 	}
 
