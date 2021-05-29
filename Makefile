@@ -51,7 +51,7 @@ build: prepare
 
 .PHONY: test
 test: prepare
-	$(GOTEST) -race -v ./...
+	$(GOTEST) -race -coverprofile /tmp/try-golang-cover $(shell go list ./... | grep -v /examples/ | grep -v /cmd/)
 
 .PHONY: clean
 clean: prepare
