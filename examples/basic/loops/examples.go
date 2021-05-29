@@ -15,6 +15,7 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["loops_basic_for_loop"] = BasicForLoop
 	m["loops_basic_foreach"] = BasicForeach
+	m["loops_while_loop"] = WhileLoop
 	m["loops_channel_loop"] = ChannelLoop
 	m["loops_slice_loop"] = SliceLoop
 	m["loops_map_loop"] = MapLoop
