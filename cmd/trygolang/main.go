@@ -61,7 +61,7 @@ func main() {
 	if args.ExampleName != "" {
 		r = runner.NewOnce(runner.NewOnceArgs(args.ExampleName, mapping))
 	} else {
-		r = runner.NewLoop(runner.NewLoopArgs(args.OneTime, mapping))
+		r = runner.NewLoop(runner.NewLoopArgs(os.Stdin, args.OneTime, mapping))
 	}
 
 	if err := r.Run(); err != nil {

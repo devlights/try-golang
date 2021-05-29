@@ -3,7 +3,7 @@ package runner
 import (
 	"bufio"
 	"fmt"
-	"os"
+	"io"
 	"sort"
 	"strings"
 
@@ -18,14 +18,16 @@ type (
 
 	// LoopArgs -- Loop の引数データを表します.
 	LoopArgs struct {
+		In      io.Reader              // 入力
 		OneTime bool                   // 一回実行で完了するかどうか
 		Mapping mapping.ExampleMapping // マッピング情報
 	}
 )
 
 // NewLoopArgs -- 新しい LoopArgs を生成して返します.
-func NewLoopArgs(oneTime bool, m mapping.ExampleMapping) *LoopArgs {
+func NewLoopArgs(in io.Reader, oneTime bool, m mapping.ExampleMapping) *LoopArgs {
 	a := new(LoopArgs)
+	a.In = in
 	a.OneTime = oneTime
 	a.Mapping = m
 	return a
@@ -41,13 +43,14 @@ func NewLoop(args *LoopArgs) *Loop {
 // Run -- 実行します.
 func (c *Loop) Run() error {
 	var (
+		in = c.Args.In
 		oneTime = c.Args.OneTime
 		mapping = c.Args.Mapping
 	)
 
 	fmt.Print("ENTER EXAMPLE NAME: ")
 
-	stdinScanner := bufio.NewScanner(os.Stdin)
+	stdinScanner := bufio.NewScanner(in)
 	for stdinScanner.Scan() {
 		var (
 			numberOfCandidate int
