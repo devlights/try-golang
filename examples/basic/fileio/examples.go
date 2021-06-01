@@ -1,6 +1,12 @@
 package fileio
 
-import "github.com/devlights/try-golang/mapping"
+import (
+	"github.com/devlights/try-golang/examples/basic/fileio/filesystem"
+	"github.com/devlights/try-golang/examples/basic/fileio/readwrite"
+	"github.com/devlights/try-golang/examples/basic/fileio/stat"
+	"github.com/devlights/try-golang/examples/basic/fileio/stdinouterr"
+	"github.com/devlights/try-golang/mapping"
+)
 
 type (
 	register struct{}
@@ -13,13 +19,8 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["fileio_open_read"] = OpenRead
-	m["fileio_open_read2"] = OpenRead2
-	m["fileio_open_write"] = OpenWrite
-	m["fileio_stat_mkdir_removeall"] = StatMkdirRemoveAll
-	m["fileio_stat"] = Stat
-	m["fileio_null_writer"] = NullWriter
-	m["fileio_stdin_scanner"] = StdinWithScanner
-	m["fileio_stat_permission"] = StatPermission
-	m["fileio_fs_dirfs"] = FsDirFS
+	readwrite.NewRegister().Regist(m)
+	stat.NewRegister().Regist(m)
+	stdinouterr.NewRegister().Regist(m)
+	filesystem.NewRegister().Regist(m)
 }

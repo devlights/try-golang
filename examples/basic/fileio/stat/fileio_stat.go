@@ -1,4 +1,4 @@
-package fileio
+package stat
 
 import (
 	"fmt"

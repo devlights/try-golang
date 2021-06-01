@@ -1,4 +1,4 @@
-package fileio
+package stdinouterr
 
 import (
 	"bufio"

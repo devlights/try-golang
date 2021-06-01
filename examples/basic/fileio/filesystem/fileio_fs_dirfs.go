@@ -1,4 +1,4 @@
-package fileio
+package filesystem
 
 import (
 	"io"

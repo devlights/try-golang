@@ -1,4 +1,4 @@
-package fileio
+package readwrite
 
 import (
 	"fmt"
