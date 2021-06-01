@@ -46,6 +46,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/structs"
 	"github.com/devlights/try-golang/examples/basic/system"
 	"github.com/devlights/try-golang/examples/basic/times"
+	"github.com/devlights/try-golang/examples/basic/tsvop"
 	"github.com/devlights/try-golang/examples/basic/types"
 	"github.com/devlights/try-golang/examples/basic/unsafes"
 	"github.com/devlights/try-golang/examples/basic/variables"
@@ -110,6 +111,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	structs.NewRegister().Regist(m)
 	system.NewRegister().Regist(m)
 	times.NewRegister().Regist(m)
+	tsvop.NewRegister().Regist(m)
 	types.NewRegister().Regist(m)
 	unsafes.NewRegister().Regist(m)
 	variables.NewRegister().Regist(m)
