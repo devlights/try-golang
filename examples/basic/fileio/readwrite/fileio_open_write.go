@@ -2,7 +2,6 @@ package readwrite
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 )
@@ -10,7 +9,7 @@ import (
 // OpenWrite は、ファイルをOpenしてWriteするサンプルです.
 func OpenWrite() error {
 	// 一時ファイルの作成
-	file, err := ioutil.TempFile("", "example")
+	file, err := os.CreateTemp("", "example")
 	if err != nil {
 		log.Fatal(err)
 		return err
@@ -51,7 +50,7 @@ func OpenWrite() error {
 	}
 
 	// 読み出してみる
-	data, err := ioutil.ReadFile(file.Name())
+	data, err := os.ReadFile(file.Name())
 	if err != nil {
 		log.Fatal(err)
 		return err
