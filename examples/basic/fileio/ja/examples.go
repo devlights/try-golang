@@ -1,6 +1,7 @@
 package ja
 
 import (
+	"github.com/devlights/try-golang/examples/basic/fileio/ja/eucjp"
 	"github.com/devlights/try-golang/examples/basic/fileio/ja/sjis"
 	"github.com/devlights/try-golang/mapping"
 )
@@ -19,4 +20,5 @@ func NewRegister() mapping.Register {
 
 func (*register) Regist(m mapping.ExampleMapping) {
 	sjis.NewRegister().Regist(m)
+	eucjp.NewRegister().Regist(m)
 }
