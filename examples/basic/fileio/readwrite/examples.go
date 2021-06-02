@@ -21,5 +21,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["fileio_open_read2"] = OpenRead2
 	m["fileio_open_write"] = OpenWrite
 	m["fileio_open_write2"] = OpenWrite2
+	m["fileio_open_append"] = OpenAppend
 	m["fileio_null_writer"] = NullWriter
 }
