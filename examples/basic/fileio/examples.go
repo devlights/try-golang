@@ -2,6 +2,7 @@ package fileio
 
 import (
 	"github.com/devlights/try-golang/examples/basic/fileio/filesystem"
+	"github.com/devlights/try-golang/examples/basic/fileio/ja"
 	"github.com/devlights/try-golang/examples/basic/fileio/readwrite"
 	"github.com/devlights/try-golang/examples/basic/fileio/stat"
 	"github.com/devlights/try-golang/examples/basic/fileio/stdinouterr"
@@ -23,4 +24,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	stat.NewRegister().Regist(m)
 	stdinouterr.NewRegister().Regist(m)
 	filesystem.NewRegister().Regist(m)
+	ja.NewRegister().Regist(m)
 }
