@@ -8,7 +8,7 @@ import (
 )
 
 // Unmarshal は、json.Unmarshal() を利用した
-func Unmarshal() error {
+func UnmarshalStruct() error {
 	type (
 		V struct {
 			Value1 string `json:"name"`
