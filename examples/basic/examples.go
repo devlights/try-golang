@@ -26,6 +26,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/imports"
 	"github.com/devlights/try-golang/examples/basic/interfaces"
 	"github.com/devlights/try-golang/examples/basic/internalpkg"
+	"github.com/devlights/try-golang/examples/basic/jsonop"
 	"github.com/devlights/try-golang/examples/basic/literals"
 	"github.com/devlights/try-golang/examples/basic/logging"
 	"github.com/devlights/try-golang/examples/basic/loops"
@@ -91,6 +92,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	interfaces.NewRegister().Regist(m)
 	imports.NewRegister().Regist(m)
 	internalpkg.NewRegister().Regist(m)
+	jsonop.NewRegister().Regist(m)
 	streams.NewRegister().Regist(m)
 	literals.NewRegister().Regist(m)
 	logging.NewRegister().Regist(m)
