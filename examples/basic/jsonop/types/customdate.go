@@ -1,8 +1,9 @@
 package types
 
 import (
+	"encoding/json"
 	"fmt"
-	"strconv"
+	_ "strconv"
 	"time"
 )
 
@@ -14,7 +15,9 @@ type (
 )
 
 var (
-	_ fmt.Stringer = (*YyyyMmDd)(nil)
+	_ fmt.Stringer     = (*YyyyMmDd)(nil)
+	_ json.Marshaler   = (*YyyyMmDd)(nil)
+	_ json.Unmarshaler = (*YyyyMmDd)(nil)
 )
 
 func (me YyyyMmDd) String() string {
@@ -36,15 +39,16 @@ func (me *YyyyMmDd) UnmarshalJSON(b []byte) error {
 	}
 
 	// https://stackoverflow.com/questions/16846553/how-to-unmarshal-an-escaped-json-string
-	if s, err = strconv.Unquote(s); err != nil {
-		return err
-	}
+	// if s, err = strconv.Unquote(s); err != nil {
+	// 	return err
+	// }
 
 	var (
 		t time.Time
 	)
 
-	if t, err = time.Parse("2006/01/02", s); err != nil {
+	// https://essential-go.programming-books.io/custom-json-marshaling-468765d144a34e87b913c7674e66c3a4#12ec5c24-ae51-4341-95ae-a5a0a81ed746
+	if t, err = time.Parse(`"2006/01/02"`, s); err != nil {
 		return err
 	}
 
