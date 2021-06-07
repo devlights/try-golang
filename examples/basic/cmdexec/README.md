@@ -9,3 +9,4 @@
 |stdinouterr.go|cmdexec\_stdinouterr|標準入力・標準出力・標準エラー出力を指定してコマンドを実行するサンプルです|
 |withcontext.go|cmdexec\_withcontext|コマンドを context.Context 付きで実行するサンプルです|
 |pipe.go|cmdexec\_pipe|(*Cmd).StdinPipe,StdoutPipe,StderrPipeのサンプルです|
+|multi\_command\_with\_pipe.go|cmdexec\_multi\_command\_with\_pipe|複数の (*exec.Cmd) をパイプストリームで繋いで実行するサンプルです|
