@@ -14,4 +14,5 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["os_getpagesize"] = PageSize
+	m["os_name"] = OsName
 }
