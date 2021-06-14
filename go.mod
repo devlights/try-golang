@@ -7,5 +7,6 @@ require (
 	golang.org/x/crypto v0.0.0-20210218145215-b8e89b74b9df
 	golang.org/x/sync v0.0.0-20201207232520-09787c993a3a
 	golang.org/x/text v0.3.5
+	gopkg.in/yaml.v2 v2.4.0
 	modernc.org/sqlite v1.10.6
 )
