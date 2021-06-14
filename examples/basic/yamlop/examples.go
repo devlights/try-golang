@@ -16,4 +16,5 @@ func NewRegister() mapping.Register {
 
 func (*register) Regist(m mapping.ExampleMapping) {
 	m["yaml_marshal"] = Marshal
+	m["yaml_unmarshal"] = Unmarshal
 }
