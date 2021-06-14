@@ -18,4 +18,5 @@ func (*register) Regist(m mapping.ExampleMapping) {
 	m["yaml_marshal"] = Marshal
 	m["yaml_unmarshal"] = Unmarshal
 	m["yaml_decoder"] = Decoder
+	m["yaml_encoder"] = Encoder
 }
