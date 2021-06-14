@@ -1,4 +1,4 @@
-package binaries
+package binaryop
 
 import (
 	"encoding/hex"
