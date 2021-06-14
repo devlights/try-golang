@@ -1,7 +1,7 @@
-package binaries
+package binaryop
 
 import (
-	"github.com/devlights/try-golang/examples/basic/binaries/readwrite"
+	"github.com/devlights/try-golang/examples/basic/binaryop/readwrite"
 	"github.com/devlights/try-golang/mapping"
 )
 
@@ -16,7 +16,7 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["binary_byteorder"] = ByteOrder
-	m["binary_readwrite"] = readwrite.ReadWrite
-	m["binary_using_hex_dumper"] = UsingHexDumper
+	m["binaryop_byteorder"] = ByteOrder
+	m["binaryop_readwrite"] = readwrite.ReadWrite
+	m["binaryop_using_hex_dumper"] = UsingHexDumper
 }
