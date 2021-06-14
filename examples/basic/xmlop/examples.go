@@ -18,4 +18,5 @@ func (*register) Regist(m mapping.ExampleMapping) {
 	m["xml_marshal"] = Marshal
 	m["xml_marshal_indent"] = MarshalIndent
 	m["xml_unmarshal"] = Unmarshal
+	m["xml_decoder"] = Decoder
 }
