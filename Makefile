@@ -43,6 +43,10 @@ _download_sqlite3_database:
 build: prepare
 	$(GOBUILD) -race -o bin/$(BIN_NAME) $(CMD_PKG)
 
+.PHONY: buildstatic
+buildstatic: prepare
+	CGO_ENABLED=0 $(GOBUILD) -a -tags netgo -installsuffix netgo --ldflags '-extldflags "-static"' -o bin/$(BIN_NAME)_staticlink $(CMD_PKG)
+
 .PHONY: test
 test: prepare
 	$(GOTEST) -race -coverprofile /tmp/try-golang-cover $(shell go list ./... | grep -v /examples/ | grep -v /cmd/)
