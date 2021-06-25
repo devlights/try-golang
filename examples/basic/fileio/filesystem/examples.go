@@ -16,4 +16,5 @@ func NewRegister() mapping.Register {
 
 func (*register) Regist(m mapping.ExampleMapping) {
 	m["fileio_fs_dirfs"] = FsDirFS
+	m["fileio_os_readdir"] = OsReadDir
 }
