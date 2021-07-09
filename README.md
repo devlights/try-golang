@@ -7,7 +7,7 @@ This is my TUTORIAL project for golang
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
 
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-golang) 
-[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/organization/repository)
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/devlights/try-golang)
 
 ## GO version
 
