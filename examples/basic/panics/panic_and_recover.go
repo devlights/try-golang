@@ -21,8 +21,8 @@ func catch() (err error) {
 		// panicはrecoverで補足できるが、取得できる値は interface{} となる
 		if obj := recover(); obj != nil {
 			// error かどうか判別
-			if _, ok := obj.(error); ok {
-				err = obj.(error)
+			if e, ok := obj.(error); ok {
+				err = e
 			} else {
 				err = fmt.Errorf("%v", obj)
 			}
