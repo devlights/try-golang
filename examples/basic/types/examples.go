@@ -13,5 +13,6 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["type_basic"] = Basic
+	m["types_basic"] = Basic
+	m["types_define_types_easy"] = DefineTypesEasy
 }
