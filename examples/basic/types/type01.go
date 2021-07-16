@@ -43,6 +43,7 @@ func Basic() error {
 	// i2 = i1
 	// 以下は通る
 	i2 = MyInt2(i1)
+	fmt.Println(i2)
 
 	return nil
 }
