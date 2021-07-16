@@ -34,6 +34,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/maths"
 	"github.com/devlights/try-golang/examples/basic/methods"
 	"github.com/devlights/try-golang/examples/basic/network"
+	"github.com/devlights/try-golang/examples/basic/panics"
 	"github.com/devlights/try-golang/examples/basic/runtimes"
 	"github.com/devlights/try-golang/examples/basic/scope"
 	"github.com/devlights/try-golang/examples/basic/signals"
@@ -103,6 +104,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	maths.NewRegister().Regist(m)
 	methods.NewRegister().Regist(m)
 	network.NewRegister().Regist(m)
+	panics.NewRegister().Regist(m)
 	runtimes.NewRegister().Regist(m)
 	scope.NewRegister().Regist(m)
 	signals.NewRegister().Regist(m)
