@@ -12,8 +12,13 @@ func ZeroValue() error {
 	)
 
 	// bytes.Buffer は、ゼロ値の場合は有効な空のバッファを表す
-	buf.Write([]byte("hello"))
-	buf.WriteTo(os.Stdout)
+	if _, err := buf.Write([]byte("hello")); err != nil {
+		return err
+	}
+
+	if _, err := buf.WriteTo(os.Stdout); err != nil {
+		return err
+	}
 
 	return nil
 }

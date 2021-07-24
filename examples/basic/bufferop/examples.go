@@ -15,4 +15,5 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["bufferop_zero_value"] = ZeroValue
 	m["bufferop_from_string"] = FromString
+	m["bufferop_from_bytes"] = FromBytes
 }
