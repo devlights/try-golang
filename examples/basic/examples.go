@@ -2,6 +2,7 @@ package basic
 
 import (
 	"github.com/devlights/try-golang/examples/basic/array"
+	"github.com/devlights/try-golang/examples/basic/base64op"
 	"github.com/devlights/try-golang/examples/basic/binaryop"
 	"github.com/devlights/try-golang/examples/basic/bitop"
 	"github.com/devlights/try-golang/examples/basic/bufferop"
@@ -72,6 +73,7 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 
 	array.NewRegister().Regist(m)
+	base64op.NewRegister().Regist(m)
 	binaryop.NewRegister().Regist(m)
 	bitop.NewRegister().Regist(m)
 	builtins.NewRegister().Regist(m)
