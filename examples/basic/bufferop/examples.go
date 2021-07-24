@@ -14,4 +14,5 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["bufferop_zero_value"] = ZeroValue
+	m["bufferop_from_string"] = FromString
 }
