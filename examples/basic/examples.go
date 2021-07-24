@@ -4,6 +4,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/array"
 	"github.com/devlights/try-golang/examples/basic/binaryop"
 	"github.com/devlights/try-golang/examples/basic/bitop"
+	"github.com/devlights/try-golang/examples/basic/bufferop"
 	"github.com/devlights/try-golang/examples/basic/builtins"
 	"github.com/devlights/try-golang/examples/basic/byteop"
 	"github.com/devlights/try-golang/examples/basic/cmdexec"
@@ -74,6 +75,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	binaryop.NewRegister().Regist(m)
 	bitop.NewRegister().Regist(m)
 	builtins.NewRegister().Regist(m)
+	bufferop.NewRegister().Regist(m)
 	byteop.NewRegister().Regist(m)
 	cmdexec.NewRegister().Regist(m)
 	comments.NewRegister().Regist(m)
