@@ -43,7 +43,7 @@ func (c *Exec) Run() error {
 	)
 
 	if v, ok := mapping[target]; ok {
-		fmt.Printf("[Name] %q\n", target)
+		fmt.Printf("\n[Name] %q\n", target)
 
 		defer func(start time.Time) {
 			fmt.Printf("\n\n[Elapsed] %s\n", time.Since(start))

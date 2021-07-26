@@ -43,12 +43,12 @@ func NewLoop(args *LoopArgs) *Loop {
 // Run -- 実行します.
 func (c *Loop) Run() error {
 	var (
-		in = c.Args.In
+		in      = c.Args.In
 		oneTime = c.Args.OneTime
 		mapping = c.Args.Mapping
 	)
 
-	fmt.Print("ENTER EXAMPLE NAME: ")
+	fmt.Print("\nENTER EXAMPLE NAME: ")
 
 	stdinScanner := bufio.NewScanner(in)
 	for stdinScanner.Scan() {
