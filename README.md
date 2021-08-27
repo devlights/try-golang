@@ -41,6 +41,20 @@ or
 $ make docker
 ```
 
+or
+
+If you want to use [go-task](https://github.com/go-task/task), type the following command.
+
+```sh
+$ go install github.com/go-task/task/v3/cmd/task@latest
+```
+
+Once the above command is complete, you can run it at
+
+```sh
+$ task
+```
+
 ### Run Docker on Gitpod
 
 type following command in first terminal:

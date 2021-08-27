@@ -1,0 +1,10 @@
+# https://github.com/go-task/task
+version: '3'
+
+tasks:
+  default:
+    deps:
+      - task: run
+  run:
+    cmds:
+      - go run github.com/devlights/try-golang/cmd/trygolang -onetime
