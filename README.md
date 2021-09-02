@@ -2,18 +2,18 @@
 
 This is my TUTORIAL project for golang
 
-![try-golang - Go Version](https://img.shields.io/badge/go-1.16-blue.svg)
+![try-golang - Go Version](https://img.shields.io/badge/go-1.17-blue.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-golang/badge/master)](https://www.codefactor.io/repository/github/devlights/try-golang/overview/master)
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
 
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/devlights/try-golang) 
 [![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/devlights/try-golang)
 
-## GO version
+## Go version
 
 ```shell script
 $ go version
-go version go1.16 linux/arm64
+go version go1.17 linux/amd64
 ```
 
 ## Run
@@ -96,6 +96,8 @@ $ make install
 
 ## 関連リポジトリ
 
+- [gomy](https://github.com/devlights/gomy)
+  - 共通ライブラリ
 - [try-golang-extlib](https://github.com/devlights/try-golang-extlib)
   - 3rd party ライブラリのサンプルはこちらで管理しています。
 - [go-crosscompile-example](https://github.com/devlights/go-crosscompile-example)
