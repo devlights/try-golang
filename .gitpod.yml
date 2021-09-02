@@ -2,8 +2,7 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - command: go install github.com/go-task/task/v3/cmd/task@latest
-  - command: make prepare
+  - command: make prepare ; go install github.com/go-task/task/v3/cmd/task@latest
 
 vscode:
   extensions:
