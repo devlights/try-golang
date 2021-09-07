@@ -1,14 +1,13 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
-// https://github.com/microsoft/vscode-dev-containers/tree/v0.162.0/containers/go
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.192.0/containers/go
 {
 	"name": "Go",
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
-			// Update the VARIANT arg to pick a version of Go: 1, 1.16, 1.15
+			// Update the VARIANT arg to pick a version of Go: 1, 1.16, 1.17
 			"VARIANT": "1.17",
 			// Options
-			"INSTALL_NODE": "true",
 			"NODE_VERSION": "lts/*"
 		}
 	},
@@ -16,7 +15,7 @@
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"go.toolsManagement.checkForUpdates": "off",
+		"go.toolsManagement.checkForUpdates": "local",
 		"go.useLanguageServer": true,
 		"go.gopath": "/go",
 		"go.goroot": "/usr/local/go"
@@ -25,14 +24,14 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"golang.Go",
-		"golang.go"
+		"dracula-theme.theme-dracula"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "go version",
+	"postCreateCommand": "go version ; make prepare ; go install github.com/go-task/task/v3/cmd/task@latest",
 
 	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"
