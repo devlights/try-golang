@@ -41,7 +41,7 @@ _download_sqlite3_database:
 
 .PHONY: build
 build: prepare
-	$(GOBUILD) -race -o bin/$(BIN_NAME) $(CMD_PKG)
+	$(GOBUILD) -o bin/$(BIN_NAME) $(CMD_PKG)
 
 .PHONY: buildstatic
 buildstatic: prepare
@@ -49,7 +49,7 @@ buildstatic: prepare
 
 .PHONY: test
 test: prepare
-	$(GOTEST) -race -coverprofile /tmp/try-golang-cover $(shell go list ./... | grep -v /examples/ | grep -v /cmd/)
+	$(GOTEST) -coverprofile /tmp/try-golang-cover $(shell go list ./... | grep -v /examples/ | grep -v /cmd/)
 
 .PHONY: clean
 clean: prepare
@@ -62,7 +62,7 @@ install: prepare
 
 .PHONY: run
 run: prepare
-	$(GORUN) -race $(CMD_PKG) -onetime -example ${EXAMPLE}
+	$(GORUN) $(CMD_PKG) -onetime -example ${EXAMPLE}
 
 .PHONY: generate
 generate: prepare
