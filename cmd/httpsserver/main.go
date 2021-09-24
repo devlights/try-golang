@@ -33,7 +33,7 @@ func run() error {
 	// Go の標準パッケージの中にオレオレ証明書を作成するためのソースがある
 	// 以下の様にして呼び出せる
 	//
-	// $ $(go env GOROOT)/src/crypto/tls/generate_cert.go --rsa-bits=2048 --host=localhost
+	// $ $(go env GOROOT)/src/crypto/tls/generate_cert.go -rsa-bits 2048 -host localhost
 	//
 	// 実行すると、key.pem と cert.pem ファイルが生成される
 	//
