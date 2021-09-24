@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>WebRTC</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        
+        body {
+            height: 100%;
+            margin: 0;
+        }
+        
+        main {
+            height: 100%;
+            background: #000;
+        }
+        
+        video {
+            object-fit: fill;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <video id="video" autoplay muted playsinline></video>
+    </main>
+    <script>
+        const _constraints = {
+            audio: false,
+            video: {
+                facingMode: 'environment'
+            }
+        };
+
+        const _load = (constraints) => {
+            const device = navigator.mediaDevices;
+            device.getUserMedia(constraints).then((stream) => {
+                document.getElementById('video').srcObject = stream;
+            });
+        }
+
+        _load(_constraints);
+    </script>
+</body>
+
+</html>
