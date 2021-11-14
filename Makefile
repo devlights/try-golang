@@ -70,7 +70,7 @@ generate: prepare
 
 .PHONY: docker-build
 docker-build:
-	sudo $(DOCKER_BUILD) -t try-golang .
+	sudo $(DOCKER_BUILD) -t try-golang -f Dockerfile ${PWD}
 
 .PHONY: docker-run
 docker-run: docker-build
