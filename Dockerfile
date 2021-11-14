@@ -1,4 +1,4 @@
-FROM golang:1.16
+FROM golang:1.17
 
 ENV CGO_ENABLED=1
 ENV GOOS=linux
@@ -8,7 +8,6 @@ WORKDIR /go/src/app
 
 COPY go.mod go.sum ./
 RUN go mod download
-RUN go install github.com/cheekybits/genny
 
 COPY . .
 
