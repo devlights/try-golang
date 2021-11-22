@@ -18,6 +18,9 @@
 		"go.gopath": "/go",
 		"go.goroot": "/usr/local/go"
 	},
+	"features": {
+		"docker-from-docker": "20.10"
+	},
 	"extensions": [
 		"golang.Go",
 		"dracula-theme.theme-dracula"
