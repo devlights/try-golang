@@ -19,7 +19,8 @@
 		"go.goroot": "/usr/local/go"
 	},
 	"features": {
-		"docker-from-docker": "20.10"
+		// https://github.com/microsoft/vscode-dev-containers/tree/main/containers/docker-from-docker#using-bind-mounts-when-working-with-docker-inside-the-container
+		"docker-in-docker": "20.10"
 	},
 	"extensions": [
 		"golang.Go",
