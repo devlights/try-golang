@@ -23,7 +23,7 @@ func TestTLog(t *testing.T) {
 		fmt.Printf("fmt %d\n", i)
 		t.Logf("t.Log %d\n", i)
 
-		time.Sleep(1 * time.Second)
+		time.Sleep(100 * time.Millisecond)
 	}
 
 	/*
