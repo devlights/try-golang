@@ -31,6 +31,10 @@ prepare: \
 
 _go_get:
 	$(GOCMD) get -d ./...
+	go install golang.org/x/tools/cmd/goimports@latest
+	go install github.com/go-delve/delve/cmd/dlv@latest
+	go install honnef.co/go/tools/cmd/staticcheck@latest
+	go install github.com/go-task/task/v3/cmd/task@latest
 
 _download_sqlite3_database:
 	@if [ ! -e "chinook.db" ]; then\
