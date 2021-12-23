@@ -30,10 +30,11 @@ prepare: \
 	_download_sqlite3_database
 
 _go_get:
-	$(GOCMD) get -d ./...
+	$(GOCMD) mod download
 	go install golang.org/x/tools/cmd/goimports@latest
 	go install github.com/go-delve/delve/cmd/dlv@latest
 	go install honnef.co/go/tools/cmd/staticcheck@latest
+	go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 	go install golang.org/x/tools/gopls@latest
 	go install github.com/go-task/task/v3/cmd/task@latest
 	go install github.com/uudashr/gopkgs/v2/cmd/gopkgs@latest
@@ -51,32 +52,32 @@ _download_sqlite3_database:
 	fi
 
 .PHONY: build
-build: prepare
+build: 
 	$(GOBUILD) -o bin/$(BIN_NAME) $(CMD_PKG)
 
 .PHONY: buildstatic
-buildstatic: prepare
+buildstatic: 
 	CGO_ENABLED=0 $(GOBUILD) -a -tags netgo -installsuffix netgo --ldflags '-extldflags "-static"' -o bin/$(BIN_NAME)_staticlink $(CMD_PKG)
 
 .PHONY: test
-test: prepare
+test: 
 	$(GOTEST) -coverprofile /tmp/try-golang-cover $(shell go list ./... | grep -v /examples/ | grep -v /cmd/)
 
 .PHONY: clean
-clean: prepare
+clean: 
 	$(GOCLEAN) -i $(CMD_PKG)
 	$(RM_CMD) $(BIN_DIR)/$(BIN_NAME)
 
 .PHONY: install
-install: prepare
+install: 
 	$(GOINSTALL) $(BIN_DIR)
 
 .PHONY: run
-run: prepare
+run: 
 	$(GORUN) $(CMD_PKG) -onetime -example ${EXAMPLE}
 
 .PHONY: generate
-generate: prepare
+generate: 
 	$(GOGENERATE) -x ./...
 
 .PHONY: docker-build
