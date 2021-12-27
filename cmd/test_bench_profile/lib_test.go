@@ -6,8 +6,8 @@ import (
 )
 
 // Examplefib -- fib() の Exampleテスト
-func Examplefib() {
-	fmt.Println(fib(40))
+func ExampleFib() {
+	fmt.Println(Fib(40))
 
 	// Output:
 	// 102334155
@@ -35,7 +35,7 @@ func TestFib(t *testing.T) {
 		t.Run(title, func(t *testing.T) {
 			t.Parallel()
 
-			got := fib(test.in)
+			got := Fib(test.in)
 			if test.want != got {
 				t.Errorf("[want] %v\t[got] %v", test.want, got)
 			}

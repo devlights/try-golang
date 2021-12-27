@@ -1,9 +1,9 @@
 package main
 
-func fib(n int) int {
+func Fib(n int) int {
 	if n < 2 {
 		return n
 	}
 
-	return fib(n-1) + fib(n-2)
+	return Fib(n-1) + Fib(n-2)
 }

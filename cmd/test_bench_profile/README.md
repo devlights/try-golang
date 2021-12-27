@@ -35,6 +35,9 @@ $ make pprof_mem
 # 参考情報
 
 - [Escape $ dollar sign on Makefiles](https://til.hashrocket.com/posts/k3kjqxtppx-escape-dollar-sign-on-makefiles)
+- [Add a test](https://go.dev/doc/tutorial/add-a-test)
+- [How to write Go code](https://go.dev/doc/code#Testing)
+- [TableDrivenTests](https://github.com/golang/go/wiki/TableDrivenTests)
 - [Profiling a Go program](https://pkg.go.dev/runtime/pprof#hdr-Profiling_a_Go_program)
 - [google/pprof](https://github.com/google/pprof/blob/master/doc/README.md)
 - [Profile your golang benchmark with pprof](https://medium.com/@felipedutratine/profile-your-benchmark-with-pprof-fb7070ee1a94)
