@@ -1,0 +1,5 @@
+cpu.pprof
+mem.pprof
+*.out
+*.png
+*.svg
