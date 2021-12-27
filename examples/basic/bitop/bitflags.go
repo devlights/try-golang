@@ -8,7 +8,7 @@ import (
 )
 
 const (
-	DoneProducer int = 1 << iota
+	DoneProducer uint8 = 1 << iota
 	DoneCompleter
 	DoneConsumer1
 	DoneConsumer2
@@ -75,10 +75,10 @@ func BitFlags() error {
 		ctxComp = comp.completeWhen(ctxP)
 		ctx1C   = c1.take("c-1")
 		ctx2C   = c2.take("c-2")
-		status  = None
 	)
 
 	// wait until all jobs is done
+	var status uint8
 LOOP:
 	for {
 		select {
