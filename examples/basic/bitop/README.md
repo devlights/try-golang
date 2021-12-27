@@ -4,5 +4,6 @@
 
 |file|example name|note|
 |----|------------|----|
-|bitop\_basic.go|bitop\_basic|基本的なビット操作のサンプルです.|
+|basic.go|bitop\_basic|基本的なビット操作のサンプルです.|
+|bitflags.go|bitop\_bitflags|ビットフラグのサンプルです.|
 
