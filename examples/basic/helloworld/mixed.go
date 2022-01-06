@@ -54,14 +54,18 @@ func async(pCtx context.Context) context.Context {
 		ctx, cxl = context.WithCancel(pCtx)
 		tasks    = make([]context.Context, 0)
 	)
-	defer cxl()
 
 	for v := range items() {
 		v := v
 		tasks = append(tasks, exec(ctx, v+1, "async"))
 	}
 
-	return ctxs.WhenAll(ctx, tasks...)
+	go func() {
+		defer cxl()
+		<-ctxs.WhenAll(ctx, tasks...).Done()
+	}()
+
+	return ctx
 }
 
 func items() <-chan int {
