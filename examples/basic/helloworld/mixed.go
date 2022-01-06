@@ -28,6 +28,8 @@ func Mixed() error {
 		syncCtx  = sync(procCtx)
 		asyncCtx = async(procCtx)
 	)
+
+	// wait until all tasks are completed
 	<-ctxs.WhenAll(procCtx, syncCtx, asyncCtx).Done()
 
 	return nil
