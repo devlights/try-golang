@@ -10,14 +10,25 @@ import (
 
 // Mixed -- 同期と非同期の両方で同じことをするサンプル
 func Mixed() error {
+	// main contexts
 	var (
-		mainCtx          = context.Background()
+		rootCtx          = context.Background()
+		mainCtx, mainCxl = context.WithCancel(rootCtx)
+	)
+	defer mainCxl()
+
+	// proc context
+	var (
 		procCtx, procCxl = context.WithTimeout(mainCtx, 1*time.Second)
 	)
 	defer procCxl()
 
+	// synchronous
 	<-sync(procCtx).Done()
+
 	fmt.Println("--------------------------------")
+
+	// asynchronous
 	<-async(procCtx).Done()
 
 	return nil
@@ -80,7 +91,7 @@ func exec(pCtx context.Context, v int) context.Context {
 		case <-ctx.Done():
 			return
 		default:
-			fmt.Printf("[%d] helloworld\n", v)
+			fmt.Printf("[%02d] helloworld\n", v)
 		}
 	}()
 

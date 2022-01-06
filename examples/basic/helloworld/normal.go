@@ -12,6 +12,9 @@ func Normal() error {
 	// 理由は、Golang のドキュメントに以下のように記載されているから。
 	//   https://golang.org/builtin/#println
 	//   https://qiita.com/taji-taji/items/79a49c0ee329d0b9c065
-	fmt.Println("Hello World!")
+	for i := 0; i < 10; i++ {
+		fmt.Printf("[%02d]\tHello World\n", i+1)
+	}
+
 	return nil
 }
