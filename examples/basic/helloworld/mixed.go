@@ -23,13 +23,12 @@ func Mixed() error {
 	)
 	defer procCxl()
 
-	// synchronous
-	<-sync(procCtx).Done()
-
-	fmt.Println("--------------------------------")
-
-	// asynchronous
-	<-async(procCtx).Done()
+	// start tasks
+	var (
+		syncCtx  = sync(procCtx)
+		asyncCtx = async(procCtx)
+	)
+	<-ctxs.WhenAll(procCtx, syncCtx, asyncCtx).Done()
 
 	return nil
 }
@@ -42,7 +41,7 @@ func sync(pCtx context.Context) context.Context {
 
 	for v := range items() {
 		v := v
-		<-exec(ctx, v+1).Done()
+		<-exec(ctx, v+1, "sync ").Done()
 	}
 
 	return ctx
@@ -57,7 +56,7 @@ func async(pCtx context.Context) context.Context {
 
 	for v := range items() {
 		v := v
-		tasks = append(tasks, exec(ctx, v+1))
+		tasks = append(tasks, exec(ctx, v+1, "async"))
 	}
 
 	return ctxs.WhenAll(ctx, tasks...)
@@ -79,7 +78,7 @@ func items() <-chan int {
 	return ch
 }
 
-func exec(pCtx context.Context, v int) context.Context {
+func exec(pCtx context.Context, v int, prefix string) context.Context {
 	var (
 		ctx, cxl = context.WithCancel(pCtx)
 	)
@@ -91,7 +90,7 @@ func exec(pCtx context.Context, v int) context.Context {
 		case <-ctx.Done():
 			return
 		default:
-			fmt.Printf("[%02d] helloworld\n", v)
+			fmt.Printf("[%s][%02d] helloworld\n", prefix, v)
 		}
 	}()
 
