@@ -2,10 +2,10 @@ package helloworld
 
 import (
 	"context"
-	"fmt"
 	"time"
 
 	"github.com/devlights/gomy/ctxs"
+	"github.com/devlights/gomy/output"
 )
 
 // Mixed -- 同期と非同期の両方で同じことをするサンプル
@@ -90,7 +90,7 @@ func exec(pCtx context.Context, v int, prefix string) context.Context {
 		case <-ctx.Done():
 			return
 		default:
-			fmt.Printf("[%s][%02d] helloworld\n", prefix, v)
+			output.Stderrf(prefix, "[%02d] helloworld\n", v)
 		}
 	}()
 
