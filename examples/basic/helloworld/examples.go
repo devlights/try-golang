@@ -15,4 +15,5 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["helloworld_normal"] = Normal
 	m["helloworld_async"] = Async
+	m["helloworld_mixed"] = Mixed
 }
