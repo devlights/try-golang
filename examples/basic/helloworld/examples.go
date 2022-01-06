@@ -13,7 +13,7 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["helloworld_normal"] = Normal
+	m["helloworld_sync"] = Sync
 	m["helloworld_async"] = Async
 	m["helloworld_mixed"] = Mixed
 }
