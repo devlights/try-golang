@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-// Dumper -- encoding/hex#Dumper のサンプルです。
+// Dumper -- encoding/hex.Dumper のサンプルです。
 func Dumper() error {
 	// -----------------------------------------------------
 	// encoding/hex#Dumper を利用すると hexdump コマンドを
@@ -18,6 +18,7 @@ func Dumper() error {
 	// 最後に Close を呼ばないと、ダンプ出力の右側に元の値が表示されないので注意
 	// (Close を呼ばないままだと、16進部分のみが出力される)
 	// -----------------------------------------------------
+	
 	var (
 		reader = strings.NewReader("hello world")
 		writer = os.Stdout
