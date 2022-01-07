@@ -11,6 +11,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/cmdexec"
 	"github.com/devlights/try-golang/examples/basic/comments"
 	"github.com/devlights/try-golang/examples/basic/constants"
+	"github.com/devlights/try-golang/examples/basic/containers"
 	"github.com/devlights/try-golang/examples/basic/convert"
 	"github.com/devlights/try-golang/examples/basic/cryptos"
 	"github.com/devlights/try-golang/examples/basic/csvop"
@@ -82,6 +83,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	cmdexec.NewRegister().Regist(m)
 	comments.NewRegister().Regist(m)
 	constants.NewRegister().Regist(m)
+	containers.NewRegister().Regist(m)
 	convert.NewRegister().Regist(m)
 	cryptos.NewRegister().Regist(m)
 	csvop.NewRegister().Regist(m)
