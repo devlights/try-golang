@@ -1,9 +1,9 @@
 package times
 
 import (
+	"log"
+	"os"
 	"time"
-
-	"github.com/devlights/gomy/output"
 )
 
 // ChangeLocalTimezone -- time.Localを変更して強制的にローカルタイムゾーンを一時的に変更するサンプルです.
@@ -25,23 +25,27 @@ func ChangeLocalTimezone() error {
 	// ただし、いい方法とは言えないので、実務レベルではやらない方が良いと思います。
 	// 普通に環境変数 TZ に Asia/Tokyo を設定しておいてプログラムを動作させる方が良いと思います。
 
+	var (
+		l = log.New(os.Stderr, "", log.LstdFlags)
+	)
+
 	// Gitpod や Github Codespace などで実行すると以下は JST ではなく UTC となる
-	output.Stdoutl("[time.Now() -- Default]", time.Now())
+	l.Printf("[time.Now() -- Default] %v\n", time.Now())
 
 	// 一時的な変更に留めたい場合は後から復活できるようにしておく
 	original := time.Local
-	defer func(){
+	defer func() {
 		time.Local = original
 	}()
 
 	jst, err := time.LoadLocation("Asia/Tokyo")
 	if err != nil {
 		return err
-	}	
+	}
 	time.Local = jst
 
 	// 切り替え後だと、ちゃんとタイムゾーンが適用される
-	output.Stdoutl("[time.Now() -- After  ]", time.Now())
+	l.Printf("[time.Now() -- After  ] %v\n", time.Now())
 
 	return nil
 }
