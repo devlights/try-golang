@@ -39,12 +39,15 @@ func sync(pCtx context.Context) context.Context {
 	var (
 		ctx, cxl = context.WithCancel(pCtx)
 	)
-	defer cxl()
 
-	for v := range items() {
-		v := v
-		<-exec(ctx, v+1, "sync ").Done()
-	}
+	go func() {
+		defer cxl()
+
+		for v := range items() {
+			v := v
+			<-exec(ctx, v+1, "sync ").Done()
+		}
+	}()
 
 	return ctx
 }
