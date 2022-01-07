@@ -26,6 +26,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/functions"
 	"github.com/devlights/try-golang/examples/basic/goroutines"
 	"github.com/devlights/try-golang/examples/basic/helloworld"
+	"github.com/devlights/try-golang/examples/basic/hexop"
 	"github.com/devlights/try-golang/examples/basic/imports"
 	"github.com/devlights/try-golang/examples/basic/interfaces"
 	"github.com/devlights/try-golang/examples/basic/internalpkg"
@@ -98,6 +99,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	functions.NewRegister().Regist(m)
 	goroutines.NewRegister().Regist(m)
 	helloworld.NewRegister().Regist(m)
+	hexop.NewRegister().Regist(m)
 	interfaces.NewRegister().Regist(m)
 	imports.NewRegister().Regist(m)
 	internalpkg.NewRegister().Regist(m)
