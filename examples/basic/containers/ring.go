@@ -17,21 +17,31 @@ func RingBuffer() error {
 	// 性質上、「直近N件分のみ保持しておきたい」場合などに便利。
 
 	var (
-		r = ring.New(3)
-		f = func(v interface{}) {
-			output.Stdoutl("ring", v)
+		r  = ring.New(3)
+		f1 = func(v interface{}) {
+			output.Stdoutl("ring [next]", v)
+		}
+		f2 = func(v interface{}) {
+			output.Stdoutl("ring [prev]", v)
 		}
 	)
 
-	r.Do(f)
+	r.Do(f1)
 	output.StdoutHr()
 
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 5; i++ {
 		// 現在の番目に値を設定し、次の番目に進めて、それを保持しておく
 		r.Value = i
 		r = r.Next()
 
-		r.Do(f)
+		r.Do(f1)
+		output.StdoutHr()
+	}
+
+	// 循環しているのかどうかを確認
+	for i := 0; i < 5; i++ {
+		r = r.Prev()
+		r.Do(f2)
 		output.StdoutHr()
 	}
 
