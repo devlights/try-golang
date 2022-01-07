@@ -17,4 +17,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["hexop_decode"] = Decode
 	m["hexop_encoder"] = Encoder
 	m["hexop_decoder"] = Decoder
+	m["hexop_dumper"] = Dumper
 }

@@ -1,16 +1,14 @@
-package binaryop
+package hexop
 
 import (
 	"encoding/hex"
 	"io"
 	"os"
 	"strings"
-
-	"github.com/devlights/gomy/output"
 )
 
-// UsingHexDumper -- encoding/hex#Dumper のサンプルです。
-func UsingHexDumper() error {
+// Dumper -- encoding/hex#Dumper のサンプルです。
+func Dumper() error {
 	// -----------------------------------------------------
 	// encoding/hex#Dumper を利用すると hexdump コマンドを
 	// 実行した場合のような16進数ダンプを出力することができる.
@@ -21,21 +19,13 @@ func UsingHexDumper() error {
 	// (Close を呼ばないままだと、16進部分のみが出力される)
 	// -----------------------------------------------------
 	var (
-		s      string         = "hello world"
-		r      io.Reader      = strings.NewReader(s)
-		w      io.Writer      = os.Stdout
-		dumper io.WriteCloser = hex.Dumper(w)
+		reader = strings.NewReader("hello world")
+		writer = os.Stdout
+		dumper = hex.Dumper(writer)
 	)
+	defer dumper.Close() // Close を呼ぶことにより、出力の右側に値が出力される
 
-	defer func() {
-		// Close を呼ぶことにより、出力の右側に値が出力される
-		_ = dumper.Close()
-	}()
-
-	output.Stdoutl("[original]", s)
-
-	_, err := io.Copy(dumper, r)
-	if err != nil {
+	if _, err := io.Copy(dumper, reader); err != nil {
 		return err
 	}
 
