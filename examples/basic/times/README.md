@@ -12,4 +12,4 @@
 |time\_tick\_and\_ticker.go|time\_tick\_and\_ticker|time.Tick と time.NewTicker の利用シーンの違いについてのサンプルです|
 |time\_timer.go|time\_timer|time.NewTimer のサンプルです|
 |time\_afterfunc.go|time\_afterfunc|time.AfterFunc のサンプルです|
-
+|change\_local\_timezone.go|time_changelocaltimezone|time.Localを変更して強制的にローカルタイムゾーンを一時的に変更するサンプルです|

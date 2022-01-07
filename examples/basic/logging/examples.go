@@ -17,4 +17,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["log_prefix"] = Prefix
 	m["log_output"] = Output
 	m["log_new"] = NewLogger
+	m["log_msgprefix"] = Msgprefix
 }
