@@ -15,7 +15,7 @@ const (
 var (
 	mutex   sync.Mutex
 	balance = 1000
-	execCh  = make(chan struct{}, execCount*2)
+	countCh = make(chan struct{}, execCount*2)
 )
 
 func deposit(v int) {
@@ -23,7 +23,7 @@ func deposit(v int) {
 	defer mutex.Unlock()
 
 	balance += v
-	execCh <- struct{}{}
+	countCh <- struct{}{}
 }
 
 func withdraw(v int) {
@@ -31,7 +31,7 @@ func withdraw(v int) {
 	defer mutex.Unlock()
 
 	balance -= v
-	execCh <- struct{}{}
+	countCh <- struct{}{}
 }
 
 // UseMutex -- NoMutexと同じ挙動で Mutex を使った版です.
@@ -51,10 +51,10 @@ func UseMutex() error {
 	}
 
 	<-procCtx.Done()
-	close(execCh)
+	close(countCh)
 
 	var count int
-	for range execCh {
+	for range countCh {
 		count++
 	}
 

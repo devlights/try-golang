@@ -13,17 +13,17 @@ const (
 
 var (
 	balance = 1000
-	execCh  = make(chan struct{}, execCount*2)
+	countCh = make(chan struct{}, execCount*2)
 )
 
 func deposit(v int) {
 	balance += v
-	execCh <- struct{}{}
+	countCh <- struct{}{}
 }
 
 func withdraw(v int) {
 	balance -= v
-	execCh <- struct{}{}
+	countCh <- struct{}{}
 }
 
 // NoMutex -- Mutexを利用しない場合のサンプルです.
@@ -43,10 +43,10 @@ func NoMutex() error {
 	}
 
 	<-procCtx.Done()
-	close(execCh)
+	close(countCh)
 
 	var count int
-	for range execCh {
+	for range countCh {
 		count++
 	}
 

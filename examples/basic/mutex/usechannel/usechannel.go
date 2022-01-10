@@ -13,7 +13,7 @@ const (
 
 var (
 	balance = make(chan int, 1)
-	execCh  = make(chan struct{}, execCount*2)
+	countCh = make(chan struct{}, execCount*2)
 )
 
 func deposit(v int) {
@@ -22,7 +22,7 @@ func deposit(v int) {
 	next := curr + v
 	balance <- next
 
-	execCh <- struct{}{}
+	countCh <- struct{}{}
 }
 
 func withdraw(v int) {
@@ -31,7 +31,7 @@ func withdraw(v int) {
 	next := curr - v
 	balance <- next
 
-	execCh <- struct{}{}
+	countCh <- struct{}{}
 }
 
 // UseChannel -- Mutexの代わりにチャネルを利用したサンプルです.
@@ -54,11 +54,11 @@ func UseChannel() error {
 	}
 
 	<-procCtx.Done()
-	close(execCh)
+	close(countCh)
 	close(balance)
 
 	var count int
-	for range execCh {
+	for range countCh {
 		count++
 	}
 
