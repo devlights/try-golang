@@ -1,8 +1,7 @@
 package nomutex
 
 import (
-	"context"
-	"time"
+	"sync"
 
 	"github.com/devlights/gomy/output"
 )
@@ -16,12 +15,16 @@ var (
 	countCh = make(chan struct{}, execCount*2)
 )
 
-func deposit(v int) {
+func deposit(wg *sync.WaitGroup, v int) {
+	defer wg.Done()
+
 	balance += v
 	countCh <- struct{}{}
 }
 
-func withdraw(v int) {
+func withdraw(wg *sync.WaitGroup, v int) {
+	defer wg.Done()
+
 	balance -= v
 	countCh <- struct{}{}
 }
@@ -29,20 +32,17 @@ func withdraw(v int) {
 // NoMutex -- Mutexを利用しない場合のサンプルです.
 func NoMutex() error {
 	var (
-		rootCtx          = context.Background()
-		mainCtx, mainCxl = context.WithCancel(rootCtx)
-		procCtx, procCxl = context.WithTimeout(mainCtx, 100*time.Millisecond)
+		wg sync.WaitGroup
 	)
-	defer mainCxl()
-	defer procCxl()
+	wg.Add(execCount * 2)
 
 	// 10 引き出して 10 預けるというのを非同期で 10000 回繰り返し
 	for i := 0; i < execCount; i++ {
-		go withdraw(10)
-		go deposit(10)
+		go withdraw(&wg, 10)
+		go deposit(&wg, 10)
 	}
 
-	<-procCtx.Done()
+	wg.Wait()
 	close(countCh)
 
 	var count int
