@@ -40,6 +40,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/mutex"
 	"github.com/devlights/try-golang/examples/basic/network"
 	"github.com/devlights/try-golang/examples/basic/panics"
+	"github.com/devlights/try-golang/examples/basic/reflectop"
 	"github.com/devlights/try-golang/examples/basic/runtimes"
 	"github.com/devlights/try-golang/examples/basic/scope"
 	"github.com/devlights/try-golang/examples/basic/signals"
@@ -115,6 +116,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	mutex.NewRegister().Regist(m)
 	network.NewRegister().Regist(m)
 	panics.NewRegister().Regist(m)
+	reflectop.NewRegister().Regist(m)
 	runtimes.NewRegister().Regist(m)
 	scope.NewRegister().Regist(m)
 	signals.NewRegister().Regist(m)
