@@ -14,6 +14,7 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["time_since"] = TimeSince
+	m["time_sub"] = TimeSub
 	m["time_after"] = TimeAfter
 	m["time_unix_to_time"] = TimeUnixToTime
 	m["time_now"] = TimeNow
