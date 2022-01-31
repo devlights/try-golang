@@ -7,4 +7,4 @@ tasks:
       - task: run
   run:
     cmds:
-      - go1.18beta1 run github.com/devlights/try-golang/cmd/trygolang -onetime
+      - go run github.com/devlights/try-golang/cmd/trygolang -onetime
