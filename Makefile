@@ -1,4 +1,4 @@
-GOCMD=go1.18beta1
+GOCMD=go
 GOBUILD=$(GOCMD) build
 GOCLEAN=$(GOCMD) clean
 GOINSTALL=$(GOCMD) install
