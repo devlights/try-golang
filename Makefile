@@ -31,6 +31,7 @@ prepare: \
 
 _go_get:
 	$(GOCMD) mod download
+	go install honnef.co/go/tools/cmd/staticcheck@latest
 
 _download_sqlite3_database:
 	@if [ ! -e "chinook.db" ]; then\
