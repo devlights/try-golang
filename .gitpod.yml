@@ -2,7 +2,7 @@
 image: gitpod/workspace-go:latest
 tasks:
   - name: prepare
-    command: make prepare
+    init: make prepare
 
 vscode:
   extensions:
