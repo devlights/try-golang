@@ -2,8 +2,8 @@ package strs
 
 import "fmt"
 
-// StringToRuneSlice は、文字列とルーンスライスの遷移を表示するサンプルです
-func StringToRuneSlice() error {
+// ToRuneSlice は、文字列とルーンスライスの遷移を表示するサンプルです
+func ToRuneSlice() error {
 
 	// Go の 文字列 は、他の言語と同様に immutable となっている
 	// なので、一度作成した文字列を変更することは出来ない

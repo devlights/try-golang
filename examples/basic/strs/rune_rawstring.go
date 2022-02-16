@@ -2,8 +2,8 @@ package strs
 
 import "fmt"
 
-// StringRuneRawString は、Go言語における 文字と文字列とRaw文字列についてのサンプルです
-func StringRuneRawString() error {
+// RuneRawString は、Go言語における 文字と文字列とRaw文字列についてのサンプルです
+func RuneRawString() error {
 	// string. 文字列
 	string1 := "こんにちは"
 

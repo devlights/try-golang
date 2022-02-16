@@ -17,6 +17,6 @@ func UsingBuilder() error {
 	builder.WriteString("world")
 
 	output.Stdoutl("builder", builder.String())
-	
+
 	return nil
 }

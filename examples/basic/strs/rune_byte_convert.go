@@ -5,8 +5,8 @@ import (
 	"unicode/utf8"
 )
 
-// StringRuneByteConvert は、文字列とルーンとバイト列の変換のサンプルです.
-func StringRuneByteConvert() error {
+// RuneByteConvert は、文字列とルーンとバイト列の変換のサンプルです.
+func RuneByteConvert() error {
 	// -----------------------------------------------------
 	// Goでの文字列は string 型で表現される。
 	// string は、文字列をバイト列で表現しているもの。

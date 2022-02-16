@@ -13,9 +13,9 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["string_rune_rawstring"] = StringRuneRawString
-	m["string_to_runeslice"] = StringToRuneSlice
-	m["string_rune_byte_convert"] = StringRuneByteConvert
+	m["string_rune_rawstring"] = RuneRawString
+	m["string_to_runeslice"] = ToRuneSlice
+	m["string_rune_byte_convert"] = RuneByteConvert
 	m["string_chop_newline"] = ChopNewLine
 	m["string_using_builder"] = UsingBuilder
 }
