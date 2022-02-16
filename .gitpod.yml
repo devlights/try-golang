@@ -1,6 +1,5 @@
 
-image:
-  file: .gitpod.Dockerfile
+image: gitpod/workspace-go:latest
 tasks:
   - name: prepare
     command: make prepare
