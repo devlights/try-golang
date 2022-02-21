@@ -14,4 +14,5 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["stacktrace_debug_printstack"] = DebugPrintStack
+	m["stacktrace_debug_stack"] = DebugStack
 }
