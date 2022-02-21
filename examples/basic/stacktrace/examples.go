@@ -15,4 +15,5 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["stacktrace_debug_printstack"] = DebugPrintStack
 	m["stacktrace_debug_stack"] = DebugStack
+	m["stacktrace_runtime_stack"] = RuntimeStack
 }
