@@ -46,6 +46,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/signals"
 	"github.com/devlights/try-golang/examples/basic/slices"
 	"github.com/devlights/try-golang/examples/basic/sorts"
+	"github.com/devlights/try-golang/examples/basic/stacktrace"
 	"github.com/devlights/try-golang/examples/basic/stdin"
 	"github.com/devlights/try-golang/examples/basic/stdout"
 	"github.com/devlights/try-golang/examples/basic/strconvs"
@@ -122,6 +123,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	signals.NewRegister().Regist(m)
 	slices.NewRegister().Regist(m)
 	sorts.NewRegister().Regist(m)
+	stacktrace.NewRegister().Regist(m)
 	stdin.NewRegister().Regist(m)
 	stdout.NewRegister().Regist(m)
 	strconvs.NewRegister().Regist(m)
