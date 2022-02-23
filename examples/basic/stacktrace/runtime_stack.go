@@ -42,7 +42,7 @@ func RuntimeStack() error {
 		ch <- getStack(false)
 	}(chSingle)
 
-	// runtime.Stack() の 第２引数 に true  を渡すと、全てのgoroutineのみが対象
+	// runtime.Stack() の 第２引数 に true  を渡すと、全てのgoroutineが対象
 	go func(ch chan<- []byte) {
 		defer close(ch)
 		ch <- getStack(true)
