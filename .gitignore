@@ -72,3 +72,4 @@ tags
 bin/
 .target
 chinook.db
+*.swp
