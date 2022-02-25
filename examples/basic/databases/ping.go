@@ -7,7 +7,7 @@ import (
 
 	"github.com/devlights/gomy/output"
 	"github.com/devlights/gomy/times"
-	_ "modernc.org/sqlite"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 // Ping は、 (*sql.DB).Ping の使い方についてのサンプルです.
