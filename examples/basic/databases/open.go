@@ -6,7 +6,7 @@ import (
 	"github.com/devlights/gomy/output"
 	// Goの標準ライブラリにはDBのドライバは含まれていないため
 	// 対象となるDBのドライバをインポートしておく必要がある
-	_ "modernc.org/sqlite"
+	_ "github.com/mattn/go-sqlite3"
 )
 
 // Open は、sql.Open 関数の使い方についてサンプルです.
