@@ -15,7 +15,6 @@ import (
 	"github.com/devlights/try-golang/examples/basic/convert"
 	"github.com/devlights/try-golang/examples/basic/cryptos"
 	"github.com/devlights/try-golang/examples/basic/csvop"
-	"github.com/devlights/try-golang/examples/basic/databases"
 	"github.com/devlights/try-golang/examples/basic/defers"
 	"github.com/devlights/try-golang/examples/basic/embeds"
 	"github.com/devlights/try-golang/examples/basic/enum"
@@ -91,7 +90,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	convert.NewRegister().Regist(m)
 	cryptos.NewRegister().Regist(m)
 	csvop.NewRegister().Regist(m)
-	databases.NewRegister().Regist(m)
 	defers.NewRegister().Regist(m)
 	embeds.NewRegister().Regist(m)
 	enum.NewRegister().Regist(m)
