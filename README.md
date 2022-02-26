@@ -100,6 +100,8 @@ $ make install
   - 共通ライブラリ
 - [try-golang-extlib](https://github.com/devlights/try-golang-extlib)
   - 3rd party ライブラリのサンプルはこちらで管理しています。
+- [try-golang-db](https://github.com/devlights/try-golang-db)
+  - データベースのサンプルはこちらで管理しています。
 - [go-crosscompile-example](https://github.com/devlights/go-crosscompile-example)
 - [go-grpc-uds-example](https://github.com/devlights/go-grpc-uds-example)
 - [go-protobuf-example](https://github.com/devlights/go-protobuf-example)
