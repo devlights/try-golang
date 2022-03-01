@@ -33,19 +33,19 @@ func SSHWithPrivKeyPassPhrase() error {
 	hostKey = os.ExpandEnv("$HOST_KEY")
 
 	if sshUser == "" {
-		return errors.New("$SSH_USER が 設定されていません.")
+		return errors.New("$SSH_USER が 設定されていません")
 	}
 
 	if sshPass == "" {
-		return errors.New("$SSH_PASS が 設定されていません.")
+		return errors.New("$SSH_PASS が 設定されていません")
 	}
 
 	if sshHost == "" {
-		return errors.New("$SSH_HOST が 設定されていません.")
+		return errors.New("$SSH_HOST が 設定されていません")
 	}
 
 	if hostKey == "" {
-		return errors.New("$HOST_KEY が 設定されていません.")
+		return errors.New("$HOST_KEY が 設定されていません")
 	}
 
 	// -------------------------------------------------------------
