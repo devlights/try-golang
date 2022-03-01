@@ -2,9 +2,9 @@ package network
 
 import (
 	"bytes"
+	"errors"
 	"io"
 	"net/http"
-	"sync"
 
 	"github.com/devlights/gomy/output"
 )
@@ -12,16 +12,14 @@ import (
 // HttpGet -- http.Getを使ったサンプルです.
 func HttpGet() error {
 	var (
-		wg     sync.WaitGroup
-		httpCh = make(chan []byte, 1)
-		dataCh = make(chan []byte, 1)
+		httpCh = make(chan []byte)
+		dataCh = make(chan []byte)
 		errCh  = make(chan error, 1)
 	)
+	defer close(errCh)
 
-	// [goroutine-1] Call http.Get and send bytes to http-channel
-	wg.Add(1)
+	// [goroutine-1] Call http.Get and send response body to http-channel
 	go func() {
-		defer wg.Done()
 		defer close(httpCh)
 
 		const (
@@ -35,46 +33,49 @@ func HttpGet() error {
 		}
 		defer resp.Body.Close()
 
-		b, err := io.ReadAll(resp.Body)
+		body, err := io.ReadAll(resp.Body)
 		if err != nil {
 			errCh <- err
 			return
 		}
-		httpCh <- b
+		httpCh <- body
 
-		output.Stdoutl("recv bytes", len(b))
+		output.Stderrl("recv bytes", len(body))
 	}()
 
-	// [goroutine-2] Recv from http-channel and filtering http response
-	wg.Add(1)
+	// [goroutine-2] Recv from http-channel and process http response
 	go func() {
-		defer wg.Done()
 		defer close(dataCh)
 
-		for b := range httpCh {
+		var (
+			sTag = []byte("<title>")
+			eTag = []byte("</title>")
+		)
+
+		for body := range httpCh {
 			var (
-				start = bytes.Index(b, []byte("<title>"))
-				end   = bytes.Index(b, []byte("</title>"))
-				buf   = b[start+len("<title>") : end]
+				start = bytes.Index(body, sTag)
+				end   = bytes.Index(body, eTag)
+			)
+
+			if start == -1 || end == -1 {
+				errCh <- errors.New("title tag does not exist")
+				return
+			}
+
+			var (
+				buf = body[start+len(sTag) : end]
 			)
 			dataCh <- buf
 		}
 	}()
 
-	// [goroutine-3] Close the channel when the task is complete
-	go func() {
-		defer close(errCh)
-		wg.Wait()
-	}()
-
-	// has error?
-	for e := range errCh {
-		return e
-	}
-
 	// output
-	for b := range dataCh {
-		output.Stdoutf("http.get -- title", "%s\n", b)
+	select {
+	case err := <-errCh:
+		return err
+	case b := <-dataCh:
+		output.Stderrf("http.get", "%s\n", b)
 	}
 
 	return nil
