@@ -1,4 +1,4 @@
-package reflectop
+package reflects
 
 import (
 	"reflect"
