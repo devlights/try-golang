@@ -13,6 +13,7 @@ import (
 // REFERENCES:
 //   - https://pkg.go.dev/os@go1.17.8
 //   - https://stackoverflow.com/questions/14249467/os-mkdir-and-os-mkdirall-permissions
+//   - https://stackoverflow.com/questions/33450980/how-to-remove-all-contents-of-a-directory-using-golang
 func Mkdir() error {
 	//
 	// ディレクトリ作成時などにパーミッションを指定する必要があるが
