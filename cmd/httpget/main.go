@@ -38,16 +38,33 @@ var (
 )
 
 func main() {
-	resp, err := http.Get(url)
+	// -------------------------------------------
+	// Send http GET request
+	// -------------------------------------------
+
+	res, err := http.Get(url)
 	if err != nil {
 		errLog.Println(err)
 		return
 	}
-	defer resp.Body.Close()
+	defer res.Body.Close()
+
+	// -------------------------------------------
+	// Check http status code
+	// -------------------------------------------
+
+	if res.StatusCode != http.StatusOK {
+		errLog.Printf("http status code: %d", res.StatusCode)
+		return
+	}
+
+	// -------------------------------------------
+	// Decode response to JSON
+	// -------------------------------------------
 
 	var (
 		post    = &Post{}
-		decoder = json.NewDecoder(resp.Body)
+		decoder = json.NewDecoder(res.Body)
 	)
 
 	err = decoder.Decode(post)
@@ -56,5 +73,9 @@ func main() {
 		return
 	}
 
-	appLog.Println(post)
+	// -------------------------------------------
+	// Show results
+	// -------------------------------------------
+
+	appLog.Printf("status: %d, resonse: %s\n", res.StatusCode, post)
 }
