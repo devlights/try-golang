@@ -123,6 +123,7 @@ func Interface() error {
 	// インターフェース自体は nil ではなくなる
 	ifValueNilAndTypeNotNil = implNil
 	ifVal = ifValueNilAndTypeNotNil
+	//lint:ignore SA4023 ok
 	fmt.Printf("[ifValueNilAndTypeNotNil] value:%v\ttype:%T\tis nil?:%v\n", ifVal, ifVal, ifVal == nil)
 
 	// インターフェース自体は nil ではないので、普通にメソッドの呼び出しが行える

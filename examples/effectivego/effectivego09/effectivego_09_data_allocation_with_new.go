@@ -4,9 +4,9 @@ import "fmt"
 
 type (
 	effectivego09st01 struct {
-		x, y int
-		b    bool
-		s    string
+		x, y int    //lint:ignore U1000 ok
+		b    bool   //lint:ignore U1000 ok
+		s    string //lint:ignore U1000 ok
 	}
 )
 

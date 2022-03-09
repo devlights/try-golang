@@ -54,8 +54,8 @@ func (e *goTour24Error4) Unwrap() error {
 
 var (
 	// エラー定義は、必ずエラー型を独自で定義する必要はなく、以下のように errors.New を利用して簡易生成することも出来る
-	goTour24Error3 = errors.New("error 3")
-	goTour24Error5 = errors.New("error 1.13 (1)")
+	errGoTour24Error3 = errors.New("error 3")
+	errGoTour24Error5 = errors.New("error 1.13 (1)")
 )
 
 // Error は、 Tour of Go - Errors (https://tour.golang.org/methods/19) の サンプルです。
@@ -104,7 +104,7 @@ func aboutGo113Error() {
 	//   errors.Unwrap ができたので共通手順で内包しているエラーが取り出せるようになった。
 	e4 := &goTour24Error4{
 		message: "e4",
-		inner:   goTour24Error5,
+		inner:   errGoTour24Error5,
 	}
 
 	innerError := errors.Unwrap(e4)
@@ -114,7 +114,7 @@ func aboutGo113Error() {
 
 	// 1.13 以降 (2)
 	//   前は innerError == goTour24Error5 としていた
-	if errors.Is(innerError, goTour24Error5) {
+	if errors.Is(innerError, errGoTour24Error5) {
 		fmt.Printf("(2) innerError type: %T\n", innerError)
 	}
 
@@ -284,11 +284,11 @@ func aboutGoError() {
 	// エラーを返す用の関数定義 (5)
 	//   - 事前に定義しておいた errors.New を利用
 	run5 := func() error {
-		return goTour24Error3
+		return errGoTour24Error3
 	}
 
 	if err = run5(); err != nil {
-		if err == goTour24Error3 {
+		if err == errGoTour24Error3 {
 			fmt.Println("(5)", err)
 		}
 	}

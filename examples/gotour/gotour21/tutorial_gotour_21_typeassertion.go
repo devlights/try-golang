@@ -15,6 +15,7 @@ type (
 		V string
 	}
 
+	//lint:ignore U1000 ok
 	ifGoTour20NotImpl struct {
 		V string
 	}

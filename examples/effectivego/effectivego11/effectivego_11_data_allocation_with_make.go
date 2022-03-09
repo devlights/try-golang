@@ -22,7 +22,7 @@ func AllocationWithMake() error {
 	//     現実的にスライスをnew()で生成することにメリットはないので、ほぼ使わない
 	var (
 		p  = new([]int)
-		v  = make([]int, 0, 0)
+		v  = make([]int, 0)
 		v2 = []int{1, 2}
 	)
 

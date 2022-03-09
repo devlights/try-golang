@@ -27,17 +27,17 @@ func NilOrNotNil() error {
 	var o2 interface{}
 
 	output.Stdoutl("[i  == nil]", i == nil)  // true
-	output.Stdoutl("[o  == nil]", o == nil)  // false (値はnilだけど型がnot-nil)
+	output.Stdoutl("[o  == nil]", o == nil)  //lint:ignore SA4023 false (値はnilだけど型がnot-nil)
 	output.Stdoutl("[o2 == nil]", o2 == nil) // true  (値も型もnil)
 
 	output.Stdoutl("[i == o ]", i == o)  // true  (どちらも型が *int で、値が nil)
-	output.Stdoutl("[i == o2]", i == o2) // false (片方は *int(nil)で、片方は nil(nil))
+	output.Stdoutl("[i == o2]", i == o2) //lint:ignore SA4023 false (片方は *int(nil)で、片方は nil(nil))
 
 	nilnil := returnNilNil()
 	notnilnil := returnNotnilNil()
 
 	output.Stdoutl("[returnNilINil()   == nil]", nilnil == nil)
-	output.Stdoutl("[returnNotnilNil() == nil]", notnilnil == nil)
+	output.Stdoutl("[returnNotnilNil() == nil]", notnilnil == nil) //lint:ignore SA4023 サンプルなので意図的にこのようにしている
 
 	var e *myE
 	output.Stdoutl("[nilnil    == e]", nilnil == e)

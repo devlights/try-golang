@@ -95,7 +95,7 @@ func ChannelsOfChannels() error {
 	serverDone := s.start()
 
 	// リクエストをクライアントもどき経由で送り込む
-	resultChList := make([]<-chan interface{}, 0, 0)
+	resultChList := make([]<-chan interface{}, 0)
 	for i := 0; i < 20; i++ {
 		resultCh := c.send(&request{
 			value:    i,

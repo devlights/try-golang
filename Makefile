@@ -59,7 +59,7 @@ vet:
 	staticcheck ./...
 
 .PHONY: run
-run: 
+run: vet
 	$(GORUN) $(CMD_PKG) -onetime -example ${EXAMPLE}
 
 .PHONY: generate

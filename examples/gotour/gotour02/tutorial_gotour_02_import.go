@@ -5,7 +5,7 @@ package gotour02
 import (
 	"fmt"
 	"math"
-	math2 "math" // alias設定
+	myos "os"
 )
 
 // Import は、 Tour of Go - Imports (https://tour.golang.org/basics/2) の サンプルです。
@@ -18,7 +18,7 @@ func Import() error {
 	//   alias 定義した名前も利用できる。
 	// ------------------------------------------------------------
 	fmt.Println(math.Pi)
-	fmt.Println(math2.Pi)
+	fmt.Println(myos.ModePerm)
 
 	return nil
 }

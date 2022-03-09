@@ -81,7 +81,6 @@ LOOP:
 		case <-asyncDone:
 			log.Println("[main] 非同期処理が終わったとの連絡を受信")
 			break LOOP
-		default:
 		}
 	}
 }
@@ -112,8 +111,7 @@ func switchExample() {
 	// switch の 初期化部 で v.(type) のように 値.(type) と宣言すると型情報が取れるので
 	// それで分岐させる
 	//   https://golang.org/doc/effective_go.html#type_switch
-	var v interface{}
-	v = getSomeValue()
+	var v interface{} = getSomeValue()
 	switch t := v.(type) {
 	case string:
 		fmt.Println("type: string")

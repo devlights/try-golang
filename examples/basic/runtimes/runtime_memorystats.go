@@ -31,7 +31,7 @@ func RuntimeMemoryStats() error {
 	wg.Add(1)
 	go func(ctx context.Context, wg *sync.WaitGroup) {
 		var (
-			tick  = time.Tick(500 * time.Millisecond)
+			tick  = time.Tick(500 * time.Millisecond) //lint:ignore SA1015 time.Tickはリークの危険があることは認識済み
 			count = 0
 			items = make([][]byte, 0, 5)
 		)
@@ -42,9 +42,10 @@ func RuntimeMemoryStats() error {
 			select {
 			case <-ctx.Done():
 				return
-			case _ = <-tick:
+			case <-tick:
 				count++
 				data := make([]byte, 0, 1024*1024)
+				//lint:ignore SA4010 意味がないことは承知済み
 				items = append(items, data)
 
 				// output.Stderrf("[append]", "count=%d\ttick=%v\n", count, t)
@@ -58,7 +59,7 @@ func RuntimeMemoryStats() error {
 	wg.Add(1)
 	go func(ctx context.Context, wg *sync.WaitGroup) {
 		var (
-			tick  = time.Tick(2000 * time.Millisecond)
+			tick  = time.Tick(2000 * time.Millisecond) //lint:ignore SA1015 time.Tickはリークの危険があることは認識済み
 			count = 0
 		)
 
@@ -76,11 +77,9 @@ func RuntimeMemoryStats() error {
 	}(mainCtx, wg)
 
 	// 10秒したら終わり
-	select {
-	case <-time.After(10 * time.Second):
-		cancel()
-		wg.Wait()
-	}
+	time.Sleep(10 * time.Second)
+	cancel()
+	wg.Wait()
 
 	// 最後の状態を表示
 	printMemoryStats("latest")
@@ -131,6 +130,7 @@ func toKb(bytes uint64) uint64 {
 }
 
 //noinspection GoUnusedFunction
+//lint:ignore U1000 使われていないのは承知済み
 func toMb(bytes uint64) uint64 {
 	return toKb(bytes) / 1024
 }

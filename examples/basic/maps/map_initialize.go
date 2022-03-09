@@ -6,7 +6,7 @@ import "fmt"
 func MapInitialize() error {
 
 	// var で 定義して make で割当
-	var m1 map[string]int
+	var m1 map[string]int //lint:ignore S1021 サンプルなので意図的にこのようにしている
 	m1 = make(map[string]int)
 
 	fmt.Printf("[m1] len: %d\tval: %#v\n", len(m1), m1)

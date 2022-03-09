@@ -105,7 +105,7 @@ func Channels() error {
 	}()
 
 	// データを処理
-	channels := make([]<-chan struct{}, 0, 0)
+	channels := make([]<-chan struct{}, 0)
 	for i := 0; i < 9; i++ {
 		name := fmt.Sprintf("goroutine-%02d", i)
 

@@ -13,7 +13,7 @@ type (
 )
 
 func (me _nonPointerReceiver) update(val int) {
-	me.val = val
+	me.val = val //lint:ignore SA4005 サンプルなので意図的にこのようにしている
 }
 
 func (me *_pointerReceiver) update(val int) {

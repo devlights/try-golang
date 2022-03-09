@@ -26,7 +26,7 @@ func Append() error {
 	// スライスをコピー
 	// 組み込みの copy() を利用するのが最もベーシックであるが
 	// 空のスライスを用意して、全部 append() しても同じこと
-	z := make([]int, 0, 0)
+	z := make([]int, 0)
 	z = append(z, x...)
 
 	output.Stdoutl("(3)", z)

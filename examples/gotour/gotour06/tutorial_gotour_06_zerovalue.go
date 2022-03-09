@@ -44,7 +44,7 @@ func ZeroValue() error {
 }
 
 func _print(items ...interface{}) {
-	formats := make([]string, len(items), len(items))
+	formats := make([]string, len(items))
 	for i := 0; i < len(formats); i++ {
 		formats[i] = "%#v"
 	}

@@ -49,6 +49,7 @@ func ForLoop() error {
 	)
 
 loop:
+	//lint:ignore S1000 ok
 	for {
 		select {
 		case <-timeout:
