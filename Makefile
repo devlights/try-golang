@@ -53,6 +53,11 @@ clean:
 install: 
 	$(GOINSTALL) $(BIN_DIR)
 
+.PHONY: vet
+vet:
+	go vet ./...
+	staticcheck ./...
+
 .PHONY: run
 run: 
 	$(GORUN) $(CMD_PKG) -onetime -example ${EXAMPLE}
