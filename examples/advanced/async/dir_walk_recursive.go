@@ -42,7 +42,7 @@ func listdir(dir string, wg *sync.WaitGroup, ch chan<- string, depth int) {
 	defer wg.Done()
 
 	var (
-		chSubDirs = make([]chan string, 0, 0)
+		chSubDirs = make([]chan string, 0)
 		dprefix   = strings.Repeat("\t", depth-1) // ディレクトリ用のプレフィックス
 		fprefix   = strings.Repeat("\t", depth)   // ファイル用のプレフィックス
 	)

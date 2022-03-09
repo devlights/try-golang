@@ -5,7 +5,7 @@ import (
 
 	"github.com/devlights/gomy/output"
 	"golang.org/x/crypto/bcrypt"
-	"golang.org/x/crypto/ssh/terminal"
+	"golang.org/x/term"
 )
 
 // BcryptPasswordHash は、 bcrypt パッケージを利用してパスワードのハッシュ化をしてみるサンプルです.
@@ -56,7 +56,7 @@ func readPassword() ([]byte, error) {
 
 	output.Stdoutf("ENTER Password: ", "")
 
-	password, err := terminal.ReadPassword(int(syscall.Stdin))
+	password, err := term.ReadPassword(int(syscall.Stdin))
 	if err != nil {
 		return nil, err
 	}

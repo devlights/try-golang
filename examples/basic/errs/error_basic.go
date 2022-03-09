@@ -16,7 +16,7 @@ func Basic() error {
 	var err error
 	check := func() {
 		if err != nil {
-			log.Printf(err.Error())
+			log.Print(err.Error())
 		}
 	}
 

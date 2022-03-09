@@ -27,7 +27,7 @@ func MultiChannelFanIn() error {
 	// 入力元となるチャネルと各ゴルーチンの終了判定チャネル
 	var (
 		srcCh      = make(chan interface{})
-		doneChList = make([]<-chan struct{}, 0, 0)
+		doneChList = make([]<-chan struct{}, 0)
 		takeChList = make([]<-chan interface{}, 0, numGoroutine)
 	)
 

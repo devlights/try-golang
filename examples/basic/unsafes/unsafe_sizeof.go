@@ -30,7 +30,15 @@ func Sizeof() error {
 	}
 
 	m := mem{
+		b: true,
+		i: 1,
+		i16: 2,
+		i32: 3,
+		i64: 4,
+		s: "",
 		s2: "helloworld",
+		arr: [3]int{1,2,3},
+		sli: []int{},
 		sli2: []int{
 			1, 2, 3,
 		},

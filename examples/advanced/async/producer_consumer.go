@@ -45,11 +45,8 @@ func ProducerConsumer() error {
 	// 残り物収集班 生成
 	termRemainCollect := makeRemainCollector(done, termConsumer, consumerCh)
 
-	select {
-	case <-time.After(10 * time.Second):
-		// 処理終了
-		close(done)
-	}
+	time.Sleep(10 * time.Second)
+	close(done)
 
 	// 生産者, 消費者, 残り物収集班 が終了するのを待つ
 	<-termProducer
@@ -161,15 +158,9 @@ func makeRemainCollector(done doneCh, termConsumer terminate, itemCh itemCh) ter
 		<-done
 		<-termConsumer
 
-		for {
-			select {
-			case v, ok := <-itemCh:
-				if !ok {
-					return
-				}
-				log.Printf("[残り回収班] 回収 %v\n", v)
-				time.Sleep(remainerProcInterval)
-			}
+		for v := range itemCh {
+			log.Printf("[残り回収班] 回収 %v\n", v)
+			time.Sleep(remainerProcInterval)
 		}
 	}()
 

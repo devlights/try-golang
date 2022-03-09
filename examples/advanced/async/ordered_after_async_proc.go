@@ -21,7 +21,7 @@ func OrderedAfterAsyncProc() error {
 		givenTime    = 1 * time.Second
 		numGoroutine = 2
 		items        = []interface{}{"hello", "world", "こんにちわ", "世界"}
-		results      = make([]*result, 0, 0)
+		results      = make([]*result, 0)
 	)
 
 	var (

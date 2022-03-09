@@ -20,7 +20,9 @@ type HasPublicFields struct {
 // HasNoPublicFields -- サンプル用の構造体
 // private な フィールドを持つ
 type HasNoPublicFields struct {
+	//lint:ignore U1000 It's ok because this is just a example.
 	val1 int
+	//lint:ignore U1000 It's ok because this is just a example.
 	val2 string
 }
 
