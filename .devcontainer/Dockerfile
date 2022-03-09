@@ -8,7 +8,9 @@ RUN if [ "${NODE_VERSION}" != "none" ]; then su vscode -c "umask 0002 && . /usr/
 
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends tree bc nkf bash-completion bat
+    && apt-get -y install --no-install-recommends tree bc nkf bash-completion bat \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 RUN su vscode -c "source /etc/bash_completion"
 
 # [Optional] Uncomment the next line to use go get to install anything else you need
