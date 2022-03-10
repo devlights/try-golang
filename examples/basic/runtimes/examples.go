@@ -16,4 +16,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["runtime_version"] = RuntimeVersion
 	m["runtime_memorystats"] = RuntimeMemoryStats
 	m["runtime_gomaxprocs"] = GoMaxProcs
+	m["runtime_goexit"] = Goexit
 }
