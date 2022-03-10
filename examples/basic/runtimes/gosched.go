@@ -8,6 +8,7 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
+// Gosched -- runtime.Gosched() のサンプルです。
 //
 // # REFERENCES
 //   - https://dev.to/abh1navv/12-common-uses-of-java-streams-1pgk
@@ -40,7 +41,7 @@ func Gosched() error {
 	//
 
 	var (
-		callYield = false
+		enableYield = false
 	)
 
 	// runtime.Gosched() を呼び出さない版
@@ -50,7 +51,7 @@ func Gosched() error {
 	//   出力は各々のゴルーチン毎に出力されていく。
 	wg.Add(numGoroutines)
 	for i := 0; i < numGoroutines; i++ {
-		go fn(&wg, i, fmt.Sprintf("[goroutine-%02d]", i), callYield)
+		go fn(&wg, i, fmt.Sprintf("[goroutine-%02d]", i), enableYield)
 	}
 	wg.Wait()
 
@@ -63,10 +64,10 @@ func Gosched() error {
 	//   １回で完結させることが出来ない場合がある。
 	//   (runtime.Gosched()の呼び出しで他のゴルーチンにコンテキストが移ることがあるため)
 	//   なので、出力は 前半部と後半部に別々の時間軸で出力される場合がある。
-	callYield = true
+	enableYield = true
 	wg.Add(numGoroutines)
 	for i := 0; i < numGoroutines; i++ {
-		go fn(&wg, i, fmt.Sprintf("[goroutine-%02d]", i), callYield)
+		go fn(&wg, i, fmt.Sprintf("[goroutine-%02d]", i), enableYield)
 	}
 	wg.Wait()
 
