@@ -9,3 +9,4 @@
 |gomaxprocs.go|runtime\_gomaxprocs|runtime.GOMAXPROCS() のサンプルです。|
 |goexit.go|runtime\_goexit|runtime.Goexit() のサンプルです|
 |numcpu.go|runtime\_numcpu|runtime.NumCPU() のサンプルです|
+|gosched.go|runtime\_gosched|runtime.Gosched() のサンプルです|
