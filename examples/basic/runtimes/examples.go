@@ -18,4 +18,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["runtime_gomaxprocs"] = GoMaxProcs
 	m["runtime_goexit"] = Goexit
 	m["runtime_numcpu"] = NumCpu
+	m["runtime_gosched"] = Gosched
 }
