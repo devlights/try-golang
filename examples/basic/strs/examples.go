@@ -18,4 +18,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["string_rune_byte_convert"] = RuneByteConvert
 	m["string_chop_newline"] = ChopNewLine
 	m["string_using_builder"] = UsingBuilder
+	m["string_rune_count"] = RuneCount
 }

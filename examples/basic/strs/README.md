@@ -9,3 +9,4 @@
 |rune\_byte\_convert.go|string\_rune\_byte\_convert|文字列とルーンとバイト列の変換のサンプルです.|
 |chop\_newline.go|string\_chop\_newline|文字列末尾の改行を削除するサンプルです.|
 |using\_builder.go|string\_using\_builder|strings.Builder を利用したサンプルです.|
+|rune\_count.go|string\_rune\_count|utf8.RuneCountInString() のサンプルです.|
