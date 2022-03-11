@@ -1,9 +1,6 @@
-package streams
+package pipes
 
-import (
-	"github.com/devlights/try-golang/examples/basic/streams/pipes"
-	"github.com/devlights/try-golang/mapping"
-)
+import "github.com/devlights/try-golang/mapping"
 
 type (
 	register struct{}
@@ -16,7 +13,6 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["streams_nopcloser"] = UsingNopCloser
-	
-	pipes.NewRegister().Regist(m)
+	m["streams_pipe_basic"] = Basic
+	m["streams_pipe_basic2"] = Basic2
 }

@@ -1,4 +1,4 @@
-package streams
+package pipes
 
 import (
 	"bufio"
@@ -39,12 +39,12 @@ func (me *_upperWriter) Write(p []byte) (n int, err error) {
 	return me.w.Write(bytes.ToUpper(p))
 }
 
-// IoPipeBasic -- io.Pipe の基本的なサンプルです.
+// Basic -- io.Pipe の基本的なサンプルです.
 //
 // REFERENCES:
 //   - https://www.geeksforgeeks.org/io-pipe-function-in-golang-with-examples/
 //   - https://medium.com/eureka-engineering/file-uploads-in-go-with-io-pipe-75519dfa647b
-func IoPipeBasic() error {
+func Basic() error {
 	// ----------------------------------------------------------------
 	// io.Pipe() は、インメモリの同期パイプを生成してくれる。
 	// io.Pipe() は、片方が io.Reader を必要としていて
