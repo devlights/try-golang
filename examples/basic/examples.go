@@ -53,6 +53,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/streams"
 	"github.com/devlights/try-golang/examples/basic/strs"
 	"github.com/devlights/try-golang/examples/basic/structs"
+	"github.com/devlights/try-golang/examples/basic/syncs"
 	"github.com/devlights/try-golang/examples/basic/system"
 	"github.com/devlights/try-golang/examples/basic/times"
 	"github.com/devlights/try-golang/examples/basic/tsvop"
@@ -129,6 +130,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	strconvs.NewRegister().Regist(m)
 	strs.NewRegister().Regist(m)
 	structs.NewRegister().Regist(m)
+	syncs.NewRegister().Regist(m)
 	system.NewRegister().Regist(m)
 	times.NewRegister().Regist(m)
 	tsvop.NewRegister().Regist(m)
