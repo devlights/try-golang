@@ -9,6 +9,8 @@ import (
 
 // AtomicAdd -- atomic.AddXXX のサンプルです。
 //
+// 同期なしのサンプルは no_sync.go を参照。
+//
 // # REFERENCES
 //   - https://pkg.go.dev/sync@go1.17.8
 //   - https://pkg.go.dev/sync/atomic@go1.17.8
