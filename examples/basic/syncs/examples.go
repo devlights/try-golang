@@ -14,4 +14,5 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["syncs_no_sync"] = NoSync
+	m["syncs_atomic_add"] = AtomicAdd
 }
