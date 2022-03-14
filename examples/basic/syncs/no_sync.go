@@ -15,8 +15,8 @@ import (
 func NoSync() error {
 	var (
 		wg sync.WaitGroup
-		x  = 0
-		fn = func(minus bool) {
+		x  int32 = 0
+		fn       = func(minus bool) {
 			defer wg.Done()
 			for i := 0; i < 50000; i++ {
 				if minus {
@@ -28,12 +28,14 @@ func NoSync() error {
 		}
 	)
 
-	wg.Add(2)
-	go fn(true)
-	go fn(false)
+	for i := 0; i < 5; i++ {
+		wg.Add(2)
+		go fn(true)
+		go fn(false)
+		wg.Wait()
 
-	wg.Wait()
-	output.Stdoutl("[x]", x)
+		output.Stdoutl("[x]", x)
+	}
 
 	return nil
 }
