@@ -16,4 +16,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["syncs_no_sync"] = NoSync
 	m["syncs_atomic_add"] = AtomicAdd
 	m["syncs_use_channel"] = UseChannel
+	m["syncs_use_mutex"] = UseMutex
 }
