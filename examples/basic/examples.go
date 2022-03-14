@@ -55,6 +55,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/structs"
 	"github.com/devlights/try-golang/examples/basic/syncs"
 	"github.com/devlights/try-golang/examples/basic/system"
+	"github.com/devlights/try-golang/examples/basic/templates"
 	"github.com/devlights/try-golang/examples/basic/times"
 	"github.com/devlights/try-golang/examples/basic/tsvop"
 	"github.com/devlights/try-golang/examples/basic/types"
@@ -132,6 +133,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	structs.NewRegister().Regist(m)
 	syncs.NewRegister().Regist(m)
 	system.NewRegister().Regist(m)
+	templates.NewRegister().Regist(m)
 	times.NewRegister().Regist(m)
 	tsvop.NewRegister().Regist(m)
 	types.NewRegister().Regist(m)
