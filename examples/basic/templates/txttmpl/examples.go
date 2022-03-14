@@ -16,4 +16,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_new"] = New
 	m["templates_text_tmpl_must"] = Must
 	m["templates_text_tmpl_structure"] = Structure
+	m["templates_text_tmpl_whitespace_and_minus"] = WhitespaceAndMinussign
 }
