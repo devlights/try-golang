@@ -11,6 +11,9 @@ import (
 //
 // # REFERENCES
 //   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://ema-hiro.hatenablog.com/entry/20170729/1501320887
+//   - https://stackoverflow.com/questions/33282061/go-templates-with-eq-and-index
+//   - https://stackoverflow.com/questions/31101729/compare-strings-in-templates
 func If() error {
 	const (
 		t1 = `{{if .}} hello world {{end}}`
