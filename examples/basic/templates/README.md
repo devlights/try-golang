@@ -18,3 +18,4 @@
 |txttmpl/eq.go|templates\_text\_tmpl\_eq|text/template の テンプレート仕様 における eq のサンプルです.|
 |txttmpl/ne.go|templates\_text\_tmpl\_ne|text/template の テンプレート仕様 における ne のサンプルです.|
 |txttmpl/lt.go|templates\_text\_tmpl\_lt|text/template の テンプレート仕様 における lt のサンプルです.|
+|txttmpl/le.go|templates\_text\_tmpl\_le|text/template の テンプレート仕様 における le のサンプルです.|
