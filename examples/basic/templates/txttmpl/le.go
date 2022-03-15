@@ -27,7 +27,7 @@ func Le() error {
 
 		output.Stdoutl("[template]", t)
 
-		tmpl, err = template.New("Lt").Parse(t)
+		tmpl, err = template.New("Le").Parse(t)
 		if err != nil {
 			return err
 		}
