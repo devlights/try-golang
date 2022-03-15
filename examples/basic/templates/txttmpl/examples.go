@@ -27,4 +27,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_eq"] = Eq
 	m["templates_text_tmpl_ne"] = Ne
 	m["templates_text_tmpl_lt"] = Lt
+	m["templates_text_tmpl_le"] = Le
 }
