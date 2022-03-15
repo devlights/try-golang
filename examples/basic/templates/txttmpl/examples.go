@@ -21,4 +21,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_if"] = If
 	m["templates_text_tmpl_elseif"] = ElseIf
 	m["templates_text_tmpl_else"] = Else
+	m["templates_text_tmpl_range"] = Range
+	m["templates_text_tmpl_range_else"] = RangeElse
 }
