@@ -7,6 +7,10 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
+// Comment -- text/template の テンプレート仕様 におけるコメントのサンプルです.
+//
+// # REFERENCES
+//   - https://pkg.go.dev/text/template@go1.17.8
 func Comment() error {
 	const (
 		t = `this is {{/* comment */}}     {{- /* another comment */ -}}.`
