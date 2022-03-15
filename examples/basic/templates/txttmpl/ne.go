@@ -7,15 +7,15 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// Eq -- text/template の テンプレート仕様 における eq (equal) のサンプルです.
+// Ne -- text/template の テンプレート仕様 における ne (not equal) のサンプルです.
 //
 // # REFERENCES
 //   - https://pkg.go.dev/text/template@go1.17.8
-func Eq() error {
+func Ne() error {
 	const (
-		t1 = `{{$v := 10}} {{- if eq $v 10 -}} helloworld {{end}}`
-		t2 = `{{$v := 10}} {{- if eq $v 11 -}} helloworld {{end}}`
-		t3 = `{{$v := 10}} {{- if (eq $v 10) -}} helloworld {{end}}`
+		t1 = `{{$v := 10}} {{- if ne $v 10 -}} helloworld {{end}}`
+		t2 = `{{$v := 10}} {{- if ne $v 11 -}} helloworld {{end}}`
+		t3 = `{{$v := 10}} {{- if (ne $v 10) -}} helloworld {{end}}`
 	)
 
 	for _, t := range []string{t1, t2, t3} {
@@ -27,7 +27,7 @@ func Eq() error {
 
 		output.Stdoutl("[template]", t)
 
-		tmpl, err = template.New("Eq").Parse(t)
+		tmpl, err = template.New("Ne").Parse(t)
 		if err != nil {
 			return err
 		}
