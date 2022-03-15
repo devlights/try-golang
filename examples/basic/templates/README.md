@@ -15,3 +15,4 @@
 |txttmpl/range.go|templates\_text\_tmpl\_range|text/template の テンプレート仕様 におけるrangeのサンプルです.|
 |txttmpl/range\_else.go|templates\_text\_tmpl\_range\_else|text/template の テンプレート仕様 におけるrange..elseのサンプルです.|
 |txttmpl/newline.go|templates\_text\_tmpl\_newline|text/template の テンプレート仕様 における改行のサンプルです.|
+|txttmpl/eq.go|templates\_text\_tmpl\_eq|text/template の テンプレート仕様 におけるeqのサンプルです.|

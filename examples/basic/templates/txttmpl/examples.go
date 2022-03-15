@@ -24,4 +24,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_range"] = Range
 	m["templates_text_tmpl_range_else"] = RangeElse
 	m["templates_text_tmpl_newline"] = Newline
+	m["templates_text_tmpl_eq"] = Eq
 }
