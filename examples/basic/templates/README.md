@@ -20,3 +20,4 @@
 |txttmpl/lt.go|templates\_text\_tmpl\_lt|text/template の テンプレート仕様 における lt のサンプルです.|
 |txttmpl/le.go|templates\_text\_tmpl\_le|text/template の テンプレート仕様 における le のサンプルです.|
 |txttmpl/gt.go|templates\_text\_tmpl\_gt|text/template の テンプレート仕様 における gt のサンプルです.|
+|txttmpl/ge.go|templates\_text\_tmpl\_ge|text/template の テンプレート仕様 における ge のサンプルです.|
