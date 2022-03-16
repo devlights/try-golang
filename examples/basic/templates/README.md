@@ -28,3 +28,4 @@
 |txttmpl/and.go|templates\_text\_tmpl\_and|text/template の テンプレート仕様 における and のサンプルです.|
 |txttmpl/or.go|templates\_text\_tmpl\_or|text/template の テンプレート仕様 における or のサンプルです.|
 |txttmpl/not.go|templates\_text\_tmpl\_not|text/template の テンプレート仕様 における not のサンプルです.|
+|txttmpl/len.go|templates\_text\_tmpl\_len|text/template の テンプレート仕様 における len のサンプルです.|
