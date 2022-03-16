@@ -27,3 +27,4 @@
 |txttmpl/variable.go|templates\_text\_tmpl\_variable|text/template の テンプレート仕様 における 変数 のサンプルです.|
 |txttmpl/and.go|templates\_text\_tmpl\_and|text/template の テンプレート仕様 における and のサンプルです.|
 |txttmpl/or.go|templates\_text\_tmpl\_or|text/template の テンプレート仕様 における or のサンプルです.|
+|txttmpl/not.go|templates\_text\_tmpl\_not|text/template の テンプレート仕様 における not のサンプルです.|
