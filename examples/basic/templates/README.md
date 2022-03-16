@@ -25,3 +25,4 @@
 |txttmpl/printf.go|templates\_text\_tmpl\_printf|text/template の テンプレート仕様 における printf 関数 のサンプルです.|
 |txttmpl/println.go|templates\_text\_tmpl\_println|text/template の テンプレート仕様 における println 関数 のサンプルです.|
 |txttmpl/variable.go|templates\_text\_tmpl\_variable|text/template の テンプレート仕様 における 変数 のサンプルです.|
+|txttmpl/and.go|templates\_text\_tmpl\_and|text/template の テンプレート仕様 における and のサンプルです.|
