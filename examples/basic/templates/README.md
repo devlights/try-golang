@@ -22,3 +22,4 @@
 |txttmpl/gt.go|templates\_text\_tmpl\_gt|text/template の テンプレート仕様 における gt のサンプルです.|
 |txttmpl/ge.go|templates\_text\_tmpl\_ge|text/template の テンプレート仕様 における ge のサンプルです.|
 |txttmpl/print.go|templates\_text\_tmpl\_print|text/template の テンプレート仕様 における print 関数 のサンプルです.|
+|txttmpl/printf.go|templates\_text\_tmpl\_printf|text/template の テンプレート仕様 における printf 関数 のサンプルです.|
