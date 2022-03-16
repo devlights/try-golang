@@ -35,4 +35,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_println"] = Println
 	m["templates_text_tmpl_variable"] = Variable
 	m["templates_text_tmpl_and"] = And
+	m["templates_text_tmpl_or"] = Or
 }
