@@ -30,4 +30,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_le"] = Le
 	m["templates_text_tmpl_gt"] = Gt
 	m["templates_text_tmpl_ge"] = Ge
+	m["templates_text_tmpl_print"] = Print
 }
