@@ -7,21 +7,23 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// Le -- text/template の テンプレート仕様 における le (less than equal) のサンプルです.
+// Gt -- text/template の テンプレート仕様 における gt (greater than) のサンプルです.
 //
 // # REFERENCES
 //   - https://pkg.go.dev/text/template@go1.17.8
-func Le() error {
-	const (
-		// 10 <= 10
-		t1 = `{{ $v := 10 }} {{- if le $v 10 -}} helloworld {{- end}}`
-		// 10 <= 11
-		t2 = `{{ $v := 10 }} {{- if le $v 11 -}} helloworld {{- end}}`
-		// 10 <= 9
-		t3 = `{{ $v := 10 }} {{- if le $v 9 -}} helloworld {{- end}}`
+func Gt() error {
+	var (
+		tmpls = []string{
+			// 10 > 10
+			`{{ $v := 10 }} {{- if gt $v 10 -}} helloworld {{- end}}`,
+			// 10 > 11
+			`{{ $v := 10 }} {{- if gt $v 11 -}} helloworld {{- end}}`,
+			// 10 > 9
+			`{{ $v := 10 }} {{- if gt $v 9 -}} helloworld {{- end}}`,
+		}
 	)
 
-	for _, t := range []string{t1, t2, t3} {
+	for _, t := range tmpls {
 		var (
 			tmpl *template.Template
 			buf  bytes.Buffer
@@ -30,7 +32,7 @@ func Le() error {
 
 		output.Stdoutl("[template]", t)
 
-		tmpl, err = template.New("Le").Parse(t)
+		tmpl, err = template.New("Gt").Parse(t)
 		if err != nil {
 			return err
 		}
