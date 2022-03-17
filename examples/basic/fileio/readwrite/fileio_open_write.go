@@ -1,7 +1,9 @@
 package readwrite
 
 import (
+	"errors"
 	"fmt"
+	"io/fs"
 	"log"
 	"os"
 )
@@ -23,7 +25,7 @@ func OpenWrite() error {
 
 		// ファイルの存在チェックは、Go言語ではこうやる
 		// REF: http://bit.ly/2I1LzYa
-		if _, err = os.Stat(file.Name()); os.IsNotExist(err) {
+		if _, err = os.Stat(file.Name()); errors.Is(err, fs.ErrNotExist) {
 			fmt.Println("存在しない")
 		}
 	}()

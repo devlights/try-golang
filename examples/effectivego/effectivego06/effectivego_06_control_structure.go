@@ -1,7 +1,9 @@
 package effectivego06
 
 import (
+	"errors"
 	"fmt"
+	"io/fs"
 	"log"
 	"math/rand"
 	"os"
@@ -154,7 +156,7 @@ func ifExample() {
 
 	// 初期化ステートメント付き
 	f := "no_exists_file_path"
-	if _, err := os.Stat(f); os.IsNotExist(err) {
+	if _, err := os.Stat(f); errors.Is(err, fs.ErrNotExist) {
 		fmt.Printf("ファイル存在しない [%s]\n", f)
 	}
 

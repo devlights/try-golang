@@ -1,7 +1,9 @@
 package stat
 
 import (
+	"errors"
 	"fmt"
+	"io/fs"
 	"log"
 	"os"
 	"path/filepath"
@@ -14,7 +16,7 @@ func Stat() error {
 	fname := "README.md"
 	fpath := filepath.Join(".", fname)
 
-	if _, err := os.Stat(fpath); os.IsNotExist(err) {
+	if _, err := os.Stat(fpath); errors.Is(err, fs.ErrNotExist) {
 		log.Fatal(err)
 		return err
 	}
