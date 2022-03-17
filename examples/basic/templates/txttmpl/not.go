@@ -10,7 +10,7 @@ import (
 // Not -- text/template の テンプレート仕様 における not のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Not() error {
 	var (
 		tmpls = []string{

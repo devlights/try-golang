@@ -10,7 +10,7 @@ import (
 // Gt -- text/template の テンプレート仕様 における gt (greater than) のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Gt() error {
 	var (
 		tmpls = []string{

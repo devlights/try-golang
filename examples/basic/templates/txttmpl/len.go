@@ -10,7 +10,7 @@ import (
 // Len -- text/template の テンプレート仕様 における len のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Len() error {
 	var (
 		tmpls = []string{

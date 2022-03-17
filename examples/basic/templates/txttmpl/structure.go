@@ -10,7 +10,7 @@ import (
 // Structure -- テンプレートに差し込む構造体についてのサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Structure() error {
 	const (
 		t = `{{ .Header }} {{ .Footer }}`

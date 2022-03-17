@@ -10,7 +10,7 @@ import (
 // Print -- text/template の テンプレート仕様 における print 関数 のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Print() error {
 	var (
 		tmpls = []string{

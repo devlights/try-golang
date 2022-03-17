@@ -10,7 +10,7 @@ import (
 // And -- text/template の テンプレート仕様 における and のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func And() error {
 	var (
 		tmpls = []string{

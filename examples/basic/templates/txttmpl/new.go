@@ -10,7 +10,7 @@ import (
 // New -- text/template の Newメソッドのサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func New() error {
 	//
 	// テンプレートの使い方

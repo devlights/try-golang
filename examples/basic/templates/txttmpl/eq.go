@@ -10,7 +10,7 @@ import (
 // Eq -- text/template の テンプレート仕様 における eq (equal) のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Eq() error {
 	const (
 		t1 = `{{$v := 10}} {{- if eq $v 10 -}} helloworld {{end}}`

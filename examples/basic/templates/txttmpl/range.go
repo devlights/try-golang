@@ -10,7 +10,7 @@ import (
 // Range -- text/template の テンプレート仕様 におけるrangeのサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 //   - https://stackoverflow.com/questions/54156119/range-over-string-slice-in-golang-template
 func Range() error {
 	const (

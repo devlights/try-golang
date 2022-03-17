@@ -10,7 +10,7 @@ import (
 // Newline -- text/template の テンプレート仕様 における改行のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 //   - https://zenn.dev/moutend/articles/5a7b6f6e0c185fde1716
 //   - https://stackoverflow.com/questions/39948383/how-to-avoid-newlines-caused-by-conditionals
 func Newline() error {

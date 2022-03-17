@@ -10,7 +10,7 @@ import (
 // Must -- Template.Must() のサンプルです。
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Must() error {
 	const (
 		t = `hello {{.}}`

@@ -10,7 +10,7 @@ import (
 // Or -- text/template の テンプレート仕様 における or のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Or() error {
 	var (
 		tmpls = []string{
