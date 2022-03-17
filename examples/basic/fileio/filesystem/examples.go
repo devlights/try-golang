@@ -18,4 +18,5 @@ func (*register) Regist(m mapping.ExampleMapping) {
 	m["fileio_filesystem_dirfs"] = DirFS
 	m["fileio_filesystem_listdir"] = Listdir
 	m["fileio_filesystem_readdir"] = ReadDir
+	m["fileio_filesystem_notexists"] = NotExists
 }
