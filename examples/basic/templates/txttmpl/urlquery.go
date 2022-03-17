@@ -32,7 +32,7 @@ func Urlquery() error {
 			return err
 		}
 
-		err = tmpl.Execute(&buf, "comments?postId=1")
+		err = tmpl.Execute(&buf, "https://jsonplaceholder.typicode.com/comments?postId=1")
 		if err != nil {
 			return err
 		}
