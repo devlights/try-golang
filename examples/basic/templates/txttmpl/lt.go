@@ -10,7 +10,7 @@ import (
 // Lt -- text/template の テンプレート仕様 における lt (less than) のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Lt() error {
 	const (
 		// 10 < 10

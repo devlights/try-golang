@@ -10,7 +10,7 @@ import (
 // Ge -- text/template の テンプレート仕様 における ge (greater than equal) のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Ge() error {
 	var (
 		tmpls = []string{

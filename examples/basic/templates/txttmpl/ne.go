@@ -10,7 +10,7 @@ import (
 // Ne -- text/template の テンプレート仕様 における ne (not equal) のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Ne() error {
 	const (
 		t1 = `{{$v := 10}} {{- if ne $v 10 -}} helloworld {{end}}`

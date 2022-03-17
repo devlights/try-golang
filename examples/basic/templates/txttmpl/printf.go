@@ -10,7 +10,7 @@ import (
 // Printf -- text/template の テンプレート仕様 における printf 関数 のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Printf() error {
 	var (
 		tmpls = []string{

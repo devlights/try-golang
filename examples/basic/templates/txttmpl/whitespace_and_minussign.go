@@ -20,7 +20,7 @@ import (
 //   同様に、右のデリミタ（"}}"）の前に空白とマイナス記号がある場合、直後のテキストからすべての先行する空白が切り取られます。
 //
 // REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func WhitespaceAndMinussign() error {
 	const (
 		t1 = `{{23}} < {{45}}`

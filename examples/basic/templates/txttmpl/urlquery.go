@@ -10,7 +10,7 @@ import (
 // Urlquery -- text/template の テンプレート仕様 における urlquery 関数 のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Urlquery() error {
 	var (
 		tmpls = []string{

@@ -10,7 +10,7 @@ import (
 // Variable -- text/template の テンプレート仕様 における 変数 のサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Variable() error {
 	var (
 		tmpls = []string{

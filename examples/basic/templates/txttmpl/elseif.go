@@ -10,7 +10,7 @@ import (
 // ElseIf -- text/template の テンプレート仕様 におけるelseifのサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 //   - https://ema-hiro.hatenablog.com/entry/20170729/1501320887
 //   - https://stackoverflow.com/questions/33282061/go-templates-with-eq-and-index
 //   - https://stackoverflow.com/questions/31101729/compare-strings-in-templates

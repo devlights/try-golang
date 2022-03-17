@@ -10,7 +10,7 @@ import (
 // Comment -- text/template の テンプレート仕様 におけるコメントのサンプルです.
 //
 // # REFERENCES
-//   - https://pkg.go.dev/text/template@go1.17.8
+//   - https://pkg.go.dev/text/template@latest
 func Comment() error {
 	const (
 		t = `this is {{/* comment */}}     {{- /* another comment */ -}}.`
