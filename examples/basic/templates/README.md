@@ -31,3 +31,4 @@
 |txttmpl/len.go|templates\_text\_tmpl\_len|text/template の テンプレート仕様 における len のサンプルです.|
 |txttmpl/urlquery.go|templates\_text\_tmpl\_urlquery|text/template の テンプレート仕様 における urlquery のサンプルです.|
 |txttmpl/call.go|templates\_text\_tmpl\_call|text/template の テンプレート仕様 における call のサンプルです.|
+|txttmpl/call.go|templates\_text\_tmpl\_html|text/template の テンプレート仕様 における html のサンプルです.|
