@@ -8,12 +8,12 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// FsDirFS は、 os.DirFS() を利用してファイルの読み込みを行うサンプルです.
+// DirFS は、 os.DirFS() を利用してファイルの読み込みを行うサンプルです.
 //
 // REFERENCES:
 //   - https://golang.org/io/fs/
 //   - https://golang.org/os/#DirFS
-func FsDirFS() error {
+func DirFS() error {
 	//
 	// io/fs パッケージは Go1.16で追加されたパッケージ.
 	// このパッケージの目的はファイルシステムを抽象化するためにある.

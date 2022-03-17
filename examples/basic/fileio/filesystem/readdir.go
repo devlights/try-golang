@@ -7,8 +7,8 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// OsReadDir は、 os.ReadDir() を使ったサンプルです.
-func OsReadDir() error {
+// ReadDir は、 os.ReadDir() を使ったサンプルです.
+func ReadDir() error {
 	var (
 		pwd string
 		err error
