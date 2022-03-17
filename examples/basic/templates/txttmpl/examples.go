@@ -38,4 +38,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_or"] = Or
 	m["templates_text_tmpl_not"] = Not
 	m["templates_text_tmpl_len"] = Len
+	m["templates_text_tmpl_urlquery"] = Urlquery
 }
