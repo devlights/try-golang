@@ -42,4 +42,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_call"] = Call
 	m["templates_text_tmpl_html"] = Html
 	m["templates_text_tmpl_index"] = Index
+	m["templates_text_tmpl_slice"] = Slice
 }
