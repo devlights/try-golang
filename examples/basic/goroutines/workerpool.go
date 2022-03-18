@@ -14,7 +14,7 @@ import (
 // 		- https://medium.com/@mertakar_22051/concurrency-in-golang-d49d2db1ed91
 func WorkerPool() error {
 	const (
-		numItems = 40
+		numItems = 45
 	)
 
 	type (
@@ -31,41 +31,46 @@ func WorkerPool() error {
 		ret2 = make(chan item, 1)
 	)
 
-	// 元値となる値を投入
-	go func(out chan<- int) {
-		defer close(out)
-		for i := range iter.Range(numItems) {
-			out <- i + 1
-		}
-	}(jobs)
-
-	// フィボナッチ数を算出
-	go func(in <-chan int, out chan<- item) {
-		defer close(out)
-		wg := sync.WaitGroup{}
-		for v := range in {
-			wg.Add(1)
-			go func(n int) {
-				defer wg.Done()
-
-				s := time.Now()
-				v := __fib(n)
-
-				out <- item{n, v, time.Since(s)}
-			}(v)
-		}
-		wg.Wait()
-	}(jobs, ret1)
-
-	// 結果をフィルタリング
-	go func(in <-chan item, out chan<- item) {
-		defer close(out)
-		for v := range in {
-			if v.v >= 1000000 {
-				out <- v
+	var (
+		// 元値となる値を投入
+		gen = func(out chan<- int) {
+			defer close(out)
+			for i := range iter.Range(numItems) {
+				out <- i + 1
 			}
 		}
-	}(ret1, ret2)
+		// フィボナッチ数を算出
+		calc = func(in <-chan int, out chan<- item) {
+			defer close(out)
+			wg := sync.WaitGroup{}
+			for v := range in {
+				wg.Add(1)
+				go func(n int) {
+					defer wg.Done()
+
+					s := time.Now()
+					v := __fib(n)
+
+					out <- item{n, v, time.Since(s)}
+				}(v)
+			}
+			wg.Wait()
+		}
+		// 結果をフィルタリング
+		filter = func(in <-chan item, out chan<- item) {
+			defer close(out)
+			for v := range in {
+				if v.v >= 1000000 {
+					out <- v
+				}
+			}
+		}
+	)
+
+	// 仕事開始
+	go gen(jobs)
+	go calc(jobs, ret1)
+	go filter(ret1, ret2)
 
 	// 結果出力
 	for v := range ret2 {
