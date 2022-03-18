@@ -26,6 +26,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["goroutines_using_chan_semaphore"] = UsingChanSemaphore
 	m["goroutines_using_mutex"] = UsingMutex
 	m["goroutines_with_context_deadline"] = WithContextDeadline
+	m["goroutines_workerpool"] = WorkerPool
 
 	leak.NewRegister().Regist(m)
 }
