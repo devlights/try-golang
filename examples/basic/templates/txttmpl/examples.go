@@ -45,4 +45,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_slice"] = Slice
 	m["templates_text_tmpl_js"] = Js
 	m["templates_text_tmpl_pipe"] = Pipe
+	m["templates_text_tmpl_with"] = With
 }

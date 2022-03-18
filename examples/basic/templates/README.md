@@ -36,3 +36,4 @@
 |txttmpl/slice.go|templates\_text\_tmpl\_slice|text/template の テンプレート仕様 における slice のサンプルです.|
 |txttmpl/js.go|templates\_text\_tmpl\_js|text/template の テンプレート仕様 における js のサンプルです.|
 |txttmpl/pipe.go|templates\_text\_tmpl\_pipe|text/template の テンプレート仕様 における pipe のサンプルです.|
+|txttmpl/with.go|templates\_text\_tmpl\_with|text/template の テンプレート仕様 における with のサンプルです.|
