@@ -14,3 +14,4 @@
 |selectnilchan2.go|goroutines\_select\_nil\_chan\_2|select ステートメントで nil チャネル を使って選択されるチャネルの有効・無効を切り替えるサンプルです (2)|
 |usingchansemaphore.go|goroutines\_using\_chan\_semaphore|チャネルでセマフォの動作を行わせるサンプルです|
 |usingmutex.go|goroutines\_using\_mutex|sync.Mutex を利用したサンプルです|
+|workerpool.go|goroutines\_workerpool|Worker Pool パターンのサンプルです|
