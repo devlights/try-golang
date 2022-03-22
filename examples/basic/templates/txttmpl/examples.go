@@ -47,4 +47,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_pipe"] = Pipe
 	m["templates_text_tmpl_with"] = With
 	m["templates_text_tmpl_define"] = Define
+	m["templates_text_tmpl_funcmap"] = FuncMap
 }
