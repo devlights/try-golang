@@ -11,3 +11,4 @@
 |range\_loop.go|loops\_range\_loop|単純に指定回数ループするためのサンプルです|
 |infinite\_loop.go|loops\_infinite\_loop|無限ループのサンプルです|
 |slice\_loop.go|loops\_slice\_loop|スライスのループについてのサンプルです|
+|for\_loop\_two\_variable.go|loops\_two\_variable|for ループで ２つの変数 を初期化してループさせるサンプルです|
