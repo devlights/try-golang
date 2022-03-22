@@ -12,6 +12,7 @@ import (
 //
 // # REFERENCES
 //   - https://pkg.go.dev/text/template@latest
+//   - https://stackoverflow.com/questions/38081807/for-loop-of-two-variables-in-go
 func FuncMap() error {
 	var (
 		tmpls = []string{
