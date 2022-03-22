@@ -37,3 +37,4 @@
 |txttmpl/js.go|templates\_text\_tmpl\_js|text/template の テンプレート仕様 における js のサンプルです.|
 |txttmpl/pipe.go|templates\_text\_tmpl\_pipe|text/template の テンプレート仕様 における pipe のサンプルです.|
 |txttmpl/with.go|templates\_text\_tmpl\_with|text/template の テンプレート仕様 における with のサンプルです.|
+|txttmpl/with.go|templates\_text\_tmpl\_define|text/template の テンプレート仕様 における define (独自テンプレートの定義) のサンプルです.|
