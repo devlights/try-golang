@@ -11,6 +11,7 @@ import (
 //
 // # REFERENCES
 //   - https://pkg.go.dev/text/template@latest
+//   - https://stackoverflow.com/questions/37298532/variable-inside-define-template-in-golang
 func Define() error {
 	var (
 		tmpls = []string{
