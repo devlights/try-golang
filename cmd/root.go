@@ -1,4 +1,4 @@
-package main
+package cmd
 
 import (
 	"fmt"
@@ -13,7 +13,8 @@ import (
 	"github.com/devlights/try-golang/runner"
 )
 
-func main() {
+// Run -- 処理を実行します.
+func Run() {
 	var (
 		args    *Args
 		mapping mapping.ExampleMapping

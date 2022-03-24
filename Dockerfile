@@ -1,15 +1,31 @@
-FROM golang:1.17
+# syntax=docker/dockerfile:1-labs
+# -----------------------------------------------------
+# Build
+# -----------------------------------------------------
+FROM golang:latest as base
 
 ENV CGO_ENABLED=1
 ENV GOOS=linux
 ENV GOARCH=amd64
 
-WORKDIR /go/src/app
+WORKDIR /workspace
 
 COPY go.mod go.sum ./
-RUN go mod download
+RUN <<EOF
+    go mod download
+EOF
 
 COPY . .
+RUN <<EOF
+    go build
+EOF
 
-CMD ["make", "run"]
+# -----------------------------------------------------
+# Run
+# -----------------------------------------------------
+FROM debian:stable-slim
 
+WORKDIR /app
+COPY --from=base /workspace/try-golang try-golang
+
+CMD ["/app/try-golang", "-onetime", "-example", ""]

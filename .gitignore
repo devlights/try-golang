@@ -69,6 +69,7 @@ fabric.properties
 
 tags
 
+try-golang
 bin/
 .target
 chinook.db
