@@ -39,3 +39,6 @@
 |txttmpl/with.go|templates\_text\_tmpl\_with|text/template の テンプレート仕様 における with のサンプルです.|
 |txttmpl/with.go|templates\_text\_tmpl\_define|text/template の テンプレート仕様 における define (独自テンプレートの定義) のサンプルです.|
 |txttmpl/with.go|templates\_text\_tmpl\_funcmap|text/template の テンプレート仕様 における funcmap (独自関数の定義) のサンプルです.|
+|txttmpl/parsefuncs/parsefs.go|templates\_parsefuncs\_parsefs|template.ParseFS() のサンプルです.|
+|txttmpl/parsefuncs/parsefiles.go|templates\_parsefuncs\_parsefiles|template.ParseFiles() のサンプルです.|
+|txttmpl/parsefuncs/parseglob.go|templates\_parsefuncs\_parseglob|template.ParseGlob() のサンプルです.|

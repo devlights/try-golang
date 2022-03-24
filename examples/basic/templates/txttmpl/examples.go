@@ -1,6 +1,9 @@
 package txttmpl
 
-import "github.com/devlights/try-golang/mapping"
+import (
+	"github.com/devlights/try-golang/examples/basic/templates/txttmpl/parsefuncs"
+	"github.com/devlights/try-golang/mapping"
+)
 
 type (
 	register struct{}
@@ -48,4 +51,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_with"] = With
 	m["templates_text_tmpl_define"] = Define
 	m["templates_text_tmpl_funcmap"] = FuncMap
+
+	parsefuncs.NewRegister().Regist(m)
 }
