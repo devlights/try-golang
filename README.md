@@ -13,14 +13,13 @@ This is my TUTORIAL project for golang
 
 ```shell script
 $ go version
-go version go1.17 linux/amd64
+go version go1.17.5 linux/amd64
 ```
 
 ## Run
 
 ```shell script
-$ cd cmd/trygolang
-$ go run .
+$ go run main.go
 ```
 
 or 
@@ -52,7 +51,7 @@ $ go install github.com/go-task/task/v3/cmd/task@latest
 Once the above command is complete, you can run it at
 
 ```sh
-$ task
+$ task run
 ```
 
 ### Run Docker on Gitpod
@@ -84,7 +83,6 @@ $ make test
 ## Install
 
 ```shell script
-$ cd cmd/trygolang
 $ go install
 ```
 

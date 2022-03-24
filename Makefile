@@ -5,6 +5,7 @@ all: clean build test
 prepare:
 	go mod download
 	go install honnef.co/go/tools/cmd/staticcheck@latest
+	go install github.com/go-task/task/v3/cmd/task@latest
 
 build: 
 	go build
@@ -26,18 +27,18 @@ vet:
 	staticcheck ./...
 
 run:
-	go run github.com/devlights/try-golang/cmd/trygolang -onetime -example ${EXAMPLE}
+	go run main.go -onetime -example ${EXAMPLE}
 
 generate: 
 	go generate -x ./...
 
 docker-build:
-	sudo docker image build -t try-golang -f Dockerfile ${PWD}
+	DOCKER_BUILDKIT=1 docker image build -t try-golang -f Dockerfile ${PWD}
 
 docker-run: docker-build
-	sudo docker container run -it --rm --name try-golang try-golang
+	docker container run -it --rm --name try-golang try-golang
 
 docker-sh: docker-build
-	sudo docker container run -it --rm --name try-golang try-golang bash
+	docker container run -it --rm --name try-golang try-golang bash
 
 docker: docker-run
