@@ -26,4 +26,4 @@ jobs:
       run: go get -v -t -d ./...
 
     - name: Build
-      run: go build -race github.com/devlights/try-golang/cmd/trygolang
+      run: go build 
