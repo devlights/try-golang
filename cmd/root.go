@@ -13,8 +13,8 @@ import (
 	"github.com/devlights/try-golang/runner"
 )
 
-// Run -- 処理を実行します.
-func Run() {
+// Execute -- 処理を実行します.
+func Execute() {
 	var (
 		args    *Args
 		mapping mapping.ExampleMapping
