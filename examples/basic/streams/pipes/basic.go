@@ -5,7 +5,6 @@ import (
 	"bytes"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"log"
 	"os"
 )
@@ -32,7 +31,7 @@ func (me *_filterWriter) Write(p []byte) (n int, err error) {
 		return me.w.Write(p)
 	}
 
-	return ioutil.Discard.Write(p)
+	return io.Discard.Write(p)
 }
 
 func (me *_upperWriter) Write(p []byte) (n int, err error) {

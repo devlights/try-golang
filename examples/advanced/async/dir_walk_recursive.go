@@ -2,7 +2,7 @@ package async
 
 import (
 	"fmt"
-	"io/ioutil"
+	"os"
 	"path/filepath"
 	"strings"
 	"sync"
@@ -58,7 +58,7 @@ func listdir(dir string, wg *sync.WaitGroup, ch chan<- string, depth int) {
 	// --------------------------------------------------
 	// 自身の配下を非同期で処理
 	// --------------------------------------------------
-	files, _ := ioutil.ReadDir(dir)
+	files, _ := os.ReadDir(dir)
 	for _, f := range files {
 		if f.IsDir() {
 			// ドットで始まるディレクトリは無視

@@ -4,7 +4,6 @@ import (
 	"context"
 	"crypto/md5"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
@@ -74,7 +73,7 @@ func ErrGroupWithPipeline() error {
 			)
 
 			for p := range filePathCh {
-				data, err := ioutil.ReadFile(p)
+				data, err := os.ReadFile(p)
 				if err != nil {
 					return err
 				}

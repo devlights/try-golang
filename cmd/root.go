@@ -2,7 +2,6 @@ package cmd
 
 import (
 	"fmt"
-	"io/ioutil"
 	"log"
 	"os"
 
@@ -37,7 +36,7 @@ func Execute() {
 			appLog.Fatal("終了します...")
 		}
 
-		b, err := ioutil.ReadFile(".target")
+		b, err := os.ReadFile(".target")
 		if err != nil {
 			errLog.Fatalf("Cannot read .target file")
 		}

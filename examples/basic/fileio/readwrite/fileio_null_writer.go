@@ -2,7 +2,6 @@ package readwrite
 
 import (
 	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
@@ -10,14 +9,14 @@ import (
 	"time"
 )
 
-// NullWriter -- ioutil.Discard のサンプルです.
+// NullWriter -- io.Discard のサンプルです.
 //
 // REFERENCES:
-//   - https://golang.org/io/ioutil/#pkg-variables
+//   - https://golang.org/io/#pkg-variables
 //   - https://stackoverflow.com/a/25344458
 func NullWriter() error {
 	// ----------------------------------------------------------------
-	// ioutil.Discard は、io.Writer を実装しているけど何もしません。
+	// io.Discard は、io.Writer を実装しているけど何もしません。
 	// 処理を行う上で io.Writer が必要だが、その結果は必要ない場合などに利用します。
 	// ----------------------------------------------------------------
 	var (
@@ -61,7 +60,7 @@ func NullWriter() error {
 			}()
 
 			// 結果は必要ないので捨てる
-			_, err = io.Copy(ioutil.Discard, resp.Body)
+			_, err = io.Copy(io.Discard, resp.Body)
 			if err != nil {
 				errCh <- err
 				return

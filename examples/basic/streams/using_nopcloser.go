@@ -3,7 +3,6 @@ package streams
 import (
 	"bytes"
 	"io"
-	"io/ioutil"
 
 	"github.com/devlights/gomy/output"
 )
@@ -29,13 +28,13 @@ func (r *_readcloserimpl) Close() error {
 	return nil
 }
 
-// UsingNopCloser -- ioutil.NopCloser についてのサンプルです.
+// UsingNopCloser -- io.NopCloser についてのサンプルです.
 //
 // REFERENCES:
-//   - https://golang.org/io/ioutil/#NopCloser
+//   - https://golang.org/io/io/#NopCloser
 func UsingNopCloser() error {
 	// ------------------------------------------------------------
-	// ioutil.NopCloser は、Closeが呼ばれても何もしない
+	// io.NopCloser は、Closeが呼ばれても何もしない
 	// io.ReadCloser を返す.
 	//
 	// 処理内部で Close メソッドが呼ばれてしまうが
@@ -44,7 +43,7 @@ func UsingNopCloser() error {
 	var (
 		r         = bytes.NewReader([]byte("hello"))
 		reader    = &_readcloserimpl{reader: r}
-		nopcloser = ioutil.NopCloser(reader)
+		nopcloser = io.NopCloser(reader)
 	)
 
 	// NopCloser は、Close のみ何もしないインターフェースなので
