@@ -1,7 +1,7 @@
 package goroutines
 
 import (
-	"io/ioutil"
+	"io"
 	"log"
 	"os"
 	"sync"
@@ -46,7 +46,7 @@ func binsem() {
 	var (
 		mainLog = log.New(os.Stdout, "[main][binsem] ", 0)
 		semLog  = log.New(os.Stderr, ">>> [semaphore] >>> ", 0)
-		gLog    = log.New(ioutil.Discard, "[goroutine] >>> >>> ", 0)
+		gLog    = log.New(io.Discard, "[goroutine] >>> >>> ", 0)
 	)
 
 	var (
@@ -93,7 +93,7 @@ func cntsem() {
 	var (
 		mainLog = log.New(os.Stdout, "[main][cntsem] ", 0)
 		semLog  = log.New(os.Stderr, ">>> [semaphore] >>> ", 0)
-		gLog    = log.New(ioutil.Discard, "[goroutine] >>> >>> ", 0)
+		gLog    = log.New(io.Discard, "[goroutine] >>> >>> ", 0)
 	)
 
 	var (

@@ -3,7 +3,7 @@ package goroutines
 import (
 	"context"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"log"
 	"os"
 	"time"
@@ -26,11 +26,11 @@ func SelectNilChan2() error {
 
 	// ロガー
 	//
-	// 有効にしたい場合は、ioutil.Discard を 望みの io.Writer に変更
+	// 有効にしたい場合は、io.Discard を 望みの io.Writer に変更
 	var (
-		g1Log      = log.New(ioutil.Discard, ">>> [G1] ", 0)
-		g2Log      = log.New(ioutil.Discard, ">>> [G2] ", 0)
-		monitorLog = log.New(ioutil.Discard, ">>>>> [monitor] ", 0)
+		g1Log      = log.New(io.Discard, ">>> [G1] ", 0)
+		g2Log      = log.New(io.Discard, ">>> [G2] ", 0)
+		monitorLog = log.New(io.Discard, ">>>>> [monitor] ", 0)
 		mainLog    = log.New(os.Stdout, "[main] ", 0)
 	)
 

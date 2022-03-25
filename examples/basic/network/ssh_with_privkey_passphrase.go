@@ -2,7 +2,6 @@ package network
 
 import (
 	"errors"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 
@@ -83,7 +82,7 @@ func SSHWithPrivKeyPassPhrase() error {
 	}
 
 	sshPrivKeyFile := filepath.Join(homeDir, ".ssh/id_rsa")
-	privKey, err := ioutil.ReadFile(sshPrivKeyFile)
+	privKey, err := os.ReadFile(sshPrivKeyFile)
 	if err != nil {
 		output.Stderrl("[error]", err)
 		return err

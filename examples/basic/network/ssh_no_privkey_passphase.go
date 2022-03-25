@@ -4,7 +4,6 @@ import (
 	"errors"
 	"fmt"
 	"io"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 
@@ -288,9 +287,9 @@ func sshWithKeyFileWithInsecureHostKey() returnCode {
 	}
 
 	sshPrivKeyFile := filepath.Join(homeDir, ".ssh/id_rsa")
-	privKey, err := ioutil.ReadFile(sshPrivKeyFile)
+	privKey, err := os.ReadFile(sshPrivKeyFile)
 	if err != nil {
-		output.Stderrl("[ioutil.ReadFile]", err)
+		output.Stderrl("[os.ReadFile]", err)
 		return readErrSSHPrivateKey
 	}
 
@@ -374,9 +373,9 @@ func sshWithKeyFileWithFixedHostKey() returnCode {
 	}
 
 	sshPrivKeyFile := filepath.Join(homeDir, ".ssh/id_rsa")
-	privKey, err := ioutil.ReadFile(sshPrivKeyFile)
+	privKey, err := os.ReadFile(sshPrivKeyFile)
 	if err != nil {
-		output.Stderrl("[ioutil.ReadFile]", err)
+		output.Stderrl("[os.ReadFile]", err)
 		return readErrSSHPrivateKey
 	}
 

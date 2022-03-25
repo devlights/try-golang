@@ -2,7 +2,6 @@ package defers
 
 import (
 	"fmt"
-	"io/ioutil"
 	"os"
 	"runtime"
 
@@ -55,7 +54,7 @@ func DeferInLoopManyFiles() error {
 }
 
 func initDirectory() (string, error) {
-	dir, err := ioutil.TempDir("", "try-golang")
+	dir, err := os.MkdirTemp("", "try-golang")
 	if err != nil {
 		return "", err
 	}
@@ -70,13 +69,13 @@ func badDefer(dir string, r enumerable.Range, memory mem.Mem) error {
 	// 大量にファイル作って defer に登録.
 	// (関数スコープを作らない版)
 	for r.Next() {
-		file, err := ioutil.TempFile(dir, fmt.Sprintf("try-golang-tmp-%02d", r.Current()))
+		file, err := os.CreateTemp(dir, fmt.Sprintf("try-golang-tmp-%02d", r.Current()))
 		if err != nil {
 			return err
 		}
 
 		// とりあえず適当にデータ入れておく
-		err = ioutil.WriteFile(file.Name(), []byte("helloworld"), 0644)
+		err = os.WriteFile(file.Name(), []byte("helloworld"), os.ModePerm)
 		if err != nil {
 			return err
 		}
@@ -106,13 +105,13 @@ func goodDefer(dir string, r enumerable.Range, memory mem.Mem) error {
 	// (関数スコープを作る版)
 	for r.Next() {
 		err := func() error {
-			file, err := ioutil.TempFile(dir, fmt.Sprintf("try-golang-tmp-%02d", r.Current()))
+			file, err := os.CreateTemp(dir, fmt.Sprintf("try-golang-tmp-%02d", r.Current()))
 			if err != nil {
 				return err
 			}
 
 			// とりあえず適当にデータ入れておく
-			err = ioutil.WriteFile(file.Name(), []byte("helloworld"), 0644)
+			err = os.WriteFile(file.Name(), []byte("helloworld"), 0644)
 			if err != nil {
 				return err
 			}
