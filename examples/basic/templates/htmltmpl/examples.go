@@ -1,8 +1,6 @@
-package templates
+package htmltmpl
 
 import (
-	"github.com/devlights/try-golang/examples/basic/templates/htmltmpl"
-	"github.com/devlights/try-golang/examples/basic/templates/txttmpl"
 	"github.com/devlights/try-golang/mapping"
 )
 
@@ -17,6 +15,5 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	txttmpl.NewRegister().Regist(m)
-	htmltmpl.NewRegister().Regist(m)
+	m["templates_html_tmpl_escape"] = Escape
 }
