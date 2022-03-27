@@ -35,9 +35,9 @@ func main() {
 	// Overview
 	// ------------------------------------------------
 	// [x] 10秒たったらプログラム終了
-	// [x] 1秒毎の経過ログを出力
 	// [x] SIGINTを受けたらプログラム終了
 	// [x] SIGQUITを受けたらスレッドダンプを出力
+	// [x] 1秒毎の経過ログを出力
 	// ------------------------------------------------
 
 	var (
@@ -68,15 +68,15 @@ LOOP:
 		case <-mainCtx.Done():
 			appLog.Println("Timed out")
 			break LOOP
-		case <-ticker.C:
-			count++
-			tickLog.Println(count)
 		case <-sigIntCh:
 			appLog.Println(" >>> Recv SIGINT")
 			break LOOP
 		case <-sigQuitCh:
 			buf := make([]byte, 1<<25)
 			dumpLog.Printf(" >>> *** DUMP ***\n\n%s\n", buf[:runtime.Stack(buf, true)])
+		case <-ticker.C:
+			count++
+			tickLog.Println(count)
 		}
 	}
 
