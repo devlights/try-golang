@@ -8,13 +8,13 @@ prepare:
 	go install github.com/go-task/task/v3/cmd/task@latest
 
 build: 
-	go build
+	go build -race
 
 build-static: 
 	CGO_ENABLED=0 go build -a -tags netgo -installsuffix netgo --ldflags '-extldflags "-static"'
 
 test: 
-	go test -coverprofile /tmp/try-golang-cover $(shell go list ./... | grep -v /examples/ | grep -v /cmd/)
+	go test -race -coverprofile /tmp/try-golang-cover $(shell go list ./... | grep -v /examples/ | grep -v /cmd)
 
 clean: 
 	go clean
@@ -27,7 +27,7 @@ vet:
 	staticcheck ./...
 
 run:
-	go run main.go -onetime -example ${EXAMPLE}
+	go run -race main.go -onetime -example ${EXAMPLE}
 
 generate: 
 	go generate -x ./...
