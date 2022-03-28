@@ -13,6 +13,8 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
+	m["sort_ints"] = Ints
+	m["sort_strings"] = Strings
 	m["sort_interface"] = SortInterface
 	m["sort_slice_unstable"] = SortSliceUnStable
 	m["sort_slice_stable"] = SortSliceStable
