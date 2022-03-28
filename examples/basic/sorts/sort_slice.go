@@ -52,13 +52,12 @@ func SortSliceUnStable() error {
 		}
 	}()
 
+	/* 以下を実行すると panic する
 	s := "helloworld"
-	//lint:ignore SA1028 It's ok because this is just a example.
 	sort.Slice(s, func(i, j int) bool {
 		return s[i] < s[j]
 	})
-
-	output.Stdoutl("ここには来ない")
+	*/
 
 	return nil
 }
