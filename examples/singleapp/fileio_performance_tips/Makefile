@@ -1,3 +1,5 @@
+default: gen run-all
+
 gen:
 	tr -dc "A-Za-z 0-9" < /dev/urandom | fold -w1024 | head -n 1000000 > /tmp/try-golang-big.txt
 	wc -l /tmp/try-golang-big.txt
