@@ -13,5 +13,6 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["hex_to_decimal_convert"] = HexToDecimalConvert
+	m["strconvs_hex_to_decimal"] = HexToDecimal
+	m["strconvs_bin_to_decimal"] = BinToDecimal
 }
