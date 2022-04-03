@@ -13,8 +13,11 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["strconvs_hex_to_decimal"] = HexToDecimal
-	m["strconvs_bin_to_decimal"] = BinToDecimal
+	m["strconvs_hex_to_dec"] = HexToDec
+	m["strconvs_bin_to_dec"] = BinToDec
+	m["strconvs_hex_to_bin"] = HexToBin
+	m["strconvs_bin_to_hex"] = BinToHex
+	m["strconvs_dec_to_dec"] = DecToDec
 	m["strconvs_parseint_tips_bitsize"] = ParseIntTipsBitSize
 	m["strconvs_parseint_tips_base"] = ParseIntTipsBaseValue
 }
