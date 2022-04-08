@@ -1,6 +1,7 @@
 package cmdexec
 
 import (
+	"fmt"
 	"os/exec"
 
 	"github.com/devlights/gomy/output"
@@ -30,8 +31,7 @@ func WithSlice() error {
 
 	out, err = cmd.CombinedOutput()
 	if err != nil {
-		output.Stdoutf("[cmd error]", "%s", out)
-		return err
+		return fmt.Errorf("%w (%s)", err, out)
 	}
 
 	output.Stdoutf("[cmd]", "%s", out)
