@@ -19,4 +19,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["cmdexec_withcontext"] = WithContext
 	m["cmdexec_pipe"] = Pipe
 	m["cmdexec_multi_command_with_pipe"] = MultiCommandWithPipe
+	m["cmdexec_env"] = WithEnv
 }
