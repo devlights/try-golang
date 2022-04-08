@@ -1,1 +1,1 @@
-FROM gitpod/workspace-go:latest
+FROM gitpod/workspace-go:2022-04-01-12-31-37
