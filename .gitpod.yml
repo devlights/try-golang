@@ -3,6 +3,8 @@ image: gitpod/workspace-go:latest
 tasks:
   - name: prepare
     init: make prepare
+  - name: show go version
+    command: go version
 
 vscode:
   extensions:
