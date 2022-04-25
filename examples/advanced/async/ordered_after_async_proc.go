@@ -20,13 +20,13 @@ func OrderedAfterAsyncProc() error {
 	var (
 		givenTime    = 1 * time.Second
 		numGoroutine = 2
-		items        = []interface{}{"hello", "world", "こんにちわ", "世界"}
+		items        = []string{"hello", "world", "こんにちわ", "世界"}
 		results      = make([]*result, 0)
 	)
 
 	var (
 		done  = make(chan struct{})
-		outCh = make(chan interface{})
+		outCh = make(chan *result)
 	)
 
 	defer close(done)
@@ -40,13 +40,11 @@ func OrderedAfterAsyncProc() error {
 	// パイプライン生成
 	forEachCh := chans.ForEach(done, items...)
 	enumerateCh := chans.Enumerate(done, forEachCh)
-	doneChList := chans.FanOut(done, enumerateCh, numGoroutine, func(e interface{}) {
-		if v, ok := e.(*chans.IterValue); ok {
-			fn(v.Value, givenTime)
-			outCh <- &result{
-				index: v.Index,
-				value: v.Value,
-			}
+	doneChList := chans.FanOut(done, enumerateCh, numGoroutine, func(v *chans.IterValue[string]) {
+		fn(v.Value, givenTime)
+		outCh <- &result{
+			index: v.Index,
+			value: v.Value,
 		}
 	})
 
@@ -58,7 +56,7 @@ func OrderedAfterAsyncProc() error {
 
 	// 結果を吸い出し
 	for v := range outCh {
-		results = append(results, v.(*result))
+		results = append(results, v)
 	}
 
 	// 正しい順序に並び替え
