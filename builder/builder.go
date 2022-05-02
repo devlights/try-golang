@@ -4,6 +4,7 @@ import (
 	"github.com/devlights/try-golang/examples/advanced"
 	"github.com/devlights/try-golang/examples/basic"
 	"github.com/devlights/try-golang/examples/effectivego"
+	"github.com/devlights/try-golang/examples/generics"
 	"github.com/devlights/try-golang/examples/gotour"
 	"github.com/devlights/try-golang/mapping"
 )
@@ -16,6 +17,7 @@ func BuildMappings() mapping.ExampleMapping {
 		advanced.NewRegister(),
 		basic.NewRegister(),
 		effectivego.NewRegister(),
+		generics.NewRegister(),
 		gotour.NewRegister(),
 	)
 
