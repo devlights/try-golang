@@ -17,4 +17,5 @@ func NewRegister() mapping.Register {
 // Regist は、generics パッケージ配下に存在するサンプルを登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["generics_typeparameters_function"] = Function
+	m["generics_typeparameters_struct"] = Struct
 }

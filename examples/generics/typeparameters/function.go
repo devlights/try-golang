@@ -2,13 +2,25 @@ package typeparameters
 
 import "github.com/devlights/gomy/output"
 
+func fn1(i int32) int32 {
+	return i
+}
+
+func fn2(i int64) int64 {
+	return i
+}
+
+func fng[T int32 | int64](i T) T {
+	return i
+}
+
 // Function -- Type Parameterを関数に適用するサンプルです.
 //
 // メモ
 //   無名関数はジェネリックに出来ない。コンパイルエラーとなる。
 //   https://groups.google.com/g/golang-nuts/c/ulntjLeGYn4/m/e3dWOOqtAwAJ
 //
-//   VSCode で golang.go 拡張機能を利用している場合、関数にカーソルを載せた際に表示される
+//   VSCode で golang.go 拡張機能を利用している場合、カーソルを載せた際に表示される
 //   ツールチップにはジェネリック関数の場合、具象化されたシグネチャが表示されるので便利。
 //
 // REFERENCES
@@ -36,16 +48,4 @@ func Function() error {
 	output.Stdoutl("[fng -- int64]", fng(i2))
 
 	return nil
-}
-
-func fn1(i int32) int32 {
-	return i
-}
-
-func fn2(i int64) int64 {
-	return i
-}
-
-func fng[T int32 | int64](i T) T {
-	return i
 }
