@@ -2,16 +2,21 @@ EXAMPLE=""
 
 all: clean build test
 
-prepare:
-	go mod download
+prepare: prepare-release
 	go install honnef.co/go/tools/cmd/staticcheck@latest
 	go install github.com/go-task/task/v3/cmd/task@latest
+
+prepare-release:
+	go mod download
 
 build: 
 	go build -race
 
 build-static: 
-	CGO_ENABLED=0 go build -a -tags netgo -installsuffix netgo --ldflags '-extldflags "-static"'
+	CGO_ENABLED=0 go build -a -tags osusergo,netgo -ldflags '-extldflags "-static"'
+
+build-release:
+	CGO_ENABLED=0 go build -a -tags osusergo,netgo -ldflags '-s -w -extldflags "-static"' -trimpath
 
 test: 
 	go test -race -coverprofile /tmp/try-golang-cover $(shell go list ./... | grep -v /examples/ | grep -v /cmd)
