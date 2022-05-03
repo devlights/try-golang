@@ -10,14 +10,14 @@ ENV GOARCH=amd64
 
 WORKDIR /workspace
 
-COPY go.mod go.sum ./
+COPY go.mod go.sum Makefile ./
 RUN <<EOF
-    go mod download
+    make prepare-release
 EOF
 
 COPY . .
 RUN <<EOF
-    go build
+    make build-release
 EOF
 
 # -----------------------------------------------------
