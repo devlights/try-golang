@@ -1,0 +1,8 @@
+# Directories
+.devcontainer
+.github
+
+# Files
+.gitpod.Dockerfile
+.gitpod.yml
+Taskfile.yml
