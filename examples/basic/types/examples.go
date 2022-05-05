@@ -15,4 +15,5 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["types_basic"] = Basic
 	m["types_define_types_easy"] = DefineTypesEasy
+	m["types_diff_typealias_and_definedtype"] = DiffTypeAliasAndDefinedType
 }
