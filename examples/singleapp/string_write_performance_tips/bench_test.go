@@ -1,3 +1,7 @@
+// REFERENCES
+//   - https://stackoverflow.com/questions/1760757/how-to-efficiently-concatenate-strings-in-go/47798475#47798475
+//   - 
+
 package main
 
 import (
