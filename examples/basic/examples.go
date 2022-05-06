@@ -42,6 +42,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/panics"
 	"github.com/devlights/try-golang/examples/basic/reflects"
 	"github.com/devlights/try-golang/examples/basic/runtimes"
+	"github.com/devlights/try-golang/examples/basic/scannerop"
 	"github.com/devlights/try-golang/examples/basic/scope"
 	"github.com/devlights/try-golang/examples/basic/signals"
 	"github.com/devlights/try-golang/examples/basic/slices"
@@ -121,6 +122,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	panics.NewRegister().Regist(m)
 	reflects.NewRegister().Regist(m)
 	runtimes.NewRegister().Regist(m)
+	scannerop.NewRegister().Regist(m)
 	scope.NewRegister().Regist(m)
 	signals.NewRegister().Regist(m)
 	slices.NewRegister().Regist(m)
