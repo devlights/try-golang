@@ -18,4 +18,5 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["generics_typeparameters_function"] = Function
 	m["generics_typeparameters_struct"] = Struct
+	m["generics_typeparameters_comparable"] = Comparable
 }
