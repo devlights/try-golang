@@ -1,8 +1,6 @@
-package generics
+package typeconstraints
 
 import (
-	"github.com/devlights/try-golang/examples/generics/typeconstraints"
-	"github.com/devlights/try-golang/examples/generics/typeparameters"
 	"github.com/devlights/try-golang/mapping"
 )
 
@@ -18,6 +16,6 @@ func NewRegister() mapping.Register {
 
 // Regist は、generics パッケージ配下に存在するサンプルを登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	typeparameters.NewRegister().Regist(m)
-	typeconstraints.NewRegister().Regist(m)
+	m["generics_typeconstraints_typeset"] = TypeSet
+	m["generics_typeconstraints_underlyingtype"] = UnderlyingType
 }
