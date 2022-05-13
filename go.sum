@@ -1,5 +1,5 @@
-github.com/devlights/gomy v0.4.2 h1:YbSdWK0sWUXSVy4+lK08WXjRq9WBHmvpPYAxTGPweyw=
-github.com/devlights/gomy v0.4.2/go.mod h1:s6/L0jEn7J/F1bIRNu3nkf+Lz/n24RClTxD76DhqGEU=
+github.com/devlights/gomy v0.4.3 h1:uM03CzdP4pBHmNg9PV1aWzSLjoz31J10pyymaG/Kz80=
+github.com/devlights/gomy v0.4.3/go.mod h1:s6/L0jEn7J/F1bIRNu3nkf+Lz/n24RClTxD76DhqGEU=
 golang.org/x/crypto v0.0.0-20220214200702-86341886e292 h1:f+lwQ+GtmgoY+A2YaQxlSOnDjXcQ7ZRLWOHbC6HtRqE=
 golang.org/x/crypto v0.0.0-20220214200702-86341886e292/go.mod h1:IxCIyHEi3zRg3s0A5j5BB6A9Jmi73HwBIUl50j+osU4=
 golang.org/x/sync v0.0.0-20210220032951-036812b2e83c h1:5KslGYwFpkhGh+Q16bwMP3cOontH8FOep7tGV86Y7SQ=
