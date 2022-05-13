@@ -13,3 +13,5 @@
 |time\_timer.go|time\_timer|time.NewTimer のサンプルです|
 |time\_afterfunc.go|time\_afterfunc|time.AfterFunc のサンプルです|
 |change\_local\_timezone.go|time_changelocaltimezone|time.Localを変更して強制的にローカルタイムゾーンを一時的に変更するサンプルです|
+|time\_json.go|time\_json|time.Time を json 形式で扱う場合のサンプルです|
+|time\_in.go|time\_in|time.In() の使い方のサンプルです|
