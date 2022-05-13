@@ -24,4 +24,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["time_afterfunc"] = AfterFunc
 	m["time_changelocaltimezone"] = ChangeLocalTimezone
 	m["time_truncate"] = Truncate
+	m["time_json"] = TimeJson
 }
