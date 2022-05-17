@@ -34,7 +34,7 @@ func main() {
 	//
 	var (
 		getAddr = net.ResolveTCPAddr
-		laddr   = errs.Forgot(getAddr("tcp", "localhost:8888"))
+		laddr   = errs.Forget(getAddr("tcp", "localhost:8888"))
 		server  *net.TCPListener
 		err     error
 	)

@@ -3,7 +3,7 @@ module github.com/devlights/try-golang
 go 1.18
 
 require (
-	github.com/devlights/gomy v0.4.5
+	github.com/devlights/gomy v0.4.6
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292
 	golang.org/x/sync v0.0.0-20210220032951-036812b2e83c
 	golang.org/x/term v0.0.0-20210927222741-03fcf44c2211
