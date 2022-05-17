@@ -48,7 +48,7 @@ func (me *jsonTimeCustom) UnmarshalJSON(b []byte) error {
 //   - https://zenn.dev/hsaki/articles/go-time-cheatsheet#jst(%E6%97%A5%E6%9C%AC%E6%A8%99%E6%BA%96%E6%99%82)%E3%82%92%E6%89%B1%E3%81%86%E5%A0%B4%E5%90%88
 func TimeJsonCustom() error {
 	var (
-		loc = errs.Forgot(time.LoadLocation("Asia/Tokyo"))
+		loc = errs.Forget(time.LoadLocation("Asia/Tokyo"))
 		t   = time.Now().In(loc)
 		v1  = jsonTimeCustom{t}
 		v2  = jsonTimeCustom{}
