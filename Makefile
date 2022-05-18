@@ -4,7 +4,6 @@ all: clean build test
 
 prepare: prepare-release
 	go install honnef.co/go/tools/cmd/staticcheck@latest
-	go install github.com/go-task/task/v3/cmd/task@latest
 
 prepare-release:
 	go mod download
