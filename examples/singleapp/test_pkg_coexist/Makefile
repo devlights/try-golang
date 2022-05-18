@@ -1,0 +1,2 @@
+run:
+	go test -v .
