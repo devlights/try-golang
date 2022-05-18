@@ -3,8 +3,18 @@ version: '3'
 
 tasks:
   default:
+    desc: Default (run)
     deps:
       - task: run
-  run:
+  build:
+    desc: Build app
     cmds:
-      - go run main.go -onetime
+      - go build .
+  run:
+    desc: Run app
+    cmds:
+      - go run . -onetime
+  clean:
+    desc: Clean
+    cmds:
+      - go clean
