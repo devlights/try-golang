@@ -1,12 +1,10 @@
 image: gitpod/workspace-go:latest
 
 tasks:
-  - name: prepare
-    command: make prepare
+  - name: install staticcheck
+    command: go install honnef.co/go/tools/cmd/staticcheck@latest
   - name: install go-task
     command: brew install go-task/tap/go-task
-  - name: show go version
-    command: go version
 
 vscode:
   extensions:
