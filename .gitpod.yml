@@ -4,7 +4,7 @@ tasks:
   - name: install staticcheck
     command: go install honnef.co/go/tools/cmd/staticcheck@latest
   - name: install go-task
-    command: brew install go-task/tap/go-task
+    command: go install github.com/go-task/task/v3/cmd/task@latest
 
 vscode:
   extensions:
