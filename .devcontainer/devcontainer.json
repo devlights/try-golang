@@ -3,7 +3,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
-			"VARIANT": "1.17",
+			"VARIANT": "1.18",
 			"NODE_VERSION": "lts/*"
 		}
 	},
@@ -27,6 +27,6 @@
 		"dracula-theme.theme-dracula"
 	],
 	// "forwardPorts": [],
-	"postCreateCommand": "go version ; make prepare",
+	"postCreateCommand": "go version ; go install honnef.co/go/tools/cmd/staticcheck@latest; go install github.com/go-task/task/v3/cmd/task@latest",
 	"remoteUser": "vscode"
 }
