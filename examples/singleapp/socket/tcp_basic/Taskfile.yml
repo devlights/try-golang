@@ -1,21 +1,32 @@
 version: '3'
 
 tasks:
-  build:
+  default:
     cmds:
-      - (cd client; go build)
-      - (cd server; go build)
+      - task: run
   run:
     cmds:
-      - task: build
+      - task: build-server
+      - task: build-client
       - task: start-server
       - task: run-client
+      - task: kill-server
+  build-server:
+    dir: server
+    cmds:
+      - go build
+  build-client:
+    dir: client
+    cmds:
+      - go build
   start-server:
+    dir: server
     cmds:
-      - (cd server; ./server)
+      - ./server &
   run-client:
+    dir: client
     cmds:
-      - (cd client; ./client)
+      - ./client
   kill-server:
     cmds:
       - pkill server

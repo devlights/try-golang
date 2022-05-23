@@ -22,52 +22,37 @@ import (
 )
 
 var (
-	appLog = log.New(os.Stdout, "[client]", 0)
-	errLog = log.New(os.Stderr, "[client]", 0)
+	appLog = log.New(os.Stdout, "[client] ", 0)
+	errLog = log.New(os.Stderr, "[client] ", 0)
 )
 
-func main() {
-	//
-	// 接続
-	//
+func connect(protocol, localAddr, remoteAddr string) (*net.TCPConn, error) {
 	var (
 		getAddr = net.ResolveTCPAddr
-		laddr   = errs.Forget(getAddr("tcp", "localhost:"))
-		raddr   = errs.Forget(getAddr("tcp", "localhost:8888"))
+		laddr   = errs.Forget(getAddr(protocol, localAddr))
+		raddr   = errs.Forget(getAddr(protocol, remoteAddr))
 		conn    *net.TCPConn
 		err     error
 	)
 
 	conn, err = net.DialTCP("tcp", laddr, raddr)
 	if err != nil {
-		errLog.Fatal(err)
+		return nil, err
 	}
-	defer conn.Close()
 
-	appLog.Printf("connected to: %s\n", conn.RemoteAddr())
+	return conn, err
+}
 
-	//
-	// 送信
-	//
-	var (
-		message = []byte("hello world")
-	)
-
-	_, err = conn.Write(message)
+func send(conn *net.TCPConn, b []byte) error {
+	_, err := conn.Write(b)
 	if err != nil {
-		errLog.Printf("error at conn.Write (%v)", err)
-		return
+		return err
 	}
 
-	err = conn.CloseWrite()
-	if err != nil {
-		errLog.Printf("error at conn.Write (%v)", err)
-		return
-	}
+	return nil
+}
 
-	//
-	// 受信
-	//
+func recv(conn *net.TCPConn) ([]byte, error) {
 	var (
 		buf       = new(bytes.Buffer)
 		bytesRead int
@@ -75,8 +60,9 @@ func main() {
 
 	for {
 		var (
-			chunk     = make([]byte, 1)
+			chunk     = make([]byte, 3)
 			chunkSize int
+			err       error
 		)
 
 		chunkSize, err = conn.Read(chunk)
@@ -89,22 +75,62 @@ func main() {
 				break
 			}
 
-			errLog.Printf("error at conn.Read (%v)", err)
-			return
+			return nil, err
 		}
 
 		if chunkSize == 0 {
-			appLog.Printf("closed by remote")
-			return
+			return nil, errors.New("closed by remote")
 		}
 
 		bytesRead += chunkSize
 		buf.Write(chunk)
 	}
-	appLog.Printf("%d bytes recv", bytesRead)
 
+	return buf.Bytes()[:bytesRead], nil
+}
+
+func main() {
+	//
+	// 接続
+	//
+	conn, err := connect("tcp", "localhost:", "localhost:8888")
+	if err != nil {
+		errLog.Printf("error at connect (%v)", err)
+	}
+	defer conn.Close()
+
+	appLog.Printf("connected to: %s\n", conn.RemoteAddr())
+
+	//
+	// 送信
+	//
 	var (
-		data = buf.Bytes()[:bytesRead]
+		message = []byte("hello world")
 	)
+
+	err = send(conn, message)
+	if err != nil {
+		errLog.Printf("error at conn.Write (%v)", err)
+		return
+	}
+	appLog.Printf("%d bytes send", len(message))
+
+	// 対向先にEOFを伝えるために無理やり送信側ストリームを閉じる
+	// (本来は、通信メッセージ毎の構造規約があるはずなので、このようにすることは無い。サンプルなので。)
+	err = conn.CloseWrite()
+	if err != nil {
+		errLog.Printf("error at conn.Write (%v)", err)
+		return
+	}
+	appLog.Println("notify EOF (conn.CloseWrite)")
+
+	//
+	// 受信
+	//
+	data, err := recv(conn)
+	if err != nil {
+		errLog.Printf("error at recv (%v)", err)
+	}
+	appLog.Printf("%d bytes recv", len(data))
 	appLog.Printf("recv: %s\n", data)
 }

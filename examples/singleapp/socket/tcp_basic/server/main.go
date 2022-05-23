@@ -24,9 +24,55 @@ import (
 )
 
 var (
-	appLog = log.New(os.Stdout, "[server]", 0)
-	errLog = log.New(os.Stderr, "[server]", 0)
+	appLog = log.New(os.Stdout, "[server] ", 0)
+	errLog = log.New(os.Stderr, "[server] ", 0)
 )
+
+func send(conn *net.TCPConn, b []byte) error {
+	_, err := conn.Write(b)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func recv(conn *net.TCPConn) ([]byte, error) {
+	var (
+		buf       = new(bytes.Buffer)
+		bytesRead int
+	)
+
+	for {
+		var (
+			chunk     = make([]byte, 10)
+			chunkSize int
+			err       error
+		)
+
+		chunkSize, err = conn.Read(chunk)
+		appLog.Printf("chunk recv: %dbyte(s)\terr:%v", chunkSize, err)
+
+		if err != nil {
+			if errors.Is(err, io.EOF) {
+				bytesRead += chunkSize
+				buf.Write(chunk)
+				break
+			}
+
+			return nil, err
+		}
+
+		if chunkSize == 0 {
+			return nil, errors.New("closed by remote")
+		}
+
+		bytesRead += chunkSize
+		buf.Write(chunk)
+	}
+
+	return buf.Bytes()[:bytesRead], nil
+}
 
 func main() {
 	//
@@ -90,44 +136,11 @@ func main() {
 			//
 			// 受信
 			//
-			var (
-				buf       = new(bytes.Buffer)
-				bytesRead int
-			)
-
-			for {
-				var (
-					chunk     = make([]byte, 1)
-					chunkSize int
-				)
-
-				chunkSize, err = conn.Read(chunk)
-				appLog.Printf("chunk recv: %dbyte(s)\terr:%v", chunkSize, err)
-
-				if err != nil {
-					if errors.Is(err, io.EOF) {
-						bytesRead += chunkSize
-						buf.Write(chunk)
-						break
-					}
-
-					appLog.Printf("error at conn.Read (%v)", err)
-					return
-				}
-
-				if chunkSize == 0 {
-					appLog.Printf("closed by remote")
-					return
-				}
-
-				bytesRead += chunkSize
-				buf.Write(chunk)
+			data, err := recv(conn)
+			if err != nil {
+				errLog.Printf("error at recv (%v)", err)
 			}
-			appLog.Printf("%d bytes recv", bytesRead)
-
-			var (
-				data = buf.Bytes()[:bytesRead]
-			)
+			appLog.Printf("%d bytes recv", len(data))
 			appLog.Printf("recv: %s\n", data)
 
 			//
@@ -137,17 +150,25 @@ func main() {
 				message = bytes.ToUpper(data)
 			)
 
-			_, err = conn.Write(message)
+			err = send(conn, message)
 			if err != nil {
-				errLog.Printf("error at client writeto (%v)", err)
+				errLog.Printf("error at send (%v)", err)
 				return
 			}
+			appLog.Printf("%d bytes send", len(message))
 
+			// 対向先にEOFを伝えるために無理やり送信側ストリームを閉じる
+			// (本来は、通信メッセージ毎の構造規約があるはずなので、このようにすることは無い。サンプルなので。)
+			//
+			// サーバ側の今回の実装では、これを行わなくても defer conn.Close() で切断するので対向先にEOFが通知されるが一応入れている			
 			err = conn.CloseWrite()
 			if err != nil {
 				errLog.Printf("error at conn closewrite (%v)", err)
 				return
 			}
+			appLog.Println("notify EOF (conn.CloseWrite)")
+
+
 		}()
 	}
 }
