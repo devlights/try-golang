@@ -91,34 +91,61 @@ func main() {
 			// 受信
 			//
 			var (
-				chunk     = make([]byte, 4096)
+				buf       = new(bytes.Buffer)
 				bytesRead int
 			)
 
-			bytesRead, err = conn.Read(chunk)
-			switch {
-			case err != nil && !errors.Is(err, io.EOF):
-				appLog.Printf("error at conn.Read (%v)", err)
-				return
-			case bytesRead == 0:
-				appLog.Printf("closed by remote")
-				return
-			default:
-				appLog.Printf("%d bytes recv", bytesRead)
-			}
+			for {
+				var (
+					chunk     = make([]byte, 1)
+					chunkSize int
+				)
 
-			appLog.Printf("recv: %s\n", chunk[:bytesRead])
+				chunkSize, err = conn.Read(chunk)
+				appLog.Printf("chunk recv: %dbyte(s)\terr:%v", chunkSize, err)
+
+				if err != nil {
+					if errors.Is(err, io.EOF) {
+						bytesRead += chunkSize
+						buf.Write(chunk)
+						break
+					}
+
+					appLog.Printf("error at conn.Read (%v)", err)
+					return
+				}
+
+				if chunkSize == 0 {
+					appLog.Printf("closed by remote")
+					return
+				}
+
+				bytesRead += chunkSize
+				buf.Write(chunk)
+			}
+			appLog.Printf("%d bytes recv", bytesRead)
+
+			var (
+				data = buf.Bytes()[:bytesRead]
+			)
+			appLog.Printf("recv: %s\n", data)
 
 			//
 			// 送信
 			//
 			var (
-				message = bytes.ToUpper(chunk[:bytesRead])
+				message = bytes.ToUpper(data)
 			)
 
 			_, err = conn.Write(message)
 			if err != nil {
 				errLog.Printf("error at client writeto (%v)", err)
+				return
+			}
+
+			err = conn.CloseWrite()
+			if err != nil {
+				errLog.Printf("error at conn closewrite (%v)", err)
 				return
 			}
 		}()
