@@ -1,0 +1,42 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  run:
+    cmds:
+      - task: build-server
+      - task: build-client
+      - task: start-server
+      - task: run-client
+  build-server:
+    dir: server
+    cmds:
+      - go build
+    sources:
+      - ./*.go
+    generates:
+      - server{{exeExt}}
+    method: checksum
+  build-client:
+    dir: client
+    cmds:
+      - go build
+    sources:
+      - ./*.go
+    generates:
+      - client{{exeExt}}
+    method: checksum
+  start-server:
+    dir: server
+    cmds:
+      - ./server &
+  run-client:
+    dir: client
+    cmds:
+      - ./client
+  clean:
+    cmds:
+      - (cd client; go clean)
+      - (cd server; go clean)
