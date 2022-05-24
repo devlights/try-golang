@@ -10,10 +10,12 @@ func BenchmarkSliceLen0Append(b *testing.B) {
 		s []string
 	)
 
+	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		//lint:ignore SA4010 ok
 		s = append(s, strconv.Itoa(i))
 	}
+	b.StopTimer()
 }
 
 func BenchmarkSliceLenN(b *testing.B) {
@@ -21,9 +23,11 @@ func BenchmarkSliceLenN(b *testing.B) {
 		s = make([]string, b.N)
 	)
 
+	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		s[i] = strconv.Itoa(i)
 	}
+	b.StopTimer()
 }
 
 func BenchmarkSliceLenNAppend(b *testing.B) {
@@ -31,8 +35,10 @@ func BenchmarkSliceLenNAppend(b *testing.B) {
 		s = make([]string, 0, b.N)
 	)
 
+	b.StartTimer()
 	for i := 0; i < b.N; i++ {
 		//lint:ignore SA4010 ok
 		s = append(s, strconv.Itoa(i))
 	}
+	b.StopTimer()
 }
