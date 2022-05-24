@@ -14,6 +14,11 @@ tasks:
     desc: Run app
     cmds:
       - go run . -onetime
+  vet:
+    desc: go vet and staticcheck
+    cmds:
+      - go vet ./...
+      - staticcheck ./...
   clean:
     desc: Clean
     cmds:
