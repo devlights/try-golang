@@ -16,5 +16,5 @@ func NewRegister() mapping.Register {
 
 // Regist は、generics パッケージ配下に存在するサンプルを登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["generics_exp_constraints"] = Constraints
+	m["generics_exp_constraints"] = ExpConstraints
 }
