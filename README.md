@@ -106,3 +106,4 @@ $ make install
 - [go-crosscompile-example](https://github.com/devlights/go-crosscompile-example)
 - [go-grpc-uds-example](https://github.com/devlights/go-grpc-uds-example)
 - [go-protobuf-example](https://github.com/devlights/go-protobuf-example)
+- [go-unix-domain-socket-example](https://github.com/devlights/go-unix-domain-socket-example)
