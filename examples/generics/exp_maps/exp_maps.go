@@ -6,6 +6,9 @@ import (
 )
 
 // ExpMaps -- Go 1.18 リリース時には含まれなかったジェネリクス対応 汎用map処理が定義されている golang.org/x/exp/maps パッケージのサンプルです。
+//
+// REFERENCES
+//   - https://pkg.go.dev/golang.org/x/exp/maps
 func ExpMaps() error {
 	var (
 		m1 = map[string]int{"hello": 100, "world": 101}

@@ -16,6 +16,9 @@ func less[E constraints.Ordered](x, y E) bool {
 }
 
 // ExpConstraints -- Go 1.18 リリース時には含まれなかった制約型が定義されている golang.org/x/exp/constraints パッケージのサンプルです。
+//
+// REFERENCES
+//   - https://pkg.go.dev/golang.org/x/exp/constraints
 func ExpConstraints() error {
 	//
 	// constraints パッケージには、Go 1.18 リリース時には

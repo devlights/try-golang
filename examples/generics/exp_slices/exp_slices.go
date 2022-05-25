@@ -6,6 +6,9 @@ import (
 )
 
 // ExpSlices -- Go 1.18 リリース時には含まれなかったジェネリクス対応 汎用slice処理が定義されている golang.org/x/exp/slices パッケージのサンプルです。
+//
+// REFERENCES
+//   - https://pkg.go.dev/golang.org/x/exp/slices
 func ExpSlices() error {
 	var (
 		s1 = []string{"hello", "world"}
