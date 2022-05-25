@@ -1,9 +1,6 @@
-package generics
+package exp_constraints
 
 import (
-	"github.com/devlights/try-golang/examples/generics/exp_constraints"
-	"github.com/devlights/try-golang/examples/generics/typeconstraints"
-	"github.com/devlights/try-golang/examples/generics/typeparameters"
 	"github.com/devlights/try-golang/mapping"
 )
 
@@ -19,7 +16,5 @@ func NewRegister() mapping.Register {
 
 // Regist は、generics パッケージ配下に存在するサンプルを登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	typeparameters.NewRegister().Regist(m)
-	typeconstraints.NewRegister().Regist(m)
-	exp_constraints.NewRegister().Regist(m)
+	m["generics_exp_constraints"] = Constraints
 }
