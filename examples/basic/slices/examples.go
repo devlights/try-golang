@@ -28,4 +28,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["slice_remove_all_elements"] = RemoveAllElements
 	m["slice_keep_allocated_memory"] = KeepAllocatedMemory
 	m["slice_nil_append"] = NilAppend
+	m["slice_three_index"] = ThreeIndex
 }
