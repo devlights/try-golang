@@ -9,7 +9,9 @@ tasks:
       - task: build-server
       - task: build-client
       - task: start-server
+      - task: wait
       - task: run-client
+      - task: wait
       - task: kill-server
   build-server:
     dir: server
@@ -30,6 +32,9 @@ tasks:
   kill-server:
     cmds:
       - pkill server
+  wait:
+    cmds:
+      - sleep 1
   clean:
     cmds:
       - (cd client; go clean)
