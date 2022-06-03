@@ -1,0 +1,15 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run-logfatal
+      - task: run-logpanic
+  run-logfatal:
+    cmds:
+      - cmd: go run fatal/logfatal.go
+        ignore_error: true
+  run-logpanic:
+    cmds:
+      - cmd: go run panic/logpanic.go
+        ignore_error: true
