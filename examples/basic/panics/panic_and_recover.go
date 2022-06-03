@@ -17,6 +17,7 @@ func PanicAndRecover() error {
 }
 
 func catch() (err error) {
+	defer output.Stdoutl("[panic]", "panic時deferは呼ばれる")
 	defer func() {
 		// panicはrecoverで補足できるが、取得できる値は interface{} となる
 		if obj := recover(); obj != nil {
