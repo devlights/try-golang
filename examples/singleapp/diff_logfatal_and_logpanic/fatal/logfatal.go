@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"os"
 )
@@ -16,6 +15,6 @@ func main() {
 	//
 	// REFERENCES:
 	//   - https://zenn.dev/spiegel/books/error-handling-in-golang/viewer/panics
-	defer fmt.Println("call defer")
+	defer l.Println("call defer")
 	l.Fatalln("call log.Fatal")
 }
