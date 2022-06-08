@@ -104,6 +104,10 @@ $ make install
 - [try-golang-db](https://github.com/devlights/try-golang-db)
   - データベースのサンプルはこちらで管理しています。
 - [go-crosscompile-example](https://github.com/devlights/go-crosscompile-example)
+  - Goでクロスコンパイルを行うサンプルです。
 - [go-grpc-uds-example](https://github.com/devlights/go-grpc-uds-example)
+  - GoでgRPCで unix domain socket を扱うサンプルです。
 - [go-protobuf-example](https://github.com/devlights/go-protobuf-example)
+  - Goで protocol buffers を扱うサンプルです。
 - [go-unix-domain-socket-example](https://github.com/devlights/go-unix-domain-socket-example)
+  - Go で unix domain socket を使って通信するサンプルです。
