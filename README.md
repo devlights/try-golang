@@ -111,3 +111,5 @@ $ make install
   - Goで protocol buffers を扱うサンプルです。
 - [go-unix-domain-socket-example](https://github.com/devlights/go-unix-domain-socket-example)
   - Go で unix domain socket を使って通信するサンプルです。
+- [go-mod-vendoring-example](https://github.com/devlights/go-mod-vendoring-example)
+  - Go で 依存しているモジュールを vendoring して実行してみるサンプルです。
