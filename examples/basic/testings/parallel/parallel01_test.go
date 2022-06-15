@@ -4,8 +4,8 @@ import "testing"
 
 func Test_Parallel_01(t *testing.T) {
 	t.Log("setup")
-	
-	tests := []struct{
+
+	tests := []struct {
 		input, expected string
 	}{
 		{"hello", "hello"},
@@ -15,7 +15,7 @@ func Test_Parallel_01(t *testing.T) {
 	for _, tt := range tests {
 		tt := tt
 
-		t.Run(tt.input, func(t *testing.T){
+		t.Run(tt.input, func(t *testing.T) {
 			t.Parallel()
 			if tt.input != tt.expected {
 				t.Errorf("[want] %v\t[got] %v", tt.expected, tt.input)

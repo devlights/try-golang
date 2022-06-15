@@ -40,7 +40,7 @@ func UseCondSignal() error {
 		go func(i int) {
 			defer wg.Done()
 			defer c.L.Unlock()
-			
+
 			output.Stderrf("[begin ]", "%d\n", i)
 			c.L.Lock()
 			c.Wait()

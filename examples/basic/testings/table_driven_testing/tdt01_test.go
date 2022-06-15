@@ -3,7 +3,7 @@ package tabledriventesting
 import "testing"
 
 func Test_Tdt_01(t *testing.T) {
-	tests := []struct{
+	tests := []struct {
 		input, expected string
 	}{
 		{"hello", "hello"},

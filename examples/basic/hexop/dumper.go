@@ -18,7 +18,7 @@ func Dumper() error {
 	// 最後に Close を呼ばないと、ダンプ出力の右側に元の値が表示されないので注意
 	// (Close を呼ばないままだと、16進部分のみが出力される)
 	// -----------------------------------------------------
-	
+
 	var (
 		reader = strings.NewReader("hello world")
 		writer = os.Stdout

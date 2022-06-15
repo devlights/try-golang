@@ -19,6 +19,10 @@ tasks:
     cmds:
       - go vet ./...
       - staticcheck ./...
+  fmt:
+    desc: go fmt
+    cmds:
+      - go fmt ./...
   clean:
     desc: Clean
     cmds:
