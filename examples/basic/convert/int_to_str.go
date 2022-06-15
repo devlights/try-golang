@@ -12,7 +12,7 @@ import (
 //   - https://dave.cheney.net/2018/07/12/slices-from-the-ground-up
 func IntToStr() error {
 	var (
-		i int = 100
+		i int     = 100
 		f float32 = 12.345
 	)
 

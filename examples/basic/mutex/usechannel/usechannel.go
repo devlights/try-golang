@@ -18,14 +18,14 @@ var (
 func deposit(wg *sync.WaitGroup, v int) {
 	defer wg.Done()
 
-	balance <- (<-balance+v)
+	balance <- (<-balance + v)
 	countCh <- struct{}{}
 }
 
 func withdraw(wg *sync.WaitGroup, v int) {
 	defer wg.Done()
 
-	balance <- (<-balance-v)
+	balance <- (<-balance - v)
 	countCh <- struct{}{}
 }
 

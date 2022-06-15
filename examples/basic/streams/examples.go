@@ -17,6 +17,6 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["streams_nopcloser"] = UsingNopCloser
-	
+
 	pipes.NewRegister().Regist(m)
 }

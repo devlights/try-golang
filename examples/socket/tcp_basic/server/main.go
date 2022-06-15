@@ -160,14 +160,13 @@ func main() {
 			// 対向先にEOFを伝えるために無理やり送信側ストリームを閉じる
 			// (本来は、通信メッセージ毎の構造規約があるはずなので、このようにすることは無い。サンプルなので。)
 			//
-			// サーバ側の今回の実装では、これを行わなくても defer conn.Close() で切断するので対向先にEOFが通知されるが一応入れている			
+			// サーバ側の今回の実装では、これを行わなくても defer conn.Close() で切断するので対向先にEOFが通知されるが一応入れている
 			err = conn.CloseWrite()
 			if err != nil {
 				errLog.Printf("error at conn closewrite (%v)", err)
 				return
 			}
 			appLog.Println("notify EOF (conn.CloseWrite)")
-
 
 		}()
 	}
