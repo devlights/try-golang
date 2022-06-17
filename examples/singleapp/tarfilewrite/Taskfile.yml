@@ -1,0 +1,28 @@
+version: '3'
+
+env:
+  FILE_NAME: test.tar
+
+tasks:
+  default:
+    cmds:
+      - task: run
+      - task: confirm
+      - task: extract
+      - task: clean
+  run:
+    cmds:
+      - go run main.go > $FILE_NAME
+  confirm:
+    cmds:
+      - file $FILE_NAME
+      - tar -tf $FILE_NAME
+  extract:
+    cmds:
+      - mkdir -p tmp
+      - tar -xf $FILE_NAME --directory tmp
+      - ls -l tmp
+  clean:
+    cmds:
+      - rm $FILE_NAME
+      - rm -rf tmp
