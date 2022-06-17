@@ -16,3 +16,5 @@
 |time\_json.go|time\_json|time.Time を json 形式で扱う場合のサンプルです|
 |time\_json\_custom.go|time\_json\_custom|time.Time をカスタム JSON エンコード・デコードで利用するサンプルです|
 |time\_in.go|time\_in|time.In() の使い方のサンプルです|
+|time\_truncate.go|time\_truncate|time.Truncate() のサンプルです。n分置き や n時間置き の時間を表現することができます。|
+|time\_truncate\_hours.go|time\_truncate\_hours|time.Timeから時刻部分を除去するサンプルです.|
