@@ -1,0 +1,22 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run
+      - task: confirm
+  run:
+    cmds:
+      - go run main.go > test.zip
+  confirm:
+    cmds:
+      - file test.zip
+      - unzip -l test.zip
+      - unzip -z test.zip
+  extract:
+    cmds:
+      - unzip -d tmp test.zip
+  clean:
+    cmds:
+      - rm test.zip
+      - rm -rf tmp
