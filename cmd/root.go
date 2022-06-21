@@ -48,7 +48,7 @@ func Execute() {
 
 	if args.ShowNames {
 		for _, v := range mapping.AllExampleNames() {
-			appLog.Printf("\t%s", v)
+			appLog.Printf("%s", v)
 		}
 
 		os.Exit(0)
