@@ -47,7 +47,6 @@ func Execute() {
 	mapping = builder.BuildMappings()
 
 	if args.ShowNames {
-		appLog.Println("[Examples]")
 		for _, v := range mapping.AllExampleNames() {
 			appLog.Printf("\t%s", v)
 		}
