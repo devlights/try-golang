@@ -13,5 +13,6 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["scanner01"] = Scanner01
+	m["stdin_scanner01"] = Scanner01
+	m["stdin_read_one_input"] = ReadOneInput
 }
