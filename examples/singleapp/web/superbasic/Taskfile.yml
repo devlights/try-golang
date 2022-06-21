@@ -1,0 +1,14 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  run:
+    cmds:
+      - go fmt
+      - go vet ./...
+      - go run honnef.co/go/tools/cmd/staticcheck@latest ./...
+      - cmd: go run main.go
+        ignore_error: true
+    
