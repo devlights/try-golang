@@ -9,6 +9,7 @@ import (
 	"github.com/devlights/try-golang/examples/advanced/errgrp"
 	"github.com/devlights/try-golang/examples/advanced/imaging"
 	"github.com/devlights/try-golang/examples/advanced/reflection"
+	"github.com/devlights/try-golang/examples/advanced/structtag"
 	"github.com/devlights/try-golang/mapping"
 )
 
@@ -32,4 +33,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	errgrp.NewRegister().Regist(m)
 	imaging.NewRegister().Regist(m)
 	reflection.NewRegister().Regist(m)
+	structtag.NewRegister().Regist(m)
 }
