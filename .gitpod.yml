@@ -6,7 +6,7 @@ tasks:
   - name: install go-task
     init: go install github.com/go-task/task/v3/cmd/task@latest
   - name: build app
-    init: task build
+    command: task build
 
 vscode:
   extensions:
