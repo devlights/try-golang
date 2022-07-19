@@ -13,5 +13,6 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
+	m["scannerop_basic"] = Basic
 	m["scannerop_custom"] = Custom
 }
