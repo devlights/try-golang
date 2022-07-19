@@ -7,4 +7,5 @@ tasks:
   run:
     desc: "Goが対応している GOOS/GOARCH の組み合わせを出力"
     cmds:
+      - cmd: go version
       - cmd: go tool dist list
