@@ -1,4 +1,4 @@
-package stdin
+package scannerop
 
 import (
 	"bufio"
@@ -7,9 +7,9 @@ import (
 	"strings"
 )
 
-// Scanner01 -- 標準入力についてのサンプル
-func Scanner01() error {
-	fmt.Print("Enter example-name: ")
+// Basic -- bufio.Scannerの基本的な使い方についてのサンプルです。
+func Basic() error {
+	fmt.Print("Enter: ")
 
 	// 標準入力から入力を読み込むには以下のようにする
 	stdin := bufio.NewScanner(os.Stdin)
@@ -20,7 +20,7 @@ func Scanner01() error {
 		}
 
 		fmt.Println(text)
-		fmt.Print("Enter example-name: ")
+		fmt.Print("Enter: ")
 	}
 
 	fmt.Println("END")
