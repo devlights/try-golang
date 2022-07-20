@@ -1,0 +1,27 @@
+version: '3'
+
+tasks:
+  fmt:
+    cmds:
+      - go fmt ./...
+  vet:
+    cmds:
+      - go vet ./...
+  run:
+    cmds:
+      - cmd: for i in {1..10} ; do go run race/main.go; done
+        silent: true
+  run-notrace:
+    cmds:
+      - cmd: for i in {1..10} ; do go run notrace/main.go; done
+        silent: true
+  run-notrace2:
+    cmds:
+      - cmd: for i in {1..10} ; do go run notrace2/main.go; done
+        silent: true
+  run-with-raceoption:
+    cmds:
+      - cmd: go run -race race/main.go
+        ignore_error: true
+      - go run -race notrace/main.go
+      - go run -race notrace2/main.go
