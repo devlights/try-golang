@@ -5,6 +5,8 @@ tasks:
     init: go install honnef.co/go/tools/cmd/staticcheck@latest
   - name: install go-task
     init: go install github.com/go-task/task/v3/cmd/task@latest
+  - name: install goimport
+    init: go install golang.org/x/tools/cmd/goimports@latest
   - name: build app
     command: task build
 
