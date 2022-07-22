@@ -8,8 +8,5 @@ tasks:
     cmds:
       - go vet .
   run:
-    deps: [
-      imports, vet
-    ]
     cmds:
       - go run -race main.go
