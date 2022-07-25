@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 tasks:
   default:
@@ -11,4 +11,3 @@ tasks:
       - go run honnef.co/go/tools/cmd/staticcheck@latest ./...
       - cmd: go run main.go
         ignore_error: true
-    
