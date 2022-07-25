@@ -1,0 +1,12 @@
+version: '3'
+
+tasks:
+  imports:
+    cmds:
+      - goimports -w .
+  vet:
+    cmds:
+      - go vet .
+  run:
+    cmds:
+      - go run -race main.go
