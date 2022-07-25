@@ -1,6 +1,9 @@
-version: '3'
+version: "3"
 
 tasks:
+  bench:
+    cmds:
+      - go test -benchmem -run=^$ -bench .
   run:
     cmds:
       - go run -race main.go
