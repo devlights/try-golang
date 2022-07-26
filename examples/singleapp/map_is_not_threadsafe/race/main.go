@@ -1,7 +1,11 @@
 // マップ操作 はスレッドセーフでは無いというのを示すサンプルです。
 // 本サンプルはデータ競合が発生しています。
 //
+// Go本家のFAQにもmap操作はatomicでは無いですよと記載がある。
+//   - https://go.dev/doc/faq#atomic_maps
+//
 // REFERENCES:
+//   - https://go.dev/doc/faq#atomic_maps
 //   - https://stackoverflow.com/questions/44152988/append-not-thread-safe
 //   - https://stackoverflow.com/questions/49879322/can-i-concurrently-write-different-slice-elements
 package main
