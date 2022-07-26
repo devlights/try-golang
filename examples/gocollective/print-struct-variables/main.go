@@ -7,6 +7,7 @@
 //
 // REFERENCES
 //   - https://pkg.go.dev/fmt@latest
+//   - https://gobyexample.com/json
 package main
 
 import "fmt"
