@@ -10,6 +10,7 @@ import (
 	"unsafe"
 
 	"github.com/devlights/gomy/times"
+	"github.com/devlights/gomy/zeromemcpy"
 )
 
 // StringToByteSlice -- 文字列からバイトスライスへメモリコピー無しに変換するサンプルです。
@@ -65,6 +66,14 @@ func StringToByteSlice() error {
 		*/
 	})
 	fmt.Printf("[zeromemcpy] %v\n", elapsed)
+
+	// -------------------------------------
+	// zeromemcpy.s2b
+	// -------------------------------------
+	elapsed = times.Stopwatch(func(start time.Time) {
+		io.Discard.Write(zeromemcpy.S2B(s))
+	})
+	fmt.Printf("[zeromemcpy.s2b] %v\n", elapsed)
 
 	return nil
 }
