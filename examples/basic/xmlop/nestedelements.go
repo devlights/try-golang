@@ -7,6 +7,9 @@ import (
 )
 
 // NestedElements -- 入れ子になっている要素を取得するサンプルです。
+//
+// REFERENCES:
+//   - https://pkg.go.dev/encoding/xml@latest#Unmarshal
 func NestedElements() error {
 	const (
 		xmlStr = `
