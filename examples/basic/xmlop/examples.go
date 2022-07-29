@@ -20,4 +20,5 @@ func (*register) Regist(m mapping.ExampleMapping) {
 	m["xml_unmarshal"] = Unmarshal
 	m["xml_decoder"] = Decoder
 	m["xml_encoder"] = Encoder
+	m["xml_nested_elements"] = NestedElements
 }
