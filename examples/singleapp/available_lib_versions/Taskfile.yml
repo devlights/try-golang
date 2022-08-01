@@ -1,0 +1,8 @@
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - go list -m
+      - go list -m -versions
+      - go list -m -versions github.com/devlights/gomy
