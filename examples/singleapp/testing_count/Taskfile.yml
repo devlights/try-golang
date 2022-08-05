@@ -1,0 +1,22 @@
+version: "3"
+
+# -------------------------------------------------------------------------------
+# $ go help testflag
+#
+#        -count n
+#            Run each test, benchmark, and fuzz seed n times (default 1).
+#            If -cpu is set, run n times for each GOMAXPROCS value.
+#            Examples are always run once. -count does not apply to
+#            fuzz tests matched by -fuzz.
+# -------------------------------------------------------------------------------
+tasks:
+  default:
+    cmds:
+      - task: once
+      - task: count
+  once:
+    cmds:
+      - go test -count 1 .
+  count:
+    cmds:
+      - go test -count 100 .
