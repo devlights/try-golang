@@ -1,0 +1,18 @@
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task: normal
+      - task: short
+  prepare:
+    cmds:
+      - go clean -testcache
+  normal:
+    deps: [prepare]
+    cmds:
+      - go test -v ./lib
+  short:
+    deps: [prepare]
+    cmds:
+      - go test -v -short ./lib
