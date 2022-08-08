@@ -14,4 +14,5 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["osop_mkdir"] = Mkdir
+	m["osop_list_processes"] = ListProcesses
 }
