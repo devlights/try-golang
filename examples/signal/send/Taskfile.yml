@@ -1,0 +1,21 @@
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task: run-receiver
+      - ps
+      - task: run-sender
+      - ps
+  run-receiver:
+    dir: receiver
+    cmds:
+      - go clean
+      - go build -o receiver main.go
+      - ./receiver &
+  run-sender:
+    dir: sender
+    cmds:
+      - go clean
+      - go build -o sender main.go
+      - ./sender
