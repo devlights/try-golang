@@ -26,12 +26,11 @@ var (
 
 func main() {
 	var (
-		mainCtx          = context.Background()
-		procCtx, procCxl = context.WithTimeout(mainCtx, 10*time.Second)
+		mainCtx              = context.Background()
+		procCtx, procCxl     = context.WithTimeout(mainCtx, 10*time.Second)
+		signalCtx, signalCxl = signal.NotifyContext(procCtx, syscall.SIGTERM)
 	)
 	defer procCxl()
-
-	signalCtx, signalCxl := signal.NotifyContext(procCtx, syscall.SIGTERM)
 	defer signalCxl()
 
 	appLog.Println("wait for SIGTERM")
