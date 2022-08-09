@@ -1,4 +1,4 @@
-image: gitpod/workspace-go:latest
+image: gitpod/workspace-go:2022-08-04-13-40-17
 
 tasks:
   - name: install staticcheck
