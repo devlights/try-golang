@@ -3,7 +3,7 @@
 	"build": {
 		"dockerfile": "Dockerfile",
 		"args": {
-			"VARIANT": "1.18",
+			"VARIANT": "1.19",
 			"NODE_VERSION": "lts/*"
 		}
 	},
