@@ -9,7 +9,7 @@ import (
 // Truncate -- time.Truncate() のサンプルです。n分置き や n時間置き の時間を表現することができます。
 //
 // REFERENCES
-//  - https://zenn.dev/mltokky/articles/20220426_golang_time_truncate
+//   - https://zenn.dev/mltokky/articles/20220426_golang_time_truncate
 func Truncate() error {
 	const (
 		layout = "15:04"

@@ -24,11 +24,11 @@ func add2[T unsigned](x, y T) T {
 // UnderlyingType -- Generics時に利用できる ~トークン についてのサンプルです。
 //
 // REFERENCES
-//  - https://go.dev/tour/generics/1
-//  - https://go.dev/tour/generics/2
-//  - https://go.dev/doc/tutorial/generics
-//  - https://go.dev/blog/intro-generics
-//  - https://go.dev/blog/when-generics
+//   - https://go.dev/tour/generics/1
+//   - https://go.dev/tour/generics/2
+//   - https://go.dev/doc/tutorial/generics
+//   - https://go.dev/blog/intro-generics
+//   - https://go.dev/blog/when-generics
 func UnderlyingType() error {
 	output.Stdoutl("[int8, int8]", add1(int8(1), int8(5)))
 	output.Stdoutl("[my8, my8]", add1(my8(1), my8(5)))

@@ -10,7 +10,7 @@ import (
 // WithSlice -- *exec.Cmd 実行時にスライスの値をコマンドの引数で指定するサンプルです.
 //
 // REFERENCES
-//  - https://dev.to/tobychui/quick-notes-for-go-os-exec-3ejg
+//   - https://dev.to/tobychui/quick-notes-for-go-os-exec-3ejg
 func WithSlice() error {
 	var (
 		cmd *exec.Cmd

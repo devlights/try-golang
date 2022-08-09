@@ -1,8 +1,8 @@
 /*
-	archive/tar の サンプルです。
+archive/tar の サンプルです。
 
-	REFERENCES:
-	  - https://pkg.go.dev/archive/tar@latest
+REFERENCES:
+  - https://pkg.go.dev/archive/tar@latest
 */
 package main
 

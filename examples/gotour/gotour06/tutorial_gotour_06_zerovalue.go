@@ -6,7 +6,7 @@ import (
 )
 
 // ZeroValue は、 Tour of Go - Zero values (https://tour.golang.org/basics/12) の サンプルです。
-//noinspection GoNilness
+// noinspection GoNilness
 func ZeroValue() error {
 	// ------------------------------------------------------------
 	// 初期値

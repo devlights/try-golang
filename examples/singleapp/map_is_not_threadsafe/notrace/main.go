@@ -20,7 +20,7 @@ func main() {
 	flag.Parse()
 
 	var (
-		mu sync.Mutex
+		mu  sync.Mutex
 		src = make(map[string]bool)
 		dst = make(map[string]bool)
 	)

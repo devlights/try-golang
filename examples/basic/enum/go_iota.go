@@ -6,10 +6,11 @@ import (
 
 // GoIota -- Go における iota の扱い方についてのサンプルです
 //
-// REFERENCES:
-//   -https://blog.learngoprogramming.com/golang-const-type-enums-iota-bc4befd096d3
+// # REFERENCES
 //
-//noinspection GoBoolExpressions
+//   - https://blog.learngoprogramming.com/golang-const-type-enums-iota-bc4befd096d3
+//
+// noinspection GoBoolExpressions
 func GoIota() error {
 	// ---------------------------------------------------------------------------
 	// iota は Goで利用できる数値のカウンタ.

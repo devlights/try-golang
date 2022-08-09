@@ -12,7 +12,7 @@ import (
 // WithDir -- *exec.Cmd 実行時にワーキングディレクトリを指定するサンプルです.
 //
 // REFERENCES
-//  - https://dev.to/tobychui/quick-notes-for-go-os-exec-3ejg
+//   - https://dev.to/tobychui/quick-notes-for-go-os-exec-3ejg
 func WithDir() error {
 	if runtime.GOOS == "windows" {
 		return errors.New("this example cannot run on Windows, sorry")

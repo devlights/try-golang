@@ -9,18 +9,19 @@ type genericType[T any] struct {
 // Struct -- Type Parameterを構造体に適用するサンプルです.
 //
 // メモ
-//   無名構造体はジェネリックに出来ない。コンパイルエラーとなる。
-//   https://groups.google.com/g/golang-nuts/c/ulntjLeGYn4/m/e3dWOOqtAwAJ
 //
-//   VSCode で golang.go 拡張機能を利用している場合、カーソルを載せた際に表示される
-//   ツールチップにはジェネリックの場合、具象化されたシグネチャが表示されるので便利。
+//	無名構造体はジェネリックに出来ない。コンパイルエラーとなる。
+//	https://groups.google.com/g/golang-nuts/c/ulntjLeGYn4/m/e3dWOOqtAwAJ
+//
+//	VSCode で golang.go 拡張機能を利用している場合、カーソルを載せた際に表示される
+//	ツールチップにはジェネリックの場合、具象化されたシグネチャが表示されるので便利。
 //
 // REFERENCES
-//  - https://go.dev/tour/generics/1
-//  - https://go.dev/tour/generics/2
-//  - https://go.dev/doc/tutorial/generics
-//  - https://go.dev/blog/intro-generics
-//  - https://go.dev/blog/when-generics
+//   - https://go.dev/tour/generics/1
+//   - https://go.dev/tour/generics/2
+//   - https://go.dev/doc/tutorial/generics
+//   - https://go.dev/blog/intro-generics
+//   - https://go.dev/blog/when-generics
 func Struct() error {
 	var (
 		s1 = genericType[int]{100}

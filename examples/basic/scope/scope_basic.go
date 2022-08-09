@@ -7,7 +7,7 @@ import (
 )
 
 // Basic は、スコープについての基本的な事項についてのサンプルです.
-//noinspection GoNameStartsWithPackageName
+// noinspection GoNameStartsWithPackageName
 func Basic() error {
 	// Go言語では、「最初の文字が大文字で始まる名前」は外部から参照可能な名前となる。
 	// 他の言語でいうと public なスコープとなる。

@@ -15,7 +15,6 @@ GO言語のコメントスタイルについては以下を参照.
 - 関数などのドキュメントコメント(doc comments) は、そのアイテムの名前から始める。
 
 (every doc comments begins with the name of the item it describes)
-
 */
 package comments
 

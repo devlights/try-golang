@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-//noinspection GoUnusedType
+// noinspection GoUnusedType
 type (
 	ifGoTour20 interface {
 		Value() string

@@ -43,7 +43,7 @@ func (s *sumImpl) String() string {
 }
 
 // Interface は、 Tour of Go - Interfaces (https://tour.golang.org/methods/9) の サンプルです。
-//noinspection GoNilness
+// noinspection GoNilness
 func Interface() error {
 	// ------------------------------------------------------------
 	// Go言語のインターフェース

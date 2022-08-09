@@ -1,11 +1,11 @@
 /*
-	go test の -short オプションを付与した際のサンプルです。
-	詳細は lib/lib_test.go を参照ください。
+go test の -short オプションを付与した際のサンプルです。
+詳細は lib/lib_test.go を参照ください。
 
-	REFERENCES:
-	  - https://dev.to/jonasbn/til-skipping-tests-in-go-3i5l
-	  - https://golang.org/cmd/go/#hdr-Testing_flags
-	  - https://golang.org/pkg/testing/#hdr-Skipping
+REFERENCES:
+  - https://dev.to/jonasbn/til-skipping-tests-in-go-3i5l
+  - https://golang.org/cmd/go/#hdr-Testing_flags
+  - https://golang.org/pkg/testing/#hdr-Skipping
 */
 package main
 

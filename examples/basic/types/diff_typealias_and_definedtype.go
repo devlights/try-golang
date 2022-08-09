@@ -15,6 +15,7 @@ type definedType string // ベースが string の全く別の型を定義 (stri
 // }
 
 // OK
+//
 //lint:ignore U1000 ok
 func (me definedType) upper() string {
 	return strings.ToUpper(string(me))

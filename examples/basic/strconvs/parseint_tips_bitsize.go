@@ -9,7 +9,7 @@ import (
 // ParseIntTipsBitSize -- strconv.ParseInt() の第３引数 bitSize を指定する際のTipsです。
 //
 // REFERENCES
-//  - https://pkg.go.dev/strconv@latest#ParseInt
+//   - https://pkg.go.dev/strconv@latest#ParseInt
 func ParseIntTipsBitSize() error {
 	//
 	// strconv.ParseInt() の 第３引数 bitSize には

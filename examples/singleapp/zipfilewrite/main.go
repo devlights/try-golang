@@ -1,8 +1,8 @@
 /*
-	archive/zip の サンプルです。
+archive/zip の サンプルです。
 
-	REFERENCES:
-	  - https://pkg.go.dev/archive/zip@latest
+REFERENCES:
+  - https://pkg.go.dev/archive/zip@latest
 */
 package main
 

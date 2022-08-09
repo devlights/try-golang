@@ -4,11 +4,11 @@
 //
 // # 処理手順
 //
-// 		- signal.NotifyContext を利用して SIGTERM をフック
-// 		- シグナルが送信されるのを待機
+//   - signal.NotifyContext を利用して SIGTERM をフック
+//   - シグナルが送信されるのを待機
 //
 // REFERENCES:
-// 		- https://stackoverflow.com/questions/9030680/list-of-currently-running-process-in-go
+//   - https://stackoverflow.com/questions/9030680/list-of-currently-running-process-in-go
 package main
 
 import (

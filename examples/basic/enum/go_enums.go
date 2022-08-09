@@ -46,7 +46,8 @@ const (
 // GoEnums -- Go における enum の扱い方についてのサンプルです
 //
 // REFERNCES:
-//   -https://blog.learngoprogramming.com/golang-const-type-enums-iota-bc4befd096d3
+//
+//	-https://blog.learngoprogramming.com/golang-const-type-enums-iota-bc4befd096d3
 func GoEnums() error {
 	// ---------------------------------------------------------------------------
 	// enum とは関連する値を一つの型でグルーピングするもの

@@ -1,11 +1,12 @@
 /*
-	Go 1.16 から追加された embed パッケージを利用して内部の変数に外部ファイルデータを埋め込むサンプルです.
+Go 1.16 から追加された embed パッケージを利用して内部の変数に外部ファイルデータを埋め込むサンプルです.
 
-	Commands:
-		$ git describe --tags --abbrev=0 > version.txt
-		$ git rev-list -1 HEAD > revision.txt
-		$ git describe --tags > build.txt
-		$ go run .
+Commands:
+
+	$ git describe --tags --abbrev=0 > version.txt
+	$ git rev-list -1 HEAD > revision.txt
+	$ git describe --tags > build.txt
+	$ go run .
 */
 package main
 
@@ -18,9 +19,10 @@ import (
 // Version and Revision
 //
 // Commands:
-//   $ git describe --tags --abbrev=0 > version.txt
-//   $ git rev-list -1 HEAD > revision.txt
-//   $ git describe --tags > build.txt
+//
+//	$ git describe --tags --abbrev=0 > version.txt
+//	$ git rev-list -1 HEAD > revision.txt
+//	$ git describe --tags > build.txt
 var (
 	//go:embed version.txt
 	version string

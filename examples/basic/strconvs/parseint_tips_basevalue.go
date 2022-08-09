@@ -9,7 +9,7 @@ import (
 // ParseIntTipsBaseValue -- strconv.ParseInt() の第２引数 base を指定する際のTipsです。
 //
 // REFERENCES
-//  - https://pkg.go.dev/strconv@latest#ParseInt
+//   - https://pkg.go.dev/strconv@latest#ParseInt
 func ParseIntTipsBaseValue() error {
 	//
 	// strconv.ParseInt() の 第２引数 base には

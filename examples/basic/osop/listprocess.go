@@ -14,7 +14,7 @@ import (
 // 本サンプルは Windows では動作しません。
 //
 // REFERENCES:
-// 		- https://stackoverflow.com/questions/9030680/list-of-currently-running-process-in-go
+//   - https://stackoverflow.com/questions/9030680/list-of-currently-running-process-in-go
 func ListProcesses() error {
 	if runtime.GOOS == "windows" {
 		return errors.New("sorry, this example doesn't run on windows")

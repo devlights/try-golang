@@ -11,7 +11,7 @@ import (
 // WorkerPool -- Worker Pool パターンのサンプルです.
 //
 // REFENRECES
-// 		- https://medium.com/@mertakar_22051/concurrency-in-golang-d49d2db1ed91
+//   - https://medium.com/@mertakar_22051/concurrency-in-golang-d49d2db1ed91
 func WorkerPool() error {
 	const (
 		numItems = 45

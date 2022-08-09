@@ -14,7 +14,7 @@ type intPair struct {
 }
 
 // Basic02 -- 構造体が値型であることの確認
-//noinspection GoNilness
+// noinspection GoNilness
 func Basic02() error {
 
 	// 構造体は値型なので宣言した時点でメモリ上に領域が確保される

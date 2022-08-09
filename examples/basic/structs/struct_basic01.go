@@ -30,7 +30,7 @@ func updateValuePtr(m *MyStruct) {
 }
 
 // Basic01 -- 構造体についてのサンプル
-//noinspection GoUnhandledErrorResult
+// noinspection GoUnhandledErrorResult
 func Basic01() error {
 	// ポインタと通常の2パターンを生成
 	st01 := &MyStruct{
