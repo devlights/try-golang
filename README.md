@@ -2,7 +2,7 @@
 
 This is my TUTORIAL project for golang
 
-![try-golang - Go Version](https://img.shields.io/badge/go-1.18-blue.svg)
+![try-golang - Go Version](https://img.shields.io/badge/go-1.19-blue.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-golang/badge/master)](https://www.codefactor.io/repository/github/devlights/try-golang/overview/master)
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
 
@@ -10,13 +10,13 @@ This is my TUTORIAL project for golang
 
 ```shell script
 $ go version
-go version go1.18 linux/amd64
+go version go1.19 linux/amd64
 
 $ make build
 go build -race
 
 $ go version try-golang
-try-golang: go1.18
+try-golang: go1.19
 ```
 
 ## Run
