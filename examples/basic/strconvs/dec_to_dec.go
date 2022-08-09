@@ -9,7 +9,7 @@ import (
 // DecToDec -- 10進数文字列を10進数に変換するサンプルです.
 //
 // REFERENCES
-//  - https://pkg.go.dev/strconv
+//   - https://pkg.go.dev/strconv
 func DecToDec() error {
 	var (
 		values = []string{

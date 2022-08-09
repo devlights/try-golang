@@ -1,22 +1,22 @@
 /*
-	Goが内部で利用しているスレッド数を表示するサンプルです。
+Goが内部で利用しているスレッド数を表示するサンプルです。
 
-	結果は例えば以下のようになります。(結果は環境によって異なります。)
+結果は例えば以下のようになります。(結果は環境によって異なります。)
 
-		$ go install github.com/go-task/task/v3/cmd/task@latest
-		$ go install honnef.co/go/tools/cmd/staticcheck@latest
-		$ task
-		task: [run] go fmt
-		task: [run] go vet ./...
-		task: [run] staticcheck ./...
-		task: [run] go run main.go
-		[BEFORE] lock-thread=false      thread count=5
-		[AFTER ] lock-thread=false      thread count=5
-		[BEFORE] lock-thread=true       thread count=5
-		[AFTER ] lock-thread=true       thread count=15
+	$ go install github.com/go-task/task/v3/cmd/task@latest
+	$ go install honnef.co/go/tools/cmd/staticcheck@latest
+	$ task
+	task: [run] go fmt
+	task: [run] go vet ./...
+	task: [run] staticcheck ./...
+	task: [run] go run main.go
+	[BEFORE] lock-thread=false      thread count=5
+	[AFTER ] lock-thread=false      thread count=5
+	[BEFORE] lock-thread=true       thread count=5
+	[AFTER ] lock-thread=true       thread count=15
 
-	REFERENCES:
-		- https://blog.rahuldev.in/how-to-implement-concurrency-and-parallelism-in-go
+REFERENCES:
+  - https://blog.rahuldev.in/how-to-implement-concurrency-and-parallelism-in-go
 */
 package main
 

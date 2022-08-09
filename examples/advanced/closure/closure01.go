@@ -3,7 +3,7 @@ package closure
 import "fmt"
 
 // Closure01 -- クロージャのサンプルです
-//noinspection GoNameStartsWithPackageName
+// noinspection GoNameStartsWithPackageName
 func Closure01() error {
 	c1 := myClosure1()
 

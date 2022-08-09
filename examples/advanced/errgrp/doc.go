@@ -1,7 +1,6 @@
 /*
 Package errgrp は、 golang.org/x/sync/errgroup のサンプルが配置されています。
 
-
 REFERENCES::
 
   - https://godoc.org/golang.org/x/sync/errgroup

@@ -1,4 +1,3 @@
-//
 // http.Get() を使って HTTP GET リクエストを試してみるサンプルです。
 //
 // リクエストの発行先は JSONPlaceholder (https://jsonplaceholder.typicode.com/) を
@@ -6,7 +5,6 @@
 //
 // REFERENCES:
 //   - https://dev.to/devkiran/make-an-http-get-request-in-go-58gf
-//
 package main
 
 import (

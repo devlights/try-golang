@@ -4,11 +4,11 @@
 //
 // # 処理手順
 //
-// 		- receiver プロセスを探して pid を取得
-// 		- 対象 pid に対して SIGTERM を送る
+//   - receiver プロセスを探して pid を取得
+//   - 対象 pid に対して SIGTERM を送る
 //
 // REFERENCES:
-// 		- https://stackoverflow.com/questions/9030680/list-of-currently-running-process-in-go
+//   - https://stackoverflow.com/questions/9030680/list-of-currently-running-process-in-go
 package main
 
 import (

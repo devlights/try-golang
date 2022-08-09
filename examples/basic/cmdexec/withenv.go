@@ -12,7 +12,7 @@ import (
 // WithEnv -- *exec.Cmd 実行時に追加の環境変数を指定するサンプルです.
 //
 // REFERENCES
-//  - https://dev.to/tobychui/quick-notes-for-go-os-exec-3ejg
+//   - https://dev.to/tobychui/quick-notes-for-go-os-exec-3ejg
 func WithEnv() error {
 	if runtime.GOOS == "windows" {
 		return errors.New("this example cannot run on Windows, sorry")

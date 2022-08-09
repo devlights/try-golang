@@ -22,7 +22,8 @@ type MyData struct {
 
 // GetValue -- 慣習として メソッドレシーバーの名前は構造体名の先頭一文字にする模様。
 // self や this にすると警告が表示される
-//     https://qiita.com/hnakamur/items/c99e3048f8902702a5a1
+//
+//	https://qiita.com/hnakamur/items/c99e3048f8902702a5a1
 func (m *MyData) GetValue() string {
 	return fmt.Sprintf("%v", m)
 }

@@ -129,7 +129,8 @@ func toKb(bytes uint64) uint64 {
 	return bytes / 1024
 }
 
-//noinspection GoUnusedFunction
+// noinspection GoUnusedFunction
+//
 //lint:ignore U1000 使われていないのは承知済み
 func toMb(bytes uint64) uint64 {
 	return toKb(bytes) / 1024

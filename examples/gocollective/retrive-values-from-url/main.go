@@ -1,6 +1,6 @@
 // Stackoverflow Go Collective example
 //
-// How to retrieve values from URL
+// # How to retrieve values from URL
 //
 // URL
 //   - https://stackoverflow.com/questions/73079531/how-to-retrieve-values-from-the-url-in-go

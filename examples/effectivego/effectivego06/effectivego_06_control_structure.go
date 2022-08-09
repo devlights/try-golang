@@ -146,7 +146,7 @@ func forExample() {
 	}
 }
 
-//noinspection GoBoolExpressions
+// noinspection GoBoolExpressions
 func ifExample() {
 	// 標準形
 	i := 10

@@ -1,6 +1,6 @@
 // Stackoverflow Go Collective example
 //
-// How to efficiently concatenate strings in go
+// # How to efficiently concatenate strings in go
 //
 // URL
 //   - https://stackoverflow.com/questions/1760757/how-to-efficiently-concatenate-strings-in-go

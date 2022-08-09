@@ -19,6 +19,7 @@ import (
 //   - atomic.AddXXX が約 10 ms
 //   - sync.Mutex が約 13 ms
 //   - チャネル版が 約 100 ms
+//
 // なので、極端にスピードが求められるシチュエーション以外は十分使える.
 //
 // # REFERENCES

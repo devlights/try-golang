@@ -24,7 +24,7 @@ import (
 // REFERENCES:
 //   - https://stackoverflow.com/questions/60879023/getting-eof-as-error-in-golang-ssh-session-close
 //
-//noinspection GoErrorStringFormat
+// noinspection GoErrorStringFormat
 func SSHWithPrivKeyPassPhrase() error {
 	sshUser = os.ExpandEnv("$SSH_USER")
 	sshPass = os.ExpandEnv("$SSH_PASS")

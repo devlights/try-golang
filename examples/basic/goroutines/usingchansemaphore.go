@@ -22,7 +22,7 @@ import (
 //   - https://mattn.kaoriya.net/software/lang/go/20171221111857.htm
 //   - https://qiita.com/ReSTARTR/items/ee943512243aedb3aa25
 //   - http://bkmts.xsrv.jp/mutex-semaphore/
-//     - セマフォとミューテックスの違いについてとても分かりやすく説明されている
+//   - セマフォとミューテックスの違いについてとても分かりやすく説明されている
 func UsingChanSemaphore() error {
 	// バイナリセマフォを使ったサンプル
 	output.StdoutHr()

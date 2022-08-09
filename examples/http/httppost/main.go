@@ -1,4 +1,3 @@
-//
 // http.NewRequest() を使って HTTP POST リクエストを試してみるサンプルです。
 //
 // リクエストの発行先は JSONPlaceholder (https://jsonplaceholder.typicode.com/) を
@@ -6,7 +5,6 @@
 //
 // REFERENCES:
 //   - https://dev.to/devkiran/make-an-http-post-request-in-go-29p
-//
 package main
 
 import (

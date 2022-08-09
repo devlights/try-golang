@@ -1,9 +1,9 @@
 /*
-	Go webアプリ サンプル （超基本）
+Go webアプリ サンプル （超基本）
 
-	REFERENCES:
-	  - https://pkg.go.dev/net/http@latest
-	  - https://astaxie.gitbooks.io/build-web-application-with-golang/content/ja/
+REFERENCES:
+  - https://pkg.go.dev/net/http@latest
+  - https://astaxie.gitbooks.io/build-web-application-with-golang/content/ja/
 */
 package main
 
