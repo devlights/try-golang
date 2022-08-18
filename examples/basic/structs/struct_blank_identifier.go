@@ -6,8 +6,9 @@ import (
 
 // BlankIdentifier -- 構造体定義時に blank identifier を意図的に用意して初期化時にフィールド名の指定を必須にするやり方のサンプルです.
 //
-// REFERENCES:
+// # REFERENCES
 //   - https://qiita.com/fuubit/items/88ff1185de1a67d9e5bd
+//   - https://qiita.com/tenntenn/items/a227ffb9c581d1f891d5
 func BlankIdentifier() error {
 	type (
 		forceNamedParamInit struct {
