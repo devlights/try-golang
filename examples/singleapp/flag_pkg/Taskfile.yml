@@ -1,0 +1,20 @@
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task: run-normal
+      - task: run-flagset
+      - task: run-unittest
+  run-normal:
+    dir: normal
+    cmds:
+      - go run main.go -a=1 -b=hello --c
+  run-flagset:
+    dir: flagset
+    cmds:
+      - go run main.go -a=1 -b=hello --c
+  run-unittest:
+    dir: unittest
+    cmds:
+      - go test -count=1 .
