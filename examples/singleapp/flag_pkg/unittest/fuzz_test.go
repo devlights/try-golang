@@ -1,3 +1,6 @@
+// # REFERENCES
+//   - https://future-architect.github.io/articles/20220214a/
+//   - https://qiita.com/s9i/items/de45b820aaeb6597c9a2
 package args_test
 
 import (
