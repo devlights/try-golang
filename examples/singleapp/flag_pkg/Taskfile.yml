@@ -6,6 +6,7 @@ tasks:
       - task: run-normal
       - task: run-flagset
       - task: run-unittest
+      - task: run-fuzztest
   run-normal:
     dir: normal
     cmds:
@@ -18,3 +19,7 @@ tasks:
     dir: unittest
     cmds:
       - go test -count=1 .
+  run-fuzztest:
+    dir: unittest
+    cmds:
+      - go test -fuzz . -fuzztime=5s
