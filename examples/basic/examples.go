@@ -61,6 +61,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/tsvop"
 	"github.com/devlights/try-golang/examples/basic/types"
 	"github.com/devlights/try-golang/examples/basic/unsafes"
+	"github.com/devlights/try-golang/examples/basic/urls"
 	"github.com/devlights/try-golang/examples/basic/variables"
 	"github.com/devlights/try-golang/examples/basic/xmlop"
 	"github.com/devlights/try-golang/examples/basic/yamlop"
@@ -140,6 +141,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	tsvop.NewRegister().Regist(m)
 	types.NewRegister().Regist(m)
 	unsafes.NewRegister().Regist(m)
+	urls.NewRegister().Regist(m)
 	variables.NewRegister().Regist(m)
 	xmlop.NewRegister().Regist(m)
 	yamlop.NewRegister().Regist(m)
