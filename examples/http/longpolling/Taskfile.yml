@@ -1,0 +1,13 @@
+version: "3"
+
+tasks:
+  polling:
+    cmds:
+      - go build -o app main.go && ./app &
+      - sleep 1
+      - curl http://127.0.0.1:8888/polling
+      - pkill app
+      - rm -f ./app
+  send:
+    cmds:
+      - curl http://127.0.0.1:8888/send
