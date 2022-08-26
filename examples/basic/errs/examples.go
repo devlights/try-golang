@@ -17,4 +17,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["error_sentinel"] = Sentinel
 	m["error_typeassertion"] = TypeAssertion
 	m["error_wrap_unwrap"] = WrapAndUnwrap
+	m["error_is_and_as"] = IsAndAs
 }
