@@ -1,0 +1,11 @@
+# https://github.com/go-task/task
+version: "3"
+
+tasks:
+  default:
+    deps:
+      - task: run
+  run:
+    cmds:
+      - cmd: go run .
+        ignore_error: true
