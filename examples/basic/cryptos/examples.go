@@ -3,6 +3,7 @@ package cryptos
 import (
 	"github.com/devlights/try-golang/examples/basic/cryptos/aes"
 	"github.com/devlights/try-golang/examples/basic/cryptos/checksum"
+	"github.com/devlights/try-golang/examples/basic/cryptos/rand"
 	"github.com/devlights/try-golang/mapping"
 )
 
@@ -20,4 +21,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["crypto_md5_checksum"] = checksum.Md5Checksum
 	m["crypto_aes_ecb"] = aes.Ecb
 	m["crypto_aes_cbc"] = aes.Cbc
+	m["crypto_random_bytes"] = rand.RandomBytes
 }
