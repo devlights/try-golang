@@ -1,6 +1,7 @@
 package cryptos
 
 import (
+	"github.com/devlights/try-golang/examples/basic/cryptos/aes"
 	"github.com/devlights/try-golang/examples/basic/cryptos/checksum"
 	"github.com/devlights/try-golang/mapping"
 )
@@ -17,4 +18,6 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["crypto_md5_checksum"] = checksum.Md5Checksum
+	m["crypto_aes_ecb"] = aes.Ecb
+	m["crypto_aes_cbc"] = aes.Cbc
 }
