@@ -16,4 +16,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["array_basic_usage"] = Basic
 	m["array_copy_from_slice"] = CopyFromSlice
 	m["array_ellipses"] = Ellipses
+	m["array_multi_demention"] = MultiDemension
 }
