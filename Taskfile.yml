@@ -1,5 +1,5 @@
 # https://github.com/go-task/task
-version: '3'
+version: "3"
 
 tasks:
   default:
@@ -19,6 +19,10 @@ tasks:
     cmds:
       - go vet ./...
       - staticcheck ./...
+  lint:
+    desc: use revive as linter
+    cmds:
+      - revive -config ./revive.toml -formatter stylish ./...
   fmt:
     desc: go fmt
     cmds:
@@ -27,3 +31,10 @@ tasks:
     desc: Clean
     cmds:
       - go clean
+  install-requirements:
+    desc: install required libraries
+    cmds:
+      - go install honnef.co/go/tools/cmd/staticcheck@latest
+      - go install github.com/go-task/task/v3/cmd/task@latest
+      - go install golang.org/x/tools/cmd/goimports@latest
+      - go install github.com/mgechev/revive@latest
