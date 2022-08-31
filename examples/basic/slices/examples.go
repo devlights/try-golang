@@ -29,4 +29,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["slice_keep_allocated_memory"] = KeepAllocatedMemory
 	m["slice_nil_append"] = NilAppend
 	m["slice_three_index"] = ThreeIndex
+	m["slice_declare_empty_slice"] = DeclareEmtpySlice
 }
