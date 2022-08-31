@@ -21,5 +21,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["crypto_md5_checksum"] = checksum.Md5Checksum
 	m["crypto_aes_ecb"] = aes.Ecb
 	m["crypto_aes_cbc"] = aes.Cbc
-	m["crypto_random_bytes"] = rand.RandomBytes
+	m["crypto_rand_reader"] = rand.Reader
+	m["crypto_rand_read"] = rand.Read
 }
