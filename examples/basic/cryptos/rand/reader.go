@@ -9,11 +9,12 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// RandomBytes -- crypto/rand.Reader を用いてセキュリティ的に安全な乱数を生成するサンプルです.
+// Reader -- crypto/rand.Reader を用いてセキュリティ的に安全な乱数を生成するサンプルです.
 //
 // # REFERENCES
 //   - https://pkg.go.dev/crypto/rand@go1.19#pkg-variables
-func RandomBytes() error {
+//   - https://github.com/golang/go/wiki/CodeReviewComments#crypto-rand
+func Reader() error {
 	var (
 		r = rand.Reader
 	)
