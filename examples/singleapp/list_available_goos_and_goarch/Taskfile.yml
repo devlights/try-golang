@@ -1,0 +1,12 @@
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - go tool dist list
+  refs:
+    cmds:
+      - cmd: echo 'https://go.dev/doc/install/source#environment'
+        silent: true
+      - cmd: echo 'https://qiita.com/KEINOS/items/15b974af2dcf7489b61f'
+        silent: true
