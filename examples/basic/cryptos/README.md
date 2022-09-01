@@ -9,3 +9,5 @@
 |aes/cbc.go|crypto\_aes\_cbc|crypto/aes のサンプルです (CBC) .|
 |rand/reader.go|crypto\_rand\_reader|crypto/rand.Reader を用いてセキュリティ的に安全な乱数を生成するサンプルです.|
 |rand/read.go|crypto\_rand\_read|crypto/rand.Read を用いてセキュリティ的に安全な乱数を生成するサンプルです.|
+|bcrypt/generate.go|crypto\_bcrypt\_generate|golang.org/x/crypto/bcrypt を使って bcrypt パスワードハッシュ を生成するサンプルです.|
+|bcrypt/compare.go|crypto\_bcrypt\_compare|golang.org/x/crypto/bcrypt を使って生成したパスワードハッシュと比較するサンプルです.|

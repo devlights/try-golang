@@ -2,6 +2,7 @@ package cryptos
 
 import (
 	"github.com/devlights/try-golang/examples/basic/cryptos/aes"
+	"github.com/devlights/try-golang/examples/basic/cryptos/bcrypt"
 	"github.com/devlights/try-golang/examples/basic/cryptos/checksum"
 	"github.com/devlights/try-golang/examples/basic/cryptos/rand"
 	"github.com/devlights/try-golang/mapping"
@@ -23,4 +24,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["crypto_aes_cbc"] = aes.Cbc
 	m["crypto_rand_reader"] = rand.Reader
 	m["crypto_rand_read"] = rand.Read
+	m["crypto_bcrypt_generate"] = bcrypt.Generate
+	m["crypto_bcrypt_compare"] = bcrypt.Compare
 }
