@@ -38,7 +38,7 @@ func OrderedAfterAsyncProc() error {
 	}
 
 	// パイプライン生成
-	forEachCh := chans.ForEach(done, items...)
+	forEachCh := chans.Generator(done, items...)
 	enumerateCh := chans.Enumerate(done, forEachCh)
 	doneChList := chans.FanOut(done, enumerateCh, numGoroutine, func(v *chans.IterValue[string]) {
 		fn(v.Value, givenTime)
