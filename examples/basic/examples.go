@@ -40,6 +40,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/network"
 	"github.com/devlights/try-golang/examples/basic/osop"
 	"github.com/devlights/try-golang/examples/basic/panics"
+	"github.com/devlights/try-golang/examples/basic/profiles"
 	"github.com/devlights/try-golang/examples/basic/reflects"
 	"github.com/devlights/try-golang/examples/basic/runtimes"
 	"github.com/devlights/try-golang/examples/basic/scannerop"
@@ -111,6 +112,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	internalpkg.NewRegister().Regist(m)
 	jsonop.NewRegister().Regist(m)
 	osop.NewRegister().Regist(m)
+	profiles.NewRegister().Regist(m)
 	streams.NewRegister().Regist(m)
 	literals.NewRegister().Regist(m)
 	logging.NewRegister().Regist(m)
