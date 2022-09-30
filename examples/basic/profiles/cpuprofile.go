@@ -13,6 +13,11 @@ import (
 )
 
 // CpuProfile は、pprof を使ってCPUプロファイルを取得するサンプルです。
+//
+// # References
+//
+//   - https://pkg.go.dev/runtime/pprof@go1.19.1
+//   - https://github.com/pkg/profile/blob/master/profile.go
 func CpuProfile() error {
 	const (
 		ShellPath   = "/bin/bash"
