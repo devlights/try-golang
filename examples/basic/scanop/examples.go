@@ -14,4 +14,5 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["scanop_read_one_input"] = ReadOneInput
+	m["scanop_read_multi_input"] = ReadMultipleInput
 }
