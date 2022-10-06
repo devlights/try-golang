@@ -15,4 +15,5 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["scanop_read_one_input"] = ReadOneInput
 	m["scanop_read_multi_input"] = ReadMultipleInput
+	m["scanop_read_formatted_input"] = ReadFormattedInput
 }
