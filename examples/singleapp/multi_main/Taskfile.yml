@@ -1,0 +1,9 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - cmd: go build
+        ignore_error: true
+      - cmd: go run main1.go
+      - cmd: go run main2.go
