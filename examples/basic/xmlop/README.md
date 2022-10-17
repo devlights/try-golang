@@ -10,3 +10,5 @@
 |decoder.go|xml\_decoder|xml.Decoder についてのサンプルです.|
 |encoder.go|xml\_encoder|xml.Encoder についてのサンプルです.|
 |nestedelements.go|xml\_nested\_elements|入れ子になっている要素を取得するサンプルです|
+
+エンコーディングが UTF-8 ではないXMLファイルのUnmarshalについては examples/singleapp/xml_shiftjisを参照。
