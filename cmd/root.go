@@ -15,8 +15,8 @@ import (
 // Execute -- 処理を実行します.
 func Execute() {
 	var (
-		args    *Args
-		mapping mapping.ExampleMapping
+		args     *Args
+		examples mapping.ExampleMapping
 	)
 
 	appLog, errLog, _ := logops.Default.Logger(true, func(_, e, _ *log.Logger) {
@@ -44,10 +44,10 @@ func Execute() {
 		args.ExampleName = strops.Chop(string(b))
 	}
 
-	mapping = builder.BuildMappings()
+	examples = builder.BuildMappings()
 
 	if args.ShowNames {
-		for _, v := range mapping.AllExampleNames() {
+		for _, v := range examples.AllExampleNames() {
 			appLog.Printf("%s", v)
 		}
 
@@ -58,9 +58,9 @@ func Execute() {
 
 	var r runner.Runner
 	if args.ExampleName != "" {
-		r = runner.NewOnce(runner.NewOnceArgs(args.ExampleName, mapping))
+		r = runner.NewOnce(runner.NewOnceArgs(args.ExampleName, examples))
 	} else {
-		r = runner.NewLoop(runner.NewLoopArgs(os.Stdin, args.OneTime, mapping))
+		r = runner.NewLoop(runner.NewLoopArgs(os.Stdin, args.OneTime, examples))
 	}
 
 	if err := r.Run(); err != nil {
