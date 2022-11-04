@@ -9,8 +9,6 @@ tasks:
     init: go install golang.org/x/tools/cmd/goimports@latest
   - name: install revive
     init: go install github.com/mgechev/revive@latest
-  - name: build app
-    command: task build
 
 vscode:
   extensions:
