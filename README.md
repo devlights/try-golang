@@ -6,17 +6,26 @@ This is my TUTORIAL project for golang
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-golang/badge/master)](https://www.codefactor.io/repository/github/devlights/try-golang/overview/master)
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/devlights/try-golang)
+
 ## Go version
 
 ```shell script
-$ go version
-go version go1.19 linux/amd64
+$ lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 20.04.5 LTS
+Release:        20.04
+Codename:       focal
 
-$ make build
-go build -race
+$ go version
+go version go1.19.2 linux/amd64
+
+$ task build
+task: [build] go build .
 
 $ go version try-golang
-try-golang: go1.19
+try-golang: go1.19.2
 ```
 
 ## Run
@@ -24,26 +33,6 @@ try-golang: go1.19
 ```shell script
 $ go run main.go
 ```
-
-or 
-
-```shell script
-$ make run
-```
-
-or
-
-```shell script
-$ make run EXAMPLE=example_name
-```
-
-or
-
-```shell script
-$ make docker
-```
-
-or
 
 If you want to use [go-task](https://github.com/go-task/task), type the following command.
 
@@ -57,20 +46,6 @@ Once the above command is complete, you can run it at
 $ task run
 ```
 
-### Run Docker on Gitpod
-
-type following command in first terminal:
-
-```shell script
-$ sudo docker-up
-```
-
-Launch new terminal and type following command:
-
-```shell
-$ make docker
-```
-
 ## Test
 
 ```shell script
@@ -80,19 +55,7 @@ $ go test -v ./...
 or
 
 ```shell script
-$ make test
-```
-
-## Install
-
-```shell script
-$ go install
-```
-
-or 
-
-```shell script
-$ make install
+$ task test
 ```
 
 ## 関連リポジトリ

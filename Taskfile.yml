@@ -14,6 +14,10 @@ tasks:
     desc: Run app
     cmds:
       - go run . -onetime
+  test:
+    desc: Test
+    cmds:
+      - go test -race -coverprofile /tmp/try-golang-cover $(go list ./... | grep -v /examples/ | grep -v /cmd)
   vet:
     desc: go vet and staticcheck
     cmds:
