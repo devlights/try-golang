@@ -1,6 +1,7 @@
 // signal.Reset() のサンプルです。
 //
 // # REFERENCES
+//   - https://www.developer.com/languages/os-signals-go/
 //   - https://pkg.go.dev/os/signal@go1.19.3#Reset
 package main
 
