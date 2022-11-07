@@ -60,6 +60,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/system"
 	"github.com/devlights/try-golang/examples/basic/templates"
 	"github.com/devlights/try-golang/examples/basic/times"
+	"github.com/devlights/try-golang/examples/basic/tomlop"
 	"github.com/devlights/try-golang/examples/basic/tsvop"
 	"github.com/devlights/try-golang/examples/basic/types"
 	"github.com/devlights/try-golang/examples/basic/unsafes"
@@ -142,6 +143,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	system.NewRegister().Regist(m)
 	templates.NewRegister().Regist(m)
 	times.NewRegister().Regist(m)
+	tomlop.NewRegister().Regist(m)
 	tsvop.NewRegister().Regist(m)
 	types.NewRegister().Regist(m)
 	unsafes.NewRegister().Regist(m)
