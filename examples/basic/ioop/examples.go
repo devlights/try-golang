@@ -14,4 +14,5 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["ioop_limit_read"] = LimitRead
+	m["ioop_onebyte_read"] = OneByteRead
 }
