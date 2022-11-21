@@ -32,7 +32,7 @@ func AbandonedSender() error {
 	defer cxl()
 
 	go fn(ch)
-	
+
 	select {
 	case v := <-ch:
 		output.Stdoutl("[recv]", v)
