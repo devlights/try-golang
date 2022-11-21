@@ -13,7 +13,8 @@ tasks:
   run:
     desc: Run app
     cmds:
-      - go run . -onetime
+      - cmd: go run . -onetime
+        ignore_error: true
   test:
     desc: Test
     cmds:
