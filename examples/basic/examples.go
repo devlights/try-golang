@@ -29,6 +29,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/imports"
 	"github.com/devlights/try-golang/examples/basic/interfaces"
 	"github.com/devlights/try-golang/examples/basic/internalpkg"
+	"github.com/devlights/try-golang/examples/basic/ioop"
 	"github.com/devlights/try-golang/examples/basic/jsonop"
 	"github.com/devlights/try-golang/examples/basic/literals"
 	"github.com/devlights/try-golang/examples/basic/logging"
@@ -112,6 +113,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	interfaces.NewRegister().Regist(m)
 	imports.NewRegister().Regist(m)
 	internalpkg.NewRegister().Regist(m)
+	ioop.NewRegister().Regist(m)
 	jsonop.NewRegister().Regist(m)
 	osop.NewRegister().Regist(m)
 	profiles.NewRegister().Regist(m)
