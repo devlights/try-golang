@@ -1,0 +1,20 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: server
+      - task: client
+  server:
+    dir: server
+    cmds:
+      - cmd: go build -o server
+      - cmd: ./server &
+        ignore_error: true
+  client:
+    dir: client
+    cmds:
+      - cmd: go build -o client
+      - cmd: timeout 1 bash -c 'while true; do echo '--------------------'; ./client; done;'; true
+        ignore_error: true
+      - cmd: pkill -SIGINT server
