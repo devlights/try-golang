@@ -83,8 +83,8 @@ func main() {
 	log.Printf("COUNT=%d\n", count)
 }
 
-func proc(conn net.Conn) {
-	defer conn.Close()
+func proc(stream io.ReadWriteCloser) {
+	defer stream.Close()
 
 	// Recv
 	//
@@ -102,7 +102,7 @@ func proc(conn net.Conn) {
 		length uint32
 	)
 
-	_, err = conn.Read(buf)
+	_, err = stream.Read(buf)
 	exitOnErr(err)
 
 	length = binary.BigEndian.Uint32(buf[:])
@@ -115,7 +115,7 @@ func proc(conn net.Conn) {
 	)
 
 	buf = make([]byte, length)
-	_, err = conn.Read(buf)
+	_, err = stream.Read(buf)
 	exitOnErr(err)
 
 	message = string(buf)
@@ -127,7 +127,7 @@ func proc(conn net.Conn) {
 		resp    = strings.ToUpper(message)
 		respBuf = []byte(resp)
 	)
-	_, err = conn.Write(respBuf)
+	_, err = stream.Write(respBuf)
 	exitOnErr(err)
 
 	appLog.Printf("\t[bytes] %v\n", totalBuf.Bytes())
