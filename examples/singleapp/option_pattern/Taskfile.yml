@@ -4,3 +4,11 @@ tasks:
   default:
     cmds:
       - go run main.go
+  run1:
+    dir: "1"
+    cmds:
+      - go run main.go
+  run2:
+    dir: "2"
+    cmds:
+      - go run main.go

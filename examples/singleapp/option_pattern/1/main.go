@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/devlights/try-golang/examples/singleapp/option_pattern/config"
+	"github.com/devlights/try-golang/examples/singleapp/option_pattern/1/config"
 )
 
 func main() {
