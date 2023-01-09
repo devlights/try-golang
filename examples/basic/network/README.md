@@ -11,3 +11,4 @@
 |http\_get.go|network\_http\_get|http.Get() の サンプルです.|
 |join\_host\_port.go|network\_join\_host\_port|JoinHostPort は、net.JoinHostPort のサンプルです|
 |split\_host\_port.go|network\_split\_host\_port|SplitJoinPort は、net.SplitHostPort のサンプルです|
+|lookup\_port.go|network\_lookup\_port|LookupPort は、 net.LookupPort() のサンプルです|
