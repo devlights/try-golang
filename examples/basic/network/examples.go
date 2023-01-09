@@ -19,4 +19,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["network_ssh_close_after_run"] = SSHSessionCloseAfterRun
 	m["network_http_get"] = HttpGet
 	m["network_join_host_port"] = JoinHostPort
+	m["network_split_host_port"] = SplitHostPort
 }
