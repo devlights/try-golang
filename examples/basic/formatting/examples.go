@@ -19,4 +19,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["formatting_append"] = Append
 	m["formatting_appendf"] = AppendF
 	m["formatting_appendln"] = AppendLn
+	m["formatting_padding_arbitary_length"] = PaddingArbitaryLength
 }

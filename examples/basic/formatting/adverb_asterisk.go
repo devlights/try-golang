@@ -16,7 +16,7 @@ import (
 //
 // REFERENCES:
 //   - 書籍 「プログラミング言語Go」 P.152
-//   - https://golang.org/fmt/
+//   - https://pkg.go.dev/fmt@latest
 func AdverbAsterisk() error {
 	levels := []int{1, 2, 4, 8}
 
