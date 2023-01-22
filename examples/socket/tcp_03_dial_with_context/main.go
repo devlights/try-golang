@@ -77,6 +77,7 @@ func main() {
 //   - https://github.com/golang/go/issues/41470
 //   - https://github.com/valyala/tcplisten/blob/master/tcplisten.go
 //   - https://stackoverflow.com/a/49593356
+//   - https://stackoverflow.com/a/46279623
 //   - https://meetup-jp.toast.com/1509
 func listen(addr string, backLog int) (net.Listener, error) {
 	// make tcp addr
