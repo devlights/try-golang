@@ -77,3 +77,5 @@ $ task test
   - Go で unix domain socket を使って通信するサンプルです。
 - [go-mod-vendoring-example](https://github.com/devlights/go-mod-vendoring-example)
   - Go で 依存しているモジュールを vendoring して実行してみるサンプルです。
+- [go-listener-with-backlog-example](https://github.com/devlights/go-listener-with-backlog-example)
+  - Go で バックログ を指定できる net.Listener を生成して実行するサンプルです。
