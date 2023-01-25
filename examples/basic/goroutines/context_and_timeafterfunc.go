@@ -10,7 +10,7 @@ import (
 // ContextAndTimeAfterFunc は、Context と time.AfterFunc でキャンセルするサンプルです.
 func ContextAndTimeAfterFunc() error {
 	//
-	// 下の２つは同じ結果になる
+	// 下の２つは同じ結果になるが、context.Err() の内容は異なる
 	//
 	useTimeAfterFunc()
 	useWithTimeout()
@@ -28,6 +28,7 @@ func useTimeAfterFunc() {
 	output.Stdoutl("[useTimeAfterFunc]", time.Now().Format("15:04:05"))
 	{
 		<-ctx.Done()
+		output.Stdoutl("[useTimeAfterFunc]", ctx.Err())
 	}
 	output.Stdoutl("[useTimeAfterFunc]", time.Now().Format("15:04:05"))
 }
@@ -42,6 +43,7 @@ func useWithTimeout() {
 	output.Stdoutl("[useWithTimeout]", time.Now().Format("15:04:05"))
 	{
 		<-ctx.Done()
+		output.Stdoutl("[useWithTimeout]", ctx.Err())
 	}
 	output.Stdoutl("[useWithTimeout]", time.Now().Format("15:04:05"))
 }
