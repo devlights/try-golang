@@ -15,3 +15,4 @@
 |usingchansemaphore.go|goroutines\_using\_chan\_semaphore|チャネルでセマフォの動作を行わせるサンプルです|
 |usingmutex.go|goroutines\_using\_mutex|sync.Mutex を利用したサンプルです|
 |workerpool.go|goroutines\_workerpool|Worker Pool パターンのサンプルです|
+|context\_and\_timeafterfunc.go|goroutines\_context\_and\_timeafterfunc|ContextAndTimeAfterFunc は、Context と time.AfterFunc でキャンセルするサンプルです|

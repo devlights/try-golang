@@ -28,6 +28,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["goroutines_using_mutex"] = UsingMutex
 	m["goroutines_with_context_deadline"] = WithContextDeadline
 	m["goroutines_workerpool"] = WorkerPool
+	m["goroutines_context_and_timeafterfunc"] = ContextAndTimeAfterFunc
 
 	leak.NewRegister().Regist(m)
 }
