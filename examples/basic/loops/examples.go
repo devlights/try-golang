@@ -22,4 +22,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["loops_range_loop"] = RangeLoop
 	m["loops_infinite_loop"] = InfiniteLoop
 	m["loops_two_variable"] = ForLoopTwoVariable
+	m["loops_for_loop_copy_value"] = ForLoopCopyValue
 }
