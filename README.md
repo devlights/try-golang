@@ -81,3 +81,5 @@ $ task test
   - Go で バックログ を指定できる net.Listener を生成して実行するサンプルです。
 - [go-syscall-with-strace](https://github.com/devlights/go-syscall-with-strace)
   - Go アプリが内部で利用しているシステムコールを出力するサンプルです。
+- [go-socket-reuseport-example](https://github.com/devlights/go-socket-reuseport-example)
+  - Go で ソケット の SO_REUSEPORT を有効にして、同一ポートに複数LISTENするサーバを作るサンプルです。
