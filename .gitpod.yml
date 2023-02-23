@@ -2,7 +2,7 @@ image: gitpod/workspace-full:latest
 
 tasks:
   - name: update go version and install tools
-    init:
+    command:
       rm -rf /home/gitpod/tmp &&
       mkdir -p /home/gitpod/tmp &&
       cd /home/gitpod/tmp &&
