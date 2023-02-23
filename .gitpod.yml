@@ -1,16 +1,33 @@
-image: gitpod/workspace-go:latest
+image: gitpod/workspace-full:latest
 
 tasks:
-  - name: install staticcheck
-    init: go install honnef.co/go/tools/cmd/staticcheck@latest
-  - name: install go-task
-    init: go install github.com/go-task/task/v3/cmd/task@latest
-  - name: install goimport
-    init: go install golang.org/x/tools/cmd/goimports@latest
-  - name: install revive
-    init: go install github.com/mgechev/revive@latest
-  - name: build app
-    command: go mod tidy && task build
+  - name: update go version
+    command:
+      rm -rf /home/gitpod/tmp &&
+      mkdir -p /home/gitpod/tmp &&
+      cd /home/gitpod/tmp &&
+      wget -q -O go.tar.gz https://go.dev/dl/go1.20.1.linux-amd64.tar.gz &&
+      tar zxf go.tar.gz &&
+      mv /home/gitpod/go /home/gitpod/go-old &&
+      mv go /home/gitpod
+  - name: install tools
+    command:
+      go install github.com/go-task/task/v3/cmd/task@latest &&
+      go install github.com/go-delve/delve/cmd/dlv@latest &&
+      go install honnef.co/go/tools/cmd/staticcheck@latest &&
+      go install golang.org/x/tools/cmd/goimports@latest &&
+      go install github.com/mgechev/revive@latest &&
+      go install golang.org/x/tools/gopls@latest
+#  - name: install delve
+#    init: go installl github.com/go-delve/delve/cmd/dlv@latest
+#  - name: install staticcheck
+#    init: go install honnef.co/go/tools/cmd/staticcheck@latest
+#  - name: install goimport
+#    init: go install golang.org/x/tools/cmd/goimports@latest
+#  - name: install revive
+#    init: go install github.com/mgechev/revive@latest
+#  - name: install gopls
+#    init: go install golang.org/x/tools/gopls@latest
 
 vscode:
   extensions:
