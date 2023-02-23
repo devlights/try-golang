@@ -1,7 +1,7 @@
 image: gitpod/workspace-full:latest
 
 tasks:
-  - name: update go version
+  - name: update go version and install tools
     command:
       rm -rf /home/gitpod/tmp &&
       mkdir -p /home/gitpod/tmp &&
@@ -10,15 +10,13 @@ tasks:
       tar zxf go.tar.gz &&
       mv /home/gitpod/go /home/gitpod/go-old &&
       mv go /home/gitpod &&
-      exit
-  - name: install tools
-    command:
       go install github.com/go-task/task/v3/cmd/task@latest &&
       go install github.com/go-delve/delve/cmd/dlv@latest &&
       go install honnef.co/go/tools/cmd/staticcheck@latest &&
       go install golang.org/x/tools/cmd/goimports@latest &&
       go install github.com/mgechev/revive@latest &&
       exit
+
   - name: show go version
     command: go version
 
