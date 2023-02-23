@@ -10,7 +10,7 @@ tasks:
       go install honnef.co/go/tools/cmd/staticcheck@latest &&
       go install golang.org/x/tools/cmd/goimports@latest &&
       go install github.com/mgechev/revive@latest &&
-      go install golang.org/x/tools/gopls@latest &&
+      go install golang.org/x/tools/gopls@latest
 #  - name: install delve
 #    init: go installl github.com/go-delve/delve/cmd/dlv@latest
 #  - name: install staticcheck
