@@ -18,7 +18,6 @@ tasks:
       go install honnef.co/go/tools/cmd/staticcheck@latest &&
       go install golang.org/x/tools/cmd/goimports@latest &&
       go install github.com/mgechev/revive@latest &&
-      go install golang.org/x/tools/gopls@latest &&
       exit
   - name: show go version
     command: go version
