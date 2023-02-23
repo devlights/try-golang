@@ -18,16 +18,6 @@ tasks:
       go install golang.org/x/tools/cmd/goimports@latest &&
       go install github.com/mgechev/revive@latest &&
       go install golang.org/x/tools/gopls@latest
-#  - name: install delve
-#    init: go installl github.com/go-delve/delve/cmd/dlv@latest
-#  - name: install staticcheck
-#    init: go install honnef.co/go/tools/cmd/staticcheck@latest
-#  - name: install goimport
-#    init: go install golang.org/x/tools/cmd/goimports@latest
-#  - name: install revive
-#    init: go install github.com/mgechev/revive@latest
-#  - name: install gopls
-#    init: go install golang.org/x/tools/gopls@latest
 
 vscode:
   extensions:
