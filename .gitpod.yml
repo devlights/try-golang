@@ -2,7 +2,7 @@ image: gitpod/workspace-full:latest
 
 tasks:
   - name: update go version and install tools
-    command:
+    init:
       rm -rf /home/gitpod/tmp &&
       mkdir -p /home/gitpod/tmp &&
       cd /home/gitpod/tmp &&
@@ -16,9 +16,6 @@ tasks:
       go install golang.org/x/tools/cmd/goimports@latest &&
       go install github.com/mgechev/revive@latest &&
       exit
-
-  - name: show go version
-    command: go version
 
 vscode:
   extensions:
