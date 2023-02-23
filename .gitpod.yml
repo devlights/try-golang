@@ -9,7 +9,8 @@ tasks:
       wget -q -O go.tar.gz https://go.dev/dl/go1.20.1.linux-amd64.tar.gz &&
       tar zxf go.tar.gz &&
       mv /home/gitpod/go /home/gitpod/go-old &&
-      mv go /home/gitpod
+      mv go /home/gitpod &&
+      exit
   - name: install tools
     command:
       go install github.com/go-task/task/v3/cmd/task@latest &&
@@ -17,7 +18,10 @@ tasks:
       go install honnef.co/go/tools/cmd/staticcheck@latest &&
       go install golang.org/x/tools/cmd/goimports@latest &&
       go install github.com/mgechev/revive@latest &&
-      go install golang.org/x/tools/gopls@latest
+      go install golang.org/x/tools/gopls@latest &&
+      exit
+  - name: show go version
+    command: go version
 
 vscode:
   extensions:
