@@ -1,12 +1,17 @@
 FROM gitpod/workspace-go:latest
 
+ARG GITPOD_HOME_TMP="/home/gitpod/tmp"
+ARG GITPOD_HOME_GO="/home/gitpod/go"
+ARG GITPOD_HOME_GO_OLD="/home/gitpod/go-old"
+ARG GO_VERSION="1.20.1"
+
 USER gitpod
 
-RUN sudo apt update -q && \
-    rm -rf /home/gitpod/tmp && \
-    mkdir -p /home/gitpod/tmp && \
-    cd /home/gitpod/tmp && \
-    wget -q -O go.tar.gz https://go.dev/dl/go1.20.1.linux-amd64.tar.gz && \
+RUN sudo apt-get update -q && \
+    rm -rf ${GITPOD_HOME_TMP} && \
+    mkdir -p ${GITPOD_HOME_TMP} && \
+    cd ${GITPOD_HOME_TMP} && \
+    wget -q -O go.tar.gz https://go.dev/dl/go${GO_VERSION}.linux-amd64.tar.gz && \
     tar zxf go.tar.gz && \
-    mv /home/gitpod/go /home/gitpod/go-old && \
+    mv ${GITPOD_HOME_GO} ${GITPOD_HOME_GO_OLD} && \
     mv go /home/gitpod
