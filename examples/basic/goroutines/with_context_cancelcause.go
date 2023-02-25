@@ -13,14 +13,10 @@ import (
 // # REFERENCES
 //   - https://pkg.go.dev/context@go1.20.1#WithCancelCause
 func WithContextCancelCause() error {
-	var (
-		rootCtx          = context.Background()
-		mainCtx, mainCxl = context.WithTimeout(rootCtx, 2*time.Second)
-		procCtx          context.Context
-	)
+	mainCtx, mainCxl := context.WithTimeout(context.Background(), 1*time.Second)
 	defer mainCxl()
 
-	procCtx = func(ctx context.Context) context.Context {
+	withCancelCauseCtx := func(ctx context.Context) context.Context {
 		//
 		// Go 1.20 から WithCancelCause() が追加された
 		// これにより、cancel 関数に対して任意のエラーを指定出来るようになっている
@@ -31,26 +27,47 @@ func WithContextCancelCause() error {
 		ctx, cxl := context.WithCancelCause(ctx)
 
 		go func() {
-			<-time.After(1 * time.Second)
-			cxl(fmt.Errorf("my error"))
+			select {
+			case <-time.After(500 * time.Millisecond):
+				cxl(fmt.Errorf("my error"))
+			case <-ctx.Done():
+			}
 		}()
 
 		return ctx
 	}(mainCtx)
 
+	withCancelCtx := func(ctx context.Context) context.Context {
+		ctx, cxl := context.WithCancel(ctx)
+
+		go func() {
+			select {
+			case <-time.After(2 * time.Second):
+				cxl()
+			case <-ctx.Done():
+			}
+		}()
+
+		return ctx
+	}(withCancelCauseCtx)
+
 	select {
-	case <-procCtx.Done():
+	case <-withCancelCtx.Done():
+	case <-withCancelCauseCtx.Done():
 	case <-mainCtx.Done():
 	}
 
-	output.Stdoutl("[procctx.Err]", procCtx.Err())
-	output.Stdoutl("[mainctx.Err]", mainCtx.Err())
+	output.Stdoutl("[withCancelCtx.Err       ]", withCancelCtx.Err())
+	output.Stdoutl("[withCancelCauseCtx.Err  ]", withCancelCauseCtx.Err())
+	output.Stdoutl("[mainCtx.Err             ]", mainCtx.Err())
 
 	// 当然であるが、下位のコンテキストで設定した任意のエラーは
 	// 上位のコンテキストを指定しても取得できない。
-	output.Stdoutl("[procctx.Cause]", context.Cause(procCtx))
-	output.Stdoutl("[mainctx.Cause]", context.Cause(mainCtx))
-	output.Stdoutl("[rootctx.Cause]", context.Cause(rootCtx))
+	// 下位のコンテキストには伝播する。
+	output.StdoutHr()
+	output.Stdoutl("[withCancelCtx.Cause     ]", context.Cause(withCancelCtx))
+	output.Stdoutl("[withCancelCauseCtx.Cause]", context.Cause(withCancelCauseCtx))
+	output.Stdoutl("[mainCtx.Cause           ]", context.Cause(mainCtx))
 
 	return nil
 }
