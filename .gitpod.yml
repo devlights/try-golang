@@ -1,10 +1,8 @@
-image: gitpod/workspace-full:latest
+image: gitpod/workspace-go:latest
 
 tasks:
-  - name: update apt,brew
-    init: sudo apt update -q && brew update && exit
-  - name: update go version and install tools
-    command:
+  - name: update apt,go and tools
+    init: sudo apt update -q &&
       rm -rf /home/gitpod/tmp &&
       mkdir -p /home/gitpod/tmp &&
       cd /home/gitpod/tmp &&
