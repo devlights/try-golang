@@ -1,8 +1,10 @@
 image: gitpod/workspace-go:latest
 
 tasks:
-  - name: update apt,go and tools
-    init: sudo apt update -q &&
+  - name: update apt
+    init: sudo apt update -q
+  - name: update go and tools
+    command:
       rm -rf /home/gitpod/tmp &&
       mkdir -p /home/gitpod/tmp &&
       cd /home/gitpod/tmp &&
