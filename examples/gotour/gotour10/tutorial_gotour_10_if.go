@@ -23,10 +23,9 @@ func If() error {
 	// if err := xxxx(); err != nil {
 	// }
 	// ------------------------------------------------------------
-	rand.Seed(time.Now().UnixNano())
-
 	var (
-		i = rand.Intn(100)
+		rnd = rand.New(rand.NewSource(time.Now().UnixNano()))
+		i   = rnd.Intn(100)
 	)
 
 	// 通常の if
@@ -41,7 +40,7 @@ func If() error {
 	// ステートメント付きの if
 	// ifの条件部で宣言した変数は if ブロックの中で使えるし
 	// elseブロックの中でも見える
-	if i2 := rand.Intn(100); i2 < 80 {
+	if i2 := rnd.Intn(100); i2 < 80 {
 		fmt.Println("< 80")
 	} else {
 		fmt.Println("> 80")

@@ -21,10 +21,10 @@ func Switch() error {
 	// - 条件部を 指定しない switch　は、 switch true {} と書いてるのと同じ
 	//   - if-then-else を長くかくより、 switch {} を使うほうがシンプルに表現できる.
 	// ------------------------------------------------------------
-	rand.Seed(time.Now().UnixNano())
 	var (
-		i = rand.Intn(6)
-		f = func() int {
+		rnd = rand.New(rand.NewSource(time.Now().UnixNano()))
+		i   = rnd.Intn(6)
+		f   = func() int {
 			return 3
 		}
 	)

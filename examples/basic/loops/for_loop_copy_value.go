@@ -19,7 +19,7 @@ func ForLoopCopyValue() error {
 			for _, v := range accs {
 				fmt.Printf("%v", v)
 			}
-			fmt.Println("")			
+			fmt.Println("")
 		}
 	)
 

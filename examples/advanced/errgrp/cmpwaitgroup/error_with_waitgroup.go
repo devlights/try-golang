@@ -10,16 +10,13 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
-
 // ErrWithWaitGroup は、標準ライブラリ sync.WaitGroup でエラー情報を呼び元に伝播させるサンプルです.
 func ErrWithWaitGroup() error {
 	var (
 		loopRange = enumerable.NewRange(1, 6)
 		waitGrp   = sync.WaitGroup{}
 		errorCh   = make(chan error)
+		rnd       = rand.New(rand.NewSource(time.Now().UnixNano()))
 	)
 
 	// ----------------------------------------------------------------------------------------
@@ -37,7 +34,7 @@ func ErrWithWaitGroup() error {
 			output.Stderrl(prefix, "start")
 			defer output.Stderrl(prefix, "end")
 
-			err := randomErr(prefix)
+			err := randomErr(prefix, rnd)
 			if err != nil {
 				output.Stderrl(prefix, "\tERROR!!")
 				errorCh <- err
@@ -58,8 +55,8 @@ func ErrWithWaitGroup() error {
 	return nil
 }
 
-func randomErr(message string) error {
-	i := rand.Intn(100)
+func randomErr(message string, rnd *rand.Rand) error {
+	i := rnd.Intn(100)
 	if i > 30 {
 		return fmt.Errorf("randomErr [%d][%s]", i, message)
 	}

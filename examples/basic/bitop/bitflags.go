@@ -23,6 +23,13 @@ const (
 )
 
 // ---------------------------------------
+// Vars
+// ---------------------------------------
+var (
+	rnd = rand.New(rand.NewSource(time.Now().UnixNano()))
+)
+
+// ---------------------------------------
 // Types
 // ---------------------------------------
 
@@ -40,7 +47,7 @@ func (me producer) put(n int) context.Context {
 		defer cxl()
 		for i := 0; i < n; i++ {
 			me <- i
-			time.Sleep(time.Duration(rand.Intn(10)) * time.Millisecond)
+			time.Sleep(time.Duration(rnd.Intn(10)) * time.Millisecond)
 		}
 	}()
 	return ctx
@@ -52,7 +59,7 @@ func (me consumer) take(prefix string) context.Context {
 		defer cxl()
 		for v := range me {
 			log.Printf("%s: %v\n", prefix, v)
-			time.Sleep(time.Duration(rand.Intn(50)) * time.Millisecond)
+			time.Sleep(time.Duration(rnd.Intn(50)) * time.Millisecond)
 		}
 	}()
 	return ctx
@@ -127,7 +134,6 @@ func (me reporter) start() context.Context {
 // BitFlags -- ビットフラグのサンプルです.
 func BitFlags() error {
 	log.SetFlags(0)
-	rand.Seed(time.Now().Unix())
 
 	// initialize jobs
 	var (

@@ -39,10 +39,6 @@ var (
 	appLog = log.New(os.Stderr, "[client] ", log.Ltime|log.Lmicroseconds)
 )
 
-func init() {
-	rand.Seed(time.Now().UnixNano())
-}
-
 func exitOnErr(err error) {
 	if err != nil {
 		if err != io.EOF {
@@ -73,7 +69,8 @@ func main() {
 	// 		(1) length: uint32 (4-bytes)
 	// 		(2) data  : string (variable)
 	var (
-		message = items[rand.Intn(len(items))]
+		rnd     = rand.New(rand.NewSource(time.Now().UnixNano()))
+		message = items[rnd.Intn(len(items))]
 		length  = make([]byte, 4)
 		buf     = new(bytes.Buffer)
 	)

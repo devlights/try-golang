@@ -2,6 +2,8 @@ package cmpwaitgroup
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 
 	"github.com/devlights/gomy/enumerable"
 	"github.com/devlights/gomy/output"
@@ -15,6 +17,7 @@ func ErrWithErrGroup() error {
 	var (
 		loopRange = enumerable.NewRange(1, 6)
 		waitGrp   = errgroup.Group{}
+		rnd       = rand.New(rand.NewSource(time.Now().UnixNano()))
 	)
 
 	// ----------------------------------------------------------------------------------------
@@ -36,7 +39,7 @@ func ErrWithErrGroup() error {
 			output.Stderrl(prefix, "start")
 			defer output.Stderrl(prefix, "end")
 
-			err := randomErr(prefix)
+			err := randomErr(prefix, rnd)
 			if err != nil {
 				output.Stderrl(prefix, "\tERROR!!")
 			}

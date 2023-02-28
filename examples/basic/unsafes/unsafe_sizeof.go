@@ -44,6 +44,8 @@ func Sizeof() error {
 		},
 	}
 
+	fmt.Println("mem", m)
+
 	fmt.Println("bool", unsafe.Sizeof(m.b))
 	fmt.Println("int", unsafe.Sizeof(m.i))
 	fmt.Println("int16", unsafe.Sizeof(m.i16))
@@ -57,5 +59,6 @@ func Sizeof() error {
 
 	fmt.Println("----")
 	fmt.Println("mem", unsafe.Sizeof(m))
+
 	return nil
 }
