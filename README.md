@@ -3,7 +3,7 @@
 
 This is my TUTORIAL project for golang
 
-![try-golang - Go Version](https://img.shields.io/badge/go-1.19-blue.svg)
+![try-golang - Go Version](https://img.shields.io/badge/go-1.20-blue.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-golang/badge/master)](https://www.codefactor.io/repository/github/devlights/try-golang/overview/master)
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
 
@@ -20,13 +20,13 @@ Release:        20.04
 Codename:       focal
 
 $ go version
-go version go1.19.2 linux/amd64
+go version go1.20.1 linux/amd64
 
 $ task build
 task: [build] go build .
 
 $ go version try-golang
-try-golang: go1.19.2
+try-golang: go1.20.1
 ```
 
 ## Run
@@ -63,6 +63,8 @@ $ task test
 
 - [gomy](https://github.com/devlights/gomy)
   - 共通ライブラリ
+- [goxcel](https://github.com/devlights/goxcel)
+  - Excel操作ライブラリ (go-ole利用)
 - [try-golang-extlib](https://github.com/devlights/try-golang-extlib)
   - 3rd party ライブラリのサンプルはこちらで管理しています。
 - [try-golang-db](https://github.com/devlights/try-golang-db)
