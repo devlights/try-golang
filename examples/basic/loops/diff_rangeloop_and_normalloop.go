@@ -4,16 +4,15 @@ import "github.com/devlights/gomy/output"
 
 // DiffRangeLoopAndNormalLoop は、 range ループと通常のループの違いについてのサンプルです.
 func DiffRangeLoopAndNormalLoop() error {
-	var (
-		s1 = []int{1, 2, 3}
-	)
-
 	//
 	// range ループは、ループ時に元の値のコピーを作成してそれをループする。
 	// 以下の処理は、ループの度に元のスライスに要素を追加しているが
 	// rangeループでコピーしたスライスは変化が無いため、ループは３回で終了し
 	// 元のスライスの要素数も増えて６となる。
 	//
+	var (
+		s1 = []int{1, 2, 3}
+	)
 	for range s1 { // ループが始まる直前に内部的にコピーが取られ、そのコピーを元にループするイメージ
 		s1 = append(s1, 99)
 	}
