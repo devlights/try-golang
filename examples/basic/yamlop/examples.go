@@ -1,6 +1,9 @@
 package yamlop
 
-import "github.com/devlights/try-golang/mapping"
+import (
+	threedash "github.com/devlights/try-golang/examples/basic/yamlop/three-dash"
+	"github.com/devlights/try-golang/mapping"
+)
 
 type (
 	register struct{}
@@ -19,4 +22,5 @@ func (*register) Regist(m mapping.ExampleMapping) {
 	m["yaml_unmarshal"] = Unmarshal
 	m["yaml_decoder"] = Decoder
 	m["yaml_encoder"] = Encoder
+	m["yaml_threedash"] = threedash.ThreeDash
 }
