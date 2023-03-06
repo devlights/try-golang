@@ -6,7 +6,7 @@ import (
 	"os"
 
 	"github.com/devlights/gomy/output"
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 )
 
 // ThreeDash は、YAML の "---" で複数のドキュメントが存在する場合のサンプルです.

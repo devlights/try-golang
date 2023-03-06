@@ -3,7 +3,7 @@ package yamlop
 import (
 	"github.com/devlights/gomy/output"
 	"github.com/devlights/try-golang/examples/basic/yamlop/types"
-	"gopkg.in/yaml.v2"
+	"gopkg.in/yaml.v3"
 )
 
 // Marshal は、yaml.Marshal() を利用したサンプルです.
