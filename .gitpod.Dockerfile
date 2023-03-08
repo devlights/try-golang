@@ -3,7 +3,7 @@ FROM gitpod/workspace-go:latest
 ARG GITPOD_HOME_TMP="/home/gitpod/tmp"
 ARG GITPOD_HOME_GO="/home/gitpod/go"
 ARG GITPOD_HOME_GO_OLD="/home/gitpod/go-old"
-ARG GO_VERSION="1.20.1"
+ARG GO_VERSION="1.20.2"
 
 USER gitpod
 
