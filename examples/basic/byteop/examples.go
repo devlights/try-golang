@@ -14,4 +14,5 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["byteop_reader_from_byteslice"] = ReaderFromByteSlice
+	m["byteop_cut_prefix_suffix"] = CutPrefixSuffix
 }
