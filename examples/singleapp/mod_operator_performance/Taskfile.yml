@@ -1,0 +1,9 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  run:
+    cmds:
+      - cmd: go test . -bench . -benchtime 10s
