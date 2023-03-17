@@ -2,7 +2,7 @@
 
 Reddit にて、以下のスレッドを発見。
 
-[Go is 2-3 times slower than JS in a similar code. What makes Go slow in this specific code?](https://www.reddit.com/r/golang/comments/11spdom/go_is_23_times_slower_than_js_in_a_similar_code://www.reddit.com/r/golang/comments/11spdom/go_is_23_times_slower_than_js_in_a_similar_code/)
+[Go is 2-3 times slower than JS in a similar code. What makes Go slow in this specific code?](https://www.reddit.com/r/golang/comments/11spdom/go_is_23_times_slower_than_js_in_a_similar_code)
 
 IntelのCPUだと、```%``` を使った計算がとても遅くなるとの話。
 
