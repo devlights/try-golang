@@ -29,17 +29,34 @@ ok      github.com/devlights/try-golang/examples/singleapp/mod_operator_performa
 
 ## CPU: Intel(R) Core(TM) i7-10510U
 
+### Windows
+
 ```sh
 $ task -d .\examples\singleapp\mod_operator_performance\
-task: [run] go test . -bench . -benchtime 10s
+task: [run] go test . -bench . -benchtime 10s -cpu 8
 goos: windows
 goarch: amd64
 pkg: github.com/devlights/try-golang/examples/singleapp/mod_operator_performance
 cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
-BenchmarkModOperatorInt-8             84         160548945 ns/op
-BenchmarkModOperatorUInt32-8         272          42824870 ns/op
+BenchmarkModOperatorInt-8             76         147983075 ns/op
+BenchmarkModOperatorUInt32-8         274          44632203 ns/op
 PASS
-ok      github.com/devlights/try-golang/examples/singleapp/mod_operator_performance     30.474s
+ok      github.com/devlights/try-golang/examples/singleapp/mod_operator_performance     28.765s
+```
+
+### WSL
+
+```sh
+$ task -d examples/singleapp/mod_operator_performance/
+task: [run] go test . -bench . -benchtime 10s -cpu 8
+goos: linux
+goarch: amd64
+pkg: github.com/devlights/try-golang/examples/singleapp/mod_operator_performance
+cpu: Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
+BenchmarkModOperatorInt-8             78         144214159 ns/op
+BenchmarkModOperatorUInt32-8         283          42288278 ns/op
+PASS
+ok      github.com/devlights/try-golang/examples/singleapp/mod_operator_performance     27.647s
 ```
 
 たしかに、Intelの場合、差がとても大きい。
