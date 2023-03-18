@@ -6,4 +6,4 @@ tasks:
       - task: run
   run:
     cmds:
-      - cmd: go test . -bench . -benchtime 10s
+      - cmd: go test . -bench . -benchtime 10s -cpu 8
