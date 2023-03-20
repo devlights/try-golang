@@ -21,4 +21,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["binaryop_mapping"] = MapStruct
 	m["binaryop_byteorder"] = ByteOrder
 	m["binaryop_readwrite"] = readwrite.ReadWrite
+	m["binaryop_struct_read_write"] = StructReadWrite
 }
