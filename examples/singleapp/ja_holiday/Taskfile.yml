@@ -1,0 +1,21 @@
+version: "3"
+
+vars:
+  DATA_FILE: syukujitsu.csv
+  DATA_URL: https://www8.cao.go.jp/chosei/shukujitsu/{{.DATA_FILE}}
+
+tasks:
+  default:
+    cmds:
+      - task: get-holiday-csv
+      - task: run
+  get-holiday-csv:
+    cmds:
+      # https://www8.cao.go.jp/chosei/shukujitsu/gaiyou.html
+      - cmd: if ! [ -f {{.DATA_FILE}} ]; then wget --quiet {{.DATA_URL}}; fi
+  run:
+    cmds:
+      - time go run . < ./{{.DATA_FILE}}
+  clean:
+    cmds:
+      - rm -f ./{{.DATA_FILE}}
