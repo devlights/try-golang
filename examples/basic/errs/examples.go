@@ -19,4 +19,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["error_wrap_unwrap"] = WrapAndUnwrap
 	m["error_is_and_as"] = IsAndAs
 	m["error_join"] = ErrorJoin
+	m["error_join_fmt_errorf"] = ErrorJoinFmtErrorf
 }
