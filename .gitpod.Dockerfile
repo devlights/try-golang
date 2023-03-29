@@ -1,4 +1,4 @@
-FROM gitpod/workspace-go:latest
+FROM gitpod/workspace-full:latest
 
 ARG GITPOD_HOME_TMP="/home/gitpod/tmp"
 ARG GITPOD_HOME_GO="/home/gitpod/go"
