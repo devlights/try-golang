@@ -18,3 +18,5 @@
 |time\_in.go|time\_in|time.In() の使い方のサンプルです|
 |time\_truncate.go|time\_truncate|time.Truncate() のサンプルです。n分置き や n時間置き の時間を表現することができます。|
 |time\_truncate\_hours.go|time\_truncate\_hours|time.Timeから時刻部分を除去するサンプルです.|
+|time\_change\_timezone.go|time\_change\_timezone|time.Timeをいろいろなタイム・ゾーンの値に変換するサンプルです|
+|time\_format\_datetime.go|time\_format\_datetime|Go1.20で追加された time.DateTime フォーマット書式についてのサンプルです|
