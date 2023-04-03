@@ -32,7 +32,7 @@ func FormatTimeOnly() error {
 
 	output.Stdoutf("[UTC          ]", "%v\n", now.UTC())
 	output.Stdoutf("[JST          ]", "%v\n", jst)
-	output.Stdoutf("[time.DateTime]", "%s\n", time.TimeOnly)
+	output.Stdoutf("[time.TimeOnly]", "%s\n", time.TimeOnly)
 	output.Stdoutf("[time.Format  ]", "%s\n", jst.Format(time.TimeOnly))
 
 	return nil
