@@ -31,4 +31,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["time_change_timezone"] = ChangeTimeZone
 	m["time_format_datetime"] = FormatDateTime
 	m["time_format_dateonly"] = FormatDateOnly
+	m["time_format_timeonly"] = FormatTimeOnly
 }
