@@ -21,3 +21,4 @@
 |time\_change\_timezone.go|time\_change\_timezone|time.Timeをいろいろなタイム・ゾーンの値に変換するサンプルです|
 |time\_format\_datetime.go|time\_format\_datetime|Go1.20で追加された time.DateTime フォーマット書式についてのサンプルです|
 |time\_format\_dateonly.go|time\_format\_dateonly|Go1.20で追加された time.DateOnly フォーマット書式についてのサンプルです|
+|time\_format\_timeonly.go|time\_format\_timeonly|Go1.20で追加された time.TimeOnly フォーマット書式についてのサンプルです|
