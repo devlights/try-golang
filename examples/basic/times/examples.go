@@ -29,4 +29,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["time_json_custom"] = TimeJsonCustom
 	m["time_in"] = TimeIn
 	m["time_change_timezone"] = ChangeTimeZone
+	m["time_format_datetime"] = FormatDateTime
 }
