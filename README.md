@@ -85,3 +85,5 @@ $ task test
   - Go アプリが内部で利用しているシステムコールを出力するサンプルです。
 - [go-socket-reuseport-example](https://github.com/devlights/go-socket-reuseport-example)
   - Go で ソケット の SO_REUSEPORT を有効にして、同一ポートに複数LISTENするサーバを作るサンプルです。
+- [go-gopacket-example](https://github.com/devlights/go-gopacket-example)
+  - [gopacket](https://github.com/google/gopacket)を使ってパケットキャプチャを行うサンプルです。
