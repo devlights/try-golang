@@ -6,6 +6,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/fileio/readwrite"
 	"github.com/devlights/try-golang/examples/basic/fileio/stat"
 	"github.com/devlights/try-golang/examples/basic/fileio/stdinouterr"
+	"github.com/devlights/try-golang/examples/basic/fileio/sync_and_close"
 	"github.com/devlights/try-golang/mapping"
 )
 
@@ -25,4 +26,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	stdinouterr.NewRegister().Regist(m)
 	filesystem.NewRegister().Regist(m)
 	ja.NewRegister().Regist(m)
+	sync_and_close.NewRegister().Regist(m)
 }
