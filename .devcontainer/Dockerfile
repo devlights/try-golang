@@ -1,5 +1,5 @@
 # [Choice] Go version: 1, 1.16, 1.17
-ARG VARIANT="1.18"
+ARG VARIANT="1.20"
 FROM mcr.microsoft.com/vscode/devcontainers/go:0-${VARIANT}
 
 # [Choice] Node.js version: none, lts/*, 16, 14, 12, 10
