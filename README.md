@@ -87,3 +87,5 @@ $ task test
   - Go で ソケット の SO_REUSEPORT を有効にして、同一ポートに複数LISTENするサーバを作るサンプルです。
 - [go-gopacket-example](https://github.com/devlights/go-gopacket-example)
   - [gopacket](https://github.com/google/gopacket)を使ってパケットキャプチャを行うサンプルです。
+- [go-tcp-keepalive-example](https://github.com/devlights/go-tcp-keepalive-example)
+  - Go で キープアライブプローブ を送信するサンプルです。
