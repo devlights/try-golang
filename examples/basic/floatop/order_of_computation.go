@@ -11,6 +11,7 @@ import (
 // # REFERENCES
 //   - https://zenn.dev/kumackey/articles/d20230708-a7c195db087338
 //   - https://wp.jmuk.org/2023/06/21/%e6%b5%ae%e5%8b%95%e5%b0%8f%e6%95%b0%e7%82%b9%e6%95%b0%e3%81%ae%e5%8a%a0%e7%ae%97%e3%81%ae%e9%a0%86%e5%ba%8f%e3%81%ab%e3%83%8f%e3%83%9e%e3%81%a3%e3%81%9f%e8%a9%b1/
+//   - https://www.jpcert.or.jp/sc-rules/c-flp01-c.html
 func OrderOfComputation() error {
 	//
 	// 浮動小数点は計算の順序によって結果が変わる
