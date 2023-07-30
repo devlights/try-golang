@@ -31,4 +31,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["slice_three_index"] = ThreeIndex
 	m["slice_declare_empty_slice"] = DeclareEmtpySlice
 	m["slice_convert_to_array_go117"] = ConvertToArrayGo117
+	m["slice_append_special_behavior"] = AppendSpecialBehavior
 }
