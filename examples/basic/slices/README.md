@@ -19,3 +19,5 @@
 |slice\_remove\_all\_elements.go|slice\_remove\_all\_elements|スライスの全要素を削除するサンプルです.|
 |slice\_keep\_allocated\_memory.go|slice\_keep\_allocated\_memory|スライスのメモリ状態をキープしたままで len を 0 にするサンプルです.|
 |slice\_nil\_append.go|slice\_nil\_append|Nilなスライスに対して append した場合の挙動についてのサンプル|
+|slice\_convert\_to\_array\_go117.go|slice\_convert\_to\_array\_go117|Go 1.17 以降で有効な スライス から 配列 への変換方法についてのサンプルです|
+|slice\_append\_special\_behavior.go|slice\_append\_special\_behavior|append() を利用する際の特別な挙動に付いてのサンプルです|
