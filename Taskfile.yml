@@ -28,6 +28,11 @@ tasks:
     desc: use revive as linter
     cmds:
       - revive -config ./revive.toml -formatter stylish ./...
+  analyze:
+    desc: use nilaway
+    cmds:
+      - nilaway ./...
+    ignore_error: true
   fmt:
     desc: go fmt
     cmds:
