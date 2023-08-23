@@ -3,7 +3,7 @@
 
 This is my TUTORIAL project for golang
 
-![try-golang - Go Version](https://img.shields.io/badge/go-1.20-blue.svg)
+![try-golang - Go Version](https://img.shields.io/badge/go-1.21-blue.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/devlights/try-golang/badge/master)](https://www.codefactor.io/repository/github/devlights/try-golang/overview/master)
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
 
@@ -20,13 +20,13 @@ Release:        20.04
 Codename:       focal
 
 $ go version
-go version go1.20.1 linux/amd64
+go version go1.21.0 linux/amd64
 
 $ task build
 task: [build] go build .
 
 $ go version try-golang
-try-golang: go1.20.1
+try-golang: go1.21.0
 ```
 
 ## Run
@@ -89,3 +89,4 @@ $ task test
   - [gopacket](https://github.com/google/gopacket)を使ってパケットキャプチャを行うサンプルです。
 - [go-tcp-keepalive-example](https://github.com/devlights/go-tcp-keepalive-example)
   - Go で キープアライブプローブ を送信するサンプルです。
+- [バイトスライスに文字列を速く設定する方法（fmt.Sprintf, fmt.Appendf, 直接append使用)](https://gist.github.com/devlights/ffd22f78297a563c9bebcb9a9baa7f5f)
