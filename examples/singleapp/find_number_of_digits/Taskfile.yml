@@ -1,0 +1,13 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - go run main.go
+      - echo '----------------------------------------'
+      - go test -v lib/*
+      - echo '----------------------------------------'      
+      - go test -bench . lib/*
+    silent: true
