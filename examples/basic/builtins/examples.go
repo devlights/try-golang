@@ -15,4 +15,5 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["builtin_print"] = PrintFunc
 	m["builtin_minmax"] = MinMax
+	m["builtin_clear"] = Clear
 }

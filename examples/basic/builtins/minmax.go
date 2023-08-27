@@ -6,8 +6,8 @@ import "github.com/devlights/gomy/output"
 //
 // go doc で調べる場合は以下のようにします.
 //
-//	- go doc builtin.max
-//	- go doc builtin.min
+//   - go doc builtin.max
+//   - go doc builtin.min
 //
 // # REFERENCES
 //   - https://go.dev/ref/spec#Min_and_max
