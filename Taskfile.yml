@@ -10,10 +10,16 @@ tasks:
     desc: Build app
     cmds:
       - go build .
+    sources:
+      - ./**/*.go
+    generates:
+      - try-golang{{exeExt}}
+    method: timestamp
   run:
     desc: Run app
+    deps: [build]
     cmds:
-      - cmd: go run . -onetime
+      - cmd: ./try-golang -onetime
         ignore_error: true
   test:
     desc: Test
@@ -41,6 +47,8 @@ tasks:
     desc: Clean
     cmds:
       - go clean
+      - rm -f ./try-golang
+      - rm -rf ./.task
   install-requirements:
     desc: install required libraries
     cmds:
