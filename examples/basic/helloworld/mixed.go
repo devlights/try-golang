@@ -25,8 +25,8 @@ func Mixed() error {
 
 	// start tasks
 	var (
-		syncCtx  = sync(procCtx)
-		asyncCtx = async(procCtx)
+		syncCtx  = syncOp(procCtx)
+		asyncCtx = asyncOp(procCtx)
 	)
 
 	// wait until all tasks are completed
@@ -35,7 +35,7 @@ func Mixed() error {
 	return nil
 }
 
-func sync(pCtx context.Context) context.Context {
+func syncOp(pCtx context.Context) context.Context {
 	var (
 		ctx, cxl = context.WithCancel(pCtx)
 	)
@@ -52,7 +52,7 @@ func sync(pCtx context.Context) context.Context {
 	return ctx
 }
 
-func async(pCtx context.Context) context.Context {
+func asyncOp(pCtx context.Context) context.Context {
 	var (
 		ctx, cxl = context.WithCancel(pCtx)
 		tasks    = make([]context.Context, 0)

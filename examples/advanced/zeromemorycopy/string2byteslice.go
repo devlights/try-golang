@@ -3,7 +3,6 @@ package zeromemorycopy
 import (
 	"fmt"
 	"io"
-	"reflect"
 	"strconv"
 	"strings"
 	"time"
@@ -52,8 +51,10 @@ func StringToByteSlice() error {
 	// メモリコピー無しで変換
 	// -------------------------------------
 	elapsed = times.Stopwatch(func(start time.Time) {
-		io.Discard.Write(unsafe.Slice((*byte)(unsafe.Pointer((*reflect.StringHeader)(unsafe.Pointer(&s)).Data)), len(s)))
+		// reflect.StringHeader は、Go 1.20 で deprecated となった
+		io.Discard.Write(unsafe.Slice(unsafe.StringData(s), len(s)))
 
+		//io.Discard.Write(unsafe.Slice((*byte)(unsafe.Pointer((*reflect.StringHeader)(unsafe.Pointer(&s)).Data)), len(s)))
 		/* 上を細かく区切ると以下のようになる
 		var (
 			ptrStr     = unsafe.Pointer(&s)
