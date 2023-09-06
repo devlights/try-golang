@@ -2,6 +2,7 @@ package helloworld
 
 import (
 	"github.com/devlights/try-golang/examples/basic/helloworld/async2"
+	"github.com/devlights/try-golang/examples/basic/helloworld/async3"
 	"github.com/devlights/try-golang/mapping"
 )
 
@@ -19,5 +20,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["helloworld_sync"] = Sync
 	m["helloworld_async"] = Async
 	m["helloworld_async2"] = async2.Async2
+	m["helloworld_async3"] = async3.Async3
 	m["helloworld_mixed"] = Mixed
 }
