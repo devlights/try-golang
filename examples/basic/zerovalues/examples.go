@@ -22,4 +22,8 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["zerovalues_pointer"] = Pointer
 	m["zerovalues_slice"] = Slice
 	m["zerovalues_map"] = Map
+	m["zerovalues_chan"] = Channel
+	m["zerovalues_func"] = Func
+	m["zerovalues_array"] = Array
+	m["zerovalues_struct"] = Struct
 }
