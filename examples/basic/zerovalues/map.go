@@ -5,7 +5,7 @@ import "github.com/devlights/gomy/output"
 // Map は、Goにおける マップ のゼロ値についてのサンプルです.
 //
 // # REFERENCES
-//   - https://go-tour-jp.appspot.com/basics/12
+//   - https://go.dev/tour/basics/12
 //   - https://brain2life.hashnode.dev/default-zero-values-in-go
 func Map() error {
 	//
