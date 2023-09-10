@@ -49,6 +49,10 @@ tasks:
       - go clean
       - rm -f ./try-golang
       - rm -rf ./.task
+  tags:
+    desc: Make tags (Require universal-ctags)
+    cmds:
+      - ctags -R .
   install-requirements:
     desc: install required libraries
     cmds:
