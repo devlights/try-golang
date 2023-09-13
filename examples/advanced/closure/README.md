@@ -4,4 +4,4 @@
 
 |file|example name|note|
 |----|------------|----|
-|closure01.go|closure01|クロージャのサンプルです|
+|basic.go|advanced_closure_basic|クロージャのサンプルです|
