@@ -30,7 +30,7 @@ func run() error {
 	output.Stdoutl("[v1 is nil?]", v1 == nil)
 	output.Stdoutl("[v2 is nil?]", v2 == nil)
 
-	// 同じ？ (結果は false となる)
+	// v1とv2は同じ？ (結果は false となる)
 	//
 	// staticcheck では以下の警告が出る
 	//   this comparison is never true; the lhs of the comparison has been assigned a concretely typed value (SA4023)
@@ -45,7 +45,9 @@ func run() error {
 	//
 	v2 = v1
 
-	// 同じ？ (結果は true となる)
+	// v1とv2は同じ？ (結果は true となる)
+	//
+	// 代わりに、今度は v2 が nil ではないと判定される
 	//
 	// staticcheckでは今度は v2 == nil の部分で警告が出る
 	//   this comparison is never true; the lhs of the comparison has been assigned a concretely typed value (SA4023)
