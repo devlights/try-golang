@@ -89,8 +89,32 @@ func run() error {
 	//
 	v4 = nil
 	output.Stdoutf("[v4 = nil][v3]", "(%T,%v)\n", v3, v3) // (*int, <nil>)
-	output.Stdoutf("[v4 = nil][v4]", "(%T,%v)\n", v4, v4) // (*int, <nil>)
+	output.Stdoutf("[v4 = nil][v4]", "(%T,%v)\n", v4, v4) // (<nil>, <nil>)
 	output.Stdoutl("[v4 = nil][v3 eq v4]", v3 == v4)      //lint:ignore SA4023 It's ok because this is just a example.
+
+	// --------------------------------------------------
+	// 実行結果
+	// --------------------------------------------------
+	// [v1 is nil?]         true
+	// [v2 is nil?]         true
+	// [v1 eq v2]           false
+	// --------------------------------------------------
+	// [v2=v1][v1 is nil?]  true
+	// [v2=v1][v2 is nil?]  false
+	// [v2=v1][v1 eq v2]    true
+	// --------------------------------------------------
+	// [v3]                 (*int,<nil>)
+	// [v4]                 (<nil>,<nil>)
+	// [v3 eq v4]           false
+	// --------------------------------------------------
+	// [v3]                 (*int,<nil>)
+	// [v4]                 (*int,<nil>)
+	// [v3 eq v4]           true
+	// --------------------------------------------------
+	// [v4 == nil?]         false
+	// [v4 = nil][v3]       (*int,<nil>)
+	// [v4 = nil][v4]       (<nil>,<nil>)
+	// [v4 = nil][v3 eq v4] false
 
 	return nil
 }
