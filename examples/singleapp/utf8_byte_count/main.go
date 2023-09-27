@@ -106,9 +106,8 @@ func manual(s string) error {
 }
 
 func useRune(s string) error {
-	//lint:ignore S1029 It's ok because this is just a example.
-	//lint:ignore SA6003 It's ok because this is just a example.
-	for _, r := range []rune(s) {
+
+	for _, r := range s {
 		l := utf8.RuneLen(r)
 		if l == -1 {
 			return fmt.Errorf("invalid utf-8 char (%c)", r)
