@@ -12,3 +12,12 @@ tasks:
   run-userune:
     cmds:
       - go run main.go -u
+  diff:
+    cmds:
+      - go run main.go > manual.txt
+      - go run main.go -u > userune.txt
+      - diff manual.txt userune.txt
+    ignore_error: true
+  clean:
+    cmds:
+      - rm -f ./*.txt
