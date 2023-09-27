@@ -2,6 +2,7 @@ package main
 
 import (
 	"flag"
+	"fmt"
 	"unicode/utf8"
 
 	"github.com/devlights/gomy/output"
@@ -13,6 +14,7 @@ func main() {
 	)
 
 	flag.Parse()
+
 	if err := run(*u); err != nil {
 		panic(err)
 	}
@@ -38,33 +40,23 @@ func run(runeMode bool) error {
 	)
 
 	if runeMode {
-		fn = userune
+		fn = useRune
 	}
 
 	for _, v := range strs {
 		output.Stdoutf("", "[%s]", v)
 		output.StdoutHr()
-		fn(v)
+
+		if err := fn(v); err != nil {
+			return err
+		}
 	}
 
 	return nil
 }
 
-func userune(s string) {
-	//lint:ignore S1029 It's ok because this is just a example.
-	//lint:ignore SA6003 It's ok because this is just a example.
-	for _, r := range []rune(s) {
+func manual(s string) error {
 
-		if r == rune(' ') {
-			output.StderrHr()
-			continue
-		}
-
-		output.Stdoutf("[byte-count]", "%c (%d)\n", r, utf8.RuneLen(r))
-	}
-}
-
-func manual(s string) {
 	for i := 0; i < len(s); {
 		var (
 			b = s[i]
@@ -84,10 +76,10 @@ func manual(s string) {
 		//
 		// 以下の case は上記を判定している.
 		//
-		// - (b & 0x80) == 0:    最上位ビットが0なら、この文字は1バイト
-		// - (b & 0xE0) == 0xC0: 最上位2ビットが110なら、この文字は2バイト
-		// - (b & 0xF0) == 0xE0: 最上位3ビットが1110なら、この文字は3バイト
-		// - (b & 0xF8) == 0xF0: 最上位4ビットが11110なら、この文字は4バイト
+		// - (b & 0x80) == 0   : 最上位1ビットが0    であるなら、この文字は1バイト
+		// - (b & 0xE0) == 0xC0: 最上位2ビットが110  であるなら、この文字は2バイト
+		// - (b & 0xF0) == 0xE0: 最上位3ビットが1110 であるなら、この文字は3バイト
+		// - (b & 0xF8) == 0xF0: 最上位4ビットが11110であるなら、この文字は4バイト
 		//
 		// REFERENCES:
 		//   - https://ja.wikipedia.org/wiki/UTF-8
@@ -101,17 +93,29 @@ func manual(s string) {
 			l = 3
 		case (b & 0xF8) == 0xF0:
 			l = 4
+		default:
+			return fmt.Errorf("invalid utf-8 char (%b)", b)
 		}
 
-		func() {
-			defer func() { i += l }()
+		output.Stdoutf("[byte-count]", "%s (%d)\n", s[i:i+l], l)
 
-			if b == ' ' {
-				output.StdoutHr()
-				return
-			}
-
-			output.Stdoutf("[byte-count]", "%s (%d)\n", s[i:i+l], l)
-		}()
+		i += l
 	}
+
+	return nil
+}
+
+func useRune(s string) error {
+	//lint:ignore S1029 It's ok because this is just a example.
+	//lint:ignore SA6003 It's ok because this is just a example.
+	for _, r := range []rune(s) {
+		l := utf8.RuneLen(r)
+		if l == -1 {
+			return fmt.Errorf("invalid utf-8 char (%c)", r)
+		}
+
+		output.Stdoutf("[byte-count]", "%c (%d)\n", r, l)
+	}
+
+	return nil
 }
