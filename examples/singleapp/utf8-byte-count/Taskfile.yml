@@ -5,7 +5,10 @@ version: '3'
 tasks:
   default:
     cmds:
-      - task: run
-  run:
+      - task: run-manual
+  run-manual:
     cmds:
       - go run main.go
+  run-userune:
+    cmds:
+      - go run main.go -u
