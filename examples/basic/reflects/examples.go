@@ -13,6 +13,7 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
+	m["reflect_typeof"] = TypeOf
 	m["reflect_selectcase"] = SelectCase
 	m["reflect_find_type"] = FindType
 }
