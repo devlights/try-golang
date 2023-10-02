@@ -4,5 +4,4 @@ version: "3"
 tasks:
   clean:
     - go clean
-    - rm -f ./try-golang{{exeExt}}
     - rm -rf ./.task
