@@ -1,0 +1,7 @@
+version: '3'
+
+tasks:
+  clean:
+    - go clean
+    - cmd /c "del /F /Q ./try-golang{{exeExt}}"
+    - cmd /c "rd /s /q .task"

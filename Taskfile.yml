@@ -1,6 +1,11 @@
 # https://github.com/go-task/task
 version: "3"
 
+includes:
+  OS:
+    taskfile: ./Taskfile_{{OS}}.yml
+    internal: true
+
 tasks:
   default:
     desc: Default (run)
@@ -19,7 +24,7 @@ tasks:
     desc: Run app
     deps: [build]
     cmds:
-      - cmd: ./try-golang -onetime
+      - cmd: ./try-golang{{exeExt}} -onetime
         ignore_error: true
   test:
     desc: Test
@@ -46,9 +51,7 @@ tasks:
   clean:
     desc: Clean
     cmds:
-      - go clean
-      - rm -f ./try-golang
-      - rm -rf ./.task
+      - task: OS:clean
   tags:
     desc: Make tags (Require universal-ctags)
     cmds:
