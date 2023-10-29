@@ -14,4 +14,5 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["floatop_order_of_computation"] = OrderOfComputation
+	m["floatop_rounding_error"] = RoundingError
 }
