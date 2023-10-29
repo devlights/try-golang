@@ -6,3 +6,4 @@
 |----|------------|----|
 |order\_of\_computation.go|floatop\_order\_of\_computation|浮動小数点は計算の順序によって結果が変わることのサンプルです|
 |rounding\_error.go|floatop\_rounding\_error|小数点計算において近似値が利用され丸め誤差が出るサンプルです|
+|using\_decimal\_pkg.go|floatop\_using\_decimal\_pkg|小数点計算を github.com/shopspring/decimal パッケージを利用して処理するサンプルです|
