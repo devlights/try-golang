@@ -13,4 +13,5 @@
 |use\_cond\_broadcast.go|syncs\_use\_cond\_broadcast|sync.Cond.Broadcast() のサンプルです|
 |use\_cond\_siginal.go|syncs\_use\_cond\_signal|sync.Cond.Signal() のサンプルです|
 |use\_mutex.go|syncs\_use\_mutex|sync.Mutex のサンプルです|
+|use\_once.go|syncs\_use\_once|sync.Onceのサンプルです|
 
