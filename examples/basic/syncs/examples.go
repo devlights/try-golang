@@ -21,4 +21,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["syncs_use_mutex"] = UseMutex
 	m["syncs_use_cond_signal"] = UseCondSignal
 	m["syncs_use_cond_broadcast"] = UseCondBroadcast
+	m["syncs_map"] = Map
 }
