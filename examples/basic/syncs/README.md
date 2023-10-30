@@ -7,7 +7,7 @@
 |atomic\_add.go|syncs\_atomic\_add|atomic.AddXXX のサンプルです|
 |atomic\_compareandswap.go|syncs\_atomic\_compareandswap|sync/atomic.CompareAndSwap のサンプルです|
 |atomic\_types.go|syncs\_atomic\_types|Go 1.19 から追加された sync/atomic パッケージ内の型についてのサンプルです|
-|map.go|syncs\_map|sync.Mapの使い方とそれをラップした型の紹介です|
+|use\_map.go|syncs\_use\_map|sync.Mapの使い方とそれをラップした型の紹介です|
 |no\_sync.go|syncs\_no\_sync|同期なしで非同期処理をしているサンプルです|
 |use\_channel.go|syncs\_use\_channel|値の同期をチャネルを使って実現しているサンプルです|
 |use\_cond\_broadcast.go|syncs\_use\_cond\_broadcast|sync.Cond.Broadcast() のサンプルです|

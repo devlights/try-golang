@@ -12,7 +12,7 @@ import (
 // # REFERENCES
 //   - https://hjr265.me/blog/synchronization-constructs-in-go-standard-library/
 //   - https://pkg.go.dev/sync@go1.21.3#Map
-func Map() error {
+func UseMap() error {
 	//
 	// Goでは、標準のマップはスレッドセーフではない.
 	// スレッドセーフなマップは sync.Map として提供されている.
