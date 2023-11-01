@@ -38,48 +38,49 @@ func run() error {
 	}
 
 	wg.Wait()
-	for _, s := range l {
-		fmt.Printf("%p (%s:%s)\n", &s, s.GetDef1(), s.GetDef2())
+	for i := 0; i < c; i++ {
+		v := l[i]
+		fmt.Printf("%p (%s:%s)\n", v, v.GetDef1(), v.GetDef2())
 	}
 
 	return nil
 
 	/*
-	   $ task
-	   task: [default] go build
-	   task: [default] ./singleton
-	   >>> call: GetInstance
-	   create: Defines
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   >>> call: GetInstance
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
-	   0xc00010e020 (hello:world)
+		$ task
+		task: [default] go build
+		task: [default] ./singleton
+		>>> call: GetInstance
+		create: Defines
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		>>> call: GetInstance
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
+		0xc00007c020 (hello:world)
 	*/
 }
