@@ -43,4 +43,43 @@ func run() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [default] go build
+	   task: [default] ./singleton
+	   >>> call: GetInstance
+	   create: Defines
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   >>> call: GetInstance
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	   0xc00010e020 (hello:world)
+	*/
 }
