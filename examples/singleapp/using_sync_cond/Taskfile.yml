@@ -1,0 +1,17 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run-signal
+      - task: run-signal2
+      - task: run-broadcast
+  run-signal:
+    cmds:
+      - go run main.go -signal
+  run-signal2:
+    cmds:
+      - go run main.go -signal2
+  run-broadcast:
+    cmds:
+      - go run main.go -broadcast
