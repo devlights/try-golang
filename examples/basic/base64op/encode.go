@@ -44,4 +44,22 @@ func Encode() error {
 	output.Stdoutl("[first 100 bytes      ]", string(dst[:99]))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: base64op_encode
+
+	   [Name] "base64op_encode"
+	   [original length      ] 1062765
+	   [base64 encoded length] 1417020
+	   [incremental rate     ] 1.3333334
+	   [first 100 bytes      ] /9j/4AAQSkZJRgABAQEASABIAAD/4gxYSUNDX1BST0ZJTEUAAQEAAAxITGlubwIQAABtbnRyUkdCIFhZWiAHzgACAAkABgAxAAB
+
+
+	   [Elapsed] 1.985106023s
+	*/
+
 }
