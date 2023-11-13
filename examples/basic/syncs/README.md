@@ -14,4 +14,4 @@
 |use\_cond\_siginal.go|syncs\_use\_cond\_signal|sync.Cond.Signal() のサンプルです|
 |use\_mutex.go|syncs\_use\_mutex|sync.Mutex のサンプルです|
 |use\_once.go|syncs\_use\_once|sync.Onceのサンプルです|
-
+|use\_oncefunc.go|syncs\_use\_oncefunc|Go 1.21 で追加された sync.OnceFunc() のサンプルです|
