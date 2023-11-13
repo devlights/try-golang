@@ -36,4 +36,20 @@ func Decode() error {
 	output.Stdoutl("[decode  ]", string(dst))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: base64op_decode
+
+	   [Name] "base64op_decode"
+	   [original]           aGVsbG93b3JsZA==
+	   [decode  ]           helloworld
+
+
+	   [Elapsed] 34.52µs
+	*/
+
 }
