@@ -34,4 +34,22 @@ func CopyFromSlice() error {
 	output.Stdoutl("[array]", array)
 
 	return nil
+
+	/*
+		$ task
+		task: [build] go build .
+		task: [run] ./try-golang -onetime
+
+		ENTER EXAMPLE NAME: array_copy_from_slice
+
+		[Name] "array_copy_from_slice"
+		[slice]              [1 2 3 4 5]
+		[array]              [0 0 0 0]
+		--------------------------------------------------
+		[slice]              [1 2 3 4 5]
+		[array]              [1 2 3 4]
+
+
+		[Elapsed] 50.53µs
+	*/
 }
