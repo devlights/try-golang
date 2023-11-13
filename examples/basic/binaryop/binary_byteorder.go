@@ -57,4 +57,31 @@ func ByteOrder() error {
 	output.StdoutHr()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: binaryop_byteorder
+
+	   [Name] "binaryop_byteorder"
+	   d32(0x0A0B0C0D)      168496141
+	   d16(0x0A0B    )      2571
+	   --------------------------------------------------
+	   BigEndian.PutUint32  [10 11 12 13]
+	   BigEndian.PutUint16  [10 11]
+	   BigEndian.Uint32     168496141
+	   BigEndian.Uint16     2571
+	   --------------------------------------------------
+	   LittleEndian.PutUint32 [13 12 11 10]
+	   LittleEndian.PutUint16 [11 10]
+	   LittleEndian.Uint32  168496141
+	   LittleEndian.Uint16  2571
+	   --------------------------------------------------
+
+
+	   [Elapsed] 74.36µs
+	*/
+
 }
