@@ -45,4 +45,35 @@ func UseOnceFunc() error {
 	output.Stdoutl("[after]", v)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_use_oncefunc
+
+	   [Name] "syncs_use_oncefunc"
+	   [before]             0
+	   [done]               goroutine-15
+	   [done]               goroutine-10
+	   [done]               goroutine-3
+	   [done]               goroutine-0
+	   [done]               goroutine-11
+	   [done]               goroutine-14
+	   [done]               goroutine-6
+	   [done]               goroutine-1
+	   [done]               goroutine-2
+	   [done]               goroutine-5
+	   [done]               goroutine-12
+	   [done]               goroutine-4
+	   [done]               goroutine-7
+	   [done]               goroutine-8
+	   [done]               goroutine-9
+	   [done]               goroutine-13
+	   [after]              1
+
+
+	   [Elapsed] 563.92µs
+	*/
 }

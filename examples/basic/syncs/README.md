@@ -15,3 +15,4 @@
 |use\_mutex.go|syncs\_use\_mutex|sync.Mutex のサンプルです|
 |use\_once.go|syncs\_use\_once|sync.Onceのサンプルです|
 |use\_oncefunc.go|syncs\_use\_oncefunc|Go 1.21 で追加された sync.OnceFunc() のサンプルです|
+|use\_oncevalue.go|syncs\_use\_oncevalue|Go 1.21 で追加された sync.OnceValue() のサンプルです|
