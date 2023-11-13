@@ -35,8 +35,8 @@ func UseOnceValue() error {
 		i := i
 		go func() {
 			result := f()
-			done <- true
 			output.Stderrf("[done]", "result=%d\tgoroutine-%d\n", result, i)
+			done <- true
 		}()
 	}
 

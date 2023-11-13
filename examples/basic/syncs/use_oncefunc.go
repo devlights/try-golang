@@ -33,8 +33,8 @@ func UseOnceFunc() error {
 		i := i
 		go func() {
 			f()
-			done <- true
 			output.Stderrf("[done]", "goroutine-%d\n", i)
+			done <- true
 		}()
 	}
 
