@@ -55,6 +55,31 @@ func Basic() error {
 	printArray("ary (7)", &array3) // => 元の配列も当然変わる
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: array_basic_usage
+
+	   [Name] "array_basic_usage"
+	   len(array1)          3
+	   ary (1)              0 0 0
+	   ary (2)              0 100 0
+	   ary (3)              1 2 3
+	   ary (4)              1 2 3
+	   ary (5)              1 999 3
+	   type                 array: [3]int, slice: []int
+	   sli (1)              1 998 3
+	   ary (6)              1 998 3
+	   sli (2)              1 997 4
+	   ary (7)              1 997 4
+
+
+	   [Elapsed] 97.009µs
+	*/
+
 }
 
 func printArray(prefix string, ary *[3]int) {

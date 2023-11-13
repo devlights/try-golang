@@ -25,4 +25,26 @@ func Ellipses() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: array_ellipses
+
+	   [Name] "array_ellipses"
+	   v                    1
+	   v                    2
+	   v                    3
+	   v                    4
+	   v                    5
+	   v                    1
+	   v                    2
+	   v                    3
+	   v                    4
+	   v                    5
+
+	   [Elapsed] 284.81µs
+	*/
 }

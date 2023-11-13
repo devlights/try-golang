@@ -36,4 +36,19 @@ func MultiDemension() error {
 	output.Stdoutl("[multi-dementional]", a)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: array_multi_demention
+
+	   [Name] "array_multi_demention"
+	   [multi-dementional]  [[90 91 92 93 94 95 96 97 98 99] [99 98 97 96 95 94 93 92 91 90]]
+
+
+	   [Elapsed] 68.52µs
+	*/
+
 }
