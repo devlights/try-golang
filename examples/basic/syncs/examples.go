@@ -23,4 +23,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["syncs_use_cond_broadcast"] = UseCondBroadcast
 	m["syncs_use_map"] = UseMap
 	m["syncs_use_once"] = UseOnce
+	m["syncs_use_oncefunc"] = UseOnceFunc
 }
