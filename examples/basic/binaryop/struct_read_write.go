@@ -71,4 +71,23 @@ func StructReadWrite() error {
 	dumpBin(buf.Bytes())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: binaryop_struct_read_write
+
+	   [Name] "binaryop_struct_read_write"
+	   00000000  de ad be ef 48 45 4c 4c  4f 57 4f 52 4c 44 ca fe  |....HELLOWORLD..|
+	   --------------------------------------------------
+	   00000000  de ad be ef 48 45 4c 4c  4f 57 4f 52 4c 44 ca fe  |....HELLOWORLD..|
+	   --------------------------------------------------
+	   00000000  de ad be ef 48 45 4c 4c  4f 57 4f 52 4c 44 ca fe  |....HELLOWORLD..|
+
+
+	   [Elapsed] 179.37µs
+	*/
+
 }

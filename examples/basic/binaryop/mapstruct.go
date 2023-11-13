@@ -48,4 +48,20 @@ func MapStruct() error {
 	output.Stdoutl("[output]", st.I1, st.I2, st.I3, st.I4, string(st.S[:]))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: binaryop_mapping
+
+	   [Name] "binaryop_mapping"
+	   [output]             {1 2 3 255 [104 101 108 108 111 119 111 114 108 100]}
+	   [output]             1 2 3 255 helloworld
+
+
+	   [Elapsed] 53.691µs
+	*/
+
 }

@@ -57,4 +57,20 @@ func Read() error {
 	output.Stdoutl("[output]", i, i2, string(hello), string(world))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: binaryop_read
+
+	   [Name] "binaryop_read"
+	   [bin   ]             [0 0 0 1 2 0 0 0 104 101 108 108 111 119 111 114 108 100]
+	   [output]             1 2 hello world
+
+
+	   [Elapsed] 39.44µs
+	*/
+
 }
