@@ -1,0 +1,31 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  run:
+    cmds:
+      - task: build
+      - task: show
+      - task: use
+  build:
+    cmds:
+      - go build -buildmode=c-shared -o libgoadd.so main.go
+  show:
+    cmds:
+      - ls -lh libgoadd.so
+      - file libgoadd.so
+      - ldd libgoadd.so
+      - nm -D libgoadd.so | grep 'T GoAdd'
+  use:
+    cmds:
+      - python3 use.py
+      - gcc -o use-c use.c -L . -l goadd
+      - LD_LIBRARY_PATH=. ./use-c
+  clean:
+    cmds:
+      - rm -f libgoadd*
+      - rm -f use-c*
