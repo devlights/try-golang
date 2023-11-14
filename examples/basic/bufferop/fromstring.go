@@ -23,4 +23,18 @@ func FromString() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: bufferop_from_string
+
+	   [Name] "bufferop_from_string"
+	   hello world
+
+	   [Elapsed] 2.64µs
+	*/
+
 }

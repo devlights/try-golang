@@ -33,4 +33,19 @@ func UseAsReader() error {
 	output.Stdoutl("[rec]", rec)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: bufferop_use_as_reader
+
+	   [Name] "bufferop_use_as_reader"
+	   [rec]                [1 2 3]
+
+
+	   [Elapsed] 28.27µs
+	*/
+
 }
