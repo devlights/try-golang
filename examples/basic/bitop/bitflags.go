@@ -163,6 +163,54 @@ func BitFlags() error {
 	<-ctxR.Done()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: bitop_bitflags
+
+	   [Name] "bitop_bitflags"
+	   c-1: 0
+	   c-2: 1
+	   c-2: 2
+	   c-1: 3
+	   c-1: 4
+	   c-1: 5
+	   c-2: 6
+	   c-1: 7
+	   c-1: 8
+	   c-2: 9
+	   c-1: 10
+	   c-2: 11
+	   c-1: 12
+	   c-2: 13
+	   c-1: 14
+	   c-2: 15
+	   c-1: 16
+	   Producer:DONE     Completer:RUNNING  Consumer1:RUNNING  Consumer2: RUNNING
+	   Producer:DONE     Completer:DONE     Consumer1:RUNNING  Consumer2: RUNNING
+	   c-2: 17
+	   c-1: 18
+	   c-1: 19
+	   c-2: 20
+	   c-1: 21
+	   c-2: 22
+	   c-1: 23
+	   c-1: 24
+	   c-2: 25
+	   c-1: 26
+	   c-1: 27
+	   c-1: 28
+	   c-2: 29
+	   Producer:DONE     Completer:DONE     Consumer1:DONE     Consumer2: RUNNING
+	   Producer:DONE     Completer:DONE     Consumer1:DONE     Consumer2: DONE
+
+
+	   [Elapsed] 319.053956ms
+	*/
+
 }
 
 func waitUntil(n notifier, doneP, doneComp, done1C, done2C <-chan struct{}) context.Context {
