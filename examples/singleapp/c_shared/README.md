@@ -1,4 +1,4 @@
-# Go側からsoファイルを作成してPythonで利用
+# Go側からsoファイルを作成してPythonとCで利用
 
 ```go build``` 時に ```-buildmode=c-shared``` を付与することで so ファイルと ヘッダファイル が生成される。
 
