@@ -21,4 +21,18 @@ func ZeroValue() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: bufferop_zero_value
+
+	   [Name] "bufferop_zero_value"
+	   hello
+
+	   [Elapsed] 3.93µs
+	*/
+
 }

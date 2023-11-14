@@ -30,4 +30,20 @@ func UseAsWriter() error {
 	output.Stdoutl("[buf]", buf.String())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: bufferop_use_as_writer
+
+	   [Name] "bufferop_use_as_writer"
+	   [buf]                1,2,3
+
+
+
+	   [Elapsed] 22.4µs
+	*/
+
 }

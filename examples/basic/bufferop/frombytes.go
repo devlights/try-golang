@@ -19,4 +19,19 @@ func FromBytes() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: bufferop_from_bytes
+
+	   [Name] "bufferop_from_bytes"
+	   HELLO
+
+
+	   [Elapsed] 2.52µs
+	*/
+
 }
