@@ -26,4 +26,20 @@ func Clear() error {
 	p("after")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: builtin_clear
+
+	   [Name] "builtin_clear"
+	   before               [slice] [1 2 3]    [map] map[100:hello 200:world]
+	   after                [slice] [0 0 0]    [map] map[]
+
+
+	   [Elapsed] 56.62µs
+	*/
+
 }

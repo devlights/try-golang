@@ -28,4 +28,20 @@ func PrintFunc() error {
 	println("[builtin]", message)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: builtin_print
+
+	   [Name] "builtin_print"
+	   [fmt    ] helloworld
+	   [builtin] helloworld
+
+
+	   [Elapsed] 7.68µs
+	*/
+
 }

@@ -27,4 +27,20 @@ func Delete() error {
 	p(m)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: builtin_delete
+
+	   [Name] "builtin_delete"
+	   [map]                map[apple:100 ringo:200]
+	   [map]                map[apple:100]
+
+
+	   [Elapsed] 32.24µs
+	*/
+
 }
