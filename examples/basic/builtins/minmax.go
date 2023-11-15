@@ -43,4 +43,24 @@ func MinMax() error {
 	// min([3]int{1,2,3}) // コンパイルエラー
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: builtin_minmax
+
+	   [Name] "builtin_minmax"
+	   [max(x1, x2)]        20
+	   [min(x1, x2)]        10
+	   [max(x1, x2, x3)]    20
+	   [min(x1, x2, x3)]    2
+	   [max(x4, x5)]        world
+	   [min(x4, x5)]        hello
+
+
+	   [Elapsed] 44.551µs
+	*/
+
 }

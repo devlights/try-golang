@@ -47,4 +47,37 @@ func Copy() error {
 	output.Stdoutl("[dst4]", dst4)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: builtin_copy
+
+	   [Name] "builtin_copy"
+	   [src1]               [1 2 3 4 5]
+	   [src2]               [1 2 3]
+	   [dst1]               [0 0 0 0 0]
+	   [dst2]               [0 0 0 0]
+	   [dst3]               [0 0 0 0]
+	   --------------------------------------------------
+	   [src1]               [1 2 3 4 5]
+	   [src2]               [1 2 3]
+	   [dst1]               [1 2 3 4 5]
+	   [dst2]               [1 2 3 4]
+	   [dst3]               [1 2 3 0]
+	   --------------------------------------------------
+	   [src1]               [1 2 3 4 5]
+	   [src2]               [1 2 3]
+	   [dst1]               [100 2 3 4 5]
+	   [dst2]               [200 2 3 4]
+	   [dst3]               [300 2 3 0]
+	   --------------------------------------------------
+	   [dst4]               [104 101 108 108 111 32 119 111 114 108]
+
+
+	   [Elapsed] 219.33µs
+	*/
+
 }
