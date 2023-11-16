@@ -70,6 +70,31 @@ func ReaderFromByteSlice() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: byteop_reader_from_byteslice
+
+	   [Name] "byteop_reader_from_byteslice"
+	   [io.Reader]          49
+	   [io.Reader]          50
+	   [io.Reader]          51
+	   [io.Reader]          52
+	   [io.Reader]          53
+	   [io.ByteReader]      49
+	   [io.ByteReader]      50
+	   [io.ByteReader]      51
+	   [io.ByteReader]      52
+	   [io.ByteReader]      53
+	   [io.ReaderAt]        [51 52 53]
+	   12345
+
+	   [Elapsed] 133.07µs
+	*/
+
 }
 
 func backToStart(s io.Seeker) error {

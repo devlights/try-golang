@@ -37,4 +37,20 @@ func CutPrefixSuffix() error {
 	output.Stdoutl("[CutSuffix]", cut2, string(cut2))
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: byteop_cut_prefix_suffix
+
+	   [Name] "byteop_cut_prefix_suffix"
+	   [CutPrefix]          [49 50 51 52 53 119 111 114 108 100] 12345world
+	   [CutSuffix]          [104 101 108 108 111 49 50 51 52 53] hello12345
+
+
+	   [Elapsed] 53.02µs
+	*/
+
 }
