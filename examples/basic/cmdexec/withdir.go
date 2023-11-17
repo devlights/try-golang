@@ -56,4 +56,21 @@ func WithDir() error {
 	output.Stdoutf("[with dir]", "%s", out)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: cmdexec_dir
+
+	   [Name] "cmdexec_dir"
+	   [cwd]                /workspace/try-golang
+	   [no dir]             /workspace/try-golang
+	   [with dir]           /tmp
+
+
+	   [Elapsed] 3.23569ms
+	*/
+
 }

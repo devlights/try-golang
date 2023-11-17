@@ -50,4 +50,19 @@ func WithContext() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: cmdexec_withcontext
+
+	   [Name] "cmdexec_withcontext"
+	   [timeout]            signal: killed(*exec.ExitError)
+
+
+	   [Elapsed] 501.067449ms
+	*/
+
 }

@@ -91,4 +91,24 @@ func Pipe() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: cmdexec_pipe
+
+	   [Name] "cmdexec_pipe"
+	   CSHARP
+	   GOLANG
+	   JAVA
+	   PYTHON
+	   ...done...
+
+
+
+	   [Elapsed] 2.776069ms
+	*/
+
 }

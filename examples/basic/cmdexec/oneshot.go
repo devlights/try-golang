@@ -94,4 +94,49 @@ func OneShot() error {
 	output.Stdoutl("last line", lastline)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: cmdexec_oneshot
+
+	   [Name] "cmdexec_oneshot"
+	   pwd                  /workspace/try-golang
+
+	   ls -l
+	   total 14608
+	   drwxr-xr-x  2 gitpod gitpod       61 Nov 17 01:36 builder
+	   drwxr-xr-x  2 gitpod gitpod       36 Nov 17 01:36 cmd
+	   -rw-r--r--  1 gitpod gitpod      637 Nov 17 01:36 Dockerfile
+	   drwxr-xr-x 13 gitpod gitpod      176 Nov 17 01:36 examples
+	   -rw-r--r--  1 gitpod gitpod      406 Nov 17 01:36 go.mod
+	   -rw-r--r--  1 gitpod gitpod     3027 Nov 17 01:36 go.sum
+	   -rw-r--r--  1 gitpod gitpod     1071 Nov 17 01:36 LICENSE
+	   -rw-r--r--  1 gitpod gitpod       91 Nov 17 01:36 main.go
+	   drwxr-xr-x  2 gitpod gitpod       76 Nov 17 01:36 mapping
+	   -rw-r--r--  1 gitpod gitpod     3445 Nov 17 01:36 README.md
+	   -rw-r--r--  1 gitpod gitpod      614 Nov 17 01:36 revive.toml
+	   drwxr-xr-x  2 gitpod gitpod      165 Nov 17 01:36 runner
+	   -rw-r--r--  1 gitpod gitpod      100 Nov 17 01:36 Taskfile_linux.yml
+	   -rw-r--r--  1 gitpod gitpod       75 Nov 17 01:36 Taskfile_windows.yml
+	   -rw-r--r--  1 gitpod gitpod     1411 Nov 17 01:36 Taskfile.yml
+	   -rwxr-xr-x  1 gitpod gitpod 14914552 Nov 17 01:37 try-golang
+	   --------------------------------------------------
+	   ls -l go.*
+	   -rw-r--r-- 1 gitpod gitpod  406 Nov 17 01:36 go.mod
+	   -rw-r--r-- 1 gitpod gitpod 3027 Nov 17 01:36 go.sum
+	   --------------------------------------------------
+	   ls -l | tail -n 3
+	   -rw-r--r--  1 gitpod gitpod       75 Nov 17 01:36 Taskfile_windows.yml
+	   -rw-r--r--  1 gitpod gitpod     1411 Nov 17 01:36 Taskfile.yml
+	   -rwxr-xr-x  1 gitpod gitpod 14914552 Nov 17 01:37 try-golang
+	   --------------------------------------------------
+	   last line            -rwxr-xr-x  1 gitpod gitpod 14914552 Nov 17 01:37 try-golang
+
+
+	   [Elapsed] 10.481578ms
+	*/
+
 }
