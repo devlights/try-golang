@@ -56,4 +56,27 @@ func WithEnv() error {
 	output.StdoutHr()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: cmdexec_env
+
+	   [Name] "cmdexec_env"
+	   [no append]
+	   LANG=en_US.UTF-8
+
+	   --------------------------------------------------
+	   [append   ]
+	   LANG2=Japanese
+	   LANG=en_US.UTF-8
+
+	   --------------------------------------------------
+
+
+	   [Elapsed] 6.235229ms
+	*/
+
 }

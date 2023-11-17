@@ -49,4 +49,24 @@ func Stdinouterr() error {
 	output.Stdoutf("[Stderr]", "\n%s\n", fd2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: cmdexec_stdinouterr
+
+	   [Name] "cmdexec_stdinouterr"
+	   [Stdout]
+	   HELLO
+	   WORLD
+	   [Stderr]
+	   ..done..
+
+
+
+	   [Elapsed] 3.17903ms
+	*/
+
 }

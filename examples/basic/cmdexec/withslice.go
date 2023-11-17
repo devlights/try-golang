@@ -37,4 +37,19 @@ func WithSlice() error {
 	output.Stdoutf("[cmd]", "%s", out)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: cmdexec_slice
+
+	   [Name] "cmdexec_slice"
+	   [cmd]                hello world こんにちわ 世界
+
+
+	   [Elapsed] 5.243239ms
+	*/
+
 }

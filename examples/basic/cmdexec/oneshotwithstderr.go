@@ -55,4 +55,25 @@ func OneShotWithStderr() error {
 	output.StdoutHr()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: cmdexec_oneshot_with_stderr
+
+	   [Name] "cmdexec_oneshot_with_stderr"
+	   [CombinedOutput]
+	   hello
+	   world
+	   --------------------------------------------------
+	   [Output]
+	   hello
+	   --------------------------------------------------
+
+
+	   [Elapsed] 4.20394ms
+	*/
+
 }

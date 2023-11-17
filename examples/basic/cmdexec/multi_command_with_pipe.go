@@ -62,4 +62,20 @@ func MultiCommandWithPipe() error {
 	output.Stdoutl("[result]", out.String())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: cmdexec_multi_command_with_pipe
+
+	   [Name] "cmdexec_multi_command_with_pipe"
+	   [result]             625
+
+
+
+	   [Elapsed] 7.252639ms
+	*/
+
 }
