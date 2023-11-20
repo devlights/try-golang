@@ -18,4 +18,19 @@ func ConstStatementDeclares() error {
 	fmt.Printf("Pi=%f, (%d, %d, %d)\n", Pi, Ng, Ok, Unknown)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: const_statement_declare
+
+	   [Name] "const_statement_declare"
+	   Pi=3.140000, (0, 1, 99)
+
+
+	   [Elapsed] 7.65µs
+	*/
+
 }
