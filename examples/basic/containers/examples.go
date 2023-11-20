@@ -14,4 +14,5 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["containers_ring"] = RingBuffer
+	m["containers_generic_ring"] = GenericRing
 }
