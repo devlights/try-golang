@@ -1,0 +1,15 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: clean
+  build:
+    cmds:
+      - go build
+  clean:
+    cmds:
+      - go clean
