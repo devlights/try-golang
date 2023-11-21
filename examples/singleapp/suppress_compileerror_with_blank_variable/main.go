@@ -12,7 +12,7 @@ func run() error {
 	)
 
 	// そのままにしていると v は利用されていないことになるため
-	// コンパイルエラー (v declared and not usedcompilerUnusedVar) となる。
+	// コンパイルエラー (v declared and not used) となる。
 	// 一時的に抑止したい場合は _ に代入しておく
 	_ = v
 
