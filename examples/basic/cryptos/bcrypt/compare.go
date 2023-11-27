@@ -46,4 +46,20 @@ func Compare() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: crypto_bcrypt_compare
+
+	   [Name] "crypto_bcrypt_compare"
+	   [match]              helloworld
+	   [mismatch]           helloworlD
+
+
+	   [Elapsed] 180.46252ms
+	*/
+
 }

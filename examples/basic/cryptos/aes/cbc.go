@@ -53,4 +53,20 @@ func Cbc() error {
 	output.Stdoutl("[AES][Decoding]", string(decBytes))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: crypto_aes_cbc
+
+	   [Name] "crypto_aes_cbc"
+	   [AES][Encoding]      41b9e7408e1df7bbf637cc8c933c18f589ea342f87141ed070acfbf3b71b1922b34dc0c2e036c832af3155535170dae8462859a789cf730737cce6e59bb08103
+	   [AES][Decoding]      123456789012345_123456789012345_123456789012345_123456789012345_
+
+
+	   [Elapsed] 72.28µs
+	*/
+
 }

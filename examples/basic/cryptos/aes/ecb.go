@@ -48,4 +48,20 @@ func Ecb() error {
 	output.Stdoutl("[AES][Decoding]", string(decBytes))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: crypto_aes_ecb
+
+	   [Name] "crypto_aes_ecb"
+	   [AES][Encoding]      b418fa0c8115c71ee2ba4680a1339033b418fa0c8115c71ee2ba4680a1339033b418fa0c8115c71ee2ba4680a1339033b418fa0c8115c71ee2ba4680a1339033
+	   [AES][Decoding]      123456789012345_123456789012345_123456789012345_123456789012345_
+
+
+	   [Elapsed] 42.24µs
+	*/
+
 }

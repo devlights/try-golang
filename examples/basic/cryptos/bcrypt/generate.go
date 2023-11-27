@@ -42,4 +42,24 @@ func Generate() error {
 	output.Stdoutl("[bcrypt][parts][hash       ]", hash)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: crypto_bcrypt_generate
+
+	   [Name] "crypto_bcrypt_generate"
+	   [bcrypt][original]   helloworld
+	   [bcrypt][hashed  ]   $2a$10$e3FM4kek9EaGjluKpiQV4u4KnZPeuVYH2lowQt.x1BrMGFjAp98ky
+	   [bcrypt][parts][algorithm  ] 2a
+	   [bcrypt][parts][streatching] 10
+	   [bcrypt][parts][salt       ] e3FM4kek9EaGjluKpiQV4u
+	   [bcrypt][parts][hash       ] 4KnZPeuVYH2lowQt.x1BrMGFjAp98ky
+
+
+	   [Elapsed] 60.652059ms
+	*/
+
 }
