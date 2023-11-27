@@ -43,4 +43,20 @@ func StructToStr() error {
 	fn(y)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: convert_struct_to_str
+
+	   [Name] "convert_struct_to_str"
+	   [struct to str]      id=100,name=sts(convert.sts) --> "id=100,name=sts"(string)
+	   [struct to str]      ¥1000(convert.yen) --> "¥1000"(string)
+
+
+	   [Elapsed] 55.5µs
+	*/
+
 }

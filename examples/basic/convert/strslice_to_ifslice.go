@@ -118,4 +118,23 @@ func StringSliceToInterfaceSlice() error {
 	output.Stdoutl("[is2]", is2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: convert_string_slice_to_interface_slice
+
+	   [Name] "convert_string_slice_to_interface_slice"
+	   [ifSlice]            [hello world]
+	   [intSlice]           [1 2]
+	   [s --> i]            helloworld
+	   [i2]                 0
+	   [is2]                [1 2 3 4]
+
+
+	   [Elapsed] 83.39µs
+	*/
+
 }
