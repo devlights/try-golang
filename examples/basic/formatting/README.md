@@ -11,3 +11,4 @@
 |appendf.go|formatting\_appendf|Go 1.19 から追加された fmt.Appendf() のサンプルです|
 |appendln.go|formatting\_appendln|Go 1.19 から追加された fmt.Appendln() のサンプルです|
 |padding\_arbitarylength.go|formatting\_padding\_arbitarylength|文字列をパディングする際の桁数を外から指定するサンプルです|
+|stringer\_and\_gostringer.go|formatting\_stringer\_and\_gostringer|fmt.Stringerとfmt.GoStringerについてのサンプルです|
