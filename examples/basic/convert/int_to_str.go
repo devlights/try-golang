@@ -23,4 +23,20 @@ func IntToStr() error {
 	output.Stdoutf("[float to str]", "%[1]v(%[1]T) --> %[2]q(%[2]T)\n", f, s)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: convert_int_to_str
+
+	   [Name] "convert_int_to_str"
+	   [int to str]         100(int) --> "100"(string)
+	   [float to str]       12.345(float32) --> "12.345"(string)
+
+
+	   [Elapsed] 25.03µs
+	*/
+
 }
