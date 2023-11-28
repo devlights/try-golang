@@ -41,4 +41,21 @@ func Write() error {
 	output.Stdoutf("[data]", "\n%v", string(data))
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: csv_write
+
+	   [Name] "csv_write"
+	   [data]
+	   hello,world
+	   world,hello
+
+
+	   [Elapsed] 120.53µs
+	*/
+
 }
