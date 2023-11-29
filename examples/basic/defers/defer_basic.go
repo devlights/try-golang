@@ -29,6 +29,23 @@ func Basic() error {
 
 	return nil
 
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: defer_basic_usage
+
+	   [Name] "defer_basic_usage"
+	   printVal() -- 2
+	   defer2 -- 3
+	   printVal() -- 1
+	   defer1 -- 3
+
+
+	   [Elapsed] 33.6µs
+	*/
+
 	// Output:
 	// printVal() -- 2
 	// defer2 -- 3

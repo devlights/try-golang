@@ -30,6 +30,41 @@ func DeferInLoop() error {
 	good()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: defer_in_loop
+
+	   [Name] "defer_in_loop"
+	   defer: 09
+	   defer: 08
+	   defer: 07
+	   defer: 06
+	   defer: 05
+	   defer: 04
+	   defer: 03
+	   defer: 02
+	   defer: 01
+	   defer: 00
+	   ---------------------------------------
+	   defer: 00
+	   defer: 01
+	   defer: 02
+	   defer: 03
+	   defer: 04
+	   defer: 05
+	   defer: 06
+	   defer: 07
+	   defer: 08
+	   defer: 09
+
+
+	   [Elapsed] 139.21µs
+	*/
+
 }
 
 func bad() {

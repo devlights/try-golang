@@ -51,6 +51,44 @@ func DeferInLoopManyFiles() error {
 	memory.Print("main end")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: defer_in_loop_manyfiles
+
+	   [Name] "defer_in_loop_manyfiles"
+	   dir                  /tmp/try-golang3234544150
+	   badDefer - init      ----------------------------
+	   Alloc                421 KiB
+	   NumGC                0
+	   [file count]         3001
+	   badDefer - before gc ----------------------------
+	   Alloc                2153 KiB
+	   NumGC                0
+	   badDefer - after gc  ----------------------------
+	   Alloc                1140 KiB
+	   NumGC                1
+	   goodDefer - init     ----------------------------
+	   Alloc                369 KiB
+	   NumGC                2
+	   [file count]         3001
+	   goodDefer - before gc ----------------------------
+	   Alloc                1819 KiB
+	   NumGC                2
+	   goodDefer - after gc ----------------------------
+	   Alloc                369 KiB
+	   NumGC                3
+	   main end             ----------------------------
+	   Alloc                369 KiB
+	   NumGC                3
+
+
+	   [Elapsed] 246.139489ms
+	*/
+
 }
 
 func initDirectory() (string, error) {
