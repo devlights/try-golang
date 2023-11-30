@@ -39,4 +39,20 @@ func EmbedFsFilter() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: embed_fs_filter
+
+	   [Name] "embed_fs_filter"
+	   [go.txt]             golang
+	   [golang.txt]         golang
+
+
+	   [Elapsed] 35.84µs
+	*/
+
 }
