@@ -56,4 +56,25 @@ func EmbedFsMultifiles() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: embed_fs_multifiles
+
+	   [Name] "embed_fs_multifiles"
+	   [helloworld.txt]     hello
+	   world
+	   --------------------------------------------------
+	   [dotnet.txt]         dotnet
+	   [go.txt]             golang
+	   [golang.txt]         golang
+	   [python.txt]         python
+
+
+	   [Elapsed] 64.91µs
+	*/
+
 }

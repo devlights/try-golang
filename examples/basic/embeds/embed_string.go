@@ -17,4 +17,20 @@ func EmbedString() error {
 	//
 	output.Stdoutl("[helloworld.txt]", s)
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: embed_string
+
+	   [Name] "embed_string"
+	   [helloworld.txt]     hello
+	   world
+
+
+	   [Elapsed] 6.04µs
+	*/
+
 }
