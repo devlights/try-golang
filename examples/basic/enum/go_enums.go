@@ -74,4 +74,23 @@ func GoEnums() error {
 	output.Stdoutl("[Stopped.CanForward]", Stopped.CanForward())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: go_enums
+
+	   [Name] "go_enums"
+	   [Status]             1
+	   [Status]             実行中
+	   [v.CanForward]       true
+	   [Running.CanForward] true
+	   [Stopped.CanForward] false
+
+
+	   [Elapsed] 41.33µs
+	*/
+
 }
