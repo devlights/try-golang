@@ -57,7 +57,7 @@ func CalcNextMonth() error {
 		nextMonth2 = first.AddDate(0, 2, -1)
 	}
 
-	output.Stdoutl("[nextmonth1]", nextMonth2.Format(time.RFC3339))
+	output.Stdoutl("[nextmonth2]", nextMonth2.Format(time.RFC3339))
 
 	return nil
 }
