@@ -129,4 +129,29 @@ func GoIota() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: go_iota
+
+	   [Name] "go_iota"
+	   Weekday              1 3 4
+	   Weekday2             0 1
+	   iota in the middle   1 2 3 4
+	   iota multiple        0 0 0 1 1 1
+	   iota multiple2       0 10 1 11 2
+	   last used expression keep 1 1
+	   iota bitwise value is 6
+	   flg & Flg2           Flg2
+	   flg & Flg3           Flg3
+	   flg & AllFlgs        flg is valid
+	   Flg(8) & AllFlgs     Flg(8) is invalid
+
+
+	   [Elapsed] 94.25µs
+	*/
+
 }

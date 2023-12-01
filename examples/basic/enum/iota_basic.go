@@ -38,4 +38,21 @@ func Basic() error {
 	fmt.Println(KB, MB, GB)
 	fmt.Println(Sunday, Monday, Tuesday)
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: iota_basic
+
+	   [Name] "iota_basic"
+	   0 1 2
+	   1024 1048576 1073741824
+	   1 3 4
+
+
+	   [Elapsed] 54.62µs
+	*/
+
 }
