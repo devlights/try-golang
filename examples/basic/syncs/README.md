@@ -17,3 +17,4 @@
 |use\_oncefunc.go|syncs\_use\_oncefunc|Go 1.21 で追加された sync.OnceFunc() のサンプルです|
 |use\_oncevalue.go|syncs\_use\_oncevalue|Go 1.21 で追加された sync.OnceValue() のサンプルです|
 |use\_oncevalues.go|syncs\_use\_oncevalues|Go 1.21 で追加された sync.OnceValues() のサンプルです|
+|use\_pool.go|syncs\_use\_pool|sync.Poolのサンプルです|
