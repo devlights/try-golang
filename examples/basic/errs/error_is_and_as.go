@@ -57,4 +57,22 @@ func IsAndAs() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: error_is_and_as
+
+	   [Name] "error_is_and_as"
+	   [errors.Is]          wrapped を Unwrap していくと err がある
+	   [errors.Is]          errors.Unwrapを呼び出して手動でUnwrapした場合
+	   [errors.As]          wrapped を Unwrap していくと pErr に代入可能
+	   [errors.As]          errors.Unwrapを呼び出して手動でUnwrapした場合
+
+
+	   [Elapsed] 123.24µs
+	*/
+
 }

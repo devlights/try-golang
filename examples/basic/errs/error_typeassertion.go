@@ -47,4 +47,20 @@ func TypeAssertion() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: error_typeassertion
+
+	   [Name] "error_typeassertion"
+	   Go 1.13 より前 (型検証で判定): example: type assertion error check
+	   Go 1.13 以降 (errors.As()で判定): example: type assertion error check
+
+
+	   [Elapsed] 9.089µs
+	*/
+
 }

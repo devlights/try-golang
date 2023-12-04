@@ -77,4 +77,26 @@ func ErrorJoinErrorsAs() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: error_join_errors_as
+
+	   [Name] "error_join_errors_as"
+	   [err  ]              1:MyError1
+	   2:MyError2
+	   [MyError1?]          true
+	   [MyError2?]          true
+	   [MyError3?]          false
+	   [e1]                 1:MyError1
+	   [e2]                 2:MyError2
+	   [e3]                 <nil>
+
+
+	   [Elapsed] 100.478853ms
+	*/
+
 }

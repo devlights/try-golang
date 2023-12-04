@@ -42,4 +42,20 @@ func Sentinel() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: error_sentinel
+
+	   [Name] "error_sentinel"
+	   Go 1.13 より前 (==で判定): example: sentinel error check
+	   Go 1.13 以降 (errors.Is()で判定): example: sentinel error check
+
+
+	   [Elapsed] 7.42µs
+	*/
+
 }

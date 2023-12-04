@@ -58,4 +58,22 @@ func ErrorJoinFmtErrorf() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: error_join_fmt_errorf
+
+	   [Name] "error_join_fmt_errorf"
+	   [err  ]              errors: (this is err1 message) (this is err2 message)
+	   [err1?]              true
+	   [err2?]              true
+	   [err3?]              false
+
+
+	   [Elapsed] 250.685168ms
+	*/
+
 }

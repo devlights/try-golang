@@ -39,4 +39,20 @@ func Basic() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: error_basic
+
+	   [Name] "error_basic"
+	   bin
+	   pkg
+
+
+	   [Elapsed] 73.89µs
+	*/
+
 }
