@@ -26,4 +26,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["syncs_use_oncefunc"] = UseOnceFunc
 	m["syncs_use_oncevalue"] = UseOnceValue
 	m["syncs_use_oncevalues"] = UseOnceValues
+	m["syncs_use_pool"] = UsePool
 }
