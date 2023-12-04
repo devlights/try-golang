@@ -70,4 +70,22 @@ func WrapAndUnwrap() error {
 	dump(e4)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: error_wrap_unwrap
+
+	   [Name] "error_wrap_unwrap"
+	   [*fmt.wrapError] example: MakeError(example: sentinel error check)
+	   [*errors.errorString] example: sentinel error check
+	   [*errs.WrapError] example: WrapError(example: type assertion error check)
+	   [*errs.TypeAssertionError] example: type assertion error check
+
+
+	   [Elapsed] 34.13µs
+	*/
+
 }

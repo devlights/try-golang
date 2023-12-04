@@ -75,4 +75,28 @@ func ErrorJoin() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: error_join
+
+	   [Name] "error_join"
+	   [proc1]              start
+	   [proc2]              start
+	   [Error]              proc2 error1
+	   [Error]              proc1 error
+	   [Error]              proc2 error2
+	   [Error]              proc2 error3
+	   [Error]              proc2 all errors
+	   proc2 error1
+	   proc2 error2
+	   proc2 error3
+
+
+	   [Elapsed] 951.91721ms
+	*/
+
 }
