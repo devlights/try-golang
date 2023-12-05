@@ -11,3 +11,4 @@
 |using\_builder.go|string\_using\_builder|strings.Builder を利用したサンプルです.|
 |rune\_count.go|string\_rune\_count|utf8.RuneCountInString() のサンプルです.|
 |diff\_trimright\_trimsuffix.go|string\_diff\_trimright\_trimsuffix|strings.TrimRight と strings.TrimSuffix のちょっとした違いについてのサンプルです.|
+|using\_string\_clone.go|string\_using\_clone|Go 1.18 で追加された strings.Clone() のサンプルです|

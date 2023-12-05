@@ -21,4 +21,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["string_rune_count"] = RuneCount
 	m["string_diff_trimright_trimsuffix"] = DiffTrimRightAndTrimSuffix
 	m["string_cut_prefix_suffix"] = CutPrefixSuffix
+	m["string_using_clone"] = UsingStringsClone
 }
