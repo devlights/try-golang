@@ -62,4 +62,22 @@ func OpenWrite() error {
 	fmt.Println(message)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_open_write
+
+	   [Name] "fileio_open_write"
+	   TmpFile: /tmp/example717995680
+	   ファイル存在する
+	   hello world
+	   存在しない
+
+
+	   [Elapsed] 214.18µs
+	*/
+
 }

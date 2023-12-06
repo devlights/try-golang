@@ -27,4 +27,23 @@ func StdinWithScanner() error {
 	}
 
 	return scanner.Err()
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_stdin_scanner
+
+	   [Name] "fileio_stdin_scanner"
+	   hello world
+	   [text]               hello world
+	   こんにちわ 世界
+	   [text]               こんにちわ 世界
+	   quit
+
+
+	   [Elapsed] 11.202130223s
+	*/
+
 }

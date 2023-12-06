@@ -81,4 +81,22 @@ func Read() error {
 	output.Stdoutl("[euc-jp  ]", string(eucBytes))
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_japanese_eucjp_read
+
+	   [Name] "fileio_japanese_eucjp_read"
+	   [original]           ����ˤ�������
+
+	   [euc-jp  ]           こんにちわ世界
+
+
+
+	   [Elapsed] 2.88838ms
+	*/
+
 }

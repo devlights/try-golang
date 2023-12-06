@@ -44,4 +44,23 @@ func ReadDir() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_filesystem_readdir
+
+	   [Name] "fileio_filesystem_readdir"
+	   [directory]          builder
+	   [directory]          cmd
+	   [directory]          examples
+	   [directory]          mapping
+	   [directory]          runner
+
+
+	   [Elapsed] 179.57µs
+	*/
+
 }

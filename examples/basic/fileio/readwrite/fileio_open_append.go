@@ -64,4 +64,21 @@ func OpenAppend() error {
 	output.Stdoutl("[append]", string(data))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_open_append
+
+	   [Name] "fileio_open_append"
+	   [append]             hello world
+	   hello world
+
+
+
+	   [Elapsed] 135.58µs
+	*/
+
 }

@@ -26,4 +26,21 @@ func Listdir() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_filesystem_listdir
+
+	   [Name] "fileio_filesystem_listdir"
+	   [cwd ]               /workspace/try-golang
+	   [file]               go.mod
+	   [file]               go.sum
+
+
+	   [Elapsed] 982.219µs
+	*/
+
 }

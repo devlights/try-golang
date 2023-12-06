@@ -53,4 +53,40 @@ func DirFS() error {
 	output.Stdoutl("[.gitpod.yml]", string(buf))
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_filesystem_dirfs
+
+	   [Name] "fileio_filesystem_dirfs"
+	   [DirFS]              .(os.dirFS)
+	   [.gitpod.yml]        image:
+	     file: .gitpod.Dockerfile
+
+	   tasks:
+	     - name: initial
+	       init:
+	         go install github.com/go-task/task/v3/cmd/task@latest &&
+	         go install honnef.co/go/tools/cmd/staticcheck@latest &&
+	         go install golang.org/x/tools/cmd/goimports@latest &&
+	         go install github.com/mgechev/revive@latest &&
+	         go install github.com/go-delve/delve/cmd/dlv@latest &&
+	         go install go.uber.org/nilaway/cmd/nilaway@latest &&
+	         task build
+	       command:
+	         go version
+
+
+	   vscode:
+	     extensions:
+	       - golang.go
+
+
+
+	   [Elapsed] 97.109µs
+	*/
+
 }

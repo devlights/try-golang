@@ -41,4 +41,22 @@ func OpenWrite2() error {
 	output.Stdoutl("[data]", string(data))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_open_write2
+
+	   [Name] "fileio_open_write2"
+	   [data]
+	   hello world
+	   world hello
+
+
+
+	   [Elapsed] 88.26µs
+	*/
+
 }
