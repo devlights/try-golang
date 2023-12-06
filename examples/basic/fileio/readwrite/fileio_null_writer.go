@@ -84,4 +84,23 @@ func NullWriter() error {
 	logger.Printf("elapsed: %v\n", time.Since(start))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_null_writer
+
+	   [Name] "fileio_null_writer"
+	   fetch: https://www.google.co.jp/                --> 73.324262ms
+	   fetch: https://github.com/                      --> 75.424952ms
+	   fetch: https://golang.org/                      --> 300.619817ms
+	   fetch: https://www.alexa.com/topsites/          --> 325.817194ms
+	   elapsed: 325.983864ms
+
+
+	   [Elapsed] 325.999604ms
+	*/
+
 }

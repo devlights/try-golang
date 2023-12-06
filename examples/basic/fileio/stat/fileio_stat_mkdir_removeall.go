@@ -60,4 +60,21 @@ func StatMkdirRemoveAll() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_stat_mkdir_removeall
+
+	   [Name] "fileio_stat_mkdir_removeall"
+	   ディレクトリ： /tmp/try-golang-fileio03
+	   ディレクトリはまだ存在しない
+	   ディレクトリは存在する
+
+
+	   [Elapsed] 190.41µs
+	*/
+
 }

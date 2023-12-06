@@ -58,4 +58,20 @@ func Write() error {
 	output.Stdoutl("[euc-jp  ]", eucBuf.String())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_japanese_eucjp_write
+
+	   [Name] "fileio_japanese_eucjp_write"
+	   [original]           こんにちわ世界
+	   [euc-jp  ]           ����ˤ�������
+
+
+	   [Elapsed] 65.92µs
+	*/
+
 }

@@ -33,4 +33,18 @@ func NotExists() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_filesystem_notexists
+
+	   [Name] "fileio_filesystem_notexists"
+	   [not found]          /workspace/try-golang/not_exists_filename  (stat /workspace/try-golang/not_exists_filename: no such file or directory)
+
+	   [Elapsed] 68.78µs
+	*/
+
 }

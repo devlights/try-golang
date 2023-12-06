@@ -81,4 +81,22 @@ func Read() error {
 	output.Stdoutl("[shiftjis]", string(sjisBytes))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_japanese_sjis_read
+
+	   [Name] "fileio_japanese_sjis_read"
+	   [original]           ����ɂ��퐢�E
+
+	   [shiftjis]           こんにちわ世界
+
+
+
+	   [Elapsed] 3.89531ms
+	*/
+
 }

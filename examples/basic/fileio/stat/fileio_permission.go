@@ -9,7 +9,7 @@ import (
 
 // StatPermission は、ファイルのパーミッションに関するサンプルです。
 func StatPermission() error {
-	const fpath = "examples/basic/fileio/fileio_permission.go"
+	const fpath = "examples/basic/fileio/stat/fileio_permission.go"
 
 	absPath, err := filepath.Abs(fpath)
 	if err != nil {
@@ -42,4 +42,24 @@ func StatPermission() error {
 	output.Stdoutf("[Permission]", "%[1]v\t%#[1]o\n", fperm)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_stat_permission
+
+	   [Name] "fileio_stat_permission"
+	   [abspath]            /workspace/try-golang/examples/basic/fileio/stat/fileio_permission.go
+	   --------------------------------------------------
+	   [readable]           yes
+	   [writable]           yes
+	   --------------------------------------------------
+	   [Permission]         -rw-r--r-- 0644
+
+
+	   [Elapsed] 114.74µs
+	*/
+
 }

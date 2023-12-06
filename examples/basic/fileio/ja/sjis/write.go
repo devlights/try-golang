@@ -58,4 +58,20 @@ func Write() error {
 	output.Stdoutl("[sjis    ]", sjisBuf.String())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_japanese_sjis_write
+
+	   [Name] "fileio_japanese_sjis_write"
+	   [original]           こんにちわ世界
+	   [sjis    ]           ����ɂ��퐢�E
+
+
+	   [Elapsed] 44.09µs
+	*/
+
 }

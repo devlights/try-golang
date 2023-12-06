@@ -50,6 +50,21 @@ func SyncAndClose() error {
 	output.Stdoutl("[Data]", string(data))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: fileio_sync_and_close
+
+	   [Name] "fileio_sync_and_close"
+	   [Data]               hello world
+
+
+	   [Elapsed] 121.669µs
+	*/
+
 }
 
 func write() (string, error) {
