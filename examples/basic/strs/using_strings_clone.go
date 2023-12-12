@@ -21,27 +21,27 @@ func UsingStringsClone() error {
 	//
 
 	const (
-		NUM_ITEMS = 100
+		NumItems = 100
 	)
 
 	var (
-		l = make([]string, NUM_ITEMS)
+		l = make([]string, NumItems)
 	)
 
 	// 1024バイトのランダム文字列を1000個用意
-	for i := 0; i < NUM_ITEMS; i++ {
+	for i := 0; i < NumItems; i++ {
 		var (
-			c      *exec.Cmd
-			output []byte
-			err    error
+			c   *exec.Cmd
+			o   []byte
+			err error
 		)
 
 		c = exec.Command("/bin/bash", "-c", "openssl rand -base64 1024 | tr -d '\n'")
-		if output, err = c.Output(); err != nil {
+		if o, err = c.Output(); err != nil {
 			return err
 		}
 
-		l[i] = string(output)
+		l[i] = string(o)
 	}
 
 	//
@@ -49,21 +49,21 @@ func UsingStringsClone() error {
 	//
 
 	var (
-		store1 = make([]string, NUM_ITEMS)
-		store2 = make([]string, NUM_ITEMS)
+		store1 = make([]string, NumItems)
+		store2 = make([]string, NumItems)
 	)
 
 	// 部分文字列を取り出し、そのまま保持
 	// この場合、元文字列と部分文字列は同じメモリを共有している可能性があるため
 	// 場合によっては、５バイト分だけじゃなく、文字列全部がメモリに残ったままとなる
-	for i := 0; i < NUM_ITEMS; i++ {
+	for i := 0; i < NumItems; i++ {
 		store1[i] = l[i][:5]
 	}
 
 	// 部分文字列を取り出し、クローンしてから保持
 	// Go 1.18 で追加された strings.Clone() を利用することで、新たな割当が行われた状態で
 	// 文字列がクローンされる。なので元文字列全部がメモリに残ることはなくなる
-	for i := 0; i < NUM_ITEMS; i++ {
+	for i := 0; i < NumItems; i++ {
 		store2[i] = strings.Clone(l[i][:5])
 	}
 

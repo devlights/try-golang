@@ -16,16 +16,16 @@ func BenchmarkModOperatorUInt32(b *testing.B) {
 }
 
 func getPrimesInt(limit int) []int {
-	primes := []int{}
+	var primes []int
 	for x := 2; x < limit; x++ {
-		is_prime := true
+		isPrime := true
 		for y := 2; y < x; y++ {
 			if x%y == 0 {
-				is_prime = false
+				isPrime = false
 				break
 			}
 		}
-		if is_prime {
+		if isPrime {
 			primes = append(primes, x)
 		}
 	}
@@ -33,16 +33,16 @@ func getPrimesInt(limit int) []int {
 }
 
 func getPrimesUInt32(limit uint32) []uint32 {
-	primes := []uint32{}
+	var primes []uint32
 	for x := uint32(2); x < limit; x++ {
-		is_prime := true
+		isPrime := true
 		for y := uint32(2); y < x; y++ {
 			if x%y == 0 {
-				is_prime = false
+				isPrime = false
 				break
 			}
 		}
-		if is_prime {
+		if isPrime {
 			primes = append(primes, x)
 		}
 	}

@@ -40,14 +40,14 @@ func (c *Config) String() string {
 		c.SendTimeout)
 }
 
-// Option Pattern
+// WithRecvTimeout is implemented Option Pattern
 func WithRecvTimeout(v time.Duration) Option {
 	return func(c *Config) {
 		c.RecvTimeout = v
 	}
 }
 
-// Option Pattern
+// WithSendTimeout is implemented Option Pattern
 func WithSendTimeout(v time.Duration) Option {
 	return func(c *Config) {
 		c.SendTimeout = v

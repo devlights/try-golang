@@ -15,20 +15,20 @@ import (
 //   - https://pkg.go.dev/io@go1.19.3#LimitedReader
 func LimitRead() error {
 	const (
-		READ_SIZE = 0x04
-		BUF_SIZE  = 0xff
+		ReadSize = 0x04
+		BufSize  = 0xff
 	)
 
 	var (
 		message     = "hello world"
 		src         = bytes.NewBufferString(message)
-		limitReader = io.LimitReader(src, READ_SIZE)
+		limitReader = io.LimitReader(src, ReadSize)
 	)
 	output.Stdoutf("[LimitReader]", "original: %v\n", message)
 
 	for {
 		var (
-			buf  = make([]byte, BUF_SIZE)
+			buf  = make([]byte, BufSize)
 			size int
 			err  error
 		)

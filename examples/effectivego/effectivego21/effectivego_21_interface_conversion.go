@@ -12,8 +12,8 @@ type (
 	}
 )
 
-// NewMyString -- 新しい myString を生成して返します.
-func NewMyString() *myString {
+// newMyString -- 新しい myString を生成して返します.
+func newMyString() *myString {
 	return &myString{}
 }
 
@@ -35,7 +35,7 @@ func InterfaceConversion() error {
 		  - キャストではない
 		  - 対象の値がインターフェースの場合のみ有効。構造体ではできない
 	*/
-	s1 := NewMyString()
+	s1 := newMyString()
 	s1.Set("helloworld")
 
 	// -------------------------------------------------------------------------

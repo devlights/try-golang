@@ -7,7 +7,7 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// SplitJoinPort は、net.SplitHostPort のサンプルです。
+// SplitHostPort は、net.SplitHostPort のサンプルです。
 //
 // 文字列結合で 127.0.0.1:9999 という形を作っても問題はないが
 // IPv6の場合は [::1]:9999 とする必要があるため、net.JoinHostPort() を

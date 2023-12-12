@@ -3,7 +3,7 @@ package ring
 
 import "container/ring"
 
-// Ring[T] は、container/ring/Ring のジェネリック版です.
+// Ring は、container/ring/Ring のジェネリック版です.
 //
 // 標準の *ring.Ring と異なり、値の設定は SetValue() で行います。
 type Ring[T any] struct {

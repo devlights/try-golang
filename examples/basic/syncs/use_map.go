@@ -7,7 +7,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/syncs/maps"
 )
 
-// Map は、sync.Mapの使い方とそれをラップした型の紹介です。
+// UseMap は、sync.Mapの使い方とそれをラップした型の紹介です。
 //
 // # REFERENCES
 //   - https://hjr265.me/blog/synchronization-constructs-in-go-standard-library/

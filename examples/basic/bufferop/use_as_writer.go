@@ -7,7 +7,7 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// UseAsReader -- bytes.Buffer を io.Writer として利用するサンプルです.
+// UseAsWriter -- bytes.Buffer を io.Writer として利用するサンプルです.
 func UseAsWriter() error {
 	// bytes.Buffer は io.Writer を実装しているので
 	// io.Readerが必要な様々な場面で利用できる

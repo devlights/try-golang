@@ -14,15 +14,12 @@ type (
 	}
 )
 
-// Impl check
 var _ io.ReadCloser = (*_readcloserimpl)(nil)
 
-// Impl -- io.Reader#Read
 func (r *_readcloserimpl) Read(p []byte) (int, error) {
 	return r.reader.Read(p)
 }
 
-// Impl -- io.Closer#Close
 func (r *_readcloserimpl) Close() error {
 	output.Stdoutl("[_readcloserimpl]", "Close() called")
 	return nil

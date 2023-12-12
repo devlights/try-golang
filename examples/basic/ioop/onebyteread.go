@@ -15,8 +15,8 @@ import (
 //   - https://pkg.go.dev/io@go1.19.3#LimitedReader
 func OneByteRead() error {
 	const (
-		READ_SIZE = 0x01
-		BUF_SIZE  = 0xff
+		ReadSize = 0x01
+		BufSize  = 0xff
 	)
 
 	var (
@@ -26,8 +26,8 @@ func OneByteRead() error {
 
 	for {
 		var (
-			reader = io.LimitReader(src, READ_SIZE)
-			buf    = make([]byte, BUF_SIZE)
+			reader = io.LimitReader(src, ReadSize)
+			buf    = make([]byte, BufSize)
 			size   int
 			err    error
 		)

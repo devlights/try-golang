@@ -10,8 +10,8 @@ type _PooledObject struct {
 	v int
 }
 
-func NewPooledObject(v int) *_PooledObject {
-	output.Stderrl("[New]", "Call NewPooledObject()")
+func newPooledObject(v int) *_PooledObject {
+	output.Stderrl("[New]", "Call newPooledObject()")
 	return &_PooledObject{v: v}
 }
 
@@ -54,13 +54,13 @@ func UsePool() error {
 	//
 
 	const (
-		NUM_ITEMS = 20
+		NumItems = 20
 	)
 
 	var (
 		pool = sync.Pool{
 			New: func() any {
-				return NewPooledObject(0)
+				return newPooledObject(0)
 			},
 		}
 		ch   = make(chan int)
@@ -68,9 +68,9 @@ func UsePool() error {
 		wg   = sync.WaitGroup{}
 	)
 
-	wg.Add(NUM_ITEMS)
+	wg.Add(NumItems)
 
-	for i := 0; i < NUM_ITEMS; i++ {
+	for i := 0; i < NumItems; i++ {
 		go func(i int, ch chan<- int) {
 			defer wg.Done()
 

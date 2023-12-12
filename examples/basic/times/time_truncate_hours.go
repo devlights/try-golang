@@ -7,7 +7,7 @@ import (
 	"github.com/devlights/gomy/times"
 )
 
-// TruncateDay -- time.Timeから時刻部分を除去するサンプルです.
+// TruncateHours -- time.Timeから時刻部分を除去するサンプルです.
 //
 // 時刻部分を除去する場合は、 time.Truncate() に 24時間 を指定する.
 //

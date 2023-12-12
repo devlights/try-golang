@@ -6,7 +6,7 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// FormatDateTime は、Go1.20で追加された time.TimeOnly フォーマット書式についてのサンプルです.
+// FormatTimeOnly は、Go1.20で追加された time.TimeOnly フォーマット書式についてのサンプルです.
 //
 // # REFERENCES
 //   - https://pkg.go.dev/time@go1.20.2#pkg-constants

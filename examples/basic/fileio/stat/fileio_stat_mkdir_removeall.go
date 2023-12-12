@@ -7,8 +7,8 @@ import (
 	"path/filepath"
 )
 
-// StatMkdirRemoveAll は、ディレクトリの存在確認と作成および削除のサンプルです.
-func StatMkdirRemoveAll() error {
+// MkdirRemoveAll は、ディレクトリの存在確認と作成および削除のサンプルです.
+func MkdirRemoveAll() error {
 	// ディレクトリパスを生成
 	dname := "try-golang-fileio03"
 	dpath := filepath.Join(os.TempDir(), dname)

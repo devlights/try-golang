@@ -10,7 +10,7 @@ func SelectNilChan3() error {
 		gen = func(out chan<- int) {
 			defer close(out)
 			for i := 0; i < 5; i++ {
-				out <- (i + 1)
+				out <- i + 1
 			}
 		}
 		output = func(done chan<- any, in1, in2 <-chan int) {

@@ -11,12 +11,12 @@ import (
 )
 
 const (
-	NUM_ITEMS = 1000
-	SHELL     = "/bin/bash"
+	NumItems = 1000
+	SHELL    = "/bin/bash"
 )
 
 var (
-	store = make([]string, NUM_ITEMS)
+	store = make([]string, NumItems)
 )
 
 func init() {
@@ -34,10 +34,10 @@ func mem(prefix string) {
 
 func gen() []string {
 	var (
-		l = make([]string, NUM_ITEMS)
+		l = make([]string, NumItems)
 	)
 
-	for i := 0; i < NUM_ITEMS; i++ {
+	for i := 0; i < NumItems; i++ {
 		output, _ := exec.Command(SHELL, "-c", "openssl rand -base64 4096 | tr -d '\n'").Output()
 		l[i] = unsafe.String(&output[0], len(output))
 	}
@@ -59,7 +59,7 @@ func main() {
 	)
 	mem("gen       ")
 
-	for i := 0; i < NUM_ITEMS; i++ {
+	for i := 0; i < NumItems; i++ {
 		storeValue := l[i][:5]
 
 		if *use {

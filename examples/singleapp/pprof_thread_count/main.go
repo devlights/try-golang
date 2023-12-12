@@ -41,7 +41,7 @@ func fn(lockThread bool, wg *sync.WaitGroup) {
 
 func main() {
 	const (
-		NUM_GOROUTINE = 10
+		NumGoroutine = 10
 	)
 
 	var (
@@ -55,8 +55,8 @@ func main() {
 
 		fmt.Printf("[BEFORE] lock-thread=%v\tthread count=%d\n", lockThread, threadProfile.Count())
 
-		wg.Add(NUM_GOROUTINE)
-		for i := 0; i < NUM_GOROUTINE; i++ {
+		wg.Add(NumGoroutine)
+		for i := 0; i < NumGoroutine; i++ {
 			go fn(lockThread, &wg)
 		}
 		wg.Wait()

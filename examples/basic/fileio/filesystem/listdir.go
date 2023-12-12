@@ -7,7 +7,7 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// ListDir -- os.DirFS() から fs.Glob() 経由で ディレクトリ 内のファイル一覧を出力するサンプルです.
+// Listdir -- os.DirFS() から fs.Glob() 経由で ディレクトリ 内のファイル一覧を出力するサンプルです.
 func Listdir() error {
 	cwd, err := os.Getwd()
 	if err != nil {

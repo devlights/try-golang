@@ -8,7 +8,7 @@ import (
 )
 
 type (
-	// YYYY/MM/DD 形式で json.Marshal/json.Unmarshal するために利用できる構造体です.
+	// YyyyMmDd は、 YYYY/MM/DD 形式で json.Marshal/json.Unmarshal するために利用できる構造体です.
 	YyyyMmDd struct {
 		time.Time
 	}

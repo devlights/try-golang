@@ -7,7 +7,7 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// Unmarshal は、json.Unmarshal() を利用した
+// UnmarshalStruct は、json.Unmarshal() を利用したサンプルです.
 func UnmarshalStruct() error {
 	type (
 		V struct {

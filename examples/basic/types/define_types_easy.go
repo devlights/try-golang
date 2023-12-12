@@ -8,12 +8,9 @@ import (
 
 // 型定義
 type (
-	// ID
-	Id string
-	// 名前
+	Id   string
 	Name string
 
-	// ユーザ
 	User struct {
 		Id   Id
 		Name Name

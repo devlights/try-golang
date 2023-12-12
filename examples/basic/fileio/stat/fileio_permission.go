@@ -7,8 +7,8 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// StatPermission は、ファイルのパーミッションに関するサンプルです。
-func StatPermission() error {
+// Permission は、ファイルのパーミッションに関するサンプルです。
+func Permission() error {
 	const fpath = "examples/basic/fileio/stat/fileio_permission.go"
 
 	absPath, err := filepath.Abs(fpath)
