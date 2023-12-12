@@ -2,10 +2,10 @@
 
 このディレクトリには以下のサンプルがあります。
 
-|file|example name|note|
-|----|------------|----|
-|typeof.go|reflect\_typeof|reflect.TypeOf() のサンプルです|
-|valueof.go|reflect\_valueof||
-|value.go|reflect\_value||
-|selectcase.go|reflect\_selectcase|reflect.SelectCase のサンプルです|
-|find\_type.go|reflect\_find\_type|実行時に型を求めるやり方についてのサンプルです|
+| file          | example name        | note                       |
+|---------------|---------------------|----------------------------|
+| typeof.go     | reflect\_typeof     | reflect.TypeOf() のサンプルです   |
+| valueof.go    | reflect\_valueof    |                            |
+| value.go      | reflect\_value      |                            |
+| selectcase.go | reflect\_selectcase | reflect.SelectCase のサンプルです |
+| find\_type.go | reflect\_find\_type | 実行時に型を求めるやり方についてのサンプルです    |
