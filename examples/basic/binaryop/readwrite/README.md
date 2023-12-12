@@ -2,7 +2,7 @@
 
 このディレクトリには以下のサンプルがあります。
 
-|file|example name|note|
-|----|------------|----|
-|binary\_readwrite.go|binary\_readwrite|binary パッケージの Read/Write を利用してエンディアン指定でデータを読み込むサンプルです.|
+| file                 | example name      | note                                                   |
+|----------------------|-------------------|--------------------------------------------------------|
+| binary\_readwrite.go | binary\_readwrite | binary パッケージの Read/Write を利用してエンディアン指定でデータを読み込むサンプルです. |
 

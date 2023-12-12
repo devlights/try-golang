@@ -2,8 +2,8 @@
 
 このディレクトリには以下のサンプルがあります。
 
-|file|example name|note|
-|----|------------|----|
-|basic.go|bitop\_basic|基本的なビット操作のサンプルです.|
-|bitflags.go|bitop\_bitflags|ビットフラグのサンプルです.|
+| file        | example name    | note              |
+|-------------|-----------------|-------------------|
+| basic.go    | bitop\_basic    | 基本的なビット操作のサンプルです. |
+| bitflags.go | bitop\_bitflags | ビットフラグのサンプルです.    |
 
