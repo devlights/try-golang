@@ -52,4 +52,24 @@ func FilePathGlob() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: filepath_glob
+
+	   [Name] "filepath_glob"
+	   examples/basic/filepaths/*.go examples/basic/filepaths/doc.go
+	   examples/basic/filepaths/*.go examples/basic/filepaths/examples.go
+	   examples/basic/filepaths/*.go examples/basic/filepaths/filepath_glob.go
+	   examples/basic/filepaths/*.go examples/basic/filepaths/filepath_walk.go
+	   --------------------------------------------------
+	   matches is nil       true
+
+
+	   [Elapsed] 152.71µs
+	*/
+
 }
