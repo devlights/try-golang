@@ -19,12 +19,56 @@ func FilePathWalk() error {
 	// ファイルツリーを下る処理は filepath.Walk() 内で実施され
 	// ファイル毎に引数に指定した WalkFunc が呼ばれる。
 	// -----------------------------------------------------
-	err := filepath.Walk("basic/filepaths", walkFn)
+	err := filepath.Walk("examples/basic/filepaths", walkFn)
 	if err != nil {
 		return err
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: filepath_walk
+
+	   [Name] "filepath_walk"
+	   ---------------------------------
+	   path                 examples/basic/filepaths
+	   isdir                true
+	   info                 filepaths
+	   ---------------------------------
+	   ---------------------------------
+	   path                 examples/basic/filepaths/README.md
+	   isdir                false
+	   info                 README.md
+	   ---------------------------------
+	   ---------------------------------
+	   path                 examples/basic/filepaths/doc.go
+	   isdir                false
+	   info                 doc.go
+	   ---------------------------------
+	   ---------------------------------
+	   path                 examples/basic/filepaths/examples.go
+	   isdir                false
+	   info                 examples.go
+	   ---------------------------------
+	   ---------------------------------
+	   path                 examples/basic/filepaths/filepath_glob.go
+	   isdir                false
+	   info                 filepath_glob.go
+	   ---------------------------------
+	   ---------------------------------
+	   path                 examples/basic/filepaths/filepath_walk.go
+	   isdir                false
+	   info                 filepath_walk.go
+	   ---------------------------------
+
+
+	   [Elapsed] 450.67µs
+	*/
+
 }
 
 func walkFn(path string, info os.FileInfo, err error) error {
