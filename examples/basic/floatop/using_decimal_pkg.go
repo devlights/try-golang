@@ -25,4 +25,19 @@ func UsingDecimalPkg() error {
 	output.Stdoutl("[result]", v.StringFixed(1))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: floatop_using_decimal_pkg
+
+	   [Name] "floatop_using_decimal_pkg"
+	   [result]             10.0
+
+
+	   [Elapsed] 549.44µs
+	*/
+
 }

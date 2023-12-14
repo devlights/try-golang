@@ -38,4 +38,20 @@ func RoundingError() error {
 	output.Stdoutl("[big.Rat]", v2.FloatString(1)) // 10.0
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: floatop_rounding_error
+
+	   [Name] "floatop_rounding_error"
+	   [float64]            9.999999999999831
+	   [big.Rat]            10.0
+
+
+	   [Elapsed] 1.32107ms
+	*/
+
 }
