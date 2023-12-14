@@ -21,4 +21,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["runtime_gosched"] = Gosched
 	m["runtime_caller"] = Caller
 	m["runtime_callers"] = Callers
+	m["runtime_debug_buildinfo"] = DebugBuildInfo
 }

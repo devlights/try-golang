@@ -10,3 +10,4 @@
 | goexit.go      | runtime\_goexit      | runtime.Goexit() のサンプルです       |
 | numcpu.go      | runtime\_numcpu      | runtime.NumCPU() のサンプルです       |
 | gosched.go     | runtime\_gosched     | runtime.Gosched() のサンプルです      |
+| debug\_buildinfo.go     | runtime\_debug\_buildinfo     | runtime/debug.ReadBuildInfo() のサンプルです      |
