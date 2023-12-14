@@ -39,4 +39,24 @@ func AdverbExplicitArgumentIndexes() error {
 	fmt.Printf("% [2]*[1]s\n", fmt.Sprintf("%0[2]*[1]d\n", i, numberLength), totalLength)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: formatting_adverb_explicit_argument_indexes
+
+	   [Name] "formatting_adverb_explicit_argument_indexes"
+	   10(int)
+	   10(int)
+	   32.80
+	   32.80
+	       0000000010
+
+
+
+	   [Elapsed] 98.26µs
+	*/
+
 }

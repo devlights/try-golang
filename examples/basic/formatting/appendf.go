@@ -21,4 +21,19 @@ func AppendF() error {
 	output.Stdoutl("[fmt.Appendf]", string(buf))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: formatting_appendf
+
+	   [Name] "formatting_appendf"
+	   [fmt.Appendf]        world hello
+
+
+	   [Elapsed] 20.19µs
+	*/
+
 }
