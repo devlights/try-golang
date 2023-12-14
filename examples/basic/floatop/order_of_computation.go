@@ -41,4 +41,28 @@ func OrderOfComputation() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: floatop_order_of_computation
+
+	   [Name] "floatop_order_of_computation"
+	   [Total (float32, float64)] 501.02402    501.02436977016623
+	   [Total (float32, float64)] 501.02417    501.02436977016623
+	   [Total (float32, float64)] 501.0243     501.02436977016623
+	   [Total (float32, float64)] 501.02444    501.02436977016623
+	   [Total (float32, float64)] 501.02475    501.02436977016623
+	   [Total (float32, float64)] 501.02423    501.02436977016623
+	   [Total (float32, float64)] 501.02454    501.02436977016623
+	   [Total (float32, float64)] 501.02466    501.02436977016623
+	   [Total (float32, float64)] 501.02435    501.02436977016623
+	   [Total (float32, float64)] 501.02426    501.02436977016623
+
+
+	   [Elapsed] 586.92µs
+	*/
+
 }
