@@ -49,4 +49,32 @@ func AdverbAsterisk() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: formatting_adverb_asterisk
+
+	   [Name] "formatting_adverb_asterisk"
+	    message
+	     message
+	       message
+	           message
+	   --------------------------------------------------
+	    message
+	     message
+	       message
+	           message
+	   --------------------------------------------------
+	   0message
+	   00message
+	   0000message
+	   00000000message
+
+
+	   [Elapsed] 81.69µs
+	*/
+
 }

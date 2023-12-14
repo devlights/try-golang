@@ -39,4 +39,18 @@ func StringerAndGoStringer() error {
 	fmt.Printf("v: %v\t+v: %+v\t#v: %#v\tjson: %s\ts: %s", i, i, i, b, s)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: formatting_stringer_and_gostringer
+
+	   [Name] "formatting_stringer_and_gostringer"
+	   v: stringer: 100        +v: stringer: 100       #v: gostring: 100       json: 100       s: 100
+
+	   [Elapsed] 37.33µs
+	*/
+
 }

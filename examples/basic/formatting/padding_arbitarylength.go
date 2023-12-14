@@ -22,4 +22,19 @@ func PaddingArbitaryLength() error {
 	output.Stdoutl("[%*s]", fmt.Sprintf("'%*s'", i, s))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: formatting_padding_arbitary_length
+
+	   [Name] "formatting_padding_arbitary_length"
+	   [%*s]                '     12345'
+
+
+	   [Elapsed] 24.85µs
+	*/
+
 }

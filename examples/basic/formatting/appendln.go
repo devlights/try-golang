@@ -24,4 +24,21 @@ func AppendLn() error {
 	output.Stdoutl("[fmt.Appendln]", string(buf))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: formatting_appendln
+
+	   [Name] "formatting_appendln"
+	   [fmt.Appendln]       hello
+	   world
+
+
+
+	   [Elapsed] 19.13µs
+	*/
+
 }
