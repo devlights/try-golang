@@ -11,6 +11,7 @@ import (
 //
 // # REFERENCES
 //   - https://pkg.go.dev/runtime/debug@go1.21.5#ReadBuildInfo
+//   - https://pkg.go.dev/runtime/debug@go1.21.5#BuildSetting
 func DebugBuildInfo() error {
 	//
 	// ReadBuildInfo()は、ReadBuildInfo は、実行中のバイナリに埋め込まれたビルド情報を返す.
