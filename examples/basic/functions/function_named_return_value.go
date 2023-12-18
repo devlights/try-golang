@@ -30,4 +30,20 @@ func FunctionNamedReturnValue() error {
 	fmt.Printf("orig=%s, result=%s\n", orig, r)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: function_named_return_value
+
+	   [Name] "function_named_return_value"
+	   Hello world
+	   orig=world, result=Hello world
+
+
+	   [Elapsed] 7.48µs
+	*/
+
 }

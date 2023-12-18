@@ -19,4 +19,19 @@ func FunctionMultiReturnValue() error {
 
 	fmt.Printf("toDoubleTheNumber(100) ==> (%d, %d)\n", original, result)
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: function_multi_return_value
+
+	   [Name] "function_multi_return_value"
+	   toDoubleTheNumber(100) ==> (100, 200)
+
+
+	   [Elapsed] 32.74µs
+	*/
+
 }

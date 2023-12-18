@@ -18,4 +18,19 @@ func FunctionOneReturnValue() error {
 	fmt.Printf("add(10,20) ==> %d\n", add(x, y))
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: function_one_return_value
+
+	   [Name] "function_one_return_value"
+	   add(10,20) ==> 30
+
+
+	   [Elapsed] 13.72µs
+	*/
+
 }
