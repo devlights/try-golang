@@ -15,4 +15,18 @@ func NonStop() error {
 	// （出力する前にメインゴルーチンが終わる可能性がある)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_nonstop
+
+	   [Name] "goroutines_nonstop"
+
+
+	   [Elapsed] 32.94µs
+	*/
+
 }

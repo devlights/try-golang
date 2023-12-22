@@ -46,4 +46,18 @@ func AbandonedReceiver() error {
 	time.Sleep(1 * time.Second)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_leak_abandoned_receiver
+
+	   [Name] "goroutines_leak_abandoned_receiver"
+
+
+	   [Elapsed] 1.010906522s
+	*/
+
 }

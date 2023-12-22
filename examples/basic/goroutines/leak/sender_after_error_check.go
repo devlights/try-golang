@@ -40,4 +40,19 @@ func SenderAfterErrorCheck() error {
 	ch <- 1
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_leak_sender_after_error_check
+
+	   [Name] "goroutines_leak_sender_after_error_check"
+
+
+	   [Elapsed] 20.16µs
+	   [Error] this is dummy error (goroutines_leak_sender_after_error_check)
+	*/
+
 }

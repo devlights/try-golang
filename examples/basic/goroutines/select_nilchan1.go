@@ -75,6 +75,33 @@ LOOP:
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_select_nil_chan_1
+
+	   [Name] "goroutines_select_nil_chan_1"
+	   [main] start 1703219524
+	   >>> G2 processing... 1703219524
+	   >>> G1 processing... 1703219524
+	   >>> G1 processing... 1703219525
+	   >>> G2 processing... 1703219525
+	   [main] g1 done 1703219526
+	   >>> G1 done 1703219526
+	   >>> G2 processing... 1703219526
+	   >>> G2 processing... 1703219527
+	   >>> G2 processing... 1703219528
+	   [main] g2 done 1703219529
+	   >>> G2 done 1703219529
+	   [main] proc done 1703219531
+
+
+	   [Elapsed] 7.000165826s
+	*/
+
 }
 
 func g(pCtx context.Context, timeout time.Duration, logger *log.Logger) context.Context {

@@ -70,4 +70,25 @@ func WithContextCancelCause() error {
 	output.Stdoutl("[mainCtx.Cause           ]", context.Cause(mainCtx))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_with_context_cancelcause
+
+	   [Name] "goroutines_with_context_cancelcause"
+	   [withCancelCtx.Err       ] context canceled
+	   [withCancelCauseCtx.Err  ] context canceled
+	   [mainCtx.Err             ] <nil>
+	   --------------------------------------------------
+	   [withCancelCtx.Cause     ] my error
+	   [withCancelCauseCtx.Cause] my error
+	   [mainCtx.Cause           ] <nil>
+
+
+	   [Elapsed] 500.744322ms
+	*/
+
 }

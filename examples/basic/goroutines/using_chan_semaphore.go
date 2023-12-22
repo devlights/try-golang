@@ -80,6 +80,42 @@ func binsem() {
 
 	wg.Wait()
 	mainLog.Println("end  ", now())
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_using_chan_semaphore
+
+	   [Name] "goroutines_using_chan_semaphore"
+	   --------------------------------------------------
+	   [main][binsem] start 1703219650
+	   >>> [semaphore] >>> 2 acquire 1703219650
+	   >>> [semaphore] >>> 2 release 1703219651
+	   >>> [semaphore] >>> 0 acquire 1703219651
+	   >>> [semaphore] >>> 0 release 1703219652
+	   >>> [semaphore] >>> 1 acquire 1703219652
+	   >>> [semaphore] >>> 1 release 1703219653
+	   [main][binsem] end   1703219653
+	   --------------------------------------------------
+	   [main][cntsem] start 1703219653
+	   >>> [semaphore] >>> 4 acquire 1703219653
+	   >>> [semaphore] >>> 1 acquire 1703219653
+	   >>> [semaphore] >>> 2 acquire 1703219653
+	   >>> [semaphore] >>> 2 release 1703219654
+	   >>> [semaphore] >>> 1 release 1703219654
+	   >>> [semaphore] >>> 0 acquire 1703219654
+	   >>> [semaphore] >>> 4 release 1703219654
+	   >>> [semaphore] >>> 3 acquire 1703219654
+	   >>> [semaphore] >>> 3 release 1703219655
+	   >>> [semaphore] >>> 0 release 1703219655
+	   [main][cntsem] end   1703219655
+
+
+	   [Elapsed] 5.005638137s
+	*/
+
 }
 
 func cntsem() {

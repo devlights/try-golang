@@ -16,6 +16,26 @@ func ContextAndTimeAfterFunc() error {
 	useWithTimeout()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_context_and_timeafterfunc
+
+	   [Name] "goroutines_context_and_timeafterfunc"
+	   [useTimeAfterFunc]   04:36:13
+	   [useTimeAfterFunc]   context canceled
+	   [useTimeAfterFunc]   04:36:15
+	   [useWithTimeout]     04:36:15
+	   [useWithTimeout]     context deadline exceeded
+	   [useWithTimeout]     04:36:17
+
+
+	   [Elapsed] 4.000603645s
+	*/
+
 }
 
 // useTimeAfterFunc は、context.WithCancel + time.AfterFunc でタイムアウトさせます

@@ -21,4 +21,19 @@ func WithWaitGroup() error {
 	wg.Wait()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_with_waitgroup
+
+	   [Name] "goroutines_with_waitgroup"
+	   [goroutine]          This line is printed
+
+
+	   [Elapsed] 80.92µs
+	*/
+
 }

@@ -95,4 +95,27 @@ func WithContextDeadline() error {
 	mainLog.Println("done")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_with_context_deadline
+
+	   [Name] "goroutines_with_context_deadline"
+	   [main] start now=1703219705     deadline=1703219708     timelimit=1703219710
+	   [goroutine] 0 1703219705
+	   [goroutine] 1 1703219705
+	   [goroutine] 1 1703219706
+	   [goroutine] 0 1703219706
+	   [goroutine] 0 1703219707
+	   [goroutine] 1 1703219707
+	   [main] all goroutines done 1703219708
+	   [main] done
+
+
+	   [Elapsed] 3.000369691s
+	*/
+
 }

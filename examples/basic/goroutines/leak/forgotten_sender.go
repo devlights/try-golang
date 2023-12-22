@@ -33,4 +33,18 @@ func ForgottenSender() error {
 	time.Sleep(1 * time.Second)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_leak_forgotten_sender
+
+	   [Name] "goroutines_leak_forgotten_sender"
+
+
+	   [Elapsed] 1.001033553s
+	*/
+
 }

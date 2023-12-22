@@ -55,4 +55,30 @@ func SelectNilChan3() error {
 	<-done
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_select_nil_chan_3
+
+	   [Name] "goroutines_select_nil_chan_3"
+	   [in1]                1
+	   [in2]                1
+	   [in1]                2
+	   [in2]                2
+	   [in1]                3
+	   [in1]                4
+	   [in1]                5
+	   [in2]                3
+	   [in1]                close
+	   [in2]                4
+	   [in2]                5
+	   [in2]                close
+
+
+	   [Elapsed] 585.55µs
+	*/
+
 }
