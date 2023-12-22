@@ -29,4 +29,19 @@ func WithContextCancel() error {
 	<-ctx.Done()
 
 	return nil
+
+	/*
+	    $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_with_context_cancel
+
+	   [Name] "goroutines_with_context_cancel"
+	   [goroutine]          This line is printed
+
+
+	   [Elapsed] 50.7µs
+	*/
+
 }

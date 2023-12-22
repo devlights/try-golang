@@ -74,4 +74,27 @@ LOOP:
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_with_context_timeout
+
+	   [Name] "goroutines_with_context_timeout"
+	   [goroutine]          0
+	   [goroutine]          1
+	   [goroutine]          2
+	   [goroutine]          3
+	   [goroutine]          4
+	   [proc]               done 1703219496
+	   [ctx]                done 1703219496
+	   [ctx inside]         done 1703219496
+	   [main]               done 1703219497
+
+
+	   [Elapsed] 2.000188558s
+	*/
+
 }

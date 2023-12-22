@@ -18,4 +18,19 @@ func WithDoneChannel() error {
 	<-done
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_with_done_channel
+
+	   [Name] "goroutines_with_done_channel"
+	   [goroutine]          This line is printed
+
+
+	   [Elapsed] 69.08µs
+	*/
+
 }

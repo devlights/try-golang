@@ -92,6 +92,32 @@ LOOP:
 	<-chans.WhenAll(m.Done(), g1.Done(), g2.Done())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_select_nil_chan_2
+
+	   [Name] "goroutines_select_nil_chan_2"
+	   [main] [G1] running...  1703219567
+	   [main] [G1] running...  1703219568
+	   [main] [G1] running...  1703219569
+	   [main] [G1] running...  1703219570
+	   [main] [G1] running...  1703219571
+	   [main] [G2] running...  1703219572
+	   [main] [G2] running...  1703219573
+	   [main] [G2] running...  1703219574
+	   [main] [G2] running...  1703219575
+	   [main] [G2] running...  1703219576
+	   [main] [G2] running...  1703219577
+	   [main] proc done 1703219579
+
+
+	   [Elapsed] 12.000917675s
+	*/
+
 }
 
 func startG(pCtx context.Context, name string, timeout time.Duration, statusCh chan string, l *log.Logger) context.Context {

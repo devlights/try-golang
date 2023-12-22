@@ -72,4 +72,41 @@ func UsingMutex() error {
 	mainLog.Println("done")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_using_mutex
+
+	   [Name] "goroutines_using_mutex"
+	   [main] start
+	   [goroutine] 1 acquire mutex lock
+	   [goroutine] 1 processing...
+	   [goroutine] 1 release mutex lock
+	   [goroutine] 0 acquire mutex lock
+	   [goroutine] 0 processing...
+	   [goroutine] 0 release mutex lock
+	   [goroutine] 3 acquire mutex lock
+	   [goroutine] 3 processing...
+	   [goroutine] 3 release mutex lock
+	   [goroutine] 4 acquire mutex lock
+	   [goroutine] 4 processing...
+	   [goroutine] 4 release mutex lock
+	   [goroutine] 2 acquire mutex lock
+	   [goroutine] 2 processing...
+	   [goroutine] 2 release mutex lock
+	   [goroutine] 2 done
+	   [goroutine] 1 done
+	   [goroutine] 0 done
+	   [goroutine] 4 done
+	   [main] total=5
+	   [goroutine] 3 done
+	   [main] done
+
+
+	   [Elapsed] 10.969168ms
+	*/
+
 }

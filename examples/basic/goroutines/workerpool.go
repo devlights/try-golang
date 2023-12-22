@@ -78,6 +78,35 @@ func WorkerPool() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: goroutines_workerpool
+
+	   [Name] "goroutines_workerpool"
+	   [v]                  fib(31)                 1346269    (12.336158ms)
+	   [v]                  fib(32)                 2178309    (21.715015ms)
+	   [v]                  fib(33)                 3524578    (80.962574ms)
+	   [v]                  fib(34)                 5702887    (100.01898ms)
+	   [v]                  fib(35)                 9227465    (197.626281ms)
+	   [v]                  fib(36)                14930352    (308.72339ms)
+	   [v]                  fib(37)                24157817    (412.192279ms)
+	   [v]                  fib(38)                39088169    (611.75433ms)
+	   [v]                  fib(39)                63245986    (906.788411ms)
+	   [v]                  fib(40)               102334155    (1.282063608s)
+	   [v]                  fib(41)               165580141    (1.830469841s)
+	   [v]                  fib(42)               267914296    (2.537388482s)
+	   [v]                  fib(43)               433494437    (3.453410792s)
+	   [v]                  fib(44)               701408733    (5.059109086s)
+	   [v]                  fib(45)              1134903170    (7.570757194s)
+
+
+	   [Elapsed] 7.570912494s
+	*/
+
 }
 
 func __fib(n int) int {
