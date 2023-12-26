@@ -52,4 +52,28 @@ func Async() error {
 	<-ctxs.WhenAll(procCtx, tasks...).Done()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: helloworld_async
+
+	   [Name] "helloworld_async"
+	   [06]    Hello World     (01 msec delay)
+	   [10]    Hello World     (03 msec delay)
+	   [01]    Hello World     (28 msec delay)
+	   [08]    Hello World     (49 msec delay)
+	   [09]    Hello World     (64 msec delay)
+	   [07]    Hello World     (65 msec delay)
+	   [04]    Hello World     (66 msec delay)
+	   [05]    Hello World     (69 msec delay)
+	   [02]    Hello World     (75 msec delay)
+	   [03]    Hello World     (91 msec delay)
+
+
+	   [Elapsed] 91.850415ms
+	*/
+
 }

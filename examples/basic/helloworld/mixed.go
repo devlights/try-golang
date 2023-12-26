@@ -33,6 +33,40 @@ func Mixed() error {
 	<-ctxs.WhenAll(procCtx, syncCtx, asyncCtx).Done()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: helloworld_mixed
+
+	   [Name] "helloworld_mixed"
+	   async                [02] helloworld
+	   sync                 [01] helloworld
+	   sync                 [02] helloworld
+	   sync                 [03] helloworld
+	   sync                 [04] helloworld
+	   sync                 [05] helloworld
+	   sync                 [06] helloworld
+	   async                [01] helloworld
+	   sync                 [07] helloworld
+	   sync                 [08] helloworld
+	   sync                 [09] helloworld
+	   sync                 [10] helloworld
+	   async                [04] helloworld
+	   async                [06] helloworld
+	   async                [08] helloworld
+	   async                [03] helloworld
+	   async                [07] helloworld
+	   async                [05] helloworld
+	   async                [09] helloworld
+	   async                [10] helloworld
+
+
+	   [Elapsed] 988.12µs
+	*/
+
 }
 
 func syncOp(pCtx context.Context) context.Context {
