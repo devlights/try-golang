@@ -17,4 +17,28 @@ func Sync() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: helloworld_sync
+
+	   [Name] "helloworld_sync"
+	   [01]    Hello World
+	   [02]    Hello World
+	   [03]    Hello World
+	   [04]    Hello World
+	   [05]    Hello World
+	   [06]    Hello World
+	   [07]    Hello World
+	   [08]    Hello World
+	   [09]    Hello World
+	   [10]    Hello World
+
+
+	   [Elapsed] 37.65µs
+	*/
+
 }
