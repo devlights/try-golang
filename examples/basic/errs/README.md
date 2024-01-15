@@ -9,3 +9,4 @@
 | error\_typeassertion.go | error\_typeassertion | Goにおけるエラー処理イディオムの type assertion check についてのサンプルです. |
 | error\_wrap\_unwrap.go  | error\_wrap\_unwrap  | Goにおけるエラー処理にてエラーを内包するやり方についてのサンプルです。                |
 | error\_is\_and\_as.go   | error\_is\_and\_as   | errors.Is(), errors.As() のサンプルです。                   |
+| error\_wrap\_multiple\_error.go   | error\_wrap\_multiple\_error   | Go 1.20 で導入された %w を複数指定できるようになった機能のサンプルです。 |
