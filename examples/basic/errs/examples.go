@@ -21,4 +21,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["error_join"] = ErrorJoin
 	m["error_join_fmt_errorf"] = ErrorJoinFmtErrorf
 	m["error_join_errors_as"] = ErrorJoinErrorsAs
+	m["error_wrap_multiple_error"] = WrapMultipleError
 }
