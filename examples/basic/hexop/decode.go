@@ -27,4 +27,21 @@ func Decode() error {
 	output.Stdoutl("decoded ", string(dst))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: hexop_decode
+
+	   [Name] "hexop_decode"
+	   original             68656c6c6f20776f726c64
+	   dec-len              11
+	   decoded              hello world
+
+
+	   [Elapsed] 35.809µs
+	*/
+
 }
