@@ -1,0 +1,10 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - go run main.go
+      - cmd: diff -u config.ini config-updated.ini
+        ignore_error: true
