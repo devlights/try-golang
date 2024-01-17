@@ -49,6 +49,22 @@ func DuckTyping() error {
 	callHello(impl)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: interface_ducktyping
+
+	   [Name] "interface_ducktyping"
+	   interfaces.helloNotImpl は、 Hello() を実装していない
+	   interfaces.helloImpl は、 Hello() を実装している (hello world)
+
+
+	   [Elapsed] 13.03µs
+	*/
+
 }
 
 func callHello(v interface{}) {

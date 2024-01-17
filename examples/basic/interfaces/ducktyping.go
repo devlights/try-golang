@@ -28,4 +28,19 @@ func DuckTyping2() error {
 	fn(myType(""))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: interface_ducktyping2
+
+	   [Name] "interface_ducktyping2"
+	   [fn]                 interfaces.myType
+
+
+	   [Elapsed] 9.56µs
+	*/
+
 }

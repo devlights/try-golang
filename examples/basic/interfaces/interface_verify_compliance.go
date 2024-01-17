@@ -22,4 +22,20 @@ func VerifyInterfaceCompliance() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: interface_verify_compliance
+
+	   [Name] "interface_verify_compliance"
+	   go.mod
+	   go.sum
+
+
+	   [Elapsed] 165.59µs
+	*/
+
 }

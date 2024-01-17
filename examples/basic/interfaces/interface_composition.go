@@ -66,4 +66,21 @@ func Composition() error {
 	f3(v)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: interface_composition
+
+	   [Name] "interface_composition"
+	   hello
+	   world
+	   hello world
+
+
+	   [Elapsed] 7.84µs
+	*/
+
 }

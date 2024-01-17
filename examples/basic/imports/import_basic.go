@@ -1,9 +1,7 @@
 package imports
 
-import (
 // 現状のコードでは利用していないが、後で利用するときなどはアンダーバーのエイリアスをつけておくと便利
 // _ "fmt"
-)
 
 // Basic は、GO言語の import に関するサンプルです.
 func Basic() error {
@@ -19,4 +17,18 @@ func Basic() error {
 	// ことで、「参照されていないパッケージを強制的にプログラム内に組み込む」ことが
 	// 出来るようになる。
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: imports_basic
+
+	   [Name] "imports_basic"
+
+
+	   [Elapsed] 830ns
+	*/
+
 }
