@@ -39,4 +39,20 @@ func Basic() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: interface_basic
+
+	   [Name] "interface_basic"
+	   [0]: [10](*interfaces.mySt01)
+	   [1]: [20](*interfaces.mySt02)
+
+
+	   [Elapsed] 44.52µs
+	*/
+
 }

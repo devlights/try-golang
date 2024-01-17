@@ -57,6 +57,32 @@ func NilOrNotNil() error {
 	output.Stdoutl("[e.Error()]", e.Error())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: interface_nil_notnil
+
+	   [Name] "interface_nil_notnil"
+	   [i  == nil]          true
+	   [o  == nil]          false
+	   [o2 == nil]          true
+	   [i == o ]            true
+	   [i == o2]            false
+	   [returnNilINil()   == nil] true
+	   [returnNotnilNil() == nil] false
+	   [nilnil    == e]     false
+	   [notnilnil == e]     true
+	   [notnilnil.Error()]  <nil>
+	   [e.Error()]          <nil>
+	   [e.Error()]          100
+
+
+	   [Elapsed] 119.37µs
+	*/
+
 }
 
 type myE int
