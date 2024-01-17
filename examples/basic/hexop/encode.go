@@ -27,4 +27,21 @@ func Encode() error {
 	output.Stdoutl("encoded ", string(dst))
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: hexop_encode
+
+	   [Name] "hexop_encode"
+	   original             hello world
+	   enc-len              22
+	   encoded              68656c6c6f20776f726c64
+
+
+	   [Elapsed] 23.54µs
+	*/
+
 }
