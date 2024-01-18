@@ -63,4 +63,21 @@ func Basic() error {
 	output.Stdoutl("[From (4) to (2)]", b.B())
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: internalpkg_basic
+
+	   [Name] "internalpkg_basic"
+	   [From (1) to (2)]    InternalPkgSub1
+	   [From (2) to (3)]    InternalPkgSub2
+	   [From (4) to (2)]    INTERNALPKGSUB1
+
+
+	   [Elapsed] 20.83µs
+	*/
+
 }

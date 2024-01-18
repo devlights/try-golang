@@ -44,4 +44,29 @@ func OneByteRead() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: ioop_onebyte_read
+
+	   [Name] "ioop_onebyte_read"
+	   [OneByte]            1 byte read: h
+	   [OneByte]            1 byte read: e
+	   [OneByte]            1 byte read: l
+	   [OneByte]            1 byte read: l
+	   [OneByte]            1 byte read: o
+	   [OneByte]            1 byte read:
+	   [OneByte]            1 byte read: w
+	   [OneByte]            1 byte read: o
+	   [OneByte]            1 byte read: r
+	   [OneByte]            1 byte read: l
+	   [OneByte]            1 byte read: d
+
+
+	   [Elapsed] 100.72µs
+	*/
+
 }
