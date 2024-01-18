@@ -45,4 +45,20 @@ func LimitRead() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: ioop_limit_read
+
+	   [Name] "ioop_limit_read"
+	   [LimitReader]        original: hello world
+	   [LimitRead]          4 byte(s) read: hell
+
+
+	   [Elapsed] 22.76µs
+	*/
+
 }
