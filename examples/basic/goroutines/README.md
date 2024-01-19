@@ -2,17 +2,17 @@
 
 このディレクトリには以下のサンプルがあります。
 
-| file                           | example name                            | note                                                              |
-|--------------------------------|-----------------------------------------|-------------------------------------------------------------------|
-| nonstop.go                     | goroutines\_nonstop                     | ゴルーチンを待ち合わせ無しで走らせるサンプルです                                          |
-| withdonechannel.go             | goroutines\_with\_done\_channel         | doneチャネルを用いて待ち合わせを行うサンプルです                                        |
-| withwaitgroup.go               | goroutines\_with\_waitgroup             | sync.WaitGroupを用いて待ち合わせを行うパターンです                                  |
-| withcontextcancel.go           | goroutines\_with\_context\_cancel       | context.Contextを用いて待ち合わせを行うサンプルです                                 |
-| withcontexttimeout.go          | goroutines\_with\_context\_timeout      | context.Contextを用いてタイムアウト付きで待ち合わせを行うサンプルです                        |
-| withcontextdeadline.go         | goroutines\_with\_context\_deadline     | context.Context::WithDeadline を使ったサンプルです                          |
-| selectnilchan1.go              | goroutines\_select\_nil\_chan\_1        | select ステートメントで nil チャネル を使って選択されるチャネルの有効・無効を切り替えるサンプルです (1)      |
-| selectnilchan2.go              | goroutines\_select\_nil\_chan\_2        | select ステートメントで nil チャネル を使って選択されるチャネルの有効・無効を切り替えるサンプルです (2)      |
-| usingchansemaphore.go          | goroutines\_using\_chan\_semaphore      | チャネルでセマフォの動作を行わせるサンプルです                                           |
-| usingmutex.go                  | goroutines\_using\_mutex                | sync.Mutex を利用したサンプルです                                            |
-| workerpool.go                  | goroutines\_workerpool                  | Worker Pool パターンのサンプルです                                           |
-| context\_and\_timeafterfunc.go | goroutines\_context\_and\_timeafterfunc | ContextAndTimeAfterFunc は、Context と time.AfterFunc でキャンセルするサンプルです |
+| file                         | example name                         | note                                                                                                    |
+| ---------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------- |
+| nonstop.go                   | goroutines_nonstop                   | ゴルーチンを待ち合わせ無しで走らせるサンプルです                                                        |
+| withdonechannel.go           | goroutines_with_done_channel         | doneチャネルを用いて待ち合わせを行うサンプルです                                                        |
+| withwaitgroup.go             | goroutines_with_waitgroup            | sync.WaitGroupを用いて待ち合わせを行うパターンです                                                      |
+| withcontextcancel.go         | goroutines_with_context_cancel       | context.Contextを用いて待ち合わせを行うサンプルです                                                     |
+| withcontexttimeout.go        | goroutines_with_context_timeout      | context.Contextを用いてタイムアウト付きで待ち合わせを行うサンプルです                                   |
+| withcontextdeadline.go       | goroutines_with_context_deadline     | context.Context::WithDeadline を使ったサンプルです                                                      |
+| selectnilchan1.go            | goroutines_select_nil_chan_1         | select ステートメントで nil チャネル を使って選択されるチャネルの有効・無効を切り替えるサンプルです (1) |
+| selectnilchan2.go            | goroutines_select_nil_chan_2         | select ステートメントで nil チャネル を使って選択されるチャネルの有効・無効を切り替えるサンプルです (2) |
+| usingchansemaphore.go        | goroutines_using_chan_semaphore      | チャネルでセマフォの動作を行わせるサンプルです                                                          |
+| usingmutex.go                | goroutines_using_mutex               | sync.Mutex を利用したサンプルです                                                                       |
+| workerpool.go                | goroutines_workerpool                | Worker Pool パターンのサンプルです                                                                      |
+| context_and_timeafterfunc.go | goroutines_context_and_timeafterfunc | ContextAndTimeAfterFunc は、Context と time.AfterFunc でキャンセルするサンプルです                      |

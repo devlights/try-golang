@@ -2,9 +2,9 @@
 
 このディレクトリには以下のサンプルがあります。
 
-| file           | example name | note                         |
-|----------------|--------------|------------------------------|
-| iota\_basic.go | iota\_basic  | iota の基本的な使い方のサンプルです.        |
-| go\_enums.go   | go\_enums    | Go における enum の扱い方についてのサンプルです |
-| go\_iota.go    | go\_iota     | Go における iota の扱い方についてのサンプルです |
+| file          | example name | note                                            |
+| ------------- | ------------ | ----------------------------------------------- |
+| iota_basic.go | iota_basic   | iota の基本的な使い方のサンプルです.            |
+| go_enums.go   | go_enums     | Go における enum の扱い方についてのサンプルです |
+| go_iota.go    | go_iota      | Go における iota の扱い方についてのサンプルです |
 

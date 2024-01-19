@@ -2,7 +2,7 @@
 
 このディレクトリには以下のサンプルがあります。
 
-| file                          | example name              | note                      |
-|-------------------------------|---------------------------|---------------------------|
-| const\_statement\_declares.go | const\_statement\_declare | const による 定数 の宣言についてのサンプル |
+| file                        | example name            | note                                       |
+| --------------------------- | ----------------------- | ------------------------------------------ |
+| const_statement_declares.go | const_statement_declare | const による 定数 の宣言についてのサンプル |
 
