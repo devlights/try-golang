@@ -41,4 +41,22 @@ func Encoder() error {
 	output.Stdoutf("[encode]", "\n%v\n", buf.String())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: json_encoder
+
+	   [Name] "json_encoder"
+	   [encode]
+	   {"id":100,"value":"golang"}
+	   {"id":200,"value":"flutter"}
+
+
+
+	   [Elapsed] 88.51µs
+	*/
+
 }

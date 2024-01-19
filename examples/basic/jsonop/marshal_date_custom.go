@@ -27,4 +27,20 @@ func MarshalDateCustom() error {
 	output.Stdoutl("[marshal]", string(buf))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: json_marshal_date_custom
+
+	   [Name] "json_marshal_date_custom"
+	   [original]           2024/01/19
+	   [marshal]            "2024/01/19"
+
+
+	   [Elapsed] 111.36µs
+	*/
+
 }

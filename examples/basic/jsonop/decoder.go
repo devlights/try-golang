@@ -49,4 +49,20 @@ LOOP:
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: json_decoder
+
+	   [Name] "json_decoder"
+	   [msg]                {100 golang}
+	   [msg]                {200 flutter}
+
+
+	   [Elapsed] 180.72µs
+	*/
+
 }

@@ -33,4 +33,27 @@ func UnmarshalSlice() error {
 	output.Stdoutl("[unmarshal]", items)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: json_unmarshal_slice
+
+	   [Name] "json_unmarshal_slice"
+	   [original]
+	                           [
+	                                   "golang",
+	                                   "java",
+	                                   "dotnet",
+	                                   "python"
+	                           ]
+
+	   [unmarshal]          [golang java dotnet python]
+
+
+	   [Elapsed] 57.75µs
+	*/
+
 }

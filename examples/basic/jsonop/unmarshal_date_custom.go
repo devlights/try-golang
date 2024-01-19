@@ -27,4 +27,20 @@ func UnmarshalDateCustom() error {
 	output.Stdoutl("[unmarshal]", v)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: json_unmarshal_date_custom
+
+	   [Name] "json_unmarshal_date_custom"
+	   [original]           "2021/06/04"
+	   [unmarshal]          2021/06/04
+
+
+	   [Elapsed] 42.16µs
+	*/
+
 }

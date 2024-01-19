@@ -18,3 +18,4 @@ tasks:
 vscode:
   extensions:
     - golang.go
+    - TakumiI.markdowntable

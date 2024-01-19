@@ -34,4 +34,22 @@ func MarshalIndent() error {
 	output.Stdoutl("[marshal]", string(buf))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: json_marshal_indent
+
+	   [Name] "json_marshal_indent"
+	   [marshal]            {
+	     "name": "hello",
+	     "name2": "world"
+	   }
+
+
+	   [Elapsed] 99.569µs
+	*/
+
 }
