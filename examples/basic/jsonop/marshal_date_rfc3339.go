@@ -29,4 +29,19 @@ func MarshalDateRfc3339() error {
 	output.Stdoutl("[marshal]", string(buf))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: json_marshal_date_rfc3339
+
+	   [Name] "json_marshal_date_rfc3339"
+	   [marshal]            {"t":"2024-01-19T02:06:43.870334862Z"}
+
+
+	   [Elapsed] 157.78µs
+	*/
+
 }

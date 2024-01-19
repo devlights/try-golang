@@ -33,4 +33,20 @@ func UnmarshalDateRfc3339() error {
 	output.Stdoutl("[unmarshal]", v)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: json_unmarshal_date_rfc3339
+
+	   [Name] "json_unmarshal_date_rfc3339"
+	   [original]           {"t": "2024-01-19T02:08:43Z"}
+	   [unmarshal]          {2024-01-19 02:08:43 +0000 UTC}
+
+
+	   [Elapsed] 141.589µs
+	*/
+
 }

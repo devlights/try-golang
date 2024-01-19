@@ -29,4 +29,19 @@ func MarshalSlice() error {
 	output.Stdoutl("[marshal]", string(buf))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: json_marshal_slice
+
+	   [Name] "json_marshal_slice"
+	   [marshal]            ["golang","java","dotnet","python"]
+
+
+	   [Elapsed] 46.83µs
+	*/
+
 }

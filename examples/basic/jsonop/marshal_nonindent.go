@@ -36,4 +36,19 @@ func MarshalNonIndent() error {
 	output.Stdoutl("[marshal]", string(buf))
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: json_marshal_non_indent
+
+	   [Name] "json_marshal_non_indent"
+	   [marshal]            {"value":"value1","Value2":"value2"}
+
+
+	   [Elapsed] 53.83µs
+	*/
+
 }
