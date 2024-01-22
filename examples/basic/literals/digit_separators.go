@@ -14,4 +14,19 @@ func DigitSeparators() error {
 	fmt.Printf("%v\n", arr)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: literals_digit_separator
+
+	   [Name] "digit_separator"
+	   [10000 1000000 3.14159265]
+
+
+	   [Elapsed] 20.81µs
+	*/
+
 }

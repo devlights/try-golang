@@ -13,8 +13,8 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["binary_int_literals"] = BinaryIntLiterals
-	m["octal_int_literals"] = OctalIntLiterals
-	m["hex_int_literals"] = HexIntLiterals
-	m["digit_separator"] = DigitSeparators
+	m["literals_binary_int_literals"] = BinaryIntLiterals
+	m["literals_octal_int_literals"] = OctalIntLiterals
+	m["literals_hex_int_literals"] = HexIntLiterals
+	m["literals_digit_separator"] = DigitSeparators
 }
