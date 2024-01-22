@@ -76,3 +76,4 @@ bin/
 .target
 chinook.db
 *.swp
+*.log
