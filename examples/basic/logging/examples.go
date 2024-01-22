@@ -18,4 +18,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["logging_output"] = Output
 	m["logging_new"] = NewLogger
 	m["logging_msgprefix"] = Msgprefix
+	m["logging_daterolling"] = DateRolling
 }
