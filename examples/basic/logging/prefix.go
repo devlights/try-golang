@@ -35,4 +35,20 @@ func Prefix() error {
 	log.Printf("接頭辞付き")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: logging_prefix
+
+	   [Name] "logging_prefix"
+	   デフォルトのPrefix []
+	   [mylog] 接頭辞付き
+
+
+	   [Elapsed] 25.6µs
+	*/
+
 }
