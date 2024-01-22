@@ -17,4 +17,19 @@ func BinaryIntLiterals() error {
 	fmt.Printf("%v\t%v\t%v\t%v\n", bil1, bil2, bil3, bil4)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: literals_binary_int_literals
+
+	   [Name] "binary_int_literals"
+	   11      11      11      11
+
+
+	   [Elapsed] 19.03µs
+	*/
+
 }

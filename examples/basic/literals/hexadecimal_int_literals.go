@@ -17,4 +17,20 @@ func HexIntLiterals() error {
 	fmt.Printf("%v\t%v\t%v\t%v\n\n", hex1, hex2, hex3, hex4)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: literals_hex_int_literals
+
+	   [Name] "hex_int_literals"
+	   255     255     255     255
+
+
+
+	   [Elapsed] 27.23µs
+	*/
+
 }
