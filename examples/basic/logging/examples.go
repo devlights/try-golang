@@ -13,9 +13,9 @@ func NewRegister() mapping.Register {
 
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
-	m["log_flags"] = Flags
-	m["log_prefix"] = Prefix
-	m["log_output"] = Output
-	m["log_new"] = NewLogger
-	m["log_msgprefix"] = Msgprefix
+	m["logging_flags"] = Flags
+	m["logging_prefix"] = Prefix
+	m["logging_output"] = Output
+	m["logging_new"] = NewLogger
+	m["logging_msgprefix"] = Msgprefix
 }

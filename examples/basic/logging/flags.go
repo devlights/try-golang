@@ -56,4 +56,25 @@ func Flags() error {
 	log.Println("元の状態に戻る")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: logging_flags
+
+	   [Name] "logging_flags"
+	   デフォルト状態でログ出力
+	   log.LstdFlags [false]
+	   日付と時刻が消える
+	   flags.go:43: ファイル名が付与される
+	   flags.go:44: log.Lshortfile [true]
+	   全設定フラグをオフ
+	   2024/01/22 02:31:49 元の状態に戻る
+
+
+	   [Elapsed] 247.76µs
+	*/
+
 }

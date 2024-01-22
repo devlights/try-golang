@@ -45,4 +45,22 @@ func NewLogger() error {
 	defer rootLogger.Println("rootLogger#2")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: logging_new
+
+	   [Name] "logging_new"
+	   rootLogger#1
+	   [go#2] logger#2
+	   [go#1] logger#1
+	   rootLogger#2
+
+
+	   [Elapsed] 161.89µs
+	*/
+
 }

@@ -43,4 +43,21 @@ func Output() error {
 	_, _ = fmt.Fprintf(os.Stderr, "[fmt.Printf] %s", s)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: logging_output
+
+	   [Name] "logging_output"
+	   SetOutput 呼び出す前
+	   buf == log.Writer() [true]
+	   [fmt.Printf] SetOutput 呼び出し後
+
+
+	   [Elapsed] 72µs
+	*/
+
 }

@@ -29,4 +29,20 @@ func Msgprefix() error {
 	output.Stdoutf("[+Lmsgprefix]", buf2.String())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: logging_msgprefix
+
+	   [Name] "logging_msgprefix"
+	   [-Lmsgprefix]        TRACE      2024/01/22 02:33:14 hello world
+	   [+Lmsgprefix]        2024/01/22 02:33:14 DEBUG  hello world
+
+
+	   [Elapsed] 188.59µs
+	*/
+
 }
