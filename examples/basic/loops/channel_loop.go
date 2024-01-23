@@ -36,4 +36,23 @@ func ChannelLoop() error {
 	<-quit
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: loops_channel_loop
+
+	   [Name] "loops_channel_loop"
+	   go
+	   java
+	   dotnet
+	   python
+	   flutter
+
+
+	   [Elapsed] 248.37µs
+	*/
+
 }

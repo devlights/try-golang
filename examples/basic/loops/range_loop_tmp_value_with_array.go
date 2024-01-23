@@ -19,4 +19,22 @@ func RangeLoopTmpValueWithArray() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: loops_range_loop_tmpvalue_with_array
+
+	   [Name] "loops_range_loop_tmpvalue_with_array"
+	   1
+	   2
+	   3
+	   [1 2 99]
+
+
+	   [Elapsed] 40.151µs
+	*/
+
 }

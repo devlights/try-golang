@@ -30,4 +30,19 @@ LOOP:
 	fmt.Println("")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: loops_infinite_loop
+
+	   [Name] "loops_infinite_loop"
+	   ..............
+
+
+	   [Elapsed] 3.000575495s
+	*/
+
 }

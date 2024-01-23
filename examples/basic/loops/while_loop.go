@@ -15,4 +15,23 @@ func WhileLoop() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: loops_while_loop
+
+	   [Name] "loops_while_loop"
+	   [count]              5
+	   [count]              4
+	   [count]              3
+	   [count]              2
+	   [count]              1
+
+
+	   [Elapsed] 78.26µs
+	*/
+
 }

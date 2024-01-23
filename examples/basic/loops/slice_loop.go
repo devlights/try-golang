@@ -19,4 +19,22 @@ func SliceLoop() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: loops_slice_loop
+
+	   [Name] "loops_slice_loop"
+	   [0] golang
+	   [1] java
+	   [2] dotnet
+	   [3] python
+
+
+	   [Elapsed] 31.84µs
+	*/
+
 }

@@ -33,4 +33,19 @@ func DiffRangeLoopAndNormalLoop() error {
 	*/
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: loops_diff_range_and_normal
+
+	   [Name] "loops_diff_range_and_normal"
+	   [range-loop]         [1 2 3 99 99 99]
+
+
+	   [Elapsed] 22.5µs
+	*/
+
 }
