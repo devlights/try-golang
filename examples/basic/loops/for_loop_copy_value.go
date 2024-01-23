@@ -44,4 +44,20 @@ func ForLoopCopyValue() error {
 	p(accounts)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: loops_for_loop_copy_value
+
+	   [Name] "loops_for_loop_copy_value"
+	   {100}{200}{300}
+	   {1100}{1200}{1300}
+
+
+	   [Elapsed] 64.7µs
+	*/
+
 }

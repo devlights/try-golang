@@ -16,4 +16,24 @@ func RangeLoop() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: loops_range_loop
+
+	   [Name] "loops_range_loop"
+	   hello
+	   hello
+	   hello
+	   [0] hello
+	   [1] hello
+	   [2] hello
+
+
+	   [Elapsed] 28.85µs
+	*/
+
 }

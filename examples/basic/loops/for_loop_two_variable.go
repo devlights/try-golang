@@ -21,4 +21,20 @@ func ForLoopTwoVariable() error {
 	output.Stdoutl("[ret ]", string(r))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: loops_two_variable
+
+	   [Name] "loops_two_variable"
+	   [orig]               helloworld
+	   [ret ]               dlrowolleh
+
+
+	   [Elapsed] 22.389µs
+	*/
+
 }
