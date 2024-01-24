@@ -25,4 +25,21 @@ func MapInitialize() error {
 	fmt.Printf("[m2] len: %d\tval: %v\n", len(m2), m2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: map_initialize
+
+	   [Name] "map_initialize"
+	   [m1] len: 0     val: map[string]int{}
+	   [m1] len: 2     val: map[a:100 b:200]
+	   [m2] len: 2     val: map[a:100 b:200]
+
+
+	   [Elapsed] 45µs
+	*/
+
 }

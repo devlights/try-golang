@@ -33,4 +33,22 @@ func MapDelete() error {
 	f(m)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: map_delete
+
+	   [Name] "map_delete"
+	   len: 2  val: map[a:100 b:200]
+	   len: 1  val: map[b:200]
+	   len: 0  val: map[]
+	   len: 0  val: map[]
+
+
+	   [Elapsed] 107.33µs
+	*/
+
 }

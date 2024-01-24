@@ -39,6 +39,24 @@ func MapBasic() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: map_basic
+
+	   [Name] "map_basic"
+	   hoge
+	   hello HOGE
+	   HELLO HOGE2
+	   hello HOGE
+
+
+	   [Elapsed] 23.65µs
+	*/
+
 }
 
 func say(name string) string {

@@ -38,4 +38,22 @@ func MapAccess() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: map_access
+
+	   [Name] "map_access"
+	   m[a]    val: 100        ok: true
+	   m[not_exists]   val: 0  ok: false
+	   m[存在するパターン]     val: 100        ok: true
+	   m[存在しないパターン]   val: 0  ok: false
+
+
+	   [Elapsed] 31.96µs
+	*/
+
 }
