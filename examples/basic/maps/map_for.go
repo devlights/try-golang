@@ -21,4 +21,22 @@ func MapFor() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: map_for
+
+	   [Name] "map_for"
+	   KEY: apple
+	   KEY: banana
+	   KEY: apple      VALUE: 100
+	   KEY: banana     VALUE: 200
+
+
+	   [Elapsed] 33.95µs
+	*/
+
 }
