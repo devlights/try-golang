@@ -26,4 +26,22 @@ func MinMax() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: maths_minmax
+
+	   [Name] "maths_minmax"
+	   Int8 Min[-128] Max[127]
+	   Int16 Min[-32768] Max[32767]
+	   Int32 Min[-2147483648] Max[2147483647]
+	   Int64 Min[-9223372036854775808] Max[9223372036854775807]
+
+
+	   [Elapsed] 320.06µs
+	*/
+
 }

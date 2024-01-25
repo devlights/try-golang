@@ -49,5 +49,4 @@ func MethodExpression() error {
 
 	   [Elapsed] 6.16µs
 	*/
-
 }
