@@ -47,5 +47,4 @@ func MethodValue() error {
 
 	   [Elapsed] 7.22µs
 	*/
-
 }

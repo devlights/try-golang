@@ -36,4 +36,20 @@ func PointerOrNot() error {
 	output.Stdoutl("[pointer    ]", pointer.val)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: methods_pointer_or_not
+
+	   [Name] "methods_pointer_or_not"
+	   [non-pointer]        0
+	   [pointer    ]        100
+
+
+	   [Elapsed] 35.15µs
+	*/
+
 }
