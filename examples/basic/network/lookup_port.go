@@ -50,4 +50,29 @@ func LookupPort() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: network_lookup_port
+
+	   [Name] "network_lookup_port"
+	   [LookupPort]         serivce=ftp        port=21
+	   [LookupPort]         serivce=ssh        port=22
+	   [LookupPort]         serivce=telnet     port=23
+	   [LookupPort]         serivce=http       port=80
+	   [LookupPort]         serivce=pop3       port=110
+	   [LookupPort]         serivce=imap       port=143
+	   [LookupPort]         serivce=https      port=443
+	   [LookupPort]         serivce=8888       port=8888
+	   [Err]                service=-1         Err=address -1: invalid port
+	   [Err]                service=65536      Err=address 65536: invalid port
+	   [Err]                service=xdmcp      Err=lookup tcp/xdmcp: Servname not supported for ai_socktype
+
+
+	   [Elapsed] 4.762829ms
+	*/
+
 }

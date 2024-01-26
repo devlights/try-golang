@@ -61,4 +61,20 @@ func UseMutex() error {
 	output.Stdoutl("[balance]", balance)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: mutex_usemutex
+
+	   [Name] "mutex_usemutex"
+	   [execCount]          20000
+	   [balance]            1000
+
+
+	   [Elapsed] 11.125079ms
+	*/
+
 }

@@ -79,4 +79,20 @@ func HttpGet() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: network_http_get
+
+	   [Name] "network_http_get"
+	   recv bytes           173143
+	   http.get             GitHub - devlights/try-golang: This is my TUTORIAL project for golang.
+
+
+	   [Elapsed] 448.931025ms
+	*/
+
 }

@@ -22,4 +22,21 @@ func IpAddressParse() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: network_ipaddress_parse
+
+	   [Name] "network_ipaddress_parse"
+	   [OK]                 127.0.0.1
+	   [NG]                 127.0.01
+	   [NG]                 invalid
+
+
+	   [Elapsed] 47.1µs
+	*/
+
 }
