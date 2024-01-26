@@ -54,4 +54,20 @@ func NoMutex() error {
 	output.Stdoutl("[balance]", balance)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: mutex_nomutex
+
+	   [Name] "mutex_nomutex"
+	   [execCount]          20000
+	   [balance]            1310
+
+
+	   [Elapsed] 10.71242ms
+	*/
+
 }

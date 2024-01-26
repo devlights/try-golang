@@ -42,4 +42,28 @@ func SplitHostPort() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: network_split_host_port
+
+	   [Name] "network_split_host_port"
+	   [Original     ]      :9999
+	   [SplitHostPort]      host=      port=9999
+	   [Original     ]      127.0.0.1:9999
+	   [SplitHostPort]      host=127.0.0.1     port=9999
+	   [Original     ]      localhost:9999
+	   [SplitHostPort]      host=localhost     port=9999
+	   [Original     ]      [::1]:9999
+	   [SplitHostPort]      host=::1   port=9999
+	   [Original     ]      [fe80::a%eth0]:9999
+	   [SplitHostPort]      host=fe80::a%eth0  port=9999
+
+
+	   [Elapsed] 100.64µs
+	*/
+
 }

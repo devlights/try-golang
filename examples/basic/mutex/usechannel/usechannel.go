@@ -58,4 +58,20 @@ func UseChannel() error {
 	output.Stdoutl("[balance]", <-balance)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: mutex_usechannel
+
+	   [Name] "mutex_usechannel"
+	   [execCount]          20000
+	   [balance]            1000
+
+
+	   [Elapsed] 26.932628ms
+	*/
+
 }

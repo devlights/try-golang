@@ -35,4 +35,22 @@ func JoinHostPort() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: network_join_host_port
+
+	   [Name] "network_join_host_port"
+	   [JoinHostPort]       :9999
+	   [JoinHostPort]       127.0.0.1:9999
+	   [JoinHostPort]       localhost:9999
+	   [JoinHostPort]       [::1]:9999
+
+
+	   [Elapsed] 18.86µs
+	*/
+
 }
