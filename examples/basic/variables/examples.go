@@ -26,5 +26,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["short_assignment_statement"] = shortassignment.Basic
 	m["shadowing_variable"] = shadowing.Basic
 	m["using_ref_to_loop_iterator_variable"] = loopiterator.CommonMistakePattern
+	m["passing_loop_variable_to_goroutine_by_pointer"] = loopiterator.PassingLoopVariableToGoroutineByPointer
 	m["function_returns_address_of_local_variable"] = function_returns_address_of_local_variable.FunctionReturnsAddressOfLocalVariable
 }

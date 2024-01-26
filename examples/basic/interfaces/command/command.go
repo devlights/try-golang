@@ -8,7 +8,6 @@ import (
 type (
 	// Command は、サンプルの動作確認のためのインターフェースです.
 	Command interface {
-		Version() string
 		Run() error
 	}
 
@@ -50,9 +49,4 @@ func (c *ListFileCommand) Run() error {
 	}
 
 	return nil
-}
-
-// Version は、本コマンドのバージョンを返します.
-func (c *ListFileCommand) Version() string {
-	return "v0.0.1"
 }
