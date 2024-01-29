@@ -56,4 +56,22 @@ func Mkdir() error {
 	output.Stdoutf("[ls -l]", "%s\n", b)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: osop_mkdir
+
+	   [Name] "osop_mkdir"
+	   [ls -l]              total 0
+	   drwxr-xr-x 2 gitpod gitpod 40 Jan 29 04:18 d1
+	   drwxr-xr-x 2 gitpod gitpod 40 Jan 29 04:18 d2
+
+
+
+	   [Elapsed] 2.049119ms
+	*/
+
 }

@@ -14,6 +14,22 @@ func PanicAndRecover() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: panics_panic_and_recover
+
+	   [Name] "panics_panic_and_recover"
+	   [panic]              panic時deferは呼ばれる
+	   [catch]              error occurred in raise()
+
+
+	   [Elapsed] 51.68µs
+	*/
+
 }
 
 func catch() (err error) {
