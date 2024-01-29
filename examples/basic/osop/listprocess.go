@@ -51,4 +51,32 @@ func ListProcesses() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: osop_list_processes
+
+	   [Name] "osop_list_processes"
+	   [info]               name=/ide/node     pid=1132
+	   [info]               name=/ide/node     pid=1534
+	   [info]               name=/ide/node     pid=1559
+	   [info]               name=/ide/node     pid=1968
+	   [info]               name=/home/gitpod/go-packages/bin/gopls    pid=5948
+	   [info]               name=/ide/node     pid=658
+	   [info]               name=/home/gitpod/go-packages/bin/staticcheck      pid=6660
+	   [info]               name=/usr/bin/dash pid=68
+	   [info]               name=/ide/node     pid=77
+	   [info]               name=/workspace/go/bin/task        pid=8715
+	   [info]               name=/usr/bin/bash pid=89
+	   [info]               name=/workspace/try-golang/try-golang      pid=8903
+	   [info]               name=/workspace/try-golang/try-golang      pid=self
+	   [info]               name=/workspace/try-golang/try-golang      pid=thread-self
+
+
+	   [Elapsed] 1.94092ms
+	*/
+
 }
