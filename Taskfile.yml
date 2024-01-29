@@ -35,6 +35,7 @@ tasks:
     cmds:
       - go vet ./...
       - staticcheck ./...
+      - deadcode .
   lint:
     desc: use revive as linter
     cmds:
