@@ -28,4 +28,5 @@ func (*register) Regist(m mapping.ExampleMapping) {
 	m["json_unmarshal_date_custom"] = UnmarshalDateCustom
 	m["json_decoder"] = Decoder
 	m["json_encoder"] = Encoder
+	m["json_disallow_unknown_fields"] = DisallowUnknownFields
 }
