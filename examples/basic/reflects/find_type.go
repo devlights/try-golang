@@ -51,4 +51,19 @@ func FindType() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: reflect_find_type
+
+	   [Name] "reflect_find_type"
+	   [string formatting]  reflects.MyType
+	   [reflect typeof]     reflects.MyType
+	   [type assertsion]    reflects.MyType
+
+	   [Elapsed] 10.36µs
+	*/
 }

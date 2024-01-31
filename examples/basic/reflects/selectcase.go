@@ -58,4 +58,21 @@ func SelectCase() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: reflect_selectcase
+
+	   [Name] "reflect_selectcase"
+	   reflect.Select       chosen: 4  recv: 16
+	   reflect.Select       chosen: 2  recv: 4
+	   reflect.Select       chosen: 3  recv: 9
+	   reflect.Select       chosen: 0  recv: 0
+	   reflect.Select       chosen: 1  recv: 1
+
+	   [Elapsed] 232.21µs
+	*/
 }
