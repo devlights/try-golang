@@ -57,4 +57,28 @@ func TypeOf() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: reflect_typeof
+
+	   [Name] "reflect_typeof"
+	   [ti ]                *reflect.rtype     int     8bytes
+	   [tmi]                *reflect.rtype     reflects.MyInt  8bytes
+	   [tst]                *reflect.rtype     reflects.MySt   80bytes
+	    >>>                    reflect.StructField:    string  16bytes
+	    >>>                    reflect.StructField:    int64   8bytes
+	    >>>                    reflect.StructField:    uint64  8bytes
+	    >>>                    reflect.StructField:    float64 8bytes
+	    >>>                    reflect.StructField:            8bytes
+	    >>>                    reflect.StructField:            24bytes
+	    >>>                    reflect.StructField:            8bytes
+
+
+	   [Elapsed] 142.38µs
+	*/
+
 }
