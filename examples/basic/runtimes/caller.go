@@ -39,4 +39,22 @@ func Caller() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: runtime_caller
+
+	   [Name] "runtime_caller"
+	   [runtime.Caller]     8194836    /workspace/try-golang/examples/basic/runtimes/caller.go 29
+	   [runtime.Caller]     9119412    /workspace/try-golang/runner/exec.go    52
+	   [runtime.Caller]     9121316    /workspace/try-golang/runner/loop.go    126
+	   [runtime.Caller]     9120584    /workspace/try-golang/runner/loop.go    86
+	   [runtime.Caller]     9124390    /workspace/try-golang/cmd/root.go       66
+	   [runtime.Caller]     9125774    /workspace/try-golang/main.go   6
+
+	   [Elapsed] 90.889µs
+	*/
 }

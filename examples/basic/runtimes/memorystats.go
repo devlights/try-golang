@@ -89,6 +89,76 @@ func RuntimeMemoryStats() error {
 	printMemoryStats("after runtime.GC()")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: runtime_memorystats
+
+	   [Name] "runtime_memorystats"
+	   init                 ----------------------------
+	   Alloc                365
+	   HeapAlloc            365
+	   TotalAlloc           437
+	   HeapObjects          1
+	   Sys                  9253
+	   NumGC                1
+	   (1)                  ----------------------------
+	   Alloc                4462
+	   HeapAlloc            4462
+	   TotalAlloc           4538
+	   HeapObjects          1
+	   Sys                  13413
+	   NumGC                2
+	   (2)                  ----------------------------
+	   Alloc                8559
+	   HeapAlloc            8559
+	   TotalAlloc           8635
+	   HeapObjects          1
+	   Sys                  17765
+	   NumGC                2
+	   (3)                  ----------------------------
+	   Alloc                12657
+	   HeapAlloc            12657
+	   TotalAlloc           12737
+	   HeapObjects          1
+	   Sys                  22117
+	   NumGC                3
+	   (4)                  ----------------------------
+	   Alloc                16754
+	   HeapAlloc            16754
+	   TotalAlloc           16834
+	   HeapObjects          1
+	   Sys                  26213
+	   NumGC                3
+	   (5)                  ----------------------------
+	   Alloc                20851
+	   HeapAlloc            20851
+	   TotalAlloc           20935
+	   HeapObjects          1
+	   Sys                  30565
+	   NumGC                4
+	   latest               ----------------------------
+	   Alloc                20852
+	   HeapAlloc            20852
+	   TotalAlloc           20935
+	   HeapObjects          1
+	   Sys                  30565
+	   NumGC                4
+	   after runtime.GC()   ----------------------------
+	   Alloc                372
+	   HeapAlloc            372
+	   TotalAlloc           20940
+	   HeapObjects          1
+	   Sys                  30565
+	   NumGC                5
+
+
+	   [Elapsed] 10.010817629s
+	*/
+
 }
 
 func printMemoryStats(prefix string) {
