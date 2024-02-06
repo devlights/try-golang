@@ -21,4 +21,17 @@ func NumCpu() error {
 	output.Stdoutl("[Number of CPU cores]", cpus)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: runtime_numcpu
+
+	   [Name] "runtime_numcpu"
+	   [Number of CPU cores] 16
+
+	   [Elapsed] 8.79µs
+	*/
 }

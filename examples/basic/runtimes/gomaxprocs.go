@@ -28,4 +28,20 @@ func GoMaxProcs() error {
 	output.Stdoutl("GOMAXPROCS", runtime.GOMAXPROCS(0))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: runtime_gomaxprocs
+
+	   [Name] "runtime_gomaxprocs"
+	   NumCPU               16
+	   GOMAXPROCS           16
+
+
+	   [Elapsed] 12.65µs
+	*/
+
 }

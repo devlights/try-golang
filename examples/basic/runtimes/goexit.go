@@ -40,4 +40,21 @@ func Goexit() error {
 	<-done
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: runtime_goexit
+
+	   [Name] "runtime_goexit"
+	   [before]             runtime.Goexit() 呼び出し前
+	   [fn1]                hello
+	   [fn2]                world
+
+
+	   [Elapsed] 94.7µs
+	*/
+
 }

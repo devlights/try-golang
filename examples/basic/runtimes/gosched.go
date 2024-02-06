@@ -72,4 +72,37 @@ func Gosched() error {
 	wg.Wait()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: runtime_gosched
+
+	   [Name] "runtime_gosched"
+	   [goroutine-04]       hello [4]
+	   [goroutine-04]       world [4]
+	   [goroutine-02]       hello [2]
+	   [goroutine-02]       world [2]
+	   [goroutine-03]       hello [3]
+	   [goroutine-03]       world [3]
+	   [goroutine-01]       hello [1]
+	   [goroutine-01]       world [1]
+	   [goroutine-00]       hello [0]
+	   [goroutine-00]       world [0]
+	   --------------------------------------------------
+	   [goroutine-04]       hello [4]
+	   [goroutine-00]       hello [0]
+	   [goroutine-01]       hello [1]
+	   [goroutine-02]       hello [2]
+	   [goroutine-03]       hello [3]
+	   [goroutine-04]       world [4]
+	   [goroutine-00]       world [0]
+	   [goroutine-02]       world [2]
+	   [goroutine-03]       world [3]
+	   [goroutine-01]       world [1]
+
+	   [Elapsed] 486.98µs
+	*/
 }
