@@ -26,4 +26,22 @@ func Basic() error {
 	fmt.Println("END")
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: scannerop_basic
+
+	   [Name] "scannerop_basic"
+	   Enter: helloworld
+	   helloworld
+	   Enter: quit
+	   END
+
+
+	   [Elapsed] 4.979184142s
+	*/
+
 }
