@@ -54,4 +54,24 @@ func Custom() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: scannerop_custom
+
+	   [Name] "scannerop_custom"
+	   [0]                  hello[TAB]world[TAB]こんにちわ{TAB}世界
+	   [1]                  hello
+	   [1]                  world
+	   [1]                  こんにちわ{TAB}世界
+	   [2]                  hello[TAB]world[TAB]こんにちわ
+	   [2]                  世界
+
+
+	   [Elapsed] 99µs
+	*/
+
 }
