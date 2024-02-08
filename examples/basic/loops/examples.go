@@ -25,4 +25,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["loops_for_loop_copy_value"] = ForLoopCopyValue
 	m["loops_diff_range_and_normal"] = DiffRangeLoopAndNormalLoop
 	m["loops_range_loop_tmpvalue_with_array"] = RangeLoopTmpValueWithArray
+	m["loops_go122_loop_variable"] = Go122LoopVariable
 }
