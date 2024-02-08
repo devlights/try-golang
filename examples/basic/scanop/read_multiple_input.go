@@ -33,4 +33,21 @@ func ReadMultipleInput() error {
 	output.Stdoutf("[fmt.Scan]", "count=%d\tvalue1=%v\tvalue2=%v\n", n, value1, value2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: scanop_read_multi_input
+
+	   [Name] "scanop_read_multi_input"
+	   INPUT: helloworld
+	   helloworld2
+	   [fmt.Scan]           count=2    value1=helloworld       value2=helloworld2
+
+
+	   [Elapsed] 6.552806734s
+	*/
+
 }

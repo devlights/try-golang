@@ -28,4 +28,20 @@ func ReadOneInput() error {
 	output.Stdoutf("[fmt.Scan]", "count=%d\tvalue=%v\n", n, value)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: scanop_read_one_input
+
+	   [Name] "scanop_read_one_input"
+	   INPUT: helloworld
+	   [fmt.Scan]           count=1    value=helloworld
+
+
+	   [Elapsed] 2.547842045s
+	*/
+
 }

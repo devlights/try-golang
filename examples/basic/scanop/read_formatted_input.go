@@ -32,4 +32,20 @@ func ReadFormattedInput() error {
 	output.Stdoutf("[fmt.Scanf]", "count=%d\tvalue1=%d\tvalue2=%s\n", n, value1, value2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: scanop_read_formatted_input
+
+	   [Name] "scanop_read_formatted_input"
+	   INPUT(\d{1,3} [^ ]{1,5}): 111 abcde
+	   [fmt.Scanf]          count=2    value1=111      value2=abcde
+
+
+	   [Elapsed] 16.812925838s
+	*/
+
 }
