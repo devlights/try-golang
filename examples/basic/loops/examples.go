@@ -26,4 +26,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["loops_diff_range_and_normal"] = DiffRangeLoopAndNormalLoop
 	m["loops_range_loop_tmpvalue_with_array"] = RangeLoopTmpValueWithArray
 	m["loops_go122_loop_variable"] = Go122LoopVariable
+	m["loops_go122_range_over_integer"] = Go122RangeOverInterger
 }
