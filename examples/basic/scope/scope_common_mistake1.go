@@ -45,4 +45,19 @@ func CommonMistake1() error {
 	// -------------------------------------------------------------------------
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: scope_common_mistake1
+
+	   [Name] "scope_common_mistake1"
+	   [loadcwd]            /workspace/try-golang
+	   [main]
+
+	   [Elapsed] 30.79µs
+	*/
+
 }

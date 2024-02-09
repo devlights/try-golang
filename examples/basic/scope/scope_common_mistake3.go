@@ -37,4 +37,20 @@ func CommonMistake3() error {
 	output.Stdoutl("[main]", pkginfo.cwd)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: scope_common_mistake3
+
+	   [Name] "scope_common_mistake3"
+	   [loadcwd]            /workspace/try-golang
+	   [main]               /workspace/try-golang
+
+
+	   [Elapsed] 48.82µs
+	*/
+
 }

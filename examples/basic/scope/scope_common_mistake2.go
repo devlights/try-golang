@@ -34,4 +34,20 @@ func CommonMistake2() error {
 	output.Stdoutl("[main]", _cwd2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: scope_common_mistake2
+
+	   [Name] "scope_common_mistake2"
+	   [loadcwd]            /workspace/try-golang
+	   [main]               /workspace/try-golang
+
+
+	   [Elapsed] 40.04µs
+	*/
+
 }

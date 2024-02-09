@@ -29,6 +29,20 @@ func Basic() error {
 	ShowValues(&hasNoPublicFields)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: scope_basic
+
+	   [Name] "scope_basic"
+	   [*mypkg.HasPublicFields] &{Val1:100 Val2:Test Value}
+	   [*mypkg.HasNoPublicFields] &{val1:0 val2:}
+
+	   [Elapsed] 32.711µs
+	*/
 }
 
 // ShowValues -- サンプル関数
