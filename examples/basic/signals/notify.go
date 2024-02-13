@@ -35,4 +35,20 @@ func Notify() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: signal_notify
+
+	   [Name] "signal_notify"
+	   ^C[Interrupt]          Ctrl-C
+	   task: Signal received: "interrupt"
+
+
+	   [Elapsed] 1.771348899s
+	*/
+
 }

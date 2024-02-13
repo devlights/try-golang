@@ -36,4 +36,20 @@ func NotifyContext() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: signal_notify_context
+
+	   [Name] "signal_notify_context"
+	   ^Ctask: Signal received: "interrupt"
+	   [Interrupt]          Ctrl-C
+
+
+	   [Elapsed] 1.113577647s
+	*/
+
 }
