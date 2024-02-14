@@ -25,6 +25,24 @@ func Basic04() error {
 	printSliceInfo("slice2", slice2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_basic04
+
+	   [Name] "slice_basic04"
+	   [slice1lice] val: [1 2 3 4 5] len: 5 cap: 5
+	   [slice1lice] val: [] len: 0 cap: 0
+	   [slice2lice] val: [] len: 0 cap: 5
+	   [slice2lice] val: [1 2 3] len: 3 cap: 5
+
+
+	   [Elapsed] 58.789µs
+	*/
+
 }
 
 func printSliceInfo(prefix string, slice []int) {

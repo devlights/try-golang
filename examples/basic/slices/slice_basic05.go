@@ -24,6 +24,25 @@ func Basic05() error {
 	fmt.Printf("array: %v\n", ary01)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_basic05
+
+	   [Name] "slice_basic05"
+	   array: [1 2 3 4 5]
+	   slice: [1 2 3 4 5]
+	   array: [1 2 3 4 5]
+	   slice: [2 4 6 8 10]
+	   array: [2 4 6 8 10]
+
+
+	   [Elapsed] 16.2µs
+	*/
+
 }
 
 func calcArray(val [5]int) {

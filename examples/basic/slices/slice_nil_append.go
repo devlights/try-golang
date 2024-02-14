@@ -16,4 +16,21 @@ func NilAppend() error {
 	output.Stdoutl("[ints]", ints)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_nil_append
+
+	   [Name] "slice_nil_append"
+	   [ints == nil]        true
+	   [len(ints)]          0
+	   [ints]               [1 2 3 4]
+
+
+	   [Elapsed] 51.42µs
+	*/
+
 }

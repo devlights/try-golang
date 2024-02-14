@@ -55,4 +55,20 @@ func Reverse() error {
 	f(ints, strs)
 
 	return nil
+
+	/*
+	    $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_reverse
+
+	   [Name] "slice_reverse"
+	   [original]      ints[[1 2 3 4 5]]       strs[[hello world]]
+	   [original]      ints[[5 4 3 2 1]]       strs[[world hello]]
+
+
+	   [Elapsed] 18.43µs
+	*/
+
 }

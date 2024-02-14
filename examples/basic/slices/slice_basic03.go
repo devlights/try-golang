@@ -28,4 +28,20 @@ func Basic03() error {
 	fmt.Println("ListB: ", listB)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_basic03
+
+	   [Name] "slice_basic03"
+	   ListA:  [A B E D]
+	   ListB:  [A B D E]
+
+
+	   [Elapsed] 36.15µs
+	*/
+
 }

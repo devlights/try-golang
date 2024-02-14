@@ -49,4 +49,25 @@ func ConvertToArrayGo117() error {
 	// output.Stdoutf("[array4  ]", "%v\n", array4)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_convert_to_array_go117
+
+	   [Name] "slice_convert_to_array_go117"
+	   [array1  ]           [golang python csharp java dart]
+	   [array2  ]           &[rust javascript]
+	   [original]           [golang python csharp java dart rust javascript]
+	   --------------------------------------------------
+	   [array1  ]           [***** python csharp java dart]
+	   [array2  ]           &[***** javascript]
+	   [original]           [golang python csharp java dart ***** javascript]
+
+
+	   [Elapsed] 83.89µs
+	*/
+
 }

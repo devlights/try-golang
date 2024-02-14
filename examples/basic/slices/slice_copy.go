@@ -34,4 +34,19 @@ func Copy() error {
 	output.Stdoutl("(1)", s1, s2, s3)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_copy
+
+	   [Name] "slice_copy"
+	   (1)                  [1 2 3] [1 2 3] [1 2 3]
+
+
+	   [Elapsed] 22.92µs
+	*/
+
 }

@@ -124,4 +124,31 @@ func Pointer() error {
 	dump(sliByRef, "sliByRef - byRef(1) - 2")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_pointer
+
+	   [Name] "slice_pointer"
+	   [sliByVal init            ] len:0       cap:1   values:[]
+	   [byVal call               ] len:1       cap:1   values:[0]
+	   [sliByVal - byVal(1) - 1  ] len:0       cap:1   values:[]
+	   [sliByVal - update cap    ] len:1       cap:1   values:[0]
+	   [byVal call               ] len:2       cap:2   values:[0 0]
+	   [sliByVal - byVal(1) - 2  ] len:1       cap:1   values:[0]
+	   [sliByVal - update cap    ] len:1       cap:1   values:[0]
+	   -----------------------------
+	   [sliByRef init            ] len:0       cap:1   values:[]
+	   [byRef call               ] len:1       cap:1   values:[0]
+	   [sliByRef - byRef(1) - 1  ] len:1       cap:1   values:[0]
+	   [byRef call               ] len:2       cap:2   values:[0 0]
+	   [sliByRef - byRef(1) - 2  ] len:2       cap:2   values:[0 0]
+
+
+	   [Elapsed] 138.06µs
+	*/
+
 }

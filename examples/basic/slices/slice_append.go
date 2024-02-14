@@ -83,6 +83,41 @@ func Append() error {
 	fmt.Println("----------------------------------------------")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_append
+
+	   [Name] "slice_append"
+	   [zeroCap] len:0 cap:0   addr:[0xe766a0]
+	           [append][before] len:0  cap:0   addr:[0xe766a0]
+	           [append][after]  len:10 cap:16  addr:[0xc000030380]
+	   [manyCap] len:0 cap:15  addr:[0xc000030300]
+	           [append][before] len:0  cap:15  addr:[0xc000030300]
+	           [append][after]  len:10 cap:15  addr:[0xc000030300]
+	   ----------------------------------------------
+	   [zeroCap] len:0 cap:0   addr:[0xe766a0]
+	   [manyCap] len:15        cap:15  addr:[0xc000030300]
+	   zeroCapSlice []
+	   manyCapSlice [0 1 2 3 4 5 6 7 8 9 0 0 0 0 0]
+	   ----------------------------------------------
+	   [zeroCap2] len:0        cap:0   addr:[0xe766a0]
+	   [manyCap2] len:0        cap:15  addr:[0xc000030400]
+	   zeroCapSlice2 []
+	   manyCapSlice2 []
+	   [zeroCap2] len:10       cap:16  addr:[0xc000030480]
+	   [manyCap2] len:10       cap:15  addr:[0xc000030400]
+	   zeroCapSlice2 [0 1 2 3 4 5 6 7 8 9]
+	   manyCapSlice2 [0 1 2 3 4 5 6 7 8 9]
+	   ----------------------------------------------
+
+
+	   [Elapsed] 145.29µs
+	*/
+
 }
 
 func retrieveItems(count int) []int {

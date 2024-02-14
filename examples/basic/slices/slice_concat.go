@@ -37,4 +37,26 @@ func Concat() error {
 	output.StdoutHr()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_concat
+
+	   [Name] "slice_concat"
+	   [sli1]               [1 2 3 4 5]
+	   [sli2]               [6 7 8]
+	   [sli3]               [1 2 3 4 5 6 7 8]
+	   --------------------------------------------------
+	   [sli1]               [1 2 3 4 5]
+	   [sli2]               [6 7 8]
+	   [sli4]               [1 2 3 4 5 6 7 8]
+	   --------------------------------------------------
+
+
+	   [Elapsed] 59.66µs
+	*/
+
 }
