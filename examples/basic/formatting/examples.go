@@ -22,4 +22,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["formatting_padding_arbitary_length"] = PaddingArbitaryLength
 	m["formatting_numbers"] = Numbers
 	m["formatting_stringer_and_gostringer"] = StringerAndGoStringer
+	m["formatting_diff_v_verb"] = DiffVVerb
 }

@@ -12,3 +12,4 @@
 | appendln.go                         | formatting_appendln                         | Go 1.19 から追加された fmt.Appendln() のサンプルです                    |
 | padding_arbitarylength.go           | formatting_padding_arbitarylength           | 文字列をパディングする際の桁数を外から指定するサンプルです              |
 | stringer_and_gostringer.go          | formatting_stringer_and_gostringer          | fmt.Stringerとfmt.GoStringerについてのサンプルです                      |
+| diff_v_verb.go                      | formatting_diff_v_verb                      | v verbの違いについてのサンプルです.                                     |
