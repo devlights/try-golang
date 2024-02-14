@@ -24,4 +24,20 @@ func Strings() error {
 	output.Stdoutl("[sorted  ]", sorted)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: sort_strings
+
+	   [Name] "sort_strings"
+	   [original]           [z e u s]
+	   [sorted  ]           [e s u z]
+
+
+	   [Elapsed] 25.99µs
+	*/
+
 }

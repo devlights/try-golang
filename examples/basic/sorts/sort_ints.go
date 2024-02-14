@@ -24,4 +24,20 @@ func Ints() error {
 	output.Stdoutl("[sorted  ]", sorted)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: sort_ints
+
+	   [Name] "sort_ints"
+	   [original]           [5 2 3 4 1]
+	   [sorted  ]           [1 2 3 4 5]
+
+
+	   [Elapsed] 30.06µs
+	*/
+
 }
