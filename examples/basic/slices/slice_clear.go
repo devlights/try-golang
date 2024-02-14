@@ -81,4 +81,26 @@ func Clear() error {
 	output.Stdoutl("s3[:2]", s3[:2])
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_clear
+
+	   [Name] "slice_clear"
+	   s1                   [1 2 3 4 5] 5 5
+	   s2                   [1 2 3 4 5] 5 5
+	   s3                   [1 2 3 4 5] 5 5
+	   s1                   [] 0 0
+	   s2                   [] 0 5
+	   s3                   [] 0 0
+	   s2[:2]               [1 2]
+	   s1[:2]               runtime error: slice bounds out of range [:2] with capacity 0
+
+
+	   [Elapsed] 94.64µs
+	*/
+
 }

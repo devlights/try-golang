@@ -24,4 +24,20 @@ func DeclareEmtpySlice() error {
 	// https://github.com/golang/go/wiki/CodeReviewComments#declaring-empty-slices を参照。
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_declare_empty_slice
+
+	   [Name] "slice_declare_empty_slice"
+	   [S1]                 len=0      cap=0
+	   [S2]                 len=0      cap=0
+
+
+	   [Elapsed] 9.209µs
+	*/
+
 }

@@ -45,4 +45,34 @@ func Basic01() error {
 	fmt.Printf("a1: %d\na2: %d\n", &a1[0], &a2[0])
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_basic01
+
+	   [Name] "slice_basic01"
+	   l1: []int
+	   0
+	   1
+	   2
+	   3
+	   4
+
+
+	   a1: [3]int
+	   1
+	   2
+	   3
+	   l1: 824633901952
+	   l2: 824633901952
+	   a1: 824633909968
+	   a2: 824633910016
+
+
+	   [Elapsed] 37.17µs
+	*/
+
 }

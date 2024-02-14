@@ -21,4 +21,18 @@ func AppendSpecialBehavior() error {
 	output.Stdoutf("[sl]", "%s/n", sl)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_append_special_behavior
+
+	   [Name] "slice_append_special_behavior"
+	   [sl]                 abc helloworld/n
+
+	   [Elapsed] 6.91µs
+	*/
+
 }

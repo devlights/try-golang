@@ -117,4 +117,39 @@ func KeepAllocatedMemory() error {
 	// それぞれのスライスにしか反映されない.
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_keep_allocated_memory
+
+	   [Name] "slice_keep_allocated_memory"
+	   [s0]                 [1 2 3]    len=3   cap=3
+	   [s1]                 [] len=0   cap=3
+	   [s3]                 [1 2]      len=2   cap=3
+	   --------------------------------------------------
+	   [append(s1, 4)]
+	   [result]             s0=[4 2 3] s1=[4]  s3=[4 2]
+	   --------------------------------------------------
+	   [append(s3, 5)]
+	   [result]             s0=[4 2 5] s1=[4]  s3=[4 2 5]
+	   --------------------------------------------------
+	   [append(s3, 6)]
+	   [result]             s0=[4 2 5] s1=[4]  s3=[4 2 5 6]
+	   --------------------------------------------------
+	   [append(s1, 7)]
+	   [result]             s0=[4 7 5] s1=[4 7]        s3=[4 2 5 6]
+	   --------------------------------------------------
+	   [append(s0, 8)]
+	   [result]             s0=[4 7 5 8]       s1=[4 7]        s3=[4 2 5 6]
+	   --------------------------------------------------
+	   [append s0, s1, s3]
+	   [result]             s0=[4 7 5 8 10]    s1=[4 7 11]     s3=[4 2 5 6 12]
+
+
+	   [Elapsed] 244.34µs
+	*/
+
 }

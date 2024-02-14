@@ -36,6 +36,56 @@ func DeepEqual() error {
 	sliceDataIsStruct()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_deep_equal
+
+	   [Name] "slice_deep_equal"
+	   [Slice data is base type] -------------------------------------------
+	   [&sli1]              0xc0000125e8
+	   [&sli2]              0xc000012600
+	   &sli1 == &sli2       false
+	   [sli1]               [0 1 2 3 4 5 6 7 8 9]
+	   [sli2]               [0 1 2 3 4 5 6 7 8 9]
+	   sli1 == sli2         true
+	   [sli1]               [0 1 2 3 4 5 6 7 8 9]
+	   [sli2]               [5 6 7 8 9 0 1 2 3 4]
+	   sli1 == sli2         false
+	   [&sli3]              0xc0000126f0
+	   &sli1 == &sli3       false
+	   [sli1]               [0 1 2 3 4 5 6 7 8 9]
+	   [sli3]               [0 1 2 3 4]
+	   sli1 == sli3         false
+	   [sli1]               [0 1 2 3 4]
+	   [sli3]               [0 1 2 3 4]
+	   sli1 == sli3         true
+	   [Slice data is struct] -------------------------------------------
+	   [&sli1]              0xc0000127c8
+	   [&sli2]              0xc0000127e0
+	   &sli1 == &sli2       false
+	   [sli1]               [{0} {1} {2} {3} {4} {5} {6} {7} {8} {9}]
+	   [sli2]               [{0} {1} {2} {3} {4} {5} {6} {7} {8} {9}]
+	   sli1 == sli2         true
+	   [sli1]               [{0} {1} {2} {3} {4} {5} {6} {7} {8} {9}]
+	   [sli2]               [{5} {6} {7} {8} {9} {0} {1} {2} {3} {4}]
+	   sli1 == sli2         false
+	   [&sli3]              0xc0000128d0
+	   &sli1 == &sli3       false
+	   [sli1]               [{0} {1} {2} {3} {4} {5} {6} {7} {8} {9}]
+	   [sli3]               [{0} {1} {2} {3} {4}]
+	   sli1 == sli3         false
+	   [sli1]               [{0} {1} {2} {3} {4}]
+	   [sli3]               [{0} {1} {2} {3} {4}]
+	   sli1 == sli3         true
+
+
+	   [Elapsed] 381.93µs
+	*/
+
 }
 
 func sliceDataIsBaseType() {

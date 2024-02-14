@@ -31,4 +31,20 @@ func RemoveAllElements() error {
 	// panic: runtime error: slice bounds out of range [:1] with capacity 0
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: slice_remove_all_elements
+
+	   [Name] "slice_remove_all_elements"
+	   [before]             [1 2 3]    len=3   cap=3
+	   [after]              [] len=0   cap=0
+
+
+	   [Elapsed] 16.26µs
+	*/
+
 }
