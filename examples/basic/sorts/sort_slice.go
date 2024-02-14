@@ -60,4 +60,20 @@ func SortSliceUnStable() error {
 	*/
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: sort_slice_unstable
+
+	   [Name] "sort_slice_unstable"
+	   before               [10 9 8 7 6 5 4 3 2 1]
+	   after                [1 2 3 4 5 6 7 8 9 10]
+
+
+	   [Elapsed] 25.53µs
+	*/
+
 }

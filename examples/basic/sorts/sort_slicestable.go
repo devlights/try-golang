@@ -45,4 +45,20 @@ func SortSliceStable() error {
 	output.Stdoutl("after", sli1)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: sort_slice_stable
+
+	   [Name] "sort_slice_stable"
+	   before               [10 9 8 7 6 5 4 3 2 1]
+	   after                [1 2 3 4 5 6 7 8 9 10]
+
+
+	   [Elapsed] 22.49µs
+	*/
+
 }

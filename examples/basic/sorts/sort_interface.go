@@ -81,4 +81,24 @@ func SortInterface() error {
 	output.Stdoutf("sort.Reverse", "after : %v\n", s3)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: sort_interface
+
+	   [Name] "sort_interface"
+	   sort.Sort            before: [66 1 77 773 87 32]
+	   sort.Sort            after : [1 32 66 77 87 773]
+	   sort.Stable          before: [66 1 77 773 87 32]
+	   sort.Stable          after : [1 32 66 77 87 773]
+	   sort.Reverse         before: [66 1 77 773 87 32]
+	   sort.Reverse         after : [773 87 77 66 32 1]
+
+
+	   [Elapsed] 69.03µs
+	*/
+
 }
