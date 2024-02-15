@@ -8,8 +8,8 @@ func add(x, y int) int {
 	return x + y
 }
 
-// FunctionOneReturnValue -- 戻り値が一つの関数定義のサンプル
-func FunctionOneReturnValue() error {
+// OneReturnValue -- 戻り値が一つの関数定義のサンプル
+func OneReturnValue() error {
 
 	var (
 		x, y = 10, 20
