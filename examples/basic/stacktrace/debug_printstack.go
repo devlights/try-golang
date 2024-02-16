@@ -50,4 +50,30 @@ func DebugPrintStack() error {
 	<-first(context.Background()).Done()
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: stacktrace_debug_printstack
+
+	   [Name] "stacktrace_debug_printstack"
+	   --------------------------------------------------
+	   goroutine 19 [running]:
+	   runtime/debug.Stack()
+	           /home/gitpod/go/src/runtime/debug/stack.go:24 +0x5e
+	   runtime/debug.PrintStack()
+	           /home/gitpod/go/src/runtime/debug/stack.go:16 +0x13
+	   github.com/devlights/try-golang/examples/basic/stacktrace.DebugPrintStack.func1({0xa984f0?, 0xc000118050?})
+	           /workspace/try-golang/examples/basic/stacktrace/debug_printstack.go:24 +0x85
+	   github.com/devlights/try-golang/examples/basic/stacktrace.DebugPrintStack.func2.1()
+	           /workspace/try-golang/examples/basic/stacktrace/debug_printstack.go:34 +0x3c
+	   created by github.com/devlights/try-golang/examples/basic/stacktrace.DebugPrintStack.func2 in goroutine 18
+	           /workspace/try-golang/examples/basic/stacktrace/debug_printstack.go:32 +0xa5
+
+
+	   [Elapsed] 100.413649ms
+	*/
+
 }
