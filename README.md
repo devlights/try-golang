@@ -3,7 +3,7 @@
 
 This is my TUTORIAL project for golang
 
-![try-golang - Go Version](https://img.shields.io/badge/go-1.21-blue.svg)
+![try-golang - Go Version](https://img.shields.io/badge/go-1.22-blue.svg)
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/devlights/try-golang)
@@ -14,18 +14,18 @@ This is my TUTORIAL project for golang
 $ lsb_release -a
 No LSB modules are available.
 Distributor ID: Ubuntu
-Description:    Ubuntu 20.04.5 LTS
-Release:        20.04
-Codename:       focal
+Description:    Ubuntu 22.04.3 LTS
+Release:        22.04
+Codename:       jammy
 
 $ go version
-go version go1.21.0 linux/amd64
+go version go1.22.0 linux/amd64
 
 $ task build
 task: [build] go build .
 
 $ go version try-golang
-try-golang: go1.21.0
+try-golang: go1.22.0
 ```
 
 ## Run
