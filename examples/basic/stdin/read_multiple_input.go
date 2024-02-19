@@ -45,4 +45,22 @@ func ReadMultipleInput() error {
 	output.Stdoutf("[fmt.Scan][02]", "messages=%v\n", messages)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: stdin_read_multiple_input
+
+	   [Name] "stdin_read_multiple_input"
+	   ENTER 3 WORDS: java dotnet golang
+	   [fmt.Scan][01]       messages=[java dotnet golang]
+	   ENTER 3 WORDS: java dotnet golang
+	   [fmt.Scan][02]       messages=[java dotnet golang]
+
+
+	   [Elapsed] 8.880712932s
+	*/
+
 }
