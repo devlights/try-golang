@@ -8,4 +8,18 @@ func Printf01() error {
 	fmt.Printf("%s", message)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: printf01
+
+	   [Name] "printf01"
+	   Hello Golang!!
+
+	   [Elapsed] 2.88µs
+	*/
+
 }

@@ -12,6 +12,24 @@ func Printf03() error {
 	fmt.Println(data.GetValue4())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: printf03
+
+	   [Name] "printf03"
+	   &{30 hello world}
+	   &{val1:30 val2:hello world}
+	   &stdout.MyData{val1:30, val2:"hello world"}
+	   *stdout.MyData
+
+
+	   [Elapsed] 40.98µs
+	*/
+
 }
 
 // MyData -- サンプル用の構造体
