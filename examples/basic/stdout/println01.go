@@ -11,4 +11,19 @@ func Println01() error {
 	fmt.Println(hello, world)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: println01
+
+	   [Name] "println01"
+	   hello world
+
+
+	   [Elapsed] 4.71µs
+	*/
+
 }

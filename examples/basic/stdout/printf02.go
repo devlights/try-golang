@@ -46,4 +46,24 @@ func Printf02() error {
 	fmt.Printf(messageFormat, data, "hello", 100, intArray, intSlice, intKeyMap)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: printf02
+
+	   [Name] "printf02"
+	   [%s] Hello World
+	   [%d] Hello 100
+	   [%v] Hello {100 111 222 333}
+	   [%#v] Hello stdout.myType{i:100, v:111, x:222, y:333}
+	   [%+v] Hello {i:100 v:111 x:222 y:333}
+	   [%T] Hello stdout.myType, string, int, [3]int, []int, map[int]string
+
+
+	   [Elapsed] 22.46µs
+	*/
+
 }
