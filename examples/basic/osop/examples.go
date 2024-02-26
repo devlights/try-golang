@@ -16,4 +16,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["osop_mkdir"] = Mkdir
 	m["osop_list_processes"] = ListProcesses
 	m["osop_environ"] = Environ
+	m["osop_getenv"] = GetEnv
 }
