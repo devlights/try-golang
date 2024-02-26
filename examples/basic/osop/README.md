@@ -8,3 +8,4 @@
 | listprocess.go | osop_list_processes | プロセスリストを取得するサンプルです. |
 | environ.go     | osop_environ        | os.Environ()のサンプルです。          |
 | getenv.go      | osop_getenv         | os.GetEnv() のサンプルです。          |
+| lookupenv.go   | osop_lookupenv      | os.LookupEnv() のサンプルです。       |
