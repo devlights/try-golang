@@ -6,3 +6,4 @@
 | -------------- | ------------------- | ------------------------------------- |
 | mkdir.go       | osop_mkdir          | os.Mkdir/MkdirAllのサンプルです.      |
 | listprocess.go | osop_list_processes | プロセスリストを取得するサンプルです. |
+| environ.go     | osop_environ        | os.Environ()のサンプルです。          |
