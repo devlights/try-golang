@@ -13,6 +13,7 @@ import (
 // 戻り値は []string 。
 //
 // # REFERENCES
+//
 //   - https://pkg.go.dev/os@go1.22.0#Environ
 func Environ() error {
 	for _, env := range os.Environ() {
@@ -30,4 +31,21 @@ func Environ() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: osop_environ
+
+	   [Name] "osop_environ"
+	   [env]                HISTFILE /workspace/.gitpod/.shell_history
+	   [env]                HOME /home/gitpod
+	   [env]                HOSTNAME devlights-trygolang-q7kq6quld1n
+
+
+	   [Elapsed] 29.6µs
+	*/
+
 }
