@@ -38,4 +38,24 @@ func BinToDec() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: strconvs_bin_to_dec
+
+	   [Name] "strconvs_bin_to_dec"
+	   [original]           11111111
+	   [parsed  ]           255
+	   --------------------------------------------------
+	   [original]           11011110101011011011111011101111
+	   [parsed  ]           3735928559
+	   --------------------------------------------------
+
+
+	   [Elapsed] 56.51µs
+	*/
+
 }

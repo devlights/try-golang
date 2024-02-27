@@ -43,4 +43,26 @@ func HexToBin() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: strconvs_hex_to_bin
+
+	   [Name] "strconvs_hex_to_bin"
+	   [original]           0xff
+	   [parsed  ]           255
+	   [conveted]           11111111
+	   --------------------------------------------------
+	   [original]           0xDEADBEEF
+	   [parsed  ]           3735928559
+	   [conveted]           11011110101011011011111011101111
+	   --------------------------------------------------
+
+
+	   [Elapsed] 96.96µs
+	*/
+
 }

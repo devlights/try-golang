@@ -49,4 +49,27 @@ func ParseIntTipsBaseValue() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: strconvs_parseint_tips_base
+
+	   [Name] "strconvs_parseint_tips_base"
+	   [original]           0b11111111
+	   [parsed  ]           255
+	   --------------------------------------------------
+	   [original]           0o377
+	   [parsed  ]           255
+	   --------------------------------------------------
+	   [original]           0xff
+	   [parsed  ]           255
+	   --------------------------------------------------
+
+
+	   [Elapsed] 52.669µs
+	*/
+
 }
