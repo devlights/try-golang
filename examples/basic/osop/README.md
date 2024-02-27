@@ -10,3 +10,4 @@
 | getenv.go      | osop_getenv         | os.GetEnv() のサンプルです。          |
 | lookupenv.go   | osop_lookupenv      | os.LookupEnv() のサンプルです。       |
 | expandenv.go   | osop_expandenv      | os.ExpandEnv() のサンプルです。       |
+| expand.go      | osop_expand         | os.Expand() のサンプルです。          |

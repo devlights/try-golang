@@ -28,4 +28,21 @@ func ExpandEnv() error {
 	output.Stdoutf("[env3]", "%q\n", env3)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: osop_expandenv
+
+	   [Name] "osop_expandenv"
+	   [env1]               "/home/gitpod"
+	   [env2]               ""
+	   [env3]               "home is /home/gitpod, hostname is devlights-trygolang-96ahwfwl0rp"
+
+
+	   [Elapsed] 33.6µs
+	*/
+
 }
