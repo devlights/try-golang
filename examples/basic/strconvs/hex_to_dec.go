@@ -33,5 +33,26 @@ func HexToDec() error {
 		output.Stdoutl("[parsed  ]", parsed)
 		output.StdoutHr()
 	}
+
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: strconvs_hex_to_dec
+
+	   [Name] "strconvs_hex_to_dec"
+	   [original]           ff
+	   [parsed  ]           255
+	   --------------------------------------------------
+	   [original]           deadbeef
+	   [parsed  ]           3735928559
+	   --------------------------------------------------
+
+
+	   [Elapsed] 91.49µs
+	*/
+
 }

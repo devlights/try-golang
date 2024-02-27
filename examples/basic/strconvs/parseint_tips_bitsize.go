@@ -37,4 +37,20 @@ func ParseIntTipsBitSize() error {
 	output.Stdoutl("[parsed  ]", int(parsed))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: strconvs_parseint_tips_bitsize
+
+	   [Name] "strconvs_parseint_tips_bitsize"
+	   [original]           ff
+	   [parsed  ]           255
+
+
+	   [Elapsed] 21.09µs
+	*/
+
 }

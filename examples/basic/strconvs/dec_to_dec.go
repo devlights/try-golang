@@ -36,5 +36,28 @@ func DecToDec() error {
 		output.Stdoutl("[atoi    ]", atoi(v))
 		output.StderrHr()
 	}
+
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: strconvs_dec_to_dec
+
+	   [Name] "strconvs_dec_to_dec"
+	   [original]           255
+	   [parseInt]           255
+	   [atoi    ]           255
+	   --------------------------------------------------
+	   [original]           3735928559
+	   [parseInt]           3735928559
+	   [atoi    ]           3735928559
+	   --------------------------------------------------
+
+
+	   [Elapsed] 56.19µs
+	*/
+
 }
