@@ -21,4 +21,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["osop_expandenv"] = ExpandEnv
 	m["osop_expand"] = Expand
 	m["osop_setenv"] = Setenv
+	m["osop_unsetenv"] = Unsetenv
 }
