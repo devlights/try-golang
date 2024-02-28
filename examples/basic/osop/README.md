@@ -11,3 +11,4 @@
 | lookupenv.go   | osop_lookupenv      | os.LookupEnv() のサンプルです。       |
 | expandenv.go   | osop_expandenv      | os.ExpandEnv() のサンプルです。       |
 | expand.go      | osop_expand         | os.Expand() のサンプルです。          |
+| setenv.go      | osop_setenv         | os.Setenv() のサンプルです。          |
