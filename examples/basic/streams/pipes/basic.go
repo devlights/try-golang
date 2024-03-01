@@ -102,4 +102,22 @@ func Basic() error {
 	io.Copy(filterW, pr)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: streams_pipe_basic
+
+	   [Name] "streams_pipe_basic"
+	   WARS
+	   WARSHIP
+	   WARSHIP'S
+	   WARSHIPS
+
+
+	   [Elapsed] 108.994024ms
+	*/
+
 }

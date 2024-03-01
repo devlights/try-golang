@@ -75,4 +75,19 @@ func Basic2() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: streams_pipe_basic2
+
+	   [Name] "streams_pipe_basic2"
+	   [pr]                 helloworld
+
+
+	   [Elapsed] 252.58µs
+	*/
+
 }

@@ -58,4 +58,22 @@ func UsingNopCloser() error {
 	_ = reader.Close()
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: streams_nopcloser
+
+	   [Name] "streams_nopcloser"
+	   [nopcloser.Read]     [104 101 108]
+	   >>                   before NopCloser.Close
+	   >>                   after  NopCloser.Close
+	   [_readcloserimpl]    Close() called
+
+
+	   [Elapsed] 36.09µs
+	*/
+
 }
