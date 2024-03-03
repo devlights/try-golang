@@ -13,3 +13,4 @@
 | expand.go      | osop_expand         | os.Expand() のサンプルです。          |
 | setenv.go      | osop_setenv         | os.Setenv() のサンプルです。          |
 | unsetenv.go    | osop_unsetenv       | os.Unsetenv() のサンプルです。        |
+| clearenv.go    | osop_clearenv       | os.Clearenv() のサンプルです。        |
