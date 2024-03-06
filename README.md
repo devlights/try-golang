@@ -68,6 +68,8 @@ $ task test
   - 3rd party ライブラリのサンプルはこちらで管理しています。
 - [try-golang-db](https://github.com/devlights/try-golang-db)
   - データベースのサンプルはこちらで管理しています。
+- [try-golang-cgo](https://github.com/devlights/try-golang-cgo)
+  - CGOのサンプルはこちらで管理しています。
 - [go-crosscompile-example](https://github.com/devlights/go-crosscompile-example)
   - Goでクロスコンパイルを行うサンプルです。
 - [go-grpc-uds-example](https://github.com/devlights/go-grpc-uds-example)
