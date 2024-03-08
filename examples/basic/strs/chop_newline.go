@@ -35,6 +35,33 @@ func ChopNewLine() error {
 	output.Stdoutl("[without ]", []byte(withoutNewLine))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: string_chop_newline
+
+	   [Name] "string_chop_newline"
+	   [has newline? (withLF)           ] true
+	   [has newline? (withCRLF)         ] true
+	   [has newline? (withoutNewLine)   ] false
+	   [has newline? (chopped)(LF)      ] false
+	   [equal? (chopped==withoutNewLine)] true
+	   [has newline? (chopped)(CRLF)    ] false
+	   [equal? (chopped==withoutNewLine)] true
+	   --------------------------------------------------
+	   [LF      ]           [104 101 108 108 111 119 111 114 108 100 10]
+	   [CRLF    ]           [104 101 108 108 111 119 111 114 108 100 13 10]
+	   [chopLF  ]           [104 101 108 108 111 119 111 114 108 100]
+	   [chopCRLF]           [104 101 108 108 111 119 111 114 108 100]
+	   [without ]           [104 101 108 108 111 119 111 114 108 100]
+
+
+	   [Elapsed] 77.92µs
+	*/
+
 }
 
 func chop(s string) string {

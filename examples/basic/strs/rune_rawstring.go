@@ -37,4 +37,25 @@ func RuneRawString() error {
 	fmt.Printf("%s, %s\n", string2, string4)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: string_rune_rawstring
+
+	   [Name] "string_rune_rawstring"
+	   []int32, string, string
+	   [U+3053 'こ' U+3093 'ん' U+306B 'に' U+3061 'ち' U+306F 'は'], こんにちは, aaaa \nbbbb
+	   [12354 12356 12358]
+	   [227 129 130 227 129 132 227 129 134]
+	   len(rune2): 3, len(bytes1): 9
+	   あいう, あいう
+	   あいう, あいう
+
+
+	   [Elapsed] 58.851µs
+	*/
+
 }

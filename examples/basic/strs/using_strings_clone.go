@@ -73,4 +73,24 @@ func UsingStringsClone() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: string_using_clone
+
+	   [Name] "string_using_clone"
+	   [store1]             0: rq0Py
+	   [store2]             0: rq0Py
+	   [store1]             1: VtRco
+	   [store2]             1: VtRco
+	   [store1]             2: MSL1F
+	   [store2]             2: MSL1F
+
+
+	   [Elapsed] 540.617051ms
+	*/
+
 }

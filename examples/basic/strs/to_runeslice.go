@@ -22,4 +22,19 @@ func ToRuneSlice() error {
 	fmt.Printf("Before:\t%q\tAfter:\t%q\tRune:%v\n", s, s2, r)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: string_to_runeslice
+
+	   [Name] "string_to_runeslice"
+	   Before: "hello world"   After:  "Hello world"   Rune:[72 101 108 108 111 32 119 111 114 108 100]
+
+
+	   [Elapsed] 22.48µs
+	*/
+
 }
