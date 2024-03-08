@@ -35,4 +35,23 @@ func RuneCount() error {
 	output.Stdoutf("[5]", "%q\t%d rune(s)\t%d byte(s)\n", s5, c5, len(s5))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: string_rune_count
+
+	   [Name] "string_rune_count"
+	   [1]                  "h"        1 rune(s)       1 byte(s)
+	   [2]                  "あ"       1 rune(s)       3 byte(s)
+	   [3]                  "😺"       1 rune(s)       4 byte(s)
+	   [4]                  "🧑\u200d🤝\u200d🧑"       5 rune(s)       18 byte(s)
+	   [5]                  "👨\u200d👩\u200d👧\u200d👦"       7 rune(s)       25 byte(s)
+
+
+	   [Elapsed] 59.39µs
+	*/
+
 }

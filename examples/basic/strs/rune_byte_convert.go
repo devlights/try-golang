@@ -73,4 +73,31 @@ func RuneByteConvert() error {
 	fmt.Printf("%s(%v)\n", buf, buf)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: string_rune_byte_convert
+
+	   [Name] "string_rune_byte_convert"
+	   len(s) == 20
+	   len(r) == 10
+	   rune[0] 3 byte(s)
+	   rune[1] 3 byte(s)
+	   rune[2] 3 byte(s)
+	   rune[3] 3 byte(s)
+	   rune[4] 3 byte(s)
+	   rune[5] 1 byte(s)
+	   rune[6] 1 byte(s)
+	   rune[7] 1 byte(s)
+	   rune[8] 1 byte(s)
+	   rune[9] 1 byte(s)
+	   こんにちわworld([227 129 147 227 130 147 227 129 171 227 129 161 227 130 143 119 111 114 108 100])
+
+
+	   [Elapsed] 88.64µs
+	*/
+
 }

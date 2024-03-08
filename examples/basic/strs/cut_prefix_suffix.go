@@ -37,4 +37,20 @@ func CutPrefixSuffix() error {
 	output.Stdoutl("[CutSuffix]", cut2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: string_cut_prefix_suffix
+
+	   [Name] "string_cut_prefix_suffix"
+	   [CutPrefix]          12345world
+	   [CutSuffix]          hello12345
+
+
+	   [Elapsed] 18.22µs
+	*/
+
 }
