@@ -12,3 +12,4 @@
 | rune_count.go                | string_rune_count                | utf8.RuneCountInString() のサンプルです.                                          |
 | diff_trimright_trimsuffix.go | string_diff_trimright_trimsuffix | strings.TrimRight と strings.TrimSuffix のちょっとした違いについてのサンプルです. |
 | using_string_clone.go        | string_using_clone               | Go 1.18 で追加された strings.Clone() のサンプルです                               |
+| trimspace.go                 | string_trim_space                | strings.TrimSpace() のサンプルです.                                               |
