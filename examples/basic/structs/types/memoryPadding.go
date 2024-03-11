@@ -28,6 +28,24 @@ type NoMemoryPadding struct {
 	Flag2    bool
 }
 
+func (Struct4Bytes) Layout() string {
+	return `
+	| Flag     |             | Value     |
+	--------------------------------------
+	| bool (1) | padding (2) | int16 (2) |
+	|                  4                 |
+	`
+}
+
+func (Struct8Bytes) Layout() string {
+	return `
+	| Flag     |             | Value     |
+	--------------------------------------
+	| bool (1) | padding (3) | int32 (4) |
+	|          4             |     4     |
+	`
+}
+
 func (MemoryPadding) Layout() string {
 	return `
 	| Flag1    |             | ShortVal  | Flag2    |             | FloatVal    |

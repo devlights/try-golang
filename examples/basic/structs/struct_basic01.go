@@ -61,4 +61,28 @@ func Basic01() error {
 	pf("Method2: %d(%T)\n", st02.Method2(), st02) // -> 110
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: struct_basic01
+
+	   [Name] "struct_basic01"
+	   Method1: 30(*structs.MyStruct)
+	   Method2: 60(*structs.MyStruct)
+	   Method1: 55(structs.MyStruct)
+	   Method2: 110(structs.MyStruct)
+
+
+	   Method1: 40(*structs.MyStruct)
+	   Method2: 80(*structs.MyStruct)
+	   Method1: 55(structs.MyStruct)
+	   Method2: 110(structs.MyStruct)
+
+
+	   [Elapsed] 69.231µs
+	*/
+
 }

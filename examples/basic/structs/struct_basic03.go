@@ -41,4 +41,19 @@ func Basic03() error {
 	fmt.Println(a, b)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: struct_basic03
+
+	   [Name] "struct_basic03"
+	   {{100 A} val-a} {{200 B} val-b}
+
+
+	   [Elapsed] 12.12µs
+	*/
+
 }

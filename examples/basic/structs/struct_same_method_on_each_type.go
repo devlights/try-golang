@@ -38,6 +38,23 @@ func SameMethodOnEachTypes() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: struct_same_method
+
+	   [Name] "struct_same_method"
+	   [say]                [structs.helloworld  ]     hello world -- golang
+	   [say]                [structs.worldhello  ]     world hello 255
+	   [say]                [structs.myint       ]     100
+
+
+	   [Elapsed] 39.289µs
+	*/
+
 }
 
 func p(g interface{ say() string }) {

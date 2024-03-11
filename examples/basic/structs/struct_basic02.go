@@ -32,4 +32,21 @@ func Basic02() error {
 	fmt.Printf("%#v\n", isNil)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: struct_basic02
+
+	   [Name] "struct_basic02"
+	   structs.intPair{x:0, y:0, s:"", sl:[]int(nil)}
+	   []int(nil) is nil? ==> true
+	   true
+
+
+	   [Elapsed] 32.46µs
+	*/
+
 }

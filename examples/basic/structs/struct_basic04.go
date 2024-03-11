@@ -27,4 +27,21 @@ func Basic04() error {
 	fmt.Printf("%#v\n%#v\n%#v(%#v)\n", st01, st02, i01, *i01)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: struct_basic04
+
+	   [Name] "struct_basic04"
+	   &structs.mySt01{key:100, value:"hello world"}
+	   &structs.mySt01{key:200, value:"world hello"}
+	   (*int)(0xc000014958)(111)
+
+
+	   [Elapsed] 23.41µs
+	*/
+
 }
