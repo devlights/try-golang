@@ -26,4 +26,20 @@ func TrimSpace() error {
 	output.Stdoutf("[noSpace  ]", "%q\n", strings.TrimSpace(noSpace))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: string_trim_space
+
+	   [Name] "string_trim_space"
+	   [withSpace]          "hello world"
+	   [noSpace  ]          "hello world"
+
+
+	   [Elapsed] 24.94µs
+	*/
+
 }
