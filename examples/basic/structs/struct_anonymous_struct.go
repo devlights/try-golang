@@ -28,4 +28,20 @@ func StructAnonymousStruct() error {
 	fmt.Printf("[anonStructSlice] %#v\n", anonStructSlice)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: struct_anonymous_struct
+
+	   [Name] "struct_anonymous_struct"
+	   [anonStruct] struct { x int; y int }{x:100, y:200}
+	   [anonStructSlice] []struct { x int; y int }{struct { x int; y int }{x:100, y:200}, struct { x int; y int }{x:300, y:400}}
+
+
+	   [Elapsed] 21.84µs
+	*/
+
 }

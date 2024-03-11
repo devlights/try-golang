@@ -33,4 +33,19 @@ func BlankIdentifier() error {
 	output.Stdoutl("result", o1, o3, o4)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: struct_blank_identifier
+
+	   [Name] "struct_blank_identifier"
+	   result               {ok pattern {}} {ok pattern} {ok pattern}
+
+
+	   [Elapsed] 22.92µs
+	*/
+
 }

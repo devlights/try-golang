@@ -111,4 +111,27 @@ func EmptyStruct() error {
 	log.Println("main goroutine wait done")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: struct_empty_struct
+
+	   [Name] "struct_empty_struct"
+	   EmptyStruct[0] EmptyInterface[16]
+	   v1[0xe7a6c0]    v2[0xe7a6c0]    addr_equal? [true]
+	   v3[0xe7a6c0(structs.es1)]       v4[0xe7a6c0(structs.es2)]
+	   v5[0xe7a6c0(structs.es3)]       v6[0xe7a6c0(structs.es4)]
+	   hello world
+	   main goroutine wait start
+	           ==> gorouine begin
+	           ==> gorouine end
+	   main goroutine wait done
+
+
+	   [Elapsed] 2.001088491s
+	*/
+
 }

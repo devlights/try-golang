@@ -157,4 +157,59 @@ func StructDeepEqual() error {
 	output.Stdoutl("[deepequal(st1,st2)]", reflect.DeepEqual(st1, st2))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: struct_deep_equal
+
+	   [Name] "struct_deep_equal"
+	   ===> 等値かどうかのチェック
+	   [&st1]               0xc000024d60
+	   [&st2]               0xc000024d80
+	   [&st1 == &st2]       false
+	   ===> 等価かどうかのチェック (1)
+	      ===> 全てのフィールドの値が同じ
+	   [st1]                {{1 1} 1 0xc000014958}
+	   [st2]                {{1 1} 1 0xc000014960}
+	   [st1 == st2]         false
+	   [deepequal(st1,st2)] true
+	   ===> 等価かどうかのチェック (2)
+	      ===> 片方の構造体のデータを変化させる (自身のフィールドのみを変化)
+	   [st1]                {{1 1} 1 0xc000014958}
+	   [st2]                {{1 1} 2 0xc000014960}
+	   [st1 == st2]         false
+	   [deepequal(st1,st2)] false
+	   ===> 等価かどうかのチェック (3)
+	      ===> 片方の構造体のデータを変化させる (組み込み構造体側の公開フィールド値を変化)
+	   [st1]                {{1 1} 1 0xc000014958}
+	   [st2]                {{2 1} 1 0xc000014960}
+	   [st1 == st2]         false
+	   [deepequal(st1,st2)] false
+	   ===> 等価かどうかのチェック (4)
+	      ===> 片方の構造体のデータを変化させる (組み込み構造体側の非公開フィールド値を変化)
+	   [st1]                {{1 1} 1 0xc000014958}
+	   [st2]                {{1 2} 1 0xc000014960}
+	   [st1 == st2]         false
+	   [deepequal(st1,st2)] false
+	   ===> 等価かどうかのチェック (5)
+	      ===> 片方の構造体がポインタで保持している先のデータのフィールドを変化させる
+	   [st1]                {{1 1} 1 0xc000014958}
+	   [st2]                {{1 1} 1 0xc000014960}
+	   [st1 == st2]         false
+	   [deepequal(st1,st2)] false
+	   ===> 等価かどうかのチェック (6)
+	      ===> 片方の構造体がポインタで保持しているデータ自体を変更
+	      ===> しかし、データのフィールド値は同じ
+	   [st1]                {{1 1} 1 0xc000014958}
+	   [st2]                {{1 1} 1 0xc0000149e0}
+	   [st1 == st2]         false
+	   [deepequal(st1,st2)] true
+
+
+	   [Elapsed] 170.21µs
+	*/
+
 }
