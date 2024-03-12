@@ -32,6 +32,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["time_format_datetime"] = FormatDateTime
 	m["time_format_dateonly"] = FormatDateOnly
 	m["time_format_timeonly"] = FormatTimeOnly
+	m["time_format_millisecond"] = FormatMillisecond
 	m["time_calc_nextmonth"] = CalcNextMonth
 	m["time_daysinmonth"] = DaysInMonth
 }
