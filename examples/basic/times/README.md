@@ -23,5 +23,6 @@
 | time_format_dateonly.go    | time_format_dateonly     | Go1.20で追加された time.DateOnly フォーマット書式についてのサンプルです               |
 | time_format_timeonly.go    | time_format_timeonly     | Go1.20で追加された time.TimeOnly フォーマット書式についてのサンプルです               |
 | time_format_millisecond.go | time_format_millisecond  | time.Format() にてミリ秒を出力するサンプルです。                                      |
+| time_format_microsecond.go | time_format_microsecond  | time.Format() にてマイクロ秒を出力するサンプルす。                                    |
 | time_calc_nextmonth.go     | time_calc_nextmonth      | 翌月の日付を求めるサンプルです                                                        |
 | time_daysinmonth.go        | time_daysinmonth         | 月の日数を求めるサンプルです                                                          |
