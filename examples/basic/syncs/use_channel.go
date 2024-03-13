@@ -57,4 +57,23 @@ func UseChannel() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_use_channel
+
+	   [Name] "syncs_use_channel"
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+
+
+	   [Elapsed] 82.181203ms
+	*/
+
 }

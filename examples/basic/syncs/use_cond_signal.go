@@ -57,4 +57,28 @@ func UseCondSignal() error {
 	wg.Wait()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_use_cond_signal
+
+	   [Name] "syncs_use_cond_signal"
+	   [begin ]             4
+	   [begin ]             3
+	   [begin ]             0
+	   [begin ]             1
+	   [begin ]             2
+	   [signal]             4: h
+	   [signal]             3: e
+	   [signal]             0: l
+	   [signal]             1: l
+	   [signal]             2: o
+
+
+	   [Elapsed] 5.00413551s
+	*/
+
 }

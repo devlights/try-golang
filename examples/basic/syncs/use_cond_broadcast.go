@@ -55,4 +55,28 @@ func UseCondBroadcast() error {
 	wg.Wait()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_use_cond_broadcast
+
+	   [Name] "syncs_use_cond_broadcast"
+	   [begin ]             4
+	   [begin ]             3
+	   [begin ]             0
+	   [begin ]             2
+	   [begin ]             1
+	   [signal]             1: h
+	   [signal]             3: e
+	   [signal]             4: l
+	   [signal]             0: l
+	   [signal]             2: o
+
+
+	   [Elapsed] 1.000272946s
+	*/
+
 }

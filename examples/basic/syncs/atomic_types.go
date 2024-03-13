@@ -40,4 +40,23 @@ func AtomicTypes() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_atomic_types
+
+	   [Name] "syncs_atomic_types"
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+
+
+	   [Elapsed] 4.89769ms
+	*/
+
 }

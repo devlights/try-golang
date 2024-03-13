@@ -82,4 +82,41 @@ func UseMap() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_use_map
+
+	   [Name] "syncs_use_map"
+	   [m1]                 5:true
+	   [m1]                 4:true
+	   [m1]                 9:true
+	   [m1]                 7:true
+	   [m1]                 8:true
+	   [m1]                 1:true
+	   [m1]                 0:true
+	   [m1]                 2:true
+	   [m1]                 3:true
+	   [m1]                 6:true
+	   [m1.Load(8)]         true
+	   --------------------------------------------------
+	   [m2]                 7:true
+	   [m2]                 5:true
+	   [m2]                 6:true
+	   [m2]                 8:true
+	   [m2]                 9:true
+	   [m2]                 2:true
+	   [m2]                 4:true
+	   [m2]                 0:true
+	   [m2]                 3:true
+	   [m2]                 1:true
+	   [m2.Load(8)]         true
+
+
+	   [Elapsed] 507.49µs
+	*/
+
 }

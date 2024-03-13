@@ -49,4 +49,24 @@ func MutexTryLock() error {
 	printStatus()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_mutex_trylock
+
+	   [Name] "syncs_mutex_trylock"
+	   [TryLock]            02:13:17   TryLock=false
+	   [TryLock]            02:13:18   TryLock=false
+	   [TryLock]            02:13:19   TryLock=false
+	   [TryLock]            02:13:20   TryLock=false
+	   [TryLock]            02:13:21   TryLock=false
+	   [TryLock]            02:13:22   TryLock=true
+
+
+	   [Elapsed] 5.003891586s
+	*/
+
 }

@@ -59,4 +59,33 @@ func CompareAndSwap() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_atomic_compare_and_swap
+
+	   [Name] "syncs_atomic_compare_and_swap"
+	   [results]            minus=false        swapped:42078   swapfail:7922
+	   [results]            minus=true         swapped:44293   swapfail:5707
+	   [x]                  -2215
+	   [results]            minus=true         swapped:40082   swapfail:9918
+	   [results]            minus=false        swapped:44154   swapfail:5846
+	   [x]                  1857
+	   [results]            minus=true         swapped:33961   swapfail:16039
+	   [results]            minus=false        swapped:37622   swapfail:12378
+	   [x]                  5518
+	   [results]            minus=true         swapped:36821   swapfail:13179
+	   [results]            minus=false        swapped:40094   swapfail:9906
+	   [x]                  8791
+	   [results]            minus=false        swapped:40001   swapfail:9999
+	   [results]            minus=true         swapped:38971   swapfail:11029
+	   [x]                  9821
+
+
+	   [Elapsed] 7.267749ms
+	*/
+
 }
