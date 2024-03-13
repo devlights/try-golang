@@ -19,3 +19,4 @@
 | use_oncevalues.go        | syncs_use_oncevalues        | Go 1.21 で追加された sync.OnceValues() のサンプルです                     |
 | use_pool.go              | syncs_use_pool              | sync.Poolのサンプルです                                                   |
 | mutex_trylock.go         | syncs_mutex_trylock         | Go 1.18 で追加された mutex.TryLock() についてのサンプルです。             |
+| use_rwmutex.go           | syncs_use_rwmutex           | sync.RWMutex のサンプルです。                                             |
