@@ -47,6 +47,7 @@ func MutexTryLock() error {
 
 	// ここは mutex がアンロックされているのでロックが取れる
 	printStatus()
+	defer m.Unlock()
 
 	return nil
 
