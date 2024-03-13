@@ -29,4 +29,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["syncs_use_oncevalues"] = UseOnceValues
 	m["syncs_use_pool"] = UsePool
 	m["syncs_mutex_trylock"] = MutexTryLock
+	m["syncs_rwmutex_trylock"] = RWMutexTryLock
 }
