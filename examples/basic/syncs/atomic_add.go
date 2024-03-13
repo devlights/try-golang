@@ -41,4 +41,23 @@ func AtomicAdd() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_atomic_add
+
+	   [Name] "syncs_atomic_add"
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+
+
+	   [Elapsed] 6.011929ms
+	*/
+
 }

@@ -38,4 +38,23 @@ func NoSync() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_no_sync
+
+	   [Name] "syncs_no_sync"
+	   [x]                  -7195
+	   [x]                  3246
+	   [x]                  15777
+	   [x]                  12476
+	   [x]                  15536
+
+
+	   [Elapsed] 1.610119ms
+	*/
+
 }

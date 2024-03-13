@@ -104,4 +104,42 @@ func UsePool() error {
 	<-done
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_use_pool
+
+	   [Name] "syncs_use_pool"
+	   [New]                Call newPooledObject()
+	   [output]             113
+	   [output]             114
+	   [New]                Call newPooledObject()
+	   [output]             115
+	   [New]                Call newPooledObject()
+	   [output]             116
+	   [output]             117
+	   [output]             118
+	   [output]             119
+	   [output]             103
+	   [output]             100
+	   [output]             101
+	   [output]             108
+	   [output]             106
+	   [output]             107
+	   [output]             104
+	   [output]             109
+	   [output]             110
+	   [output]             112
+	   [output]             105
+	   [output]             111
+	   [New]                Call newPooledObject()
+	   [output]             102
+
+
+	   [Elapsed] 489.3µs
+	*/
+
 }

@@ -45,4 +45,23 @@ func UseMutex() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: syncs_use_mutex
+
+	   [Name] "syncs_use_mutex"
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+	   [x]                  0
+
+
+	   [Elapsed] 4.79704ms
+	*/
+
 }
