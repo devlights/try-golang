@@ -19,6 +19,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["syncs_atomic_compare_and_swap"] = CompareAndSwap
 	m["syncs_use_channel"] = UseChannel
 	m["syncs_use_mutex"] = UseMutex
+	m["syncs_use_rwmutex"] = UseRWMutex
 	m["syncs_use_cond_signal"] = UseCondSignal
 	m["syncs_use_cond_broadcast"] = UseCondBroadcast
 	m["syncs_use_map"] = UseMap
