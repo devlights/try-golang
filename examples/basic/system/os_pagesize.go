@@ -14,4 +14,19 @@ func PageSize() error {
 	fmt.Printf("page size = %v\n", pagesize)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: os_getpagesize
+
+	   [Name] "os_getpagesize"
+	   page size = 4096
+
+
+	   [Elapsed] 4.17µs
+	*/
+
 }
