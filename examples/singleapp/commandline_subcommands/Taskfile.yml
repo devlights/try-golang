@@ -1,0 +1,15 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - go build -o app
+      - ./app
+      - ./app help
+      - ./app version
+      - ./app cmd1 -c 100
+      - ./app cmd2 -f helloworld
+      - ./app cmd1 -f helloworld
+    ignore_error: true
