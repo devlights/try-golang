@@ -44,4 +44,24 @@ func Define() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_define
+
+	   [Name] "templates_text_tmpl_define"
+	   [template]           {{ define "mytmpl" }}||hello world||{{ end }} {{ template "mytmpl" }}
+	   [tmpl]                ||hello world||
+	   --------------------------------------------------
+	   [template]           {{ define "mytmpl" }}||hello world ({{.V}})||{{ end }} {{ template "mytmpl" . }}
+	   [tmpl]                ||hello world (100)||
+	   --------------------------------------------------
+
+
+	   [Elapsed] 131.48µs
+	*/
+
 }

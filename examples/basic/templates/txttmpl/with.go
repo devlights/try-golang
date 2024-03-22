@@ -43,4 +43,24 @@ func With() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_with
+
+	   [Name] "templates_text_tmpl_with"
+	   [template]           {{ with "hello" }}{{ printf "%s world" . }}{{end}}
+	   [tmpl]               hello world
+	   --------------------------------------------------
+	   [template]           {{ with $v := "hello" }}{{ printf "%s world" $v }}{{end}}
+	   [tmpl]               hello world
+	   --------------------------------------------------
+
+
+	   [Elapsed] 123.6µs
+	*/
+
 }

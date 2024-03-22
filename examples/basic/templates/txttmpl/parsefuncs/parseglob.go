@@ -49,4 +49,28 @@ func ParseGlob() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_parsefuncs_parseglob
+
+	   [Name] "templates_parsefuncs_parseglob"
+	   [pattern]            examples/basic/templates/txttmpl/parsefuncs/tmpls/*.tmpl
+	   --------------------------------------------------
+	   [name       ]        hello.tmpl
+	   [parse name ]        hello.tmpl
+	   [tmpl       ]        [hello.tmpl] hello hello
+	   --------------------------------------------------
+	   [name       ]        world.tmpl
+	   [parse name ]        world.tmpl
+	   [tmpl       ]        [world.tmpl] hello world
+	   --------------------------------------------------
+
+
+	   [Elapsed] 234.99µs
+	*/
+
 }

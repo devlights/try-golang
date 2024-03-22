@@ -44,4 +44,24 @@ func ParseFS() error {
 	output.StdoutHr()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_parsefuncs_parsefs
+
+	   [Name] "templates_parsefuncs_parsefs"
+	   [name       ]        hello.tmpl
+	   [parse name ]        hello.tmpl
+	   [define tmpl]        ; defined templates are: "hello.tmpl"
+	   --------------------------------------------------
+	   [tmpl]               [hello.tmpl] hello world
+	   --------------------------------------------------
+
+
+	   [Elapsed] 100.42µs
+	*/
+
 }

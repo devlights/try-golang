@@ -66,4 +66,21 @@ func FuncMap() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_funcmap
+
+	   [Name] "templates_text_tmpl_funcmap"
+	   [template]           {{ upper . }}  {{ upper (fn .) }}
+	   [tmpl]               HELLOWORLD  DLROWOLLEH
+	   --------------------------------------------------
+
+
+	   [Elapsed] 89.18µs
+	*/
+
 }

@@ -42,4 +42,21 @@ func Urlquery() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_urlquery
+
+	   [Name] "templates_text_tmpl_urlquery"
+	   [template]           {{ urlquery . }}
+	   [tmpl]               "https%3A%2F%2Fjsonplaceholder.typicode.com%2Fcomments%3FpostId%3D1"
+	   --------------------------------------------------
+
+
+	   [Elapsed] 139.89µs
+	*/
+
 }
