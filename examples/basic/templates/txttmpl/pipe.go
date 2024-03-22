@@ -42,4 +42,21 @@ func Pipe() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_pipe
+
+	   [Name] "templates_text_tmpl_pipe"
+	   [template]           {{ "hello" | printf "%s >world<" | html | printf "%q" }}
+	   [tmpl]               "hello &gt;world&lt;"
+	   --------------------------------------------------
+
+
+	   [Elapsed] 88.86µs
+	*/
+
 }

@@ -50,4 +50,26 @@ func If() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_if
+
+	   [Name] "templates_text_tmpl_if"
+	   [template]           {{if .}} hello world {{end}}
+	   [true ]              " hello world "
+	   [false]              ""
+	   --------------------------------------------------
+	   [template]           {{if . -}} hello world {{- end}}
+	   [true ]              "hello world"
+	   [false]              ""
+	   --------------------------------------------------
+
+
+	   [Elapsed] 156.51µs
+	*/
+
 }

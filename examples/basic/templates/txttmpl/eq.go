@@ -42,4 +42,27 @@ func Eq() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_eq
+
+	   [Name] "templates_text_tmpl_eq"
+	   [template]           {{$v := 10}} {{- if eq $v 10 -}} helloworld {{end}}
+	   [tmpl]               "helloworld "
+	   --------------------------------------------------
+	   [template]           {{$v := 10}} {{- if eq $v 11 -}} helloworld {{end}}
+	   [tmpl]               ""
+	   --------------------------------------------------
+	   [template]           {{$v := 10}} {{- if (eq $v 10) -}} helloworld {{end}}
+	   [tmpl]               "helloworld "
+	   --------------------------------------------------
+
+
+	   [Elapsed] 157.64µs
+	*/
+
 }

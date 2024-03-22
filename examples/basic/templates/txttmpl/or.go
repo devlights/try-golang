@@ -43,4 +43,24 @@ func Or() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_or
+
+	   [Name] "templates_text_tmpl_or"
+	   [template]           {{ if or (eq .Hello "hello") (eq .World "world") }} hello world {{end}}
+	   [tmpl]               " hello world "
+	   --------------------------------------------------
+	   [template]           {{ if or (eq .Hello "world") (eq .World "world") }} hello world {{end}}
+	   [tmpl]               " hello world "
+	   --------------------------------------------------
+
+
+	   [Elapsed] 123.56µs
+	*/
+
 }

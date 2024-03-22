@@ -41,4 +41,22 @@ func WhitespaceAndMinussign() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_whitespace_and_minus
+
+	   [Name] "templates_text_tmpl_whitespace_and_minus"
+	   [tmpl]               template-0: "{{23}} < {{45}}"      "23 < 45"
+	   [tmpl]               template-1: "{{23 -}} < {{45}}"    "23< 45"
+	   [tmpl]               template-2: "{{23}} < {{- 45}}"    "23 <45"
+	   [tmpl]               template-3: "{{23 -}} < {{- 45}}"  "23<45"
+
+
+	   [Elapsed] 167µs
+	*/
+
 }

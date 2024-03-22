@@ -47,4 +47,24 @@ func RangeElse() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_range_else
+
+	   [Name] "templates_text_tmpl_range_else"
+	   [template]           {{range .Items}} {{.}} {{end}}
+	   [tmpl]               ""
+	   --------------------------------------------------
+	   [template]           {{range .Items}} {{.}} {{else}} no item {{end}}
+	   [tmpl]               " no item "
+	   --------------------------------------------------
+
+
+	   [Elapsed] 143.92µs
+	*/
+
 }

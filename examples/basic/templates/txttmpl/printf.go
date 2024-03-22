@@ -43,4 +43,24 @@ func Printf() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_printf
+
+	   [Name] "templates_text_tmpl_printf"
+	   [template]           {{ printf "%T:%v" . . }}
+	   [tmpl]               "int:100"
+	   --------------------------------------------------
+	   [template]           {{ printf "%[1]T:%[1]v" . }}
+	   [tmpl]               "int:100"
+	   --------------------------------------------------
+
+
+	   [Elapsed] 169.94µs
+	*/
+
 }

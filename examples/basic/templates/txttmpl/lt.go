@@ -45,4 +45,27 @@ func Lt() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_lt
+
+	   [Name] "templates_text_tmpl_lt"
+	   [template]           {{ $v := 10 }} {{- if lt $v 10 -}} helloworld {{- end}}
+	   [tmpl]               ""
+	   --------------------------------------------------
+	   [template]           {{ $v := 10 }} {{- if lt $v 11 -}} helloworld {{- end}}
+	   [tmpl]               "helloworld"
+	   --------------------------------------------------
+	   [template]           {{ $v := 10 }} {{- if lt $v 9 -}} helloworld {{- end}}
+	   [tmpl]               ""
+	   --------------------------------------------------
+
+
+	   [Elapsed] 146.24µs
+	*/
+
 }

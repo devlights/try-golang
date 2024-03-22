@@ -44,4 +44,20 @@ func Must() error {
 	output.Stdoutl("[tmpl-exec]", buf.String())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_must
+
+	   [Name] "templates_text_tmpl_must"
+	   [template ]          hello {{.}}
+	   [tmpl-exec]          hello world
+
+
+	   [Elapsed] 37.72µs
+	*/
+
 }

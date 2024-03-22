@@ -7,6 +7,7 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
+// Escape は、html/template にて適用されるHTMLエスケープについてのサンプルです.
 func Escape() error {
 	var (
 		tmpls = []string{
@@ -38,4 +39,21 @@ func Escape() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_html_tmpl_escape
+
+	   [Name] "templates_html_tmpl_escape"
+	   [template]           {{ . }}
+	   [tmpl]               &lt;script&gt;alert(&#39;hello world&#39;)&lt;/script&gt;
+	   --------------------------------------------------
+
+
+	   [Elapsed] 116.43µs
+	*/
+
 }

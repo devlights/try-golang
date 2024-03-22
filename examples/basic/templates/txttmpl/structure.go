@@ -43,4 +43,20 @@ func Structure() error {
 	output.Stdoutl("[tmpl-exec]", buf.String())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_structure
+
+	   [Name] "templates_text_tmpl_structure"
+	   [template ]          {{ .Header }} {{ .Footer }}
+	   [tmpl-exec]          hello world
+
+
+	   [Elapsed] 108.991µs
+	*/
+
 }

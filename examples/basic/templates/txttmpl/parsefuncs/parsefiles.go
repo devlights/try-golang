@@ -94,4 +94,36 @@ func ParseFiles() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_parsefuncs_parsefiles
+
+	   [Name] "templates_parsefuncs_parsefiles"
+	   [name       ]        hello.tmpl
+	   [parse name ]        hello.tmpl
+	   [define tmpl]        ; defined templates are: "world.tmpl", "hello.tmpl"
+	   --------------------------------------------------
+	   [tmpl - Execute        ] [hello.tmpl] hello world
+	   --------------------------------------------------
+	   [tmpl - ExecuteTemplate] [hello.tmpl] hello hello
+	   --------------------------------------------------
+	   [tmpl - ExecuteTemplate] [world.tmpl] hello world
+	   --------------------------------------------------
+	   [name       ]        hello.tmpl
+	   [parse name ]        hello.tmpl
+	   [tmpl       ]        [hello.tmpl] hello hello
+	   --------------------------------------------------
+	   [name       ]        world.tmpl
+	   [parse name ]        world.tmpl
+	   [tmpl       ]        [world.tmpl] hello world
+	   --------------------------------------------------
+
+
+	   [Elapsed] 313.69µs
+	*/
+
 }

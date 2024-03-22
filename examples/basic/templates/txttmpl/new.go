@@ -50,4 +50,20 @@ func New() error {
 	output.Stdoutl("[tmpl-exec]", buf.String())
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_new
+
+	   [Name] "templates_text_tmpl_new"
+	   [template ]          hello {{.}}
+	   [tmpl-exec]          hello world
+
+
+	   [Elapsed] 46.46µs
+	*/
+
 }

@@ -47,4 +47,27 @@ func Ge() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: templates_text_tmpl_ge
+
+	   [Name] "templates_text_tmpl_ge"
+	   [template]           {{ $v := 10 }} {{- if ge $v 10 -}} helloworld {{- end}}
+	   [tmpl]               "helloworld"
+	   --------------------------------------------------
+	   [template]           {{ $v := 10 }} {{- if ge $v 11 -}} helloworld {{- end}}
+	   [tmpl]               ""
+	   --------------------------------------------------
+	   [template]           {{ $v := 10 }} {{- if ge $v 9 -}} helloworld {{- end}}
+	   [tmpl]               "helloworld"
+	   --------------------------------------------------
+
+
+	   [Elapsed] 148.24µs
+	*/
+
 }
