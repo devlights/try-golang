@@ -41,4 +41,26 @@ func Truncate() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_truncate
+
+	   [Name] "time_truncate"
+	   [truncate]           Original   Truncated
+	   [truncate]           10:00      10:00
+	   [truncate]           10:01      10:00
+	   [truncate]           10:15      10:00
+	   [truncate]           10:29      10:00
+	   [truncate]           10:30      10:30
+	   [truncate]           10:59      10:30
+	   [truncate]           11:00      11:00
+
+
+	   [Elapsed] 44.13µs
+	*/
+
 }

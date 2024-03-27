@@ -43,4 +43,19 @@ LOOP:
 	output.Stdoutl("[time.Sub]", elapsed)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_sub
+
+	   [Name] "time_sub"
+	   [time.Sub]           50.200376ms
+
+
+	   [Elapsed] 150.615777ms
+	*/
+
 }

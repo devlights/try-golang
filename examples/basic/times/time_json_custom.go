@@ -68,4 +68,20 @@ func TimeJsonCustom() error {
 	output.Stdoutl("[v2]", &v2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_json_custom
+
+	   [Name] "time_json_custom"
+	   [v1]                 2024-03-27 15:02:42
+	   [v2]                 2024-03-27 15:02:42
+
+
+	   [Elapsed] 129.52µs
+	*/
+
 }

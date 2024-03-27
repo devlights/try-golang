@@ -48,4 +48,20 @@ func ChangeLocalTimezone() error {
 	l.Printf("[time.Now() -- After  ] %v\n", time.Now())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_changelocaltimezone
+
+	   [Name] "time_changelocaltimezone"
+	   2024/03/27 06:01:32 [time.Now() -- Default] 2024-03-27 06:01:32.531088275 +0000 UTC m=+0.730831549
+	   2024/03/27 15:01:32 [time.Now() -- After  ] 2024-03-27 15:01:32.531173425 +0900 JST m=+0.730916689
+
+
+	   [Elapsed] 96.63µs
+	*/
+
 }

@@ -25,4 +25,20 @@ func TruncateHours() error {
 	output.Stdoutl("[truncated]", t2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_truncate_hours
+
+	   [Name] "time_truncate_hours"
+	   [now      ]          2024/3/27 06:02:08
+	   [truncated]          2024/3/27 00:00:00
+
+
+	   [Elapsed] 54.96µs
+	*/
+
 }

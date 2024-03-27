@@ -60,4 +60,21 @@ func CalcNextMonth() error {
 	output.Stdoutl("[nextmonth2]", nextMonth2.Format(time.RFC3339))
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_calc_nextmonth
+
+	   [Name] "time_calc_nextmonth"
+	   [original]           2023-10-31T00:00:00+09:00
+	   [nextmonth1]         2023-12-02T00:00:00+09:00
+	   [nextmonth2]         2023-11-30T00:00:00+09:00
+
+
+	   [Elapsed] 71.74µs
+	*/
+
 }

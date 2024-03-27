@@ -92,4 +92,26 @@ func TimeParse() error {
 	fmt.Println(d4.Add(-9 * time.Hour).In(loc))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_parse
+
+	   [Name] "time_parse"
+	   d1 2019-11-07 10:11:12 +0900 +0900
+	   d2 2019-11-07 01:11:12 +0000 UTC
+	   parsing time "not a date" as "2006-01-02T15:04:05Z07:00": cannot parse "not a date" as "2006"
+	   d4 2019-11-07 10:11:12 +0000 UTC
+	   d5 2019-11-07 10:11:12 +0000 UTC
+	   d6 2019-11-07 10:11:12 +0900 +0900
+	   2019-11-07 01:11:12 +0000 UTC
+	   2019-11-07 10:11:12 +0900 JST
+
+
+	   [Elapsed] 900.519µs
+	*/
+
 }

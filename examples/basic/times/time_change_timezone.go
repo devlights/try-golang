@@ -33,4 +33,21 @@ func ChangeTimeZone() error {
 	output.Stdoutf("[PDT]", "%v\n", pdt)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_change_timezone
+
+	   [Name] "time_change_timezone"
+	   [JST]                2024-03-27 15:03:17.210910889 +0900 JST
+	   [UTC]                2024-03-27 06:03:17.210910889 +0000 UTC
+	   [PDT]                2024-03-26 23:03:17.210910889 -0700 PDT
+
+
+	   [Elapsed] 659.019µs
+	*/
+
 }

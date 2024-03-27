@@ -89,4 +89,28 @@ LOOP:
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_tick_and_ticker
+
+	   [Name] "time_tick_and_ticker"
+	   [goroutine]          1711519193
+	   [goroutine]          1711519193
+	   [goroutine]          1711519194
+	   [goroutine]          1711519194
+	   [main     ]          goroutine end.
+	   [main     ]          1711519195
+	   [main     ]          1711519195
+	   [main     ]          1711519196
+	   [main     ]          1711519196
+	   [main     ]          1711519197
+
+
+	   [Elapsed] 5.000150923s
+	*/
+
 }

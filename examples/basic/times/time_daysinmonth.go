@@ -31,4 +31,30 @@ func DaysInMonth() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_daysinmonth
+
+	   [Name] "time_daysinmonth"
+	   [日数]                 01月の日数： 31
+	   [日数]                 02月の日数： 29
+	   [日数]                 03月の日数： 31
+	   [日数]                 04月の日数： 30
+	   [日数]                 05月の日数： 31
+	   [日数]                 06月の日数： 30
+	   [日数]                 07月の日数： 31
+	   [日数]                 08月の日数： 31
+	   [日数]                 09月の日数： 30
+	   [日数]                 10月の日数： 31
+	   [日数]                 11月の日数： 30
+	   [日数]                 12月の日数： 31
+
+
+	   [Elapsed] 137.97µs
+	*/
+
 }

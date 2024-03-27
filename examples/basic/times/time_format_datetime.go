@@ -36,4 +36,22 @@ func FormatDateTime() error {
 	output.Stdoutf("[time.Format  ]", "%s\n", jst.Format(time.DateTime))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_format_datetime
+
+	   [Name] "time_format_datetime"
+	   [UTC          ]      2024-03-27 06:03:37.823286141 +0000 UTC
+	   [JST          ]      2024-03-27 15:03:37.823286141 +0900 JST
+	   [time.DateTime]      2006-01-02 15:04:05
+	   [time.Format  ]      2024-03-27 15:03:37
+
+
+	   [Elapsed] 87.13µs
+	*/
+
 }

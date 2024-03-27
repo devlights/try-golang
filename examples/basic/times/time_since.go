@@ -33,4 +33,19 @@ func TimeSince() error {
 	fmt.Printf("Elappsed: %v\n", elappsed)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_since
+
+	   [Name] "time_since"
+	   Elappsed: 3.001573634s
+
+
+	   [Elapsed] 3.001628754s
+	*/
+
 }
