@@ -35,4 +35,25 @@ LOOP:
 	}
 
 	return nil
+
+	/*
+	    $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_afterfunc
+
+	   [Name] "time_afterfunc"
+	   loop                 .
+	   loop                 .
+	   loop                 .
+	   loop                 .
+	   time.AfterFunc       timed out
+	   loop                 .
+	   loop                 .
+
+
+	   [Elapsed] 3.004174774s
+	*/
+
 }

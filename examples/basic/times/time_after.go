@@ -55,8 +55,6 @@ loop1:
 		timeUp2 = time.After(3 * time.Second)
 	)
 
-	defer close(queue)
-
 	producer := func(queue chan<- int, done <-chan struct{}) <-chan struct{} {
 		var (
 			terminated = make(chan struct{})
@@ -65,15 +63,10 @@ loop1:
 		go func(done <-chan struct{}) {
 			defer close(terminated)
 
-			var (
-				i int
-			)
-
-		loopGorouine:
-			for {
+			for i := 0; ; {
 				select {
 				case <-done:
-					break loopGorouine
+					return
 				default:
 					queue <- i
 					i++
@@ -106,4 +99,29 @@ loop2:
 	fmt.Println("close queue")
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_after
+
+	   [Name] "time_after"
+	   processing...
+	   processing...
+	   processing...
+	   timed up
+	   [recv] 0
+	   [recv] 1
+	   [recv] 2
+	   [recv] 3
+	   timed up
+	   goroutine terminated
+	   close queue
+
+
+	   [Elapsed] 7.001832453s
+	*/
+
 }

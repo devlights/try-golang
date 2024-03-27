@@ -28,4 +28,21 @@ func TimeIn() error {
 	output.Stdoutl("[tokyo]", tokyo, tokyo.Unix())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_in
+
+	   [Name] "time_in"
+	   [now  ]              2024-03-27 06:02:59.217273073 +0000 UTC m=+0.511501747 1711519379
+	   [utc  ]              2024-03-27 06:02:59.217273073 +0000 UTC 1711519379
+	   [tokyo]              2024-03-27 15:02:59.217273073 +0900 JST 1711519379
+
+
+	   [Elapsed] 98.4µs
+	*/
+
 }

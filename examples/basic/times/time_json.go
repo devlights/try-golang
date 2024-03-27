@@ -65,4 +65,20 @@ func TimeJson() error {
 	output.Stdoutf("[decode]", "%s\n", v)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_json
+
+	   [Name] "time_json"
+	   [encode]             {"timestamp":"2024-03-27T06:02:25.537803295Z"}
+	   [decode]             2024-03-27 HH:02:25
+
+
+	   [Elapsed] 147.55µs
+	*/
+
 }

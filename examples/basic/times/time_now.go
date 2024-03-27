@@ -27,4 +27,21 @@ func TimeNow() error {
 	fmt.Printf("local time: %v\nutc time:%v\nunix sec:%v\n", localTime, utcTime, nowUnixSec)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_now
+
+	   [Name] "time_now"
+	   local time: 2024-03-27T05:59:08Z
+	   utc time:2024-03-27T05:59:08Z
+	   unix sec:1711519148
+
+
+	   [Elapsed] 74.83µs
+	*/
+
 }

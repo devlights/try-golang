@@ -32,4 +32,20 @@ func TimeUnixToTime() error {
 	fmt.Printf("[local] %v\n[utc  ] %v\n", localTime, utcTime)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_unix_to_time
+
+	   [Name] "time_unix_to_time"
+	   [local] 1970-01-01 00:01:40 +0000 UTC
+	   [utc  ] 1970-01-01 00:01:40 +0000 UTC
+
+
+	   [Elapsed] 83.31µs
+	*/
+
 }

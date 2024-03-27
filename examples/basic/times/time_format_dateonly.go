@@ -36,4 +36,22 @@ func FormatDateOnly() error {
 	output.Stdoutf("[time.Format  ]", "%s\n", jst.Format(time.DateOnly))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_format_dateonly
+
+	   [Name] "time_format_dateonly"
+	   [UTC          ]      2024-03-27 06:03:54.384903008 +0000 UTC
+	   [JST          ]      2024-03-27 15:03:54.384903008 +0900 JST
+	   [time.DateOnly]      2006-01-02
+	   [time.Format  ]      2024-03-27
+
+
+	   [Elapsed] 153.36µs
+	*/
+
 }

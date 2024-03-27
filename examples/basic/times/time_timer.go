@@ -36,4 +36,25 @@ LOOP:
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_timer
+
+	   [Name] "time_timer"
+	   loop                 .
+	   loop                 .
+	   loop                 .
+	   loop                 .
+	   loop                 .
+	   loop                 .
+	   timer.C              timed out
+
+
+	   [Elapsed] 3.004293004s
+	*/
+
 }
