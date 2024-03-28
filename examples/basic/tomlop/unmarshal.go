@@ -72,4 +72,19 @@ age  = 99`
 	output.Stdoutf("[Unmarshal]", "%+v\n", v)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: toml_unmarshal
+
+	   [Name] "toml_unmarshal"
+	   [Unmarshal]          {Values:{Value1:999 Value2:hello world Value3:false Value4:[one two three]} Author:{Name:devlights} Persons:[{Name:one Age:30} {Name:two Age:0} {Name:three Age:99}]}
+
+
+	   [Elapsed] 111.32µs
+	*/
+
 }
