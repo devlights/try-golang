@@ -71,4 +71,39 @@ func Marshal() error {
 	output.Stdoutf("[Marshal]", "\n%s\n", string(serialized))
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: toml_marshal
+
+	   [Name] "toml_marshal"
+	   [Marshal]
+	   [Values]
+	   value1 = 999
+	   value2 = 'hello世界'
+	   value3 = false
+	   value4 = ['Go', 'C#', 'Python']
+
+	   [Author]
+	   Name = 'devlights'
+
+	   [[Persons]]
+	   name = 'one'
+	   age = 30
+
+	   [[Persons]]
+	   name = 'two'
+
+	   [[Persons]]
+	   name = 'three'
+	   age = 99
+
+
+
+	   [Elapsed] 60.74µs
+	*/
+
 }
