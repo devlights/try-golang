@@ -42,4 +42,20 @@ LOOP:
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: tsv_read
+
+	   [Name] "tsvop_read"
+	   [rec]                [hello world]      len=2
+	   [rec]                [world hello]      len=2
+
+
+	   [Elapsed] 55.88µs
+	*/
+
 }

@@ -44,4 +44,21 @@ func Write() error {
 	output.Stdoutf("[data]", "\n%v", string(data))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: tsv_write
+
+	   [Name] "tsvop_write"
+	   [data]
+	   hello   world
+	   world   hello
+
+
+	   [Elapsed] 12.76µs
+	*/
+
 }

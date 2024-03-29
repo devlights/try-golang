@@ -15,6 +15,6 @@ func NewRegister() mapping.Register {
 }
 
 func (*register) Regist(m mapping.ExampleMapping) {
-	m["tsv_read"] = Read
-	m["tsv_write"] = Write
+	m["tsvop_read"] = Read
+	m["tsvop_write"] = Write
 }
