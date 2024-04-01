@@ -63,6 +63,22 @@ func DiffTypeAliasAndDefinedType() error {
 	show(string(defined))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: types_diff_typealias_and_definedtype
+
+	   [Name] "types_diff_typealias_and_definedtype"
+	   [v]                  hello world (string)
+	   [v]                  hello world (string)
+
+
+	   [Elapsed] 7.569µs
+	*/
+
 }
 
 func show(v string) {

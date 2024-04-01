@@ -46,4 +46,22 @@ func Basic() error {
 	fmt.Println(i2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: types_basic
+
+	   [Name] "types_basic"
+	   100 200 [1 2 3] &{hello world}
+	   types.MyInt1, types.MyInt2, types.MyIntArray, *types.KeyValuePair
+	   100 100
+	   100
+
+
+	   [Elapsed] 35.82µs
+	*/
+
 }

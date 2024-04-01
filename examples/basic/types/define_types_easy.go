@@ -43,6 +43,21 @@ func DefineTypesEasy() error {
 	output.Stdoutl("[result]", user)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: types_define_types_easy
+
+	   [Name] "types_define_types_easy"
+	   [result]             id:0001    name:golang
+
+
+	   [Elapsed] 17.64µs
+	*/
+
 }
 
 func newUser(id Id, name Name) (User, error) {
