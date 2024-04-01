@@ -23,4 +23,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["osop_setenv"] = Setenv
 	m["osop_unsetenv"] = Unsetenv
 	m["osop_clearenv"] = Clearenv
+	m["osop_pid"] = Pid
+	m["osop_pname"] = Pname
 }
