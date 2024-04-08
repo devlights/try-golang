@@ -25,7 +25,8 @@ func GzipAndCrc() error {
 		buf    = new(bytes.Buffer)
 		gzipW  = gzip.NewWriter(buf)
 		crcW   = crc32.NewIEEE()
-		writer = io.MultiWriter(gzipW, crcW, hex.Dumper(os.Stdout))
+		hexW   = hex.Dumper(os.Stdout)
+		writer = io.MultiWriter(gzipW, crcW, hexW)
 		err    error
 	)
 	defer gzipW.Close()
@@ -34,8 +35,8 @@ func GzipAndCrc() error {
 	if err != nil {
 		return err
 	}
+	hexW.Close()
 
-	output.Stdoutl("")
 	output.Stdoutf("[orig]", "%x\n", data)
 	output.Stdoutf("[gzip]", "%x\n", buf.Bytes())
 	output.Stdoutf("[crc ]", "%x\n", crcW.Sum32())
@@ -52,13 +53,13 @@ func GzipAndCrc() error {
 		[Name] "fileio_multiwriter_gzipandcrc"
 		00000000  68 65 6c 6c 6f 20 77 6f  72 6c 64 20 e3 81 93 e3  |hello world ....|
 		00000010  82 93 e3 81 ab e3 81 a1  e3 81 af 20 e4 b8 96 e7  |........... ....|
-		00000020  95 8c
+		00000020  95 8c                                             |..|
 		[orig]               68656c6c6f20776f726c6420e38193e38293e381abe381a1e381af20e4b896e7958c
 		[gzip]               1f8b08000000000000ff
 		[crc ]               6535a281
 
 
-		[Elapsed] 343.1µs
+		[Elapsed] 394.39µs
 	*/
 
 }
