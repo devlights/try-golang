@@ -61,4 +61,31 @@ func Sizeof() error {
 	fmt.Println("mem", unsafe.Sizeof(m))
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: unsafe_sizeof
+
+	   [Name] "unsafe_sizeof"
+	   mem {true 1 2 3 4  helloworld [1 2 3] [] [1 2 3]}
+	   bool 1
+	   int 8
+	   int16 2
+	   int32 4
+	   int64 8
+	   string_empty 16
+	   string_not_empty 16
+	   [3]int 24
+	   slice_empty 24
+	   slice_not_empty 24
+	   ----
+	   mem 136
+
+
+	   [Elapsed] 76.71µs
+	*/
+
 }
