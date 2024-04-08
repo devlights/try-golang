@@ -3,6 +3,7 @@ package fileio
 import (
 	"github.com/devlights/try-golang/examples/basic/fileio/filesystem"
 	"github.com/devlights/try-golang/examples/basic/fileio/ja"
+	"github.com/devlights/try-golang/examples/basic/fileio/multiwriter"
 	"github.com/devlights/try-golang/examples/basic/fileio/readwrite"
 	"github.com/devlights/try-golang/examples/basic/fileio/stat"
 	"github.com/devlights/try-golang/examples/basic/fileio/stdinouterr"
@@ -27,4 +28,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	filesystem.NewRegister().Regist(m)
 	ja.NewRegister().Regist(m)
 	sync_and_close.NewRegister().Regist(m)
+	multiwriter.NewRegister().Regist(m)
 }
