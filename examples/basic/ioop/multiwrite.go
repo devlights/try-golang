@@ -1,4 +1,4 @@
-package multiwriter
+package ioop
 
 import (
 	"bytes"
@@ -11,7 +11,7 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// GzipAndCrc は、io.MultiWriterを利用してgzip圧縮しながらCRCチェックサムも算出するサンプルです.
+// MultiWrite は、io.MultiWriterを利用してgzip圧縮しながらCRCチェックサムも算出するサンプルです.
 //
 // # REFERENCES
 //
@@ -19,7 +19,7 @@ import (
 //   - https://pkg.go.dev/hash/crc32@go1.22.2#NewIEEE
 //   - https://pkg.go.dev/compress/gzip@go1.22.2#Writer
 //   - https://pkg.go.dev/encoding/hex@go1.22.2#Dumper
-func GzipAndCrc() error {
+func MultiWrite() error {
 	var (
 		data   = []byte("hello world こんにちは 世界")
 		buf    = new(bytes.Buffer)
@@ -48,9 +48,9 @@ func GzipAndCrc() error {
 		task: [build] go build .
 		task: [run] ./try-golang -onetime
 
-		ENTER EXAMPLE NAME: fileio_multiwriter
+		ENTER EXAMPLE NAME: ioop_multiwrite
 
-		[Name] "fileio_multiwriter_gzipandcrc"
+		[Name] "ioop_multiwrite"
 		00000000  68 65 6c 6c 6f 20 77 6f  72 6c 64 20 e3 81 93 e3  |hello world ....|
 		00000010  82 93 e3 81 ab e3 81 a1  e3 81 af 20 e4 b8 96 e7  |........... ....|
 		00000020  95 8c                                             |..|
