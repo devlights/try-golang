@@ -2,8 +2,9 @@
 
 このディレクトリには以下のサンプルがあります。
 
-| file            | example name      | note                                                                           |
-| --------------- | ----------------- | ------------------------------------------------------------------------------ |
-| limitread.go    | ioop_limit_read   | io.LimitedReader のサンプルです.                                               |
-| onebyteread.go  | ioop_onebyte_read | １バイトずつ読み出す io.LimitedReader のサンプルです.                          |
-| gzip_and_crc.go | ioop_gzip_and_crc | io.MultiWriterを利用してgzip圧縮しながらCRCチェックサムも算出するサンプルです. |
+| file           | example name      | note                                                                           |
+| -------------- | ----------------- | ------------------------------------------------------------------------------ |
+| limitread.go   | ioop_limit_read   | io.LimitedReader のサンプルです.                                               |
+| onebyteread.go | ioop_onebyte_read | １バイトずつ読み出す io.LimitedReader のサンプルです.                          |
+| multiwrite.go  | ioop_multiwrite   | io.MultiWriterを利用してgzip圧縮しながらCRCチェックサムも算出するサンプルです. |
+| multiread.go   | ioop_multiread    | io.MultiReaderを利用して複数のファイルを一気に読み込むサンプルです。           |

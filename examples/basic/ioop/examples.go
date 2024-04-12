@@ -17,5 +17,6 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["ioop_limit_read"] = LimitRead
 	m["ioop_onebyte_read"] = OneByteRead
-	m["ioop_gzip_and_crc"] = GzipAndCrc
+	m["ioop_multiwrite"] = MultiWrite
+	m["ioop_multireader"] = MultiRead
 }
