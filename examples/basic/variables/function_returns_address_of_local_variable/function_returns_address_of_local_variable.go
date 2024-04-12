@@ -31,6 +31,23 @@ func FunctionReturnsAddressOfLocalVariable() error {
 	output.Stdoutf("[i1/i2]", "%v\t%v\n", *i1, *i2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: function_returns_address_of_local_variable
+
+	   [Name] "function_returns_address_of_local_variable"
+	   [i1]                 0xc0001a2908       1
+	   [i2]                 0xc0001a2920       1
+	   [i1/i2]              2  2
+
+
+	   [Elapsed] 32.3µs
+	*/
+
 }
 
 func f() *int {

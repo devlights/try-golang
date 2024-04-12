@@ -37,4 +37,20 @@ func Basic() error {
 	fmt.Printf("%#v,%#v,%#v,%#v,%#v,%#v\n", name, location, age, name2, location2, age2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: var_statement_declare
+
+	   [Name] "var_statement_declare"
+	   0,"hello",1,"world",2,"helloworld"
+	   "hehe","japan",33,"hoge","japan",44
+
+
+	   [Elapsed] 8.809µs
+	*/
+
 }

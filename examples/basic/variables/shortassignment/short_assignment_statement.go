@@ -16,7 +16,7 @@ func Basic() error {
 		return err
 	}
 
-	f := filepath.Join(dir, "basic", "variables", "short_assignment_statement.go")
+	f := filepath.Join(dir, "examples", "basic", "variables", "shortassignment", "short_assignment_statement.go")
 
 	finfo, err := os.Stat(f)
 	if err != nil {
@@ -26,4 +26,21 @@ func Basic() error {
 	fmt.Printf("現在の作業ディレクトリ: %s\nファイルパス: %s\nサイズ: %d bytes\n", dir, f, finfo.Size())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: short_assignment_statement
+
+	   [Name] "short_assignment_statement"
+	   現在の作業ディレクトリ: /workspace/try-golang
+	   ファイルパス: /workspace/try-golang/examples/basic/variables/shortassignment/short_assignment_statement.go
+	   サイズ: 890 bytes
+
+
+	   [Elapsed] 83.41µs
+	*/
+
 }
