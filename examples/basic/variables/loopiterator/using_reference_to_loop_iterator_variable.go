@@ -30,6 +30,31 @@ func CommonMistakePattern() error {
 	good()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: using_ref_to_loop_iterator_variable
+
+	   [Name] "using_ref_to_loop_iterator_variable"
+	   0                    p=0xc0001a2908     v=0
+	   1                    p=0xc0001a2910     v=1
+	   2                    p=0xc0001a2918     v=2
+	   3                    p=0xc0001a2920     v=3
+	   4                    p=0xc0001a2928     v=4
+	   --------------------------------------------------
+	   0                    p=0xc0001a2938     v=0
+	   1                    p=0xc0001a2940     v=1
+	   2                    p=0xc0001a2948     v=2
+	   3                    p=0xc0001a2950     v=3
+	   4                    p=0xc0001a2958     v=4
+
+
+	   [Elapsed] 57.61µs
+	*/
+
 }
 
 func bad() {

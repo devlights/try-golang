@@ -17,4 +17,20 @@ func Basic() error {
 	fmt.Printf("%#v\n%#v\n", pkgScopeVal1, PkgScopeVal1)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: package_scope_variable
+
+	   [Name] "package_scope_variable"
+	   "private package scope variable"
+	   "public  package scope variable"
+
+
+	   [Elapsed] 4.52µs
+	*/
+
 }

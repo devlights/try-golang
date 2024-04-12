@@ -26,6 +26,26 @@ func Basic() error {
 	noShadowing()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: shadowing_variable
+
+	   [Name] "shadowing_variable"
+	   [shadowing   ] --------------------------------------
+	   CHECKPOINT: word(0xc000118f10)
+	   RESULT    : nil
+	   [no shadowing] --------------------------------------
+	   CHECKPOINT: word(0xc000118f60)
+	   RESULT    : word(0xc000118f60)
+
+
+	   [Elapsed] 38.58µs
+	*/
+
 }
 
 func do(v string) (*string, error) {

@@ -38,6 +38,33 @@ func PassingLoopVariableToGoroutineByPointer() error {
 	goodpattern()
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: passing_loop_variable_to_goroutine_by_pointer
+
+	   [Name] "passing_loop_variable_to_goroutine_by_pointer"
+	   [bad][v]             addr=0xc000014958, value={1}
+	   [bad][v]             addr=0xc000014970, value={2}
+	   [bad][v]             addr=0xc000014978, value={3}
+	   [bad][v][goroutine]  addr=0xc000014978, value={3}
+	   [bad][v][goroutine]  addr=0xc000014970, value={2}
+	   [bad][v][goroutine]  addr=0xc000014958, value={1}
+	   --------------------------------------------------
+	   [good][v]            addr=0xc000202008, value={1}
+	   [good][v]            addr=0xc000202028, value={2}
+	   [good][v]            addr=0xc000202038, value={3}
+	   [good][v][goroutine] addr=0xc000202040, value={3}
+	   [good][v][goroutine] addr=0xc000202020, value={1}
+	   [good][v][goroutine] addr=0xc000202030, value={2}
+
+
+	   [Elapsed] 274.61µs
+	*/
+
 }
 
 func badpattern() {

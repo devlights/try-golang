@@ -2,7 +2,6 @@
 
 このディレクトリには以下のサンプルがあります。
 
-| file                       | example name            | note                    |
-|----------------------------|-------------------------|-------------------------|
-| var\_statement\_declare.go | var\_statement\_declare | var による 変数 の宣言についてのサンプル |
-
+| file                     | example name          | note                                     |
+| ------------------------ | --------------------- | ---------------------------------------- |
+| var_statement_declare.go | var_statement_declare | var による 変数 の宣言についてのサンプル |
