@@ -1,6 +1,8 @@
 package ioop
 
-import "github.com/devlights/try-golang/mapping"
+import (
+	"github.com/devlights/try-golang/mapping"
+)
 
 type (
 	register struct{}
@@ -15,4 +17,5 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["ioop_limit_read"] = LimitRead
 	m["ioop_onebyte_read"] = OneByteRead
+	m["ioop_gzip_and_crc"] = GzipAndCrc
 }

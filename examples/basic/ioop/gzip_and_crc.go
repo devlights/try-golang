@@ -1,4 +1,4 @@
-package multiwriter
+package ioop
 
 import (
 	"bytes"
