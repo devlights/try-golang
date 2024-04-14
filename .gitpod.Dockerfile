@@ -1,4 +1,4 @@
-FROM gitpod/workspace-base:latest
+FROM gitpod/workspace-full:latest
 
 ENV GO_VERSION=1.22.2
 
