@@ -23,7 +23,7 @@ func DateRolling() error {
 	log.SetOutput(&lumberjack.Logger{
 		Filename:   "daterolling.log",
 		MaxSize:    1,
-		MaxBackups: 1,
+		MaxBackups: 10,
 		MaxAge:     1,
 	})
 
@@ -31,9 +31,9 @@ func DateRolling() error {
 	// 後は普通に利用すれば良い
 	//
 	const (
-		msg = "helloworld"
-		mb  = 1_000_000
-		cnt = mb/len(msg) + 1
+		msg = "123456789"
+		mb  = 1048570
+		cnt = mb/(len(msg)+1) + 1
 	)
 
 	for i := 0; i < 5; i++ {
