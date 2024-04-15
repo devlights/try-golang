@@ -36,4 +36,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["time_format_microsecond"] = FormatMicrosecond
 	m["time_calc_nextmonth"] = CalcNextMonth
 	m["time_daysinmonth"] = DaysInMonth
+	m["time_sleep"] = Sleep
+	m["time_cancellable_sleep"] = CancellableSleep
 }

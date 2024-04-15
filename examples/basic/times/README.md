@@ -26,3 +26,5 @@
 | time_format_microsecond.go | time_format_microsecond  | time.Format() にてマイクロ秒を出力するサンプルす。                                    |
 | time_calc_nextmonth.go     | time_calc_nextmonth      | 翌月の日付を求めるサンプルです                                                        |
 | time_daysinmonth.go        | time_daysinmonth         | 月の日数を求めるサンプルです                                                          |
+| time_sleep.go              | time_sleep               | time.Sleep() のサンプルです。                                                         |
+| time_cancellable_sleep.go  | time_cancellable_sleep   | キャンセル可能なスリープ処理のサンプルです。                                          |
