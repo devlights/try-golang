@@ -26,6 +26,7 @@ import (
 // # REFERENCES
 //   - https://pkg.go.dev/cmp#Or
 //   - https://pkg.go.dev/builtin#comparable
+//   - https://blog.carlana.net/post/2024/golang-cmp-or-uses-and-history/
 func Or() error {
 	type (
 		V struct {
