@@ -9,6 +9,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/builtins"
 	"github.com/devlights/try-golang/examples/basic/byteop"
 	"github.com/devlights/try-golang/examples/basic/cmdexec"
+	"github.com/devlights/try-golang/examples/basic/cmpop"
 	"github.com/devlights/try-golang/examples/basic/comments"
 	"github.com/devlights/try-golang/examples/basic/constants"
 	"github.com/devlights/try-golang/examples/basic/containers"
@@ -95,6 +96,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	bufferop.NewRegister().Regist(m)
 	byteop.NewRegister().Regist(m)
 	cmdexec.NewRegister().Regist(m)
+	cmpop.NewRegister().Regist(m)
 	comments.NewRegister().Regist(m)
 	constants.NewRegister().Regist(m)
 	containers.NewRegister().Regist(m)
