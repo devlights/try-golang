@@ -38,4 +38,20 @@ func CompositeSortKeys() error {
 	output.Stdoutl("[after ]", people)
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: cmpop_composite_sort_key
+
+	   [Name] "cmpop_composite_sort_keys"
+	   [before]             [{Aikawa 21} {Tanaka 22} {Kato 33} {Suzuki 44} {Tanaka 44} {Aikawa 66}]
+	   [after ]             [{Aikawa 66} {Aikawa 21} {Kato 33} {Suzuki 44} {Tanaka 44} {Tanaka 22}]
+
+
+	   [Elapsed] 62.25µs
+	*/
+
 }
