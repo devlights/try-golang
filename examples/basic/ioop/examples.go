@@ -21,4 +21,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["ioop_multireader"] = MultiRead
 	m["ioop_tee_read"] = TeeRead
 	m["ioop_section_read"] = SectionRead
+	m["ioop_offset_write"] = OffsetWrite
 }

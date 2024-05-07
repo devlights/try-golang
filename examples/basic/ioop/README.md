@@ -10,3 +10,4 @@
 | multiread.go   | ioop_multiread    | io.MultiReaderを利用して複数のファイルを一気に読み込むサンプルです。           |
 | teeread.go     | ioop_tee_read     | io.TeeReader を利用したサンプルです。                                          |
 | sectionread.go | ioop_section_read | io.SectionReader を利用したサンプルです。                                      |
+| offsetwrite.go | ioop_offset_write | io.OffsetWriter を利用したサンプルです。                                       |
