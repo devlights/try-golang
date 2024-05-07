@@ -19,4 +19,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["ioop_onebyte_read"] = OneByteRead
 	m["ioop_multiwrite"] = MultiWrite
 	m["ioop_multireader"] = MultiRead
+	m["ioop_tee_read"] = TeeRead
 }
