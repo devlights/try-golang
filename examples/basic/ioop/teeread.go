@@ -2,7 +2,7 @@ package ioop
 
 import (
 	"io"
-	"os"
+	"strings"
 
 	"github.com/devlights/gomy/output"
 )
@@ -30,18 +30,9 @@ func (me *byteCounter) Write(p []byte) (n int, err error) {
 //   - https://pkg.go.dev/io@go1.22.2#TeeReader
 //   - https://cs.opensource.google/go/go/+/refs/tags/go1.22.2:src/io/io.go;l=618
 func TeeRead() error {
-	r, err := os.Open("main.go")
-	if err != nil {
-		return err
-	}
-	defer r.Close()
-
+	r := strings.NewReader("helloworld こんにちは世界")
 	w := byteCounter(0)
-
-	b, err := io.ReadAll(io.TeeReader(r, &w))
-	if err != nil {
-		return err
-	}
+	b, _ := io.ReadAll(io.TeeReader(r, &w))
 
 	output.Stdoutl("[r]", string(b))
 	output.StdoutHr()
@@ -50,26 +41,19 @@ func TeeRead() error {
 	return nil
 
 	/*
-	   $ task
-	   task: [build] go build .
-	   task: [run] ./try-golang -onetime
+		$ task
+		task: [build] go build .
+		task: [run] ./try-golang -onetime
 
-	   ENTER EXAMPLE NAME: ioop_tee_read
+		ENTER EXAMPLE NAME: ioop_tee_read
 
-	   [Name] "ioop_tee_read"
-	   [r]                  package main
-
-	   import "github.com/devlights/try-golang/cmd"
-
-	   func main() {
-	           cmd.Execute()
-	   }
-
-	   --------------------------------------------------
-	   [w]                  91
+		[Name] "ioop_tee_read"
+		[r]                  helloworld こんにちは世界
+		--------------------------------------------------
+		[w]                  32
 
 
-	   [Elapsed] 131.071µs
+		[Elapsed] 34.05µs
 	*/
 
 }
