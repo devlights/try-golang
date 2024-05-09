@@ -19,13 +19,13 @@ Release:        22.04
 Codename:       jammy
 
 $ go version
-go version go1.22.0 linux/amd64
+go version go1.22.3 linux/amd64
 
 $ task build
 task: [build] go build .
 
 $ go version try-golang
-try-golang: go1.22.0
+try-golang: go1.22.3
 ```
 
 ## Run
