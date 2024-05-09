@@ -20,4 +20,5 @@ task: [default] ./app
 - https://www.sobyte.net/post/2022-07/go-linkname/
 - https://zenn.dev/sasakiki/articles/a838380540245d
 - https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives
+- https://forum.golangbridge.org/t/implementation-of-time-sleep/2637
 
