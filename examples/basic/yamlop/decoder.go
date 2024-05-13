@@ -42,4 +42,19 @@ languages:
 	output.Stdoutf("[decoder]", "%v\n", v)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: yaml_decoder
+
+	   [Name] "yaml_decoder"
+	   [decoder]            {[{golang fmt.Println {1 16}} {java System.out.println {16 0}}]}
+
+
+	   [Elapsed] 177.78µs
+	*/
+
 }
