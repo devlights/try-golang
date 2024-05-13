@@ -18,4 +18,19 @@ func Bool() error {
 	output.Stdoutf("[bool zerovalue]", "%t\n", b)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: zerovalues_bool
+
+	   [Name] "zerovalues_bool"
+	   [bool zerovalue]     false
+
+
+	   [Elapsed] 8.52µs
+	*/
+
 }

@@ -18,4 +18,19 @@ func Channel() error {
 	output.Stdoutf("[chan zerovalue]", "%v\n", ch)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: zerovalues_chan
+
+	   [Name] "zerovalues_chan"
+	   [chan zerovalue]     <nil>
+
+
+	   [Elapsed] 20.84µs
+	*/
+
 }

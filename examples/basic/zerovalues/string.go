@@ -18,4 +18,19 @@ func String() error {
 	output.Stdoutf("[string zerovalue]", "%q\n", s)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: zerovalues_string
+
+	   [Name] "zerovalues_string"
+	   [string zerovalue]   ""
+
+
+	   [Elapsed] 6.471µs
+	*/
+
 }

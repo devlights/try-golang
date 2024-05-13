@@ -25,4 +25,19 @@ func Map() error {
 	// >> panic: assignment to entry in nil map
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: zerovalues_map
+
+	   [Name] "zerovalues_map"
+	   [map zerovalue]      map[]      0x0     NIL?=true
+
+
+	   [Elapsed] 21.9µs
+	*/
+
 }

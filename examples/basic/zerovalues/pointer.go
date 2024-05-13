@@ -18,4 +18,19 @@ func Pointer() error {
 	output.Stdoutf("[pointer zerovalue]", "%v\n", p)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: zerovalues_pointer
+
+	   [Name] "zerovalues_pointer"
+	   [pointer zerovalue]  <nil>
+
+
+	   [Elapsed] 33.67µs
+	*/
+
 }

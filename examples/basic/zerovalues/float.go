@@ -18,4 +18,19 @@ func Float() error {
 	output.Stdoutf("[float zerovalue]", "%.1f\n", f)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: zerovalues_float
+
+	   [Name] "zerovalues_float"
+	   [float zerovalue]    0.0
+
+
+	   [Elapsed] 11.64µs
+	*/
+
 }
