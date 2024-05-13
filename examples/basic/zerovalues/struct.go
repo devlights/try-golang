@@ -29,4 +29,20 @@ func Struct() error {
 	output.Stdoutf("[struct assign values]", "%+v\n", st)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: zerovalues_struct
+
+	   [Name] "zerovalues_struct"
+	   [struct zerovalue]   {i:0 b:false}
+	   [struct assign values] {i:100 b:true}
+
+
+	   [Elapsed] 12.47µs
+	*/
+
 }

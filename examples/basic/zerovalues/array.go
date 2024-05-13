@@ -18,4 +18,19 @@ func Array() error {
 	output.Stdoutf("[array zerovalue	]", "%v\n", a)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: zerovalues_array
+
+	   [Name] "zerovalues_array"
+	   [array zerovalue        ]   [0 0 0 0 0 0 0 0 0 0]
+
+
+	   [Elapsed] 12.31µs
+	*/
+
 }

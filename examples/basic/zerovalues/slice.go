@@ -24,4 +24,20 @@ func Slice() error {
 	output.Stdoutf("[slice after append]", "%v\t%p\tNIL?=%t\n", s, s, s == nil)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: zerovalues_slice
+
+	   [Name] "zerovalues_slice"
+	   [slice zerovalue]    [] 0x0     NIL?=true
+	   [slice after append] [100]      0xc000200018    NIL?=false
+
+
+	   [Elapsed] 35.2µs
+	*/
+
 }

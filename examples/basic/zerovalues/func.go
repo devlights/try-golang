@@ -19,4 +19,19 @@ func Func() error {
 	output.Stdoutf("[func zerovalue]", "%p:%p\n", fn1, fn2)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: zerovalues_func
+
+	   [Name] "zerovalues_func"
+	   [func zerovalue]     0x0:0x8b8f40
+
+
+	   [Elapsed] 12.66µs
+	*/
+
 }
