@@ -29,4 +29,20 @@ func Marshal() error {
 	output.Stdoutf("[marshal]", "\n%s\n", string(buf))
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: xml_marshal
+
+	   [Name] "xml_marshal"
+	   [marshal]
+	   <data><languages name="golang"><printfn>fmt.Println</printfn><version major="1" minor="16"></version></languages><languages name="java"><printfn>System.out.println</printfn><version major="16" minor="0"></version></languages></data>
+
+
+	   [Elapsed] 93.3µs
+	*/
+
 }

@@ -30,4 +30,29 @@ func MarshalIndent() error {
 	output.Stdoutf("[marshal]", "\n%s\n", string(buf))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: xml_marshal_indent
+
+	   [Name] "xml_marshal_indent"
+	   [marshal]
+	   <data>
+	       <languages name="golang">
+	           <printfn>fmt.Println</printfn>
+	           <version major="1" minor="16"></version>
+	       </languages>
+	       <languages name="java">
+	           <printfn>System.out.println</printfn>
+	           <version major="16" minor="0"></version>
+	       </languages>
+	   </data>
+
+
+	   [Elapsed] 104.73µs
+	*/
+
 }
