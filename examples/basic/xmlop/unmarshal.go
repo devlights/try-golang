@@ -37,4 +37,19 @@ func Unmarshal() error {
 	output.Stdoutf("[unmarshal]", "%v\n", v)
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: xml_unmarshal
+
+	   [Name] "xml_unmarshal"
+	   [unmarshal]          {{ data} [{golang fmt.Println {1 16}} {java System.out.println {16 0}}]}
+
+
+	   [Elapsed] 96.249µs
+	*/
+
 }

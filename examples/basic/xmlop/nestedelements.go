@@ -45,4 +45,20 @@ func NestedElements() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: xml_nested_elements
+
+	   [Name] "xml_nested_elements"
+	   [result]             hello
+	   [result]             world
+
+
+	   [Elapsed] 54.25µs
+	*/
+
 }
