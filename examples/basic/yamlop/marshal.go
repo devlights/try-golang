@@ -29,4 +29,31 @@ func Marshal() error {
 	output.Stdoutf("[yaml]", "\n%s\n", string(buf))
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: yaml_marshal
+
+	   [Name] "yaml_marshal"
+	   [yaml]
+	   languages:
+	       - name: golang
+	         printfn: fmt.Println
+	         version:
+	           major: 1
+	           minor: 16
+	       - name: java
+	         printfn: System.out.println
+	         version:
+	           major: 16
+	           minor: 0
+
+
+
+	   [Elapsed] 211µs
+	*/
+
 }

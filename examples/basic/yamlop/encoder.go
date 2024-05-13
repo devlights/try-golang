@@ -32,4 +32,31 @@ func Encoder() error {
 	output.Stdoutf("[encoder]", "\n%s\n", buf.String())
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: yaml_encoder
+
+	   [Name] "yaml_encoder"
+	   [encoder]
+	   languages:
+	       - name: golang
+	         printfn: fmt.Println
+	         version:
+	           major: 1
+	           minor: 16
+	       - name: java
+	         printfn: System.out.println
+	         version:
+	           major: 16
+	           minor: 0
+
+
+
+	   [Elapsed] 114.52µs
+	*/
+
 }

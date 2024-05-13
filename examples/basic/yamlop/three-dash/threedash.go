@@ -49,4 +49,21 @@ func ThreeDash() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: yaml_threedash
+
+	   [Name] "yaml_threedash"
+	   [data]               [hello world]
+	   [data]               [HELLO WORLD]
+	   [data]               [WORLD HELLO]
+
+
+	   [Elapsed] 197.96µs
+	*/
+
 }
