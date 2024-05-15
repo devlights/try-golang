@@ -1,0 +1,15 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: run
+  build:
+    cmds:
+      - go build -o app{{.exeEXT}}
+  run:
+    cmds:
+      - ./app{{.exeEXT}}
