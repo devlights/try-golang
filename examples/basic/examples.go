@@ -39,6 +39,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/maps"
 	"github.com/devlights/try-golang/examples/basic/maths"
 	"github.com/devlights/try-golang/examples/basic/methods"
+	"github.com/devlights/try-golang/examples/basic/metricsop"
 	"github.com/devlights/try-golang/examples/basic/mutex"
 	"github.com/devlights/try-golang/examples/basic/network"
 	"github.com/devlights/try-golang/examples/basic/osop"
@@ -129,6 +130,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	maps.NewRegister().Regist(m)
 	maths.NewRegister().Regist(m)
 	methods.NewRegister().Regist(m)
+	metricsop.NewRegister().Regist(m)
 	mutex.NewRegister().Regist(m)
 	network.NewRegister().Regist(m)
 	panics.NewRegister().Regist(m)
