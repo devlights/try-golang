@@ -7,11 +7,11 @@ import (
 	"github.com/devlights/gomy/output"
 )
 
-// HeapMemory は、runtime/metrics を利用してヒープメモリ関連の情報を取得するサンプルです.
+// Heap は、runtime/metrics を利用してヒープメモリ関連の情報を取得するサンプルです.
 //
 // # REFERENCES
 //   - https://pkg.go.dev/runtime/metrics@latest
-func HeapMemory() error {
+func Heap() error {
 	var (
 		items = []string{
 			"/memory/classes/heap/free:bytes",     // 完全に空いていて、システムに戻す資格があるが、戻されていないメモリ
@@ -37,10 +37,20 @@ func HeapMemory() error {
 
 	runtime.GC()
 	metrics.Read(samples)
-
 	for _, s := range samples {
 		output.Stdoutl("[Name ]", s.Name)
-		output.Stdoutf("[Value]", "%+v\n", s.Value)
+
+		switch s.Value.Kind() {
+		case metrics.KindUint64:
+			output.Stdoutf("[Value]", "%v\n", s.Value.Uint64())
+		case metrics.KindFloat64:
+			output.Stdoutf("[Value]", "%v\n", s.Value.Float64())
+		case metrics.KindFloat64Histogram:
+			output.Stdoutf("[Value]", "Bucket Count: %d\n", len(s.Value.Float64Histogram().Buckets)-2)
+		default:
+			output.Stdoutl("[Value]", "INVALID")
+		}
+
 		output.StdoutHr()
 	}
 
@@ -53,48 +63,48 @@ func HeapMemory() error {
 		task: [build] go build .
 		task: [run] ./try-golang -onetime
 
-		ENTER EXAMPLE NAME: metrics_heapmemory
+		ENTER EXAMPLE NAME: metrics_heap
 
-		[Name] "metrics_heapmemory"
+		[Name] "metrics_heap"
 		[Name ]              /memory/classes/heap/free:bytes
-		[Value]              {kind:1 scalar:268656640 pointer:<nil>}
+		[Value]              237232128
 		--------------------------------------------------
 		[Name ]              /memory/classes/heap/objects:bytes
-		[Value]              {kind:1 scalar:398432 pointer:<nil>}
+		[Value]              395616
 		--------------------------------------------------
 		[Name ]              /memory/classes/heap/released:bytes
-		[Value]              {kind:1 scalar:2433024 pointer:<nil>}
+		[Value]              33882112
 		--------------------------------------------------
 		[Name ]              /memory/classes/heap/stacks:bytes
-		[Value]              {kind:1 scalar:458752 pointer:<nil>}
+		[Value]              425984
 		--------------------------------------------------
 		[Name ]              /memory/classes/heap/unused:bytes
-		[Value]              {kind:1 scalar:682912 pointer:<nil>}
+		[Value]              693920
 		--------------------------------------------------
 		[Name ]              /gc/heap/allocs:bytes
-		[Value]              {kind:1 scalar:268953784 pointer:<nil>}
+		[Value]              268953040
 		--------------------------------------------------
 		[Name ]              /gc/heap/allocs:objects
-		[Value]              {kind:1 scalar:1662 pointer:<nil>}
+		[Value]              1668
 		--------------------------------------------------
 		[Name ]              /gc/heap/frees:bytes
-		[Value]              {kind:1 scalar:268555352 pointer:<nil>}
+		[Value]              268557424
 		--------------------------------------------------
 		[Name ]              /gc/heap/frees:objects
-		[Value]              {kind:1 scalar:450 pointer:<nil>}
+		[Value]              459
 		--------------------------------------------------
 		[Name ]              /gc/heap/goal:bytes
-		[Value]              {kind:1 scalar:4194304 pointer:<nil>}
+		[Value]              4194304
 		--------------------------------------------------
 		[Name ]              /gc/heap/live:bytes
-		[Value]              {kind:1 scalar:398720 pointer:<nil>}
+		[Value]              395904
 		--------------------------------------------------
 		[Name ]              /gc/heap/objects:objects
-		[Value]              {kind:1 scalar:1212 pointer:<nil>}
+		[Value]              1209
 		--------------------------------------------------
 		[Buffer]             268435456
 
 
-		[Elapsed] 2.96696ms
+		[Elapsed] 4.183119ms
 	*/
 }

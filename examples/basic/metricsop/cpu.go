@@ -38,10 +38,10 @@ func Cpu() error {
 	var (
 		ctx, cxl = context.WithTimeout(context.Background(), 1*time.Second)
 		ready    = make(chan bool)
-		busyfn   = func(ctx context.Context, ready chan<- bool) {
+		busyfn   = func(ctx context.Context, ready <-chan bool) {
 			var i uint64
 
-			ready <- true
+			<-ready
 			for {
 				select {
 				case <-ctx.Done():
@@ -59,15 +59,29 @@ func Cpu() error {
 	)
 	defer cxl()
 
-	go busyfn(ctx, ready)
-	<-ready
+	for range runtime.GOMAXPROCS(0) - 1 {
+		go busyfn(ctx, ready)
+	}
+	close(ready)
+
+	<-time.After(100 * time.Microsecond)
 
 	runtime.GC()
 	metrics.Read(samples)
-
 	for _, s := range samples {
 		output.Stdoutl("[Name ]", s.Name)
-		output.Stdoutf("[Value]", "%+v\n", s.Value)
+
+		switch s.Value.Kind() {
+		case metrics.KindUint64:
+			output.Stdoutf("[Value]", "%v\n", s.Value.Uint64())
+		case metrics.KindFloat64:
+			output.Stdoutf("[Value]", "%v\n", s.Value.Float64())
+		case metrics.KindFloat64Histogram:
+			output.Stdoutf("[Value]", "Bucket Count: %d\n", len(s.Value.Float64Histogram().Buckets)-2)
+		default:
+			output.Stdoutl("[Value]", "INVALID")
+		}
+
 		output.StdoutHr()
 	}
 
@@ -78,44 +92,44 @@ func Cpu() error {
 	return nil
 
 	/*
-	   $ task
-	   task: [build] go build .
-	   task: [run] ./try-golang -onetime
+		$ task
+		task: [build] go build .
+		task: [run] ./try-golang -onetime
 
-	   ENTER EXAMPLE NAME: metrics_cpu
+		ENTER EXAMPLE NAME: metrics_cpu
 
-	   [Name] "metrics_cpu"
-	   [Name ]              /cgo/go-to-c-calls:calls
-	   [Value]              {kind:1 scalar:1 pointer:<nil>}
-	   --------------------------------------------------
-	   [Name ]              /cpu/classes/gc/mark/assist:cpu-seconds
-	   [Value]              {kind:2 scalar:4551153223746165794 pointer:<nil>}
-	   --------------------------------------------------
-	   [Name ]              /cpu/classes/gc/mark/dedicated:cpu-seconds
-	   [Value]              {kind:2 scalar:4562351584908057236 pointer:<nil>}
-	   --------------------------------------------------
-	   [Name ]              /cpu/classes/gc/mark/idle:cpu-seconds
-	   [Value]              {kind:2 scalar:0 pointer:<nil>}
-	   --------------------------------------------------
-	   [Name ]              /cpu/classes/gc/pause:cpu-seconds
-	   [Value]              {kind:2 scalar:4566896090190411183 pointer:<nil>}
-	   --------------------------------------------------
-	   [Name ]              /cpu/classes/gc/total:cpu-seconds
-	   [Value]              {kind:2 scalar:4569689296178052284 pointer:<nil>}
-	   --------------------------------------------------
-	   [Name ]              /cpu/classes/idle:cpu-seconds
-	   [Value]              {kind:2 scalar:4630569171334083814 pointer:<nil>}
-	   --------------------------------------------------
-	   [Name ]              /cpu/classes/total:cpu-seconds
-	   [Value]              {kind:2 scalar:4630572714109167296 pointer:<nil>}
-	   --------------------------------------------------
-	   [Name ]              /cpu/classes/user:cpu-seconds
-	   [Value]              {kind:2 scalar:4581969798399309374 pointer:<nil>}
-	   --------------------------------------------------
-	   [Buffer]             268435456
+		[Name] "metrics_cpu"
+		[Name ]              /cgo/go-to-c-calls:calls
+		[Value]              1
+		--------------------------------------------------
+		[Name ]              /cpu/classes/gc/mark/assist:cpu-seconds
+		[Value]              0.00011252
+		--------------------------------------------------
+		[Name ]              /cpu/classes/gc/mark/dedicated:cpu-seconds
+		[Value]              0.001100349
+		--------------------------------------------------
+		[Name ]              /cpu/classes/gc/mark/idle:cpu-seconds
+		[Value]              0
+		--------------------------------------------------
+		[Name ]              /cpu/classes/gc/pause:cpu-seconds
+		[Value]              0.047052128
+		--------------------------------------------------
+		[Name ]              /cpu/classes/gc/total:cpu-seconds
+		[Value]              0.048264997
+		--------------------------------------------------
+		[Name ]              /cpu/classes/idle:cpu-seconds
+		[Value]              32.647871189
+		--------------------------------------------------
+		[Name ]              /cpu/classes/total:cpu-seconds
+		[Value]              32.986254656
+		--------------------------------------------------
+		[Name ]              /cpu/classes/user:cpu-seconds
+		[Value]              0.290117141
+		--------------------------------------------------
+		[Buffer]             268435456
 
 
-	   [Elapsed] 1.002128694s
+		[Elapsed] 1.008436872s
 	*/
 
 }
