@@ -13,3 +13,21 @@ BenchmarkStaticCheckSA6002/pool-sa6002-ng-16                2852            5542
 PASS
 ok      github.com/devlights/try-golang/examples/singleapp/staticcheck_SA6002   5.699s
 ```
+
+https://github.com/dominikh/go-tools/issues/1336#issuecomment-1331206290 のコードコメントの日本語訳
+
+```
+                // You might be tempted to simplify this by just passing &outBuf to Put,
+                // but that would make the local copy of the outBuf slice header escape
+                // to the heap, causing an allocation. Instead, we keep around the
+                // pointer to the slice header returned by Get, which is already on the
+                // heap, and overwrite and return that.
+```
+
+```
+// ここで &outBuf を Put に渡すことで簡略化したくなるかもしれませんが、
+// それでは outBuf スライスヘッダのローカルコピーがヒープに逃げてしまい、
+// メモリアロケーションが発生してしまいます。代わりに、Get によって返される
+// スライスヘッダへのポインタを保持し、それを上書きして返します。
+// そのポインタはすでにヒープ上にあります。
+```
