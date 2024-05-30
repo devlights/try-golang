@@ -52,4 +52,28 @@ func ParseDuration() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: Task "build" is up to date
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: time_parse_duration
+
+	   [Name] "time_parse_duration"
+	   [Duration]           500ms
+	   [Duration]           5s
+	   [Duration]           5m0s
+	   [Duration]           5h0m0s
+	   [Duration]           1h2m3.444s
+	   [Duration]           1h2m3.444555666s
+	   [error]              time: unknown unit "d" in duration "1h2m3s4d"
+	   [Duration]           9h2m4s
+	   [Duration]           9h2m5s
+	   [Duration]           -9h2m4s
+
+
+	   [Elapsed] 92.72µs
+	*/
+
 }
