@@ -38,4 +38,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["time_daysinmonth"] = DaysInMonth
 	m["time_sleep"] = Sleep
 	m["time_cancellable_sleep"] = CancellableSleep
+	m["time_parse_duration"] = ParseDuration
 }
