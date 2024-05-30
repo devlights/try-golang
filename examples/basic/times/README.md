@@ -28,3 +28,4 @@
 | time_daysinmonth.go        | time_daysinmonth         | 月の日数を求めるサンプルです                                                          |
 | time_sleep.go              | time_sleep               | time.Sleep() のサンプルです。                                                         |
 | time_cancellable_sleep.go  | time_cancellable_sleep   | キャンセル可能なスリープ処理のサンプルです。                                          |
+| time_parseDuration.go      | time_parse_duration      | time.ParseDuration() のサンプルです                                                   |
