@@ -1,0 +1,20 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  FIFO_FILE: ./tmp-fifo
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: run
+  build:
+    cmds:
+      - go build -o app .
+  run:
+    cmds:
+      - rm -f {{.FIFO_FILE}}
+      - ./app -fname {{.FIFO_FILE}}
+      - ls -l {{.FIFO_FILE}}
