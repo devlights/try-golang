@@ -1,0 +1,25 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  FIFO_FILE: ./tmp-fifo
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: create-fifo
+      - task: run
+  build:
+    cmds:
+      - go build -o app .
+  create-fifo:
+    cmds:
+      - rm -f {{.FIFO_FILE}}
+      - mkfifo {{.FIFO_FILE}} -m0666
+  run:
+    cmds:
+      # ワザと書込みを遅延させて実行
+      - (sleep 1; echo "helloworld" > {{.FIFO_FILE}}) &
+      - ./app -fname {{.FIFO_FILE}}
