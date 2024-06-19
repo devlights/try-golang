@@ -1,0 +1,24 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  FIFO_FILE: ./tmp-fifo
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: create-fifo
+      - task: run
+  build:
+    cmds:
+      - go build -o app .
+  create-fifo:
+    cmds:
+      - rm -f {{.FIFO_FILE}}
+      - mkfifo {{.FIFO_FILE}} -m0666
+  run:
+    cmds:
+      - ./app -fname {{.FIFO_FILE}} &
+      - (sleep 2; (date '+%H:%M:%S.%6N'; cat {{.FIFO_FILE}}) | xargs)
