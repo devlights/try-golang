@@ -20,5 +20,7 @@ tasks:
       - mkfifo {{.FIFO_FILE}} -m0666
   run:
     cmds:
+      # ワザと読み込みを遅延させて実行
       - ./app -fname {{.FIFO_FILE}} &
-      - (sleep 2; cat {{.FIFO_FILE}})
+      - sleep 1
+      - cat {{.FIFO_FILE}}
