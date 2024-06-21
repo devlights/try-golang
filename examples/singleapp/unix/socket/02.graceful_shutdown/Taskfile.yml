@@ -1,0 +1,31 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  fmt:
+    cmds:
+      - goimports -w .
+  prepare:
+    cmds:
+      - mkdir -p bin
+  build:
+    deps: [ fmt ]
+    cmds:
+      - go build -o bin/server server/server.go
+      - go build -o bin/client client/client.go
+  run:
+    deps: [ build ]
+    cmds:
+      - ./bin/server &
+      - sleep 1
+      - ./bin/client
+      - sleep 1
+      - pgrep server && pkill server
+    ignore_error: true
+  clean:
+    cmds:
+      - rm -rf ./bin
