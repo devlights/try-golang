@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  TEST_FILE: test.txt
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  run:
+    cmds:
+      - echo helloworld > {{.TEST_FILE}}
+      - defer: rm -f {{.TEST_FILE}}
+      - nkf -g {{.TEST_FILE}}; hexdump {{.TEST_FILE}}
+      - go run main.go {{.TEST_FILE}}
+      - nkf -g {{.TEST_FILE}}; hexdump {{.TEST_FILE}}
+      - go run main.go -d {{.TEST_FILE}}
+      - nkf -g {{.TEST_FILE}}; hexdump {{.TEST_FILE}}
+  clean:
+    cmds:
+      - rm -rf bin
