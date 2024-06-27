@@ -1,0 +1,30 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  APP: bin/{{OS}}/{{ARCH}}/gitignore{{exeExt}}
+
+tasks:
+  default:
+    cmds:
+      - task: build
+  fmt:
+    cmds:
+      - goimports -w .
+  prepare:
+    cmds:
+      - mkdir -p bin/windows/amd64
+      - mkdir -p bin/linux/amd64
+  build:
+    deps: [ prepare, fmt ]
+    cmds:
+      - GOOS=linux   GOARCH=amd64 go build -o bin/linux/amd64/gitignore .
+      - GOOS=windows GOARCH=amd64 go build -o bin/windows/amd64/gitignore.exe .
+  run:
+    deps: [ build ]
+    cmds:
+      - ./{{.APP}} {{.CLI_ARGS}}
+  clean:
+    cmds:
+      - rm -rf bin
