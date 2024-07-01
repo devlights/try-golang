@@ -11,4 +11,4 @@
 | string.go   | flags_string   | flag.String(), flag.StringVar() のサンプルです     |
 | duration.go | flags_duration | flag.Duration(), flag.DurationVar() のサンプルです |
 | func.go     | flags_func     | flag.Func() のサンプルです                         |
-|             |                |                                                    |
+| textvar.go  | flags_textvar  | flag.TextVar() のサンプルです                      |
