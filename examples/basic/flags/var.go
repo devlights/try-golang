@@ -69,4 +69,28 @@ func Var() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: flags_var
+
+	   [Name] "flags_var"
+	   [CALL]               fs.Var
+	   [CALL]               flag.Value.String()
+	   [CALL]               fs.Parse
+	   [CALL]               flag.Value.Set()
+	   [h]                  a.com
+	   [h]                  b.com
+	   [h]                  c.com
+	   [p]                  /path/to/a
+	   [p]                  /bin
+	   [p]                  /usr/bin
+
+
+	   [Elapsed] 54.86µs
+	*/
+
 }
