@@ -21,4 +21,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["flags_duration"] = Duration
 	m["flags_func"] = Func
 	m["flags_textvar"] = TextVar
+	m["flags_nargs"] = Nargs
 }
