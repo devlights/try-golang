@@ -10,4 +10,5 @@
 | bool.go     | flags_bool     | flag.Bool(), flag.BoolVar() のサンプルです         |
 | string.go   | flags_string   | flag.String(), flag.StringVar() のサンプルです     |
 | duration.go | flags_duration | flag.Duration(), flag.DurationVar() のサンプルです |
+| func.go     | flags_func     | flag.Func() のサンプルです                         |
 |             |                |                                                    |
