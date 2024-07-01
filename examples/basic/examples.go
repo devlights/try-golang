@@ -22,6 +22,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/errs"
 	"github.com/devlights/try-golang/examples/basic/fileio"
 	"github.com/devlights/try-golang/examples/basic/filepaths"
+	"github.com/devlights/try-golang/examples/basic/flags"
 	"github.com/devlights/try-golang/examples/basic/floatop"
 	"github.com/devlights/try-golang/examples/basic/formatting"
 	"github.com/devlights/try-golang/examples/basic/functions"
@@ -110,6 +111,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	errs.NewRegister().Regist(m)
 	fileio.NewRegister().Regist(m)
 	filepaths.NewRegister().Regist(m)
+	flags.NewRegister().Regist(m)
 	floatop.NewRegister().Regist(m)
 	formatting.NewRegister().Regist(m)
 	functions.NewRegister().Regist(m)
