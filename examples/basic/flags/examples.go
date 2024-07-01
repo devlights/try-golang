@@ -19,4 +19,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["flags_bool"] = Bool
 	m["flags_string"] = String
 	m["flags_duration"] = Duration
+	m["flags_func"] = Func
 }
