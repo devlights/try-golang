@@ -44,6 +44,8 @@ func (p *paths) Set(v string) error {
 // # REFERENCES
 //   - https://pkg.go.dev/flag@go1.22.4#Var
 //   - https://pkg.go.dev/flag@go1.22.4#Value
+//   - https://serverfault.com/a/846523
+//   - https://www.rfc-editor.org/rfc/rfc6761
 func Var() error {
 	var (
 		hs    hosts
@@ -58,7 +60,9 @@ func Var() error {
 	logfn("fs.Var", func() { fs.Var(&hs, "hosts", "host names. comma separated.") })
 	fs.Var(&ps, "paths", "path list. coron separated.")
 
-	logfn("fs.Parse", func() { fs.Parse([]string{"-hosts", "a.com,b.com,c.com", "-paths", "/path/to/a:/bin:/usr/bin"}) })
+	logfn("fs.Parse", func() {
+		fs.Parse([]string{"-hosts", "example.invalid,dummy.local,my.test", "-paths", "/path/to/a:/bin:/usr/bin"})
+	})
 
 	for _, h := range hs {
 		output.Stdoutl("[h]", h)
@@ -71,26 +75,26 @@ func Var() error {
 	return nil
 
 	/*
-	   $ task
-	   task: [build] go build .
-	   task: [run] ./try-golang -onetime
+		$ task
+		task: [build] go build .
+		task: [run] ./try-golang -onetime
 
-	   ENTER EXAMPLE NAME: flags_var
+		ENTER EXAMPLE NAME: flags_var
 
-	   [Name] "flags_var"
-	   [CALL]               fs.Var
-	   [CALL]               flag.Value.String()
-	   [CALL]               fs.Parse
-	   [CALL]               flag.Value.Set()
-	   [h]                  a.com
-	   [h]                  b.com
-	   [h]                  c.com
-	   [p]                  /path/to/a
-	   [p]                  /bin
-	   [p]                  /usr/bin
+		[Name] "flags_var"
+		[CALL]               fs.Var
+		[CALL]               flag.Value.String()
+		[CALL]               fs.Parse
+		[CALL]               flag.Value.Set()
+		[h]                  example.invalid
+		[h]                  dummy.local
+		[h]                  my.test
+		[p]                  /path/to/a
+		[p]                  /bin
+		[p]                  /usr/bin
 
 
-	   [Elapsed] 54.86µs
+		[Elapsed] 86µs
 	*/
 
 }
