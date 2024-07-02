@@ -18,4 +18,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["bufferop_from_bytes"] = FromBytes
 	m["bufferop_use_as_reader"] = UseAsReader
 	m["bufferop_use_as_writer"] = UseAsWriter
+	m["bufferop_available_buffer"] = AvailableBuffer
 }
