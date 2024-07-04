@@ -70,6 +70,8 @@ $ task test
   - データベースのサンプルはこちらで管理しています。
 - [try-golang-cgo](https://github.com/devlights/try-golang-cgo)
   - CGOのサンプルはこちらで管理しています。
+- [try-golang-network](https://github.com/devlights/try-golang-network)
+  - ネットワークのサンプルはこちらで管理しています。
 - [go-crosscompile-example](https://github.com/devlights/go-crosscompile-example)
   - Goでクロスコンパイルを行うサンプルです。
 - [go-grpc-uds-example](https://github.com/devlights/go-grpc-uds-example)
