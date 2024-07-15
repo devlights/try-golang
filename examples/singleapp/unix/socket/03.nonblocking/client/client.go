@@ -73,16 +73,25 @@ func run() error {
 	for {
 		copy(buf, []byte(msg))
 
-		_, err = unix.Write(sfd, buf[:len(msg)])
+		err = unix.Send(sfd, buf[:len(msg)], 0)
 		if err != nil {
-			if errors.Is(err, unix.EAGAIN) {
+			// 基本的に大抵のOSでは EAGAIN と EWOULDBLOCK は同じコードを示す (0xb) ので
+			// EAGAINのみを見ていれば良いが、man send(2)の記載では EAGAIN または EWOULDBLOCK を返すと
+			// 記載があるため、両方見ておくのが無難。
+			//
+			// send(2)
+			//   - https://ja.manpages.org/send/2
+			switch {
+			case errors.Is(err, unix.EAGAIN):
 				log.Println("[CLIENT][SEND] --> unix.EAGAIN")
-
-				time.Sleep(100 * time.Millisecond)
-				continue
+			case errors.Is(err, unix.EWOULDBLOCK):
+				log.Println("[CLIENT][SEND] --> unix.EWOULDBLOCK")
+			default:
+				return err
 			}
 
-			return err
+			time.Sleep(100 * time.Millisecond)
+			continue
 		}
 
 		log.Printf("[CLIENT] SEND %s", msg)
@@ -101,14 +110,23 @@ func run() error {
 
 		n, err = unix.Read(sfd, buf)
 		if err != nil {
-			if errors.Is(err, unix.EAGAIN) {
+			// 基本的に大抵のOSでは EAGAIN と EWOULDBLOCK は同じコードを示す (0xb) ので
+			// EAGAINのみを見ていれば良いが、man send(2)の記載では EAGAIN または EWOULDBLOCK を返すと
+			// 記載があるため、両方見ておくのが無難。
+			//
+			// read(2)
+			//   - https://ja.manpages.org/read/2
+			switch {
+			case errors.Is(err, unix.EAGAIN):
 				log.Println("[CLIENT][RECV] --> unix.EAGAIN")
-
-				time.Sleep(50 * time.Millisecond)
-				continue
+			case errors.Is(err, unix.EWOULDBLOCK):
+				log.Println("[CLIENT][RECV] --> unix.EWOULDBLOCK")
+			default:
+				return err
 			}
 
-			return err
+			time.Sleep(50 * time.Millisecond)
+			continue
 		}
 
 		log.Printf("[CLIENT] RECV %s", buf[:n])

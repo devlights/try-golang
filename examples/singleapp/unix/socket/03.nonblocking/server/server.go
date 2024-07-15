@@ -93,8 +93,8 @@ func run() error {
 	for {
 		cfd, cAddr, err = unix.Accept(sfd)
 		if err != nil {
-			if errors.Is(err, unix.EAGAIN) {
-				log.Println("[SERVER][ACCEPT] --> unix.EGAIN")
+			if errors.Is(err, unix.EAGAIN) || errors.Is(err, unix.EWOULDBLOCK) {
+				log.Println("[SERVER][ACCEPT] --> unix.EAGAIN")
 
 				time.Sleep(100 * time.Millisecond)
 				continue
@@ -134,8 +134,12 @@ func run() error {
 	if err != nil {
 		return err
 	}
-
 	log.Printf("[SERVER] RECV %s", string(buf[:n]))
+
+	// クライアントから受信した値を使って「何かの処理」を行った後に
+	// クライアント側に返送するという流れをシミュレートするために
+	// 意図的に少しディレイを入れる
+	time.Sleep(150 * time.Millisecond)
 
 	//
 	// Send
@@ -152,7 +156,6 @@ func run() error {
 		if err != nil {
 			return err
 		}
-
 		log.Printf("[SERVER] SEND %s", buf[:len(msg)])
 	}
 
