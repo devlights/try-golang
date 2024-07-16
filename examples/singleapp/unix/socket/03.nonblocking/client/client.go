@@ -86,6 +86,8 @@ func run() error {
 				log.Println("[CLIENT][SEND] --> unix.EAGAIN")
 			case errors.Is(err, unix.EWOULDBLOCK):
 				log.Println("[CLIENT][SEND] --> unix.EWOULDBLOCK")
+			case errors.Is(err, unix.EINTR):
+				log.Println("[CLIENT][SEND] --> unix.EINTR")
 			default:
 				return err
 			}
@@ -121,6 +123,8 @@ func run() error {
 				log.Println("[CLIENT][RECV] --> unix.EAGAIN")
 			case errors.Is(err, unix.EWOULDBLOCK):
 				log.Println("[CLIENT][RECV] --> unix.EWOULDBLOCK")
+			case errors.Is(err, unix.EINTR):
+				log.Println("[CLIENT][RECV] --> unix.EINTR")
 			default:
 				return err
 			}

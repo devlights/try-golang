@@ -93,7 +93,7 @@ func run() error {
 	for {
 		cfd, cAddr, err = unix.Accept(sfd)
 		if err != nil {
-			if errors.Is(err, unix.EAGAIN) || errors.Is(err, unix.EWOULDBLOCK) {
+			if errors.Is(err, unix.EAGAIN) || errors.Is(err, unix.EWOULDBLOCK) || errors.Is(err, unix.EINTR) {
 				log.Println("[SERVER][ACCEPT] --> unix.EAGAIN")
 
 				time.Sleep(100 * time.Millisecond)
