@@ -1,0 +1,18 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  APP_NAME: app
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  build:
+    cmds:
+      - go build -o {{.APP_NAME}}{{.exeExt}} .
+  run:
+    deps: [ build ]
+    cmds:
+      - ./{{.APP_NAME}}{{.exeExt}}
