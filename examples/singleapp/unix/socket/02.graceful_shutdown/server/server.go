@@ -147,6 +147,8 @@ LOOP:
 				log.Printf("[SERVER] 切断検知 (%s)", sysErr)
 				break LOOP
 			}
+
+			return err
 		default:
 			log.Printf("[SERVER] RECV %s", buf[:n])
 		}
