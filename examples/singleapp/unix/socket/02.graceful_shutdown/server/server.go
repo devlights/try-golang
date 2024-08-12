@@ -142,9 +142,8 @@ LOOP:
 			log.Println("[SERVER] 切断検知 (0 byte read)")
 			break LOOP
 		case err != nil:
-			var sysErr unix.Errno
-			if errors.As(err, &sysErr); sysErr == unix.ECONNRESET {
-				log.Printf("[SERVER] 切断検知 (%s)", sysErr)
+			if errors.Is(err, unix.ECONNRESET) {
+				log.Printf("[SERVER] 切断検知 (%s)", err)
 				break LOOP
 			}
 

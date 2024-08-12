@@ -93,14 +93,19 @@ func run() error {
 	for {
 		cfd, cAddr, err = unix.Accept(sfd)
 		if err != nil {
-			if errors.Is(err, unix.EAGAIN) || errors.Is(err, unix.EWOULDBLOCK) || errors.Is(err, unix.EINTR) {
+			switch {
+			case errors.Is(err, unix.EAGAIN):
 				log.Println("[SERVER][ACCEPT] --> unix.EAGAIN")
-
-				time.Sleep(100 * time.Millisecond)
-				continue
+			case errors.Is(err, unix.EWOULDBLOCK):
+				log.Println("[SERVER][ACCEPT] --> unix.EWOULDBLOCK")
+			case errors.Is(err, unix.EINTR):
+				log.Println("[SERVER][ACCEPT] --> unix.EINTR")
+			default:
+				return err
 			}
 
-			return err
+			time.Sleep(100 * time.Millisecond)
+			continue
 		}
 
 		break
@@ -178,9 +183,8 @@ LOOP:
 			log.Println("[SERVER] 切断検知 (0 byte read)")
 			break LOOP
 		case err != nil:
-			var sysErr unix.Errno
-			if errors.As(err, &sysErr); sysErr == unix.ECONNRESET {
-				log.Printf("[SERVER] 切断検知 (%s)", sysErr)
+			if errors.Is(err, unix.ECONNRESET) {
+				log.Printf("[SERVER] 切断検知 (%s)", err)
 				break LOOP
 			}
 
