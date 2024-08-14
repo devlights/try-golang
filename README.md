@@ -3,7 +3,7 @@
 
 This is my TUTORIAL project for golang
 
-![try-golang - Go Version](https://img.shields.io/badge/go-1.22-blue.svg)
+![try-golang - Go Version](https://img.shields.io/badge/go-1.23-blue.svg)
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/devlights/try-golang)
@@ -19,13 +19,21 @@ Release:        22.04
 Codename:       jammy
 
 $ go version
-go version go1.22.3 linux/amd64
+go version go1.23.0 linux/amd64
 
 $ task build
 task: [build] go build .
 
-$ go version try-golang
-try-golang: go1.22.3
+$ ./try-golang -help
+Usage of ./try-golang:
+  -example string
+        name of example
+  -list
+        show all example names
+  -onetime
+        run only one time
+  -vscode
+        run with vscode
 ```
 
 ## Run
