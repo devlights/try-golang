@@ -43,6 +43,7 @@ func ByteSliceToString() error {
 	// 普通に変換
 	// -------------------------------------
 	elapsed := times.Stopwatch(func(start time.Time) {
+		//lint:ignore SA6006 It's ok because this is just a example.
 		io.WriteString(io.Discard, string(b))
 	})
 	fmt.Printf("[normal] %v\n", elapsed)

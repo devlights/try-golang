@@ -76,7 +76,7 @@ LOOP:
 		case <-done:
 			// 非同期処理が終わったのでメインの出力に切り替え
 			// 再びこのチャネルが select で選択されないように nil を設定しておく
-			//lint:ignore SA1015 サンプルなのでOK
+			// Go 1.22まではtime.Tickはリークの危険がある。Go 1.23 から改善されて気にしなくて良くなった。
 			tick = time.Tick(500 * time.Millisecond)
 			done = nil
 

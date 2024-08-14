@@ -31,7 +31,7 @@ func RuntimeMemoryStats() error {
 	wg.Add(1)
 	go func(ctx context.Context, wg *sync.WaitGroup) {
 		var (
-			tick  = time.Tick(500 * time.Millisecond) //lint:ignore SA1015 time.Tickはリークの危険があることは認識済み
+			tick  = time.Tick(500 * time.Millisecond) // Go 1.22まではtime.Tickはリークの危険がある。Go 1.23 から改善されて気にしなくて良くなった。
 			count = 0
 			items = make([][]byte, 0, 5)
 		)
@@ -59,7 +59,7 @@ func RuntimeMemoryStats() error {
 	wg.Add(1)
 	go func(ctx context.Context, wg *sync.WaitGroup) {
 		var (
-			tick  = time.Tick(2000 * time.Millisecond) //lint:ignore SA1015 time.Tickはリークの危険があることは認識済み
+			tick  = time.Tick(2000 * time.Millisecond) // Go 1.22まではtime.Tickはリークの危険がある。Go 1.23 から改善されて気にしなくて良くなった。
 			count = 0
 		)
 
