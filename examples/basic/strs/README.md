@@ -13,3 +13,4 @@
 | diff_trimright_trimsuffix.go | string_diff_trimright_trimsuffix | strings.TrimRight と strings.TrimSuffix のちょっとした違いについてのサンプルです. |
 | using_string_clone.go        | string_using_clone               | Go 1.18 で追加された strings.Clone() のサンプルです                               |
 | trimspace.go                 | string_trim_space                | strings.TrimSpace() のサンプルです.                                               |
+| random_string.go             | string_random_string             | 指定された文字数のランダム文字列を作成するサンプルです.                           |
