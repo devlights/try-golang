@@ -1,7 +1,7 @@
 
 # try-golang
 
-This is my TUTORIAL project for golang
+This is my TUTORIAL project for golang.
 
 ![try-golang - Go Version](https://img.shields.io/badge/go-1.23-blue.svg)
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
@@ -72,6 +72,8 @@ $ task test
   - 共通ライブラリ
 - [goxcel](https://github.com/devlights/goxcel)
   - Excel操作ライブラリ (go-ole利用)
+- [gord](https://github.com/devlights/gord)
+  - Word操作ライブラリ (go-ole利用)
 - [try-golang-extlib](https://github.com/devlights/try-golang-extlib)
   - 3rd party ライブラリのサンプルはこちらで管理しています。
 - [try-golang-db](https://github.com/devlights/try-golang-db)
