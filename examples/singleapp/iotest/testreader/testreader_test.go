@@ -12,7 +12,7 @@ type (
 	// ASCIIのみ対応しており、それ以外の文字コードの場合はそのままとなります。
 	UppercaseReader struct {
 		r io.Reader
-		l func(format string, args ...any)
+		t *testing.T
 	}
 )
 
@@ -22,7 +22,7 @@ func (me *UppercaseReader) Read(p []byte) (n int, err error) {
 	}
 
 	n, err = me.r.Read(p)
-	me.l("len(p)==%2d\tn==%2d\terr==%v", len(p), n, err)
+	me.t.Logf("len(p)==%2d\tn==%2d\terr==%v", len(p), n, err)
 
 	for i := 0; i < n; i++ {
 		if p[i] >= 'a' && p[i] <= 'z' {
@@ -37,7 +37,7 @@ func TestUppercaseReader(t *testing.T) {
 	var (
 		input    = "hello"
 		expected = "HELLO"
-		reader   = UppercaseReader{r: strings.NewReader(input), l: t.Logf}
+		reader   = UppercaseReader{r: strings.NewReader(input), t: t}
 		err      error
 	)
 
