@@ -24,4 +24,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["string_using_clone"] = UsingStringsClone
 	m["string_trim_space"] = TrimSpace
 	m["string_random_string"] = RandomString
+	m["string_split_fields"] = SplitFields
 }
