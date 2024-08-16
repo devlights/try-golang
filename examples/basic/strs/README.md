@@ -14,3 +14,4 @@
 | using_string_clone.go        | string_using_clone               | Go 1.18 で追加された strings.Clone() のサンプルです                               |
 | trimspace.go                 | string_trim_space                | strings.TrimSpace() のサンプルです.                                               |
 | random_string.go             | string_random_string             | 指定された文字数のランダム文字列を作成するサンプルです.                           |
+| split_fields.go              | string_split_fields              | strings.Fields() のサンプルです.                                                  |
