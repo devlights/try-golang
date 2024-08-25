@@ -71,9 +71,9 @@ fabric.properties
 tags
 
 .task/
-try-golang
 bin/
 .target
 chinook.db
 *.swp
 *.log
+try-golang*

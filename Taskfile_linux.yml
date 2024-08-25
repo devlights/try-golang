@@ -3,5 +3,5 @@ version: "3"
 
 tasks:
   clean:
-    - go clean
-    - rm -rf ./.task
+    - rm -f try-golang{{exeExt}}
+    #- rm -rf ./.task

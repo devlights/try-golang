@@ -1,6 +1,9 @@
 # https://github.com/go-task/task
 version: "3"
 
+vars:
+  APP_NAME: try-golang
+
 includes:
   OS:
     taskfile: ./Taskfile_{{OS}}.yml
@@ -13,18 +16,14 @@ tasks:
       - task: run
   build:
     desc: Build app
+    dir: cmd/{{.APP_NAME}}
     cmds:
-      - go build .
-    sources:
-      - ./**/*.go
-    generates:
-      - try-golang{{exeExt}}
-    method: timestamp
+      - go build -o {{.ROOT_DIR}}/{{.APP_NAME}}{{exeExt}} .
   run:
     desc: Run app
     deps: [build]
     cmds:
-      - cmd: ./try-golang{{exeExt}} -onetime
+      - cmd: ./{{.APP_NAME}}{{exeExt}} -onetime
         ignore_error: true
   test:
     desc: Test
