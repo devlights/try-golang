@@ -38,8 +38,8 @@ Usage of ./try-golang:
 
 ## Run
 
-```shell script
-$ go run main.go
+```sh
+$ go run ./cmd/try-golang
 ```
 
 If you want to use [go-task](https://github.com/go-task/task), type the following command.
