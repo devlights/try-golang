@@ -32,7 +32,7 @@ func run() error {
 	}
 	defer func() {
 		log.Println("[CLIENT] ソケットクローズ")
-		unix.Close(sfd)
+		_ = unix.Close(sfd)
 	}()
 
 	var (
@@ -58,7 +58,7 @@ func run() error {
 		buf = make([]byte, 2048)
 		msg = "helloworld"
 	)
-	copy(buf, []byte(msg))
+	copy(buf, msg)
 
 	err = unix.Send(sfd, buf[:len(msg)], 0)
 	if err != nil {
