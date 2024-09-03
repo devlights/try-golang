@@ -18,7 +18,7 @@ tasks:
     desc: Build app
     dir: cmd/{{.APP_NAME}}
     cmds:
-      - go build -o {{.ROOT_DIR}}/{{.APP_NAME}}{{exeExt}} .
+      - go build -o "{{.ROOT_DIR}}/{{.APP_NAME}}{{exeExt}}" .
   run:
     desc: Run app
     deps: [build]
