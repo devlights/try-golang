@@ -1,7 +1,7 @@
 FROM gitpod/workspace-base:latest
 
 USER gitpod
-ENV GO_VERSION=1.23.0
+ENV GO_VERSION=1.23.1
 
 # For ref, see: https://github.com/gitpod-io/workspace-images/blob/61df77aad71689504112e1087bb7e26d45a43d10/chunks/lang-go/Dockerfile#L10
 ENV GOPATH=$HOME/go-packages
