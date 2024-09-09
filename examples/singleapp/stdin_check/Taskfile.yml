@@ -1,0 +1,13 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - cmd: go run main.go
+        ignore_error: true
+      - cmd: echo helloworld | go run main.go
+      - cmd: echo helloworld > test.txt
+      - defer: rm -f test.txt
+      - cmd: go run main.go < test.txt
