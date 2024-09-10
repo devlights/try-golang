@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"io/fs"
 	"log"
 	"os"
 )
@@ -12,19 +13,6 @@ func main() {
 	if err := run(); err != nil {
 		log.Fatal(err)
 	}
-
-	/*
-	   $ task
-	   task: [default] go run main.go
-	   データが渡されていません。標準入力からデータを入力してください。
-	   exit status 1
-	   task: [default] echo helloworld | go run main.go
-	   OK
-	   task: [default] echo helloworld > test.txt
-	   task: [default] go run main.go < test.txt
-	   OK
-	   task: [default] rm -f test.txt
-	*/
 }
 
 func run() error {
@@ -36,11 +24,22 @@ func run() error {
 		return err
 	}
 
-	if (stat.Mode() & os.ModeCharDevice) != 0 {
+	mode := stat.Mode()
+	show(mode)
+
+	if (mode & os.ModeCharDevice) != 0 {
 		return errors.New("データが渡されていません。標準入力からデータを入力してください。")
 	}
 
-	log.Println("OK")
-
 	return nil
+}
+
+func show(mode fs.FileMode) {
+	log.Printf("Mode:         %v", mode)
+	log.Printf("Is Directory: %v", mode.IsDir())
+	log.Printf("Is Regular:   %v", mode.IsRegular())
+	log.Printf("Permissions:  %v", mode.Perm())
+	log.Printf("Mode string:  %s", mode.String())
+	log.Printf("Char device?  %v", (mode & os.ModeCharDevice))
+	log.Printf("Named Pipe?   %v", (mode & os.ModeNamedPipe))
 }
