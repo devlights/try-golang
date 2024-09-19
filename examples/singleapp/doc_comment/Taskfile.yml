@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  APP_NAME: app
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  build:
+    cmds:
+      - go build -o {{.APP_NAME}}{{exeExt}} .
+    sources:
+      - ./*.go
+    generates:
+      - ./{{.APP_NAME}}{{exeExt}}
+  run:
+    deps: [ build ]
+    cmds:
+      - for: [ '-h', '-md', '-html', '-comment', '-text' ]
+        cmd: ./{{.APP_NAME}}{{exeExt}} {{.ITEM}}
