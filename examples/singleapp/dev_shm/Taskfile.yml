@@ -1,0 +1,24 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run-write
+      - defer: rm -f /dev/shm/test1
+      - task: run-read
+      - task: run-readwrite
+      - defer: rm -f /dev/shm/test2
+  run-write:
+    dir: write
+    cmds:
+      - go run main.go
+  run-read:
+    dir: read
+    cmds:
+      - go run main.go    
+  run-readwrite:
+    dir: readwrite
+    cmds:
+      - go run main.go
