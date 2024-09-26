@@ -10,3 +10,4 @@ Go 1.21 にて導入された ```log/slog``` パッケージについてのサ�
 - [Go1.21 log/slogパッケージ超入門](https://zenn.dev/88888888_kota/articles/7e97ff874083cf)
 - [Go公式の構造化ロガー（として提案されている）slogを触ってみたメモ](https://zenn.dev/mizutani/articles/golang-exp-slog)
 - [slog を触る(Group, Context)](https://zenn.dev/kyoshigai/articles/bc90cc776dea2c#context)
+- [構造化ログと実装 -Goのslogによる実践-](https://blog.cybozu.io/entry/2024/08/07/080000)
