@@ -9,6 +9,7 @@ Go 1.21 にて導入された ```log/slog``` パッケージについてのサ�
 - [A Guide to Writing slog Handlers](https://github.com/golang/example/blob/master/slog-handler-guide/README.md)
 - [awesome-slog](https://github.com/go-slog/awesome-slog)
 - [Goのslog使い方まとめ](https://qiita.com/Imamotty/items/3fbe8ce6da4f1a653fae)
+- [Go1.21で登場したlog/slogパッケージのパフォーマンスを徹底解説！！](https://zenn.dev/kkkxxx/articles/0843dc3b42ac7f)
 - [Go1.21 log/slogパッケージ超入門](https://zenn.dev/88888888_kota/articles/7e97ff874083cf)
 - [Go公式の構造化ロガー（として提案されている）slogを触ってみたメモ](https://zenn.dev/mizutani/articles/golang-exp-slog)
 - [slog を触る(Group, Context)](https://zenn.dev/kyoshigai/articles/bc90cc776dea2c#context)
