@@ -22,5 +22,5 @@ RUN go install golang.org/x/tools/gopls@latest
 RUN printf '%s\n' 'export GOPATH=/workspace/go' \
                       'export PATH=$GOPATH/bin:$PATH' > $HOME/.bashrc.d/300-go
 
-RUN sudo apt update && sudo apt install -y universal-ctags tree nkf wamerican
+RUN sudo apt update && sudo apt install -y universal-ctags tree nkf wamerican miller
 
