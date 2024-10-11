@@ -27,16 +27,11 @@ func main() {
 	var (
 		rootCtx          = context.Background()
 		mainCtx, mainCxl = context.WithTimeoutCause(rootCtx, TIMEOUT, ErrTooSlow)
+		procCtx          = run(mainCtx)
+		err              error
 	)
 	defer mainCxl()
 
-	log.Println("START")
-	defer log.Println("END")
-
-	var (
-		procCtx = run(mainCtx)
-		err     error
-	)
 	select {
 	case <-mainCtx.Done():
 		err = context.Cause(mainCtx)
