@@ -12,21 +12,23 @@ import (
 )
 
 const (
-	TIMEOUT = time.Second
+	MainTimeout = time.Second
+	ProcTimeout = 200*time.Millisecond
 )
 
 var (
-	ErrTooSlow = errors.New("too slow")
+	ErrMainTooSlow = errors.New("(MAIN) TOO SLOW")
+	ErrProcTooSlow = errors.New("(PROC) TOO SLOW")
 )
 
 func init() {
-	log.SetFlags(log.Lmicroseconds)
+	log.SetFlags(0)
 }
 
 func main() {
 	var (
 		rootCtx          = context.Background()
-		mainCtx, mainCxl = context.WithTimeoutCause(rootCtx, TIMEOUT, ErrTooSlow)
+		mainCtx, mainCxl = context.WithTimeoutCause(rootCtx, MainTimeout, ErrMainTooSlow)
 		procCtx          = run(mainCtx)
 		err              error
 	)
@@ -53,6 +55,10 @@ func run(pCtx context.Context) context.Context {
 
 	go func() {
 		cxl(proc(ctx))
+	}()
+	go func() {
+		<-time.After(ProcTimeout)
+		cxl(ErrProcTooSlow)
 	}()
 
 	return ctx
