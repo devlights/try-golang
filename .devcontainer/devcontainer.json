@@ -20,7 +20,8 @@
 		"vscode": {
 			"extensions": [
 				"golang.go",
-				"Catppuccin.catppuccin-vsc"
+				"Catppuccin.catppuccin-vsc",
+				"vscodevim.vim"
 			]
 		}
 	}
