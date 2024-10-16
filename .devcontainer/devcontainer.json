@@ -15,7 +15,15 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "/bin/sh .devcontainer/postCreateCommand.sh"
+	"postCreateCommand": "/bin/sh .devcontainer/postCreateCommand.sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"golang.go",
+				"Catppuccin.catppuccin-vsc"
+			]
+		}
+	}
 
 	// Configure tool-specific properties.
 	// "customizations": {},
