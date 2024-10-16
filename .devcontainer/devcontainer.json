@@ -3,19 +3,9 @@
 {
 	"name": "Go",
 	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-	"image": "mcr.microsoft.com/devcontainers/go:1-1.22-bookworm",
+	"image": "mcr.microsoft.com/devcontainers/go:1-1-bookworm",
 	"features": {
-		"ghcr.io/devcontainers/features/go:1": {
-			"version": "latest"
-		}
-	},
-	"customizations": {
-		"vscode": {
-			"extensions": [
-				"golang.go",
-				"Catppuccin.catppuccin-vsc"
-			]
-		}
+		"ghcr.io/devcontainers/features/go:1": {}
 	},
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
