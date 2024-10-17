@@ -1,0 +1,14 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  run:
+    cmds:
+      - go run main.go
+      - defer: rm -rf /tmp/try-golang
+      - ls -1 /tmp/try-golang/slog-example
+      - cat /tmp/try-golang/slog-example/*.log
