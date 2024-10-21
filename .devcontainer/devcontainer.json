@@ -19,7 +19,7 @@
 			"extensions": [
 				"golang.go",
 				"Catppuccin.catppuccin-vsc",
-				"vscodevim.vim"
+				"Catppuccin.catppuccin-vsc-icons"
 			]
 		}
 	}
