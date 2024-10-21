@@ -1,0 +1,14 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  C_APP: capp
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  build:
+    cmds:
+      - gcc -o ../{{.C_APP}}{{exeExt}} main.c

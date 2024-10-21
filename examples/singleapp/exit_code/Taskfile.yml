@@ -1,0 +1,28 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  C_APP: capp
+  GO_APP: goapp
+
+includes:
+  C:
+    taskfile: ./c/Taskfile.yml
+    dir: ./c
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  build:
+    cmds:
+      - task: C:build
+      - go build -o {{.GO_APP}}{{exeExt}} main.go
+  run:
+    deps: [ build ]
+    cmds:
+      - ./{{.GO_APP}}{{exeExt}} "./{{.C_APP}}{{exeExt}}"
+  clean:
+    cmds:
+      - rm -f ./{{.C_APP}}{{exeExt}} ./{{.GO_APP}}{{exeExt}}
