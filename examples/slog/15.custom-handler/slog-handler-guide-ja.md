@@ -117,9 +117,15 @@ We can now talk about the four `Handler` methods in detail.
 Along the way, we will write a handler that formats logs using a format
 reminiscent of YAML. It will display this log output call:
 
+> これで4つのハンドラーメソッドについて詳しく説明できます。 途中で、YAMLを連想させるフォーマットを使ってログをフォーマットするハンドラーを書きます。 このログ出力は以下のように呼び出します：
+
+
     logger.Info("hello", "key", 23)
 
 something like this:
+
+> こんな感じです
+
 
     time: 2023-05-15T16:29:00
     level: INFO
@@ -133,8 +139,12 @@ so it will sometimes produce invalid YAML.
 For example, it doesn't quote keys that have colons in them.
 We'll call it `IndentHandler` to forestall disappointment.
 
+> この特定の出力は有効なYAMLですが、私たちの実装はYAMLの構文の繊細さを考慮していないので、ときどき無効なYAMLを生成します。 たとえば、コロンを含むキーを引用しません。 がっかりしないように、IndentHandlerと呼ぶことにしよう。
+
 We begin with the `IndentHandler` type
 and the `New` function that constructs it from an `io.Writer` and options:
+
+> IndentHandler型と、それをio.Writerとオプションから構築するNew関数から始めます:
 
 ```
 type IndentHandler struct {
@@ -173,19 +183,27 @@ If the user instead passes a `LevelVar`, then a single change to that `LevelVar`
 will change the behavior of all handlers that contain it.
 Changes to `LevelVar`s are goroutine-safe.
 
+> 詳細なログ出力を抑制するための最小レベルを設定する機能です。 ハンドラは常にこのオプションをslog.Levelerであると宣言する必要があります。 slog.LevelerインターフェイスはLevelとLevelVarの両方によって実装されます。 Level 値をユーザが提供するのは簡単ですが、複数のハンドラのレベルを変更するには、それらすべてを追跡する必要があります。 代わりにユーザが LevelVar を渡す場合、その LevelVar への単一の変更は、それを含むすべてのハンドラの動作を変更します。 LevelVar への変更はゴルーチンセーフです。
+
 You might also consider adding a `ReplaceAttr` option to your handler,
 like the [one for the built-in
 handlers](https://pkg.go.dev/log/slog#HandlerOptions.ReplaceAttr).
 Although `ReplaceAttr` will complicate your implementation, it will also
 make your handler more generally useful.
 
+> また、ビルトインハンドラのように、ReplaceAttrオプションをハンドラに追加することも考えてみてください。 ReplaceAttrは実装を複雑にしますが、ハンドラをより一般的に使えるようにします。
+
 The mutex will be used to ensure that writes to the `io.Writer` happen atomically.
 Unusually, `IndentHandler` holds a pointer to a `sync.Mutex` rather than holding a
 `sync.Mutex` directly.
 There is a good reason for that, which we'll explain [later](#getting-the-mutex-right).
 
+> このミューテックスは、io.Writerへの書き込みがアトミックに行われるようにするために使用される。 珍しいことに、IndentHandlerはsync.Mutexを直接保持するのではなく、sync.Mutexへのポインタを保持する。 これには理由があり、後で説明する。
+
 Our handler will need additional state to track calls to `WithGroup` and `WithAttrs`.
 We will describe that state when we get to those methods.
+
+> 私たちのハンドラーは、WithGroupとWithAttrsの呼び出しを追跡するために追加のステートを必要とする。 このステートについては、これらのメソッドのところで説明する。
 
 ## The `Enabled` method
 
@@ -193,7 +211,12 @@ The `Enabled` method is an optimization that can avoid unnecessary work.
 A `Logger` output method will call `Enabled` before it processes any of its arguments,
 to see if it should proceed.
 
+> Enabledメソッドは、不要な作業を回避する最適化です。 ロガーの出力メソッドは、引数を処理する前にEnabledを呼び出し、処理を続行するかどうかを確認します。
+
 The signature is
+
+> シグネチャは
+
 
     Enabled(context.Context, Level) bool
 
@@ -204,8 +227,12 @@ A handler's `Enabled` method could report whether the argument level
 is greater than or equal to the context value, allowing the verbosity
 of the work done by each request to be controlled independently.
 
+> コンテキストは、コンテキスト情報に基づいた決定を可能にするために 利用できる。 例えば、カスタムHTTPリクエストヘッダは最小レベルを指定することができ、 サーバはそのリクエストの処理に使われるコンテキストにそれを追加する。 ハンドラの Enabled メソッドは、引数レベルがコンテキスト値以上であるかどうかを 報告することができ、各リクエストで行われる処理の冗長性を独立に制御することが できます。
+
 Our `IndentHandler` doesn't use the context. It just compares the argument level
 with its configured minimum level:
+
+> 私たちのIndentHandlerはコンテキストを使用しません。 引数のレベルを設定された最小レベルと比較するだけです：
 
 ```
 func (h *IndentHandler) Enabled(ctx context.Context, level slog.Level) bool {
@@ -222,7 +249,12 @@ One way is to output the `Record` in some format, as `TextHandler` and `JSONHand
 But other options are to modify the `Record` and pass it on to another handler,
 enqueue the `Record` for later processing, or ignore it.
 
+> Handleメソッドは、Logger出力メソッドへの1回の呼び出しでログに記録されるすべての情報を含むRecordを渡されます。 Handleメソッドは、何らかの方法でそれを処理する必要があります。 一つの方法は、TextHandlerやJSONHandlerが行うように、何らかのフォーマットでRecordを出力することです。 しかし、他のオプションとしては、Recordを修正して別のハンドラに渡す、後で処理するためにRecordをエンキューする、または無視する、などがあります。
+
 The signature of `Handle` is
+
+> `Handle` メソッドのシグネチャは
+
 
     Handle(context.Context, Record) error
 
@@ -230,28 +262,46 @@ The context is provided to support applications that provide logging information
 along the call chain. In a break with usual Go practice, the `Handle` method
 should not treat a canceled context as a signal to stop work.
 
+> コンテキストは、コールチェーンに沿ってロギング情報を提供するアプリケーションをサポートするために提供されます。 通常のGoの慣習に反して、Handleメソッドはキャンセルされたコンテキストを作業を停止するシグナルとして扱うべきではありません。
+
 If `Handle` processes its `Record`, it should follow the rules in the
 [documentation](https://pkg.go.dev/log/slog#Handler.Handle).
 For example, a zero `Time` field should be ignored, as should zero `Attr`s.
 
+> HandleがそのRecordを処理する場合、ドキュメントのルールに従うべきである。 例えば、ゼロのTimeフィールドは、ゼロのAttrsと同様に無視されるべきです。
+
 A `Handle` method that is going to produce output should carry out the following steps:
+
+> 出力を行う `Handle` メソッドは、以下のステップを実行しなければなりません：
 
 1. Allocate a buffer, typically a `[]byte`, to hold the output.
 It's best to construct the output in memory first,
 then write it with a single call to `io.Writer.Write`,
 to minimize interleaving with other goroutines using the same writer.
 
+> バッファ（通常は[]byte）を確保し、出力を保持する。 同じライターを使用する他のゴルーチンとのインターリーブを最小限にするために、最初にメモリ上に出力を構築し、io.Writer.Writeを1回呼び出すだけで書き込むのが最善です。
+
 2. Format the special fields: time, level, message, and source location (PC).
 As a general rule, these fields should appear first and are not nested in
 groups established by `WithGroup`.
 
+> 時間、レベル、メッセージ、およびソースの場所 (PC) という特別なフィールドをフォーマットします。 一般的なルールとして、これらのフィールドは最初に表示され、WithGroup によって確立されたグループにネストされません。
+
 3. Format the result of `WithGroup` and `WithAttrs` calls.
+
+> WithGroupおよびWithAttrs呼び出しの結果をフォーマットする。
 
 4. Format the attributes in the `Record`.
 
+> レコードの属性をフォーマットする。
+
 5. Output the buffer.
 
+> バッファを出力する。
+
 That is how `IndentHandler.Handle` is structured:
+
+> `IndentHandler.Handle`の構造は以下のようになります:
 
 ```
 func (h *IndentHandler) Handle(ctx context.Context, r slog.Record) error {
@@ -288,11 +338,17 @@ happen when the initial slice is empty or small.
 We'll return to this line in the section on [speed](#speed)
 and show how we can do even better.
 
+> 最初の行は、ほとんどのログ出力に十分な大きさの `[]byte` を割り当てています。 初期のかなり大きな容量のバッファを割り当てることは、単純だが重要な最適化です。 速度に関するセクションでこの行に戻り、さらに良い方法を示します。
+
 The next part of our `Handle` method formats the special attributes,
 observing the rules to ignore a zero time and a zero PC.
 
+> Handleメソッドの次の部分は、時間ゼロとPCゼロを無視するルールを守って、特別な属性をフォーマットします。
+
 Next, the method processes the result of `WithAttrs` and `WithGroup` calls.
 We'll skip that for now.
+
+> 次に、このメソッドはWithAttrsとWithGroupの呼び出しの結果を処理します。今は省略します。
 
 Then it's time to process the attributes in the argument record.
 We use the `Record.Attrs` method to iterate over the attributes
@@ -300,13 +356,19 @@ in the order the user passed them to the `Logger` output method.
 Handlers are free to reorder or de-duplicate the attributes,
 but ours does not.
 
+> 次に、引数レコードの属性を処理します。 Record.Attrsメソッドを使用して、ユーザーがLogger出力メソッドに渡した順序で属性を繰り返し処理します。 ハンドラは自由に属性を並べ替えたり、重複を取り除いたりできますが、私たちのハンドラはそうしません。
+
 Lastly, after adding the line "---" to the output to separate log records,
 our handler makes a single call to `h.out.Write` with the buffer we've accumulated.
 We hold the lock for this write to make it atomic with respect to other
 goroutines that may be calling `Handle` at the same time.
 
+> 最後に、"---"という行を出力に追加してログレコードを区切った後、ハンドラは、蓄積したバッファを使ってh.out.Writeを1回呼び出します。 同時にHandleを呼び出すかもしれない他のゴルーチンに対してアトミックにするために、この書き込みのロックを保持します。
+
 At the heart of the handler is the `appendAttr` method, responsible for
 formatting a single attribute:
+
+> ハンドラの中心にあるのはappendAttrメソッドで、一つの属性をフォーマットする役割を担っています：
 
 ```
 func (h *IndentHandler) appendAttr(buf []byte, a slog.Attr, indentLevel int) []byte {
@@ -351,19 +413,27 @@ It begins by resolving the attribute, to run the `LogValuer.LogValue` method of
 the value if it has one. All handlers should resolve every attribute they
 process.
 
+> まず属性を解決し、その値にLogValuer.LogValueメソッドがあればそれを実行します。 すべてのハンドラは、処理するすべての属性を解決する必要があります。
+
 Next, it follows the handler rule that says that empty attributes should be
 ignored.
+
+> 次に、空の属性は無視されるべきだというハンドラ・ルールに従います。
 
 Then it switches on the attribute kind to determine what format to use. For most
 kinds (the default case of the switch), it relies on `slog.Value`'s `String` method to
 produce something reasonable. It handles strings and times specially:
 strings by quoting them, and times by formatting them in a standard way.
 
+> 次に、属性の種類を切り替えて、使用する書式を決定します。 ほとんどの種類（スイッチのデフォルトケース）では、slog.ValueのStringメソッドに依存して、妥当なものを生成します。 文字列は引用符で囲み、時刻は標準的な方法でフォーマットします。
+
 When `appendAttr` sees a `Group`, it calls itself recursively on the group's
 attributes, after applying two more handler rules.
 First, a group with no attributes is ignored&mdash;not even its key is displayed.
 Second, a group with an empty key is inlined: the group boundary isn't marked in
 any way. In our case, that means the group's attributes aren't indented.
+
+> appendAttrがグループを見つけると、さらに2つのハンドラ・ルールを適用した後、グループの属性に対して再帰的に自分自身を呼び出します。 まず、属性のないグループは無視され、キーも表示されません。 第二に、キーが空のグループはインライン化され、グループの境界は何もマークされません。 この場合、グループの属性はインデントされません。
 
 ## The `WithAttrs` method
 
@@ -374,7 +444,12 @@ The handler may store the attributes for later consumption by the `Handle` metho
 or it may take the opportunity to format the attributes now, once,
 rather than doing so repeatedly on each call to `Handle`.
 
+> slogのパフォーマンス最適化の1つは、事前フォーマット属性のサポートです。 Logger.Withメソッドはキーと値のペアをAttrsに変換し、Handler.WithAttrsを呼び出します。 ハンドラーは、後でHandleメソッドで使用するために属性を保存することもできますし、Handleへの呼び出しごとに繰り返し行うのではなく、一度だけ属性をフォーマットする機会を取ることもできます。
+
 The signature of the `WithAttrs` method is
+
+> `WithAttrs` メソッドのシグネチャは以下です。
+
 
     WithAttrs(attrs []Attr) Handler
 
@@ -382,15 +457,24 @@ The attributes are the processed key-value pairs passed to `Logger.With`.
 The return value should be a new instance of your handler that contains
 the attributes, possibly pre-formatted.
 
+> 属性は、Logger.With に渡される、処理されたキーと値のペアです。戻り値は、属性を含むハンドラーの新しいインスタンス (事前にフォーマットされている可能性があります) である必要があります。
+
 `WithAttrs` must return a new handler with the additional attributes, leaving
 the original handler (its receiver) unchanged. For example, this call:
+
+> WithAttrsは、元のハンドラー（そのレシーバー）は変更せずに、追加属性を持つ新しいハンドラーを返さなければならない。 例えば、この呼び出しは
+
 
     logger2 := logger1.With("k", v)
 
 creates a new logger, `logger2`, with an additional attribute, but has no
 effect on `logger1`.
 
+> 追加の属性を持つ新しいロガー、logger2 を作成しますが、logger1 には影響しません。
+
 We will show example implementations of `WithAttrs` below, when we discuss `WithGroup`.
+
+> 後でWithAttrsの実装例について示しますが、まずWithGroupについて考えます。
 
 ## The `WithGroup` method
 
@@ -399,15 +483,25 @@ argument, the group name.
 A handler should remember the name so it can use it to qualify all subsequent
 attributes.
 
+> Logger.WithGroupは、同じ引数、グループ名で、Handler.WithGroupを直接呼び出します。 ハンドラーはこの名前を覚えておく必要があり、後続のすべての属性を修飾するために使用できます。
+
 The signature of `WithGroup` is:
+
+> `WithGroup` のシグネチャは
+
 
     WithGroup(name string) Handler
 
 Like `WithAttrs`, the `WithGroup` method should return a new handler, not modify
 the receiver.
 
+> `WithAttrs` と同様に、`WithGroup` メソッドは新たなハンドラを作成して返す必要があり、レシーバーは変更してはいけません。
+
 The implementations of `WithGroup` and `WithAttrs` are intertwined.
 Consider this statement:
+
+> WithGroupとWithAttrsの実装は絡み合っています。 次の文を考えてみましょう。
+
 
     logger = logger.WithGroup("g1").With("k1", 1).WithGroup("g2").With("k2", 2)
 
@@ -416,8 +510,12 @@ and key "k2" with groups "g1" and "g2".
 The order of the `Logger.WithGroup` and `Logger.With` calls must be respected by
 the implementations of `Handler.WithGroup` and `Handler.WithAttrs`.
 
+> 後続のロガー出力は、グループ「g1」でキー「k1」を、グループ「g1」と「g2」でキー「k2」を修飾する必要があります。 Logger.WithGroupとLogger.With呼び出しの順序は、Handler.WithGroupとHandler.WithAttrsの実装によって尊重されなければなりません。
+
 We will look at two implementations of `WithGroup` and `WithAttrs`, one that pre-formats and
 one that doesn't.
+
+> WithGroup と WithAttrs の 2 つの実装を見ていきます。1 つは事前フォーマットするもの、もう 1 つは事前フォーマットしないものです。
 
 ### Without pre-formatting
 
@@ -425,6 +523,8 @@ Our first implementation will collect the information from `WithGroup` and
 `WithAttrs` calls to build up a slice of group names and attribute lists,
 and loop over that slice in `Handle`. We start with a struct that can hold
 either a group name or some attributes:
+
+> 最初の実装では、WithGroupとWithAttrsの呼び出しから情報を収集し、グループ名と属性リストのスライスを構築し、Handleでそのスライスをループします。 まず、グループ名か属性を保持できる構造体から始めます：
 
 ```
 // groupOrAttrs holds either a group name or a list of slog.Attrs.
@@ -435,6 +535,8 @@ type groupOrAttrs struct {
 ```
 
 Then we add a slice of `groupOrAttrs` to our handler:
+
+> 私たちのハンドラに `groupOrAttrs` のスライスを追加します。
 
 ```
 type IndentHandler struct {
@@ -449,6 +551,8 @@ As stated above, The `WithGroup` and `WithAttrs` methods should not modify their
 receiver.
 To that end, we define a method that will copy our handler struct
 and append one `groupOrAttrs` to the copy:
+
+> 前述したように、WithGroupメソッドとWithAttrsメソッドはレシーバーを変更すべきではありません。 そのため、ハンドラ構造体をコピーし、そのコピーにgroupOrAttrsを1つ追加するメソッドを定義します：
 
 ```
 func (h *IndentHandler) withGroupOrAttrs(goa groupOrAttrs) *IndentHandler {
@@ -465,7 +569,11 @@ Most of the fields of `IndentHandler` can be copied shallowly, but the slice of
 the same underlying array. If we used `append` instead of making an explicit
 copy, we would introduce that subtle aliasing bug.
 
+> `IndentHandler`のほとんどのフィールドは浅くコピーできますが、`groupOrAttrs`のスライスは深くコピーする必要があります。 明示的なコピーの代わりにappendを使うと、微妙なエイリアシングのバグが導入されてしまいます。
+
 Using `withGroupOrAttrs`, the `With` methods are easy:
+
+> withGroupOrAttrsを使えば、Withメソッドは簡単です:
 
 ```
 func (h *IndentHandler) WithGroup(name string) slog.Handler {
@@ -485,6 +593,8 @@ func (h *IndentHandler) WithAttrs(attrs []slog.Attr) slog.Handler {
 
 The `Handle` method can now process the groupOrAttrs slice after
 the built-in attributes and before the ones in the record:
+
+> `Handle`メソッドは、`groupOrAttrs`スライスを、組み込み属性の後、レコード内の属性の前に処理できるようになりました:
 
 ```
 func (h *IndentHandler) Handle(ctx context.Context, r slog.Record) error {
@@ -540,9 +650,13 @@ See the
 [github.com/jba/slog/withsupport](https://github.com/jba/slog/tree/main/withsupport)
 package for an implementation.
 
+> WithGroupとWithAttrsの情報を記録するアルゴリズムは、コピーを繰り返すため、これらのメソッドの呼び出し回数の2次関数になることにお気づきでしょうか。 しかし、もしそれが気になるのであれば、リンクリストを代わりに使うことができます。 実装は[github.com/jba/slog/withsupport](https://github.com/jba/slog/tree/main/withsupport)パッケージを参照してください。
+
 #### Getting the mutex right
 
 Let us revisit the last few lines of `Handle`:
+
+> ハンドルの最後の数行をもう一度見てみましょう：
 
 	h.mu.Lock()
 	defer h.mu.Unlock()
@@ -556,16 +670,22 @@ If the copy and the original used different mutexes and were used concurrently,
 then their output could be interleaved, or some output could be lost.
 Code like this:
 
+> このコードに変更はないが、なぜh.muがsync.Mutexへのポインタなのかが理解できるようになった。 WithGroupもWithAttrsもハンドラをコピーする。 どちらのコピーも同じミューテックスを指す。 コピーとオリジナルが異なるミューテックスを使用し、同時に使用された場合、それらの出力がインターリーブされたり、一部の出力が失われたりする可能性がある。 こんなコードだ：
+
+
     l2 := l1.With("a", 1)
     go l1.Info("hello")
     l2.Info("goodbye")
 
 could produce output like this:
 
+> このような出力が得られる：
+
     hegoollo a=dbye1
 
 See [this bug report](https://go.dev/issue/61321) for more detail.
 
+> 詳しくは [this bug report](https://go.dev/issue/61321) を参照してください。
 
 ### With pre-formatting
 
@@ -577,6 +697,8 @@ it might be.
 Say that you wanted your server to log a lot of information about an incoming
 request with every log message that happens during that request. A typical
 handler might look something like this:
+
+> 私たちの2番目の実装は、プリフォーマッティングを実装している。 この実装は前のものよりも複雑だ。 その複雑さに見合うだけの価値があるのだろうか？ それはあなたの状況次第ですが、ここに一つの状況があります。 例えば、入ってきたリクエストに関する多くの情報を、そのリクエスト中に発生する すべてのログメッセージに記録させたいとします。 典型的なハンドラは次のようなものです：
 
     func (s *Server) handleWidgets(w http.ResponseWriter, r *http.Request) {
         logger := s.logger.With(
@@ -590,6 +712,8 @@ handler might look something like this:
 A single `handleWidgets` request might generate hundreds of log lines.
 For instance, it might contain code like this:
 
+> 一つのhandleWidgetsリクエストが何百行ものログを生成するかもしれません。 例えば、次のようなコードが含まれるかもしれません：
+
     for _, w := range widgets {
         logger.Info("processing widget", "name", w.Name)
         // ...
@@ -599,14 +723,20 @@ For every such line, the `Handle` method we wrote above will format all
 the attributes that were added using `With` above, in addition to the
 ones on the log line itself.
 
+> そのような行ごとに、上で書いたHandleメソッドは、ログ行自体の属性に加えて、上でWithを使って追加されたすべての属性をフォーマットする。
+
 Maybe all that extra work doesn't slow down your server significantly, because
 it does so much other work that time spent logging is just noise.
 But perhaps your server is fast enough that all that extra formatting appears high up
 in your CPU profiles. That is when pre-formatting can make a big difference,
 by formatting the attributes in a call to `With` just once.
 
+> ロギングに費やす時間はノイズに過ぎません。しかし、恐らくあなたのサーバーは十分に速く、余分なフォーマットがCPUプロファイルの上位に表示されるでしょう。 そのような場合、`With`への呼び出しで属性を一度だけフォーマットすることで、事前フォーマットが大きな違いを生むことがあります。
+
 To pre-format the arguments to `WithAttrs`, we need to keep track of some
 additional state in the `IndentHandler` struct.
+
+> `WithAttrs`の引数を事前にフォーマットするために、`IndentHandler`構造体で追加の状態を追跡する必要がある。
 
 ```
 type IndentHandler struct {
@@ -626,8 +756,12 @@ We also need to track how many groups we've opened, which we can do
 with a simple counter, since an opened group's only effect is to change the
 indentation level.
 
+> 主に、フォーマット済みのデータを保持するためのバッファが必要です。 しかし、まだ出力していないグループを追跡する必要もあります。 これらのグループを "未開封 "と呼ぶことにします。 また、いくつのグループを開いたかを追跡する必要があるが、開いたグループの効果はインデントレベルを変更することだけなので、単純なカウンターで出来ます。
+
 The `WithGroup` implementation is a lot like the previous one: just remember the
 new group, which is unopened initially.
+
+> WithGroupの実装は、前のものとよく似ています。最初は未開封の新しいグループを覚えておくだけです。
 
 ```
 func (h *IndentHandler) WithGroup(name string) slog.Handler {
@@ -644,6 +778,8 @@ func (h *IndentHandler) WithGroup(name string) slog.Handler {
 ```
 
 `WithAttrs` does all the pre-formatting:
+
+> WithAttrsは事前フォーマットの処理をすべて行う：
 
 ```
 func (h *IndentHandler) WithAttrs(attrs []slog.Attr) slog.Handler {
@@ -677,17 +813,25 @@ func (h *IndentHandler) appendUnopenedGroups(buf []byte, indentLevel int) []byte
 
 It first opens any unopened groups. This handles calls like:
 
+> まず未オープンのグループを開きます。 これは次のような呼び出しに対応します：
+
     logger.WithGroup("g").WithGroup("h").With("a", 1)
 
 Here, `WithAttrs` must output "g" and "h" before "a". Since a group established
 by `WithGroup` is in effect for the rest of the log line, `WithAttrs` increments
 the indentation level for each group it opens.
 
+> ここで、`WithAttrs`は "a "の前に "g "と "h "を出力しなければならない。 `WithGroup`によって確立されたグループは、ログ行の残りの部分に対して有効であるため、`WithAttrs`は、開くグループごとにインデントレベルを増加させる。
+
 Lastly, `WithAttrs` formats its argument attributes, using the same `appendAttr`
 method we saw above.
 
+> 最後に、`WithAttrs`は、上で見たのと同じ`appendAttr`メソッドを使って、引数の属性をフォーマットする。
+
 It's the `Handle` method's job to insert the pre-formatted material in the right
 place, which is after the built-in attributes and before the ones in the record:
+
+> あらかじめフォーマットされた素材を適切な場所に挿入するのは`Handle`メソッドの仕事であり、それは組み込み属性の後でレコード内の属性の前である：
 
 ```
 func (h *IndentHandler) Handle(ctx context.Context, r slog.Record) error {
@@ -722,10 +866,15 @@ func (h *IndentHandler) Handle(ctx context.Context, r slog.Record) error {
 It must also open any groups that haven't yet been opened. The logic covers
 log lines like this one:
 
+> また、まだ開いていないグループも開かなければならない。 ロジックは以下のようなログ呼び出しをカバーする：
+
+
     logger.WithGroup("g").Info("msg", "a", 1)
 
 where "g" is unopened before `Handle` is called and must be written to produce
 the correct output:
+
+> ここで "g "は`Handle`が呼び出される前は未開封であり、正しい出力を得るためには書き込まれなければならない：
 
     level: INFO
     msg: "msg"
@@ -734,9 +883,13 @@ the correct output:
 
 The check for `r.NumAttrs() > 0` handles this case:
 
+> この場合、`r.NumAttrs() > 0` のチェックで対応する：
+
     logger.WithGroup("g").Info("msg")
 
 Here there are no record attributes, so no group to open.
+
+> ここではレコード属性がないので、開くべきグループはない。
 
 ## Testing
 
