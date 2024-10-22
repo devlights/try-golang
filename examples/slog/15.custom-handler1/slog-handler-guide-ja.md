@@ -898,9 +898,13 @@ constraints on handlers.
 To verify that your handler follows these rules and generally produces proper
 output, use the [testing/slogtest package](https://pkg.go.dev/testing/slogtest).
 
+> [`Handler` contract](https://pkg.go.dev/log/slog#Handler)はハンドラにいくつかの制約を指定します。 ハンドラがこれらの規則に従い、一般的に適切な出力を生成することを確認するには、[testing/slogtest package](https://pkg.go.dev/testing/slogtest) パッケージを使用してください。
+
 That package's `TestHandler` function takes an instance of your handler and
 a function that returns its output formatted as a slice of maps. Here is the test function
 for our example handler:
+
+> このパッケージの`TestHandler`関数は、あなたのハンドラのインスタンスと、その出力をマップのスライスとしてフォーマットして返す関数を受け取ります。 以下は例のハンドラーのテスト関数です：
 
 ```
 func TestSlogtest(t *testing.T) {
@@ -920,6 +924,8 @@ entries.
 It is your job to parse each entry into a `map[string]any`.
 A group in an entry should appear as a nested map.
 
+> `TestHandler`を呼び出すのは簡単です。 難しいのは、ハンドラーの出力を解析することです。 `TestHandler` はあなたのハンドラーを複数回呼び出し、その結果、一連のログエントリーを生成します。 各エントリーを`map[string]any`にパースするのがあなたの仕事です。 エントリー内のグループはネストされたマップとして表示されるはずです。
+
 If your handler outputs a standard format, you can use an existing parser.
 For example, if your handler outputs one JSON object per line, then you
 can split the output into lines and call `encoding/json.Unmarshal` on each.
@@ -927,6 +933,8 @@ Parsers for other formats that can unmarshal into a map can be used out
 of the box.
 Our example output is enough like YAML so that we can use the `gopkg.in/yaml.v3`
 package to parse it:
+
+> ハンドラーが標準フォーマットを出力する場合、既存のパーサーを使うことができます。 例えば、ハンドラが1行に1つのJSONオブジェクトを出力する場合、出力を行に分割し、それぞれに対して`encoding/json.Unmarshal`を呼び出すことができます。 マップにアンマーシャルできる他のフォーマットのパーサーはそのまま使えます。 この例の出力は十分にYAMLに似ているので、`gopkg.in/yaml.v3`パッケージを使ってパースできます：
 
 ```
 func parseLogEntries(t *testing.T, data []byte) []map[string]any {
@@ -951,6 +959,8 @@ Your parser can ignore edge cases like whitespace and newlines in keys and
 values. Before switching to a YAML parser, we wrote an adequate custom parser
 in 65 lines.
 
+> もし自分でパーサーを書かなければならないのであれば、それは完璧なものとは言い難いでしょう。 `slogtest` パッケージはほんの一握りのシンプルな属性しか使いません (パーシングではなくハンドラの適合性をテストします)。 パーサーはキーと値の空白や改行などのエッジケースを無視できます。 YAMLパーサーに切り替える前に、私たちは65行で適切なカスタムパーサーを書きました。
+
 # General considerations
 
 ## Copying records
@@ -959,12 +969,16 @@ Most handlers won't need to copy the `slog.Record` that is passed
 to the `Handle` method.
 Those that do must take special care in some cases.
 
+> ほとんどのハンドラは、`Handle`メソッドに渡される`slog.Record`をコピーする必要はありません。 コピーするハンドラは、場合によっては特別な注意を払う必要があります。
+
 A handler can make a single copy of a `Record` with an ordinary Go
 assignment, channel send or function call if it doesn't retain the
 original.
 But if its actions result in more than one copy, it should call `Record.Clone`
 to make the copies so that they don't share state.
 This `Handle` method passes the record to a single handler, so it doesn't require `Clone`:
+
+> ハンドラは、オリジナルを保持しない場合、通常のGo割り当て、チャンネル送信、または関数呼び出しで、Recordのコピーを1つ作ることができます。 しかし、そのアクションによって複数のコピーが作成される場合は、`Record.Clone`を呼び出して、状態を共有しないようにコピーを作成する必要があります。 この`Handle`メソッドはレコードを単一のハンドラーに渡すので、Cloneを必要としない：
 
     type Handler1 struct {
         h slog.Handler
@@ -977,6 +991,8 @@ This `Handle` method passes the record to a single handler, so it doesn't requir
 
 This `Handle` method might pass the record to more than one handler, so it
 should use `Clone`:
+
+> この`Handle`メソッドは複数のハンドラにレコードを渡す可能性があるため、`Clone`を使用する必要があります：
 
     type Handler2 struct {
         hs []slog.Handler
@@ -1000,20 +1016,30 @@ That means that mutable state must be protected with a lock or some other mechan
 In practice, this is not hard to achieve, because many handlers won't have any
 mutable state.
 
+> 一つのロガーが複数のゴルーチンで共有される場合、ハンドラーは適切に動作しなければなりません。 つまり、変更可能なステートはロックやその他のメカニズムで保護されていなければならない。 実際には、多くのハンドラーはミュータブルステートを持たないので、これを実現するのは難しくありません。
+
 - The `Enabled` method typically consults only its arguments and a configured
   level. The level is often either set once initially, or is held in a
   `LevelVar`, which is already concurrency-safe.
 
+> `Enabled` メソッドは通常、引数と構成されたレベルのみを参照します。 レベルは多くの場合、最初に一度だけ設定されるか、既にスレッドセーフである `LevelVar` に保持されます。
+
 - The `WithAttrs` and `WithGroup` methods should not modify the receiver,
   for reasons discussed above.
 
+> `WithAttrs`メソッドと`WithGroup`メソッドは、前述の理由から、レシーバーを変更すべきではない。
+
 - The `Handle` method typically works only with its arguments and stored fields.
+
+> `Handle`メソッドは通常、引数と保存されたフィールドに対してのみ機能する。
 
 Calls to output methods like `io.Writer.Write` should be synchronized unless
 it can be verified that no locking is needed.
 As we saw in our example, storing a pointer to a mutex enables a logger and
 all of its clones to synchronize with each other.
 Beware of facile claims like "Unix writes are atomic"; the situation is a lot more nuanced than that.
+
+> `io.Writer.Write`のような出力メソッドの呼び出しは、ロックが必要ないことが確認できない限り、同期されるべきである。 例で見たように、ミューテックスへのポインタを格納することで、ロガーとそのクローンすべてが互いに同期することができます。 「Unixの書き込みはアトミックである」というような安易な主張には注意してほしい。
 
 Some handlers have legitimate reasons for keeping state.
 For example, a handler might support a `SetLevel` method to change its configured level
@@ -1022,8 +1048,12 @@ Or it might output the time between successive calls to `Handle`,
 which requires a mutable field holding the last output time.
 Synchronize all accesses to such fields, both reads and writes.
 
+> 一部のハンドラには、ステートを保持する正当な理由があります。 例えば、ハンドラは設定されたレベルを動的に変更するために`SetLevel`メソッドをサポートするかもしれません。 あるいは、`Handle`を連続して呼び出す間の時間を出力するかもしれません。この場合、最後の出力時間を保持する変更可能なフィールドが必要になります。 このようなフィールドへのアクセスは、読み込みも書き込みもすべて同期させる。
+
 The built-in handlers have no directly mutable state.
 They use a mutex only to sequence calls to their contained `io.Writer`.
+
+> 組み込みのハンドラは、直接的に変更可能な状態を持たない。 それらは、その中に含まれる`io.Writer.Mutex`の呼び出しのシーケンスにのみMutexを使用します。
 
 ## Robustness
 
@@ -1031,6 +1061,8 @@ Logging is often the debugging technique of last resort. When it is difficult or
 impossible to inspect a system, as is typically the case with a production
 server, logs provide the most detailed way to understand its behavior.
 Therefore, your handler should be robust to bad input.
+
+> ログはしばしば、最後の手段としてのデバッグ技術です。 本番サーバーでよくあるように、システムを検査することが困難であったり、 不可能であったりする場合、ログはその挙動を理解するための最も詳細な方法を提供します。 したがって、ハンドラは不正な入力に対して堅牢でなければなりません。
 
 For example, the usual advice when when a function discovers a problem,
 like an invalid argument, is to panic or return an error.
@@ -1042,8 +1074,12 @@ That is why methods like `Logger.Info` convert programming bugs in their list of
 key-value pairs, like missing values or malformed keys,
 into `Attr`s that contain as much information as possible.
 
+> 例えば、関数が無効な引数のような問題を発見した場合の通常のアドバイスは、パニックを起こすかエラーを返すことである。 組み込みハンドラはそのアドバイスには従わない。 ロギングが失敗するような問題をデバッグできないことほどフラストレーションのたまることはない。 そのため、`Logger.Info`のようなメソッドは、キーと値のペアのリストにあるプログラミングのバグ（欠落値や不正なキーなど）を、可能な限り多くの情報を含む`Attrs`に変換します。
+
 One place to avoid panics is in processing attribute values. A handler that wants
 to format a value will probably switch on the value's kind:
+
+> パニックを避けるべき場所の1つは、属性値の処理です。 値をフォーマットしたいハンドラは、おそらく値の種類を切り替えるでしょう：
 
     switch attr.Value.Kind() {
     case KindString: ...
@@ -1065,10 +1101,14 @@ Promise&mdash;and the handler wasn't updated.
 That is certainly a problem, but it shouldn't deprive
 readers from seeing the rest of the log output.
 
+> ハンドラが知らない`Kind`に遭遇した場合、デフォルトのケースではどうなるのでしょうか？ 組み込みのハンドラは、この例のハンドラのように、値の`String`メソッドの結果を使用することで、その場をしのごうとします。 パニックを起こしたりエラーを返したりすることはありません。 あなたのハンドラは、プロダクションモニタリングやエラー追跡テレメトリシステムを通して問題を報告したいかもしれません。 この問題の最も可能性の高い説明は、新しいバージョンの `slog` パッケージに新しい `Kind` が追加され、Go 1 互換性の約束の下で後方互換性のある変更が行われ、ハンドラが更新されなかったことです。 これは確かに問題ですが、読者が残りのログ出力を見ることができなくなるわけではありません。
+
 There is one circumstance where returning an error from `Handler.Handle` is appropriate.
 If the output operation itself fails, the best course of action is to report
 this failure by returning the error. For instance, the last two lines of the
 built-in `Handle` methods are
+
+> `Handler.Handle`からエラーを返すことが適切な状況が1つある。 出力操作自体が失敗した場合、エラーを返すことによってこの失敗を報告することが最善の行動です。 例えば、組み込みの`Handle`メソッドの最後の2行は次のとおりである。
 
     _, err := h.w.Write(*state.buf)
     return err
@@ -1077,6 +1117,8 @@ Although the output methods of `Logger` ignore the error, one could write a
 handler that does something with it, perhaps falling back to writing to standard
 error.
 
+> `Logger`の出力メソッドはエラーを無視するが、そのエラーで何かをするハンドラーを書くこともできる。
+
 ## Speed
 
 Most programs don't need fast logging.
@@ -1084,9 +1126,13 @@ Before making your handler fast, gather data&mdash;preferably production data,
 not benchmark comparisons&mdash;that demonstrates that it needs to be fast.
 Avoid premature optimization.
 
+> ほとんどのプログラムでは、高速なロギングは必要ありません。 ハンドラーを高速化する前に、そのハンドラーが高速である必要があることを示すデータ（ベンチマーク比較ではなく、できれば実働データ）を収集してください。 早すぎる最適化は避ける。
+
 If you need a fast handler, start with pre-formatting. It may provide dramatic
 speed-ups in cases where a single call to `Logger.With` is followed by many
 calls to the resulting logger.
+
+> 高速ハンドラーが必要な場合は、プレフォーマットから始めてください。 `Logger.With`への1回の呼び出しの後に、結果のロガーが何回も呼び出されるような場合に、劇的なスピードアップをもたらすかもしれません。
 
 If log output is the bottleneck, consider making your handler asynchronous.
 Do the minimal amount of processing in the handler, then send the record and
@@ -1095,14 +1141,20 @@ entries and write them in bulk and in the background.
 You might want to preserve the option to log synchronously
 so you can see all the log output to debug a crash.
 
+> ログ出力がボトルネックになっている場合は、ハンドラを非同期にすることを検討する。 ハンドラ内で最小限の処理を行い、その後、レコードとその他の情報をチャネル経由で送信する。 別のゴルーチンは、受信したログエントリーを収集し、バックグラウンドで一括して書き込むことができます。 クラッシュをデバッグするためにすべてのログ出力を見ることができるように、同期的にログを記録するオプションを残しておくとよいだろう。
+
 Allocation is often a major cause of a slow system.
 The `slog` package already works hard at minimizing allocations.
-If your handler does its own allocation, and profiling shows it to be
-a problem, then see if you can minimize it.
+If your handler does its own allocation, and 
+
+> アロケーションはしばしば、遅いシステムの主な原因となる。 `slog`パッケージはすでにアロケーションを最小化するよう努力している。 もしあなたのハンドラが独自にアロケーションを行い、プロファイリングでそれが問題であることがわかったら、それを最小化できるかどうか試してみてほしい。
 
 One simple change you can make is to replace calls to `fmt.Sprintf` or `fmt.Appendf`
 with direct appends to the buffer. For example, our IndentHandler appends string
 attributes to the buffer like so:
+
+> 単純な変更点としては、`fmt.Sprintf`や`fmt.Appendf`の呼び出しをバッファへの直接追加に置き換えることです。 例えば、`IndentHandler`は以下のようにバッファに文字列属性を追加します：
+
 
 	buf = fmt.Appendf(buf, "%s: %q\n", a.Key, a.Value.String())
 
@@ -1118,7 +1170,11 @@ Another worthwhile change is to use a `sync.Pool` to manage the one chunk of
 memory that most handlers need:
 the `[]byte` buffer holding the formatted output.
 
+> Go 1.21では、anyパラメータに渡される各引数に対して1つずつ、合計2つのアロケーションが発生する。 appendを直接使えば、これをゼロにできる：
+
 Our example `Handle` method began with this line:
+
+> 例のハンドル・メソッドは、この行から始まっている：
 
 	buf := make([]byte, 0, 1024)
 
@@ -1132,8 +1188,12 @@ maximum, there will be enough buffers in the pool to share among all the
 ongoing `Handler` calls. As long as no log entry grows past a buffer's capacity,
 there will be no allocations from the garbage collector's point of view.
 
+> 上述したように、初期容量を大きくすることで、スライスの成長に伴うコピーと再割り当ての繰り返しを回避し、割り当て回数を1回に減らすことができる。 しかし、バッファのグローバルプールを保持することで、定常状態ではこれをゼロにすることができます。 最初は、プールは空になり、新しいバッファが割り当てられる。 しかし、最終的には、同時ログ呼び出しの数が安定した最大値に達すると仮定すると、進行中の全てのハンドラ呼び出しの間で共有するのに十分なバッファがプールに存在することになります。 ログエントリがバッファの容量を越えて成長しない限り、ガベージコレクタの観点からはアロケーションはありません。
+
 We will hide our pool behind a pair of functions, `allocBuf` and `freeBuf`.
 The single line to get a buffer at the top of `Handle` becomes two lines:
+
+> プールは`allocBuf`と`freeBuf`という2つの関数の後ろに隠すことにする。 `Handle`の先頭でバッファを取得する1行が2行になる：
 
 	bufp := allocBuf()
 	defer freeBuf(bufp)
@@ -1145,9 +1205,13 @@ Pooled values must always be pointers. If they aren't, then the `any` arguments
 and return values of the `sync.Pool` methods will themselves cause allocations,
 defeating the purpose of pooling.
 
+> スライスの`sync.Pool`を作成する際の微妙な点の1つは、変数名bufpが示唆している。 プールされる値は常にポインタでなければなりません。 そうでない場合、`sync.Pool`メソッドの引数や戻り値自体がアロケーションを引き起こすことになり、プーリングの目的が果たせなくなります。
+
 There are two ways to proceed with our slice pointer: we can replace `buf`
 with `*bufp` throughout our function, or we can dereference it and remember to
 re-assign it before freeing:
+
+> `buf`を`*bufp`に置き換える方法と、bufをデリファレンスして解放前に再アサインする方法である：
 
 	bufp := allocBuf()
 	buf := *bufp
@@ -1158,6 +1222,8 @@ re-assign it before freeing:
 
 
 Here is our pool and its associated functions:
+
+> これがプールとその関連機能である：
 
 ```
 var bufPool = sync.Pool{
@@ -1186,6 +1252,8 @@ create a byte slice with 0 length and plenty of capacity.
 The `allocBuf` function just type-asserts the result of the pool's
 `Get` method.
 
+> プールのNew関数は、元のコードと同じように、長さが0で容量が十分なバイト・スライスを作成する。 `allocBuf` 関数は、プールの Get メソッドの結果を型検証するだけです。
+
 The `freeBuf` method truncates the buffer before putting it back
 in the pool, so that `allocBuf` always returns zero-length slices.
 It also implements an important optimization: it doesn't return
@@ -1198,3 +1266,5 @@ wasted.
 The extra memory might never be used again by the handler, and since it was in
 the handler's pool, it might never be garbage-collected for reuse elsewhere.
 We can avoid that situation by excluding large buffers from the pool.
+
+> `freeBuf` メソッドはバッファを切り捨ててからプールに戻すので、`allocBuf` は常に長さゼロのスライスを返します。 また、これは重要な最適化を実装しています。それは、大きなバッファをプールに返さないということです。 なぜこれが重要なのかを理解するために、1つの異常に大きなログエントリ、例えばフォーマットされたときに1メガバイトになるようなログエントリがあった場合に何が起こるかを考えてみよう。 そのメガバイト・サイズのバッファがプールに置かれた場合、そのバッファは無期限にそこに留まり、常に再利用される可能性があるが、その容量のほとんどは無駄になる。 余分なメモリはハンドラーによって二度と使われないかもしれないし、ハンドラーのプールにあるため、他の場所で再利用するためにガベージコレクションされることもないかもしれない。 大きなバッファをプールから除外することで、そのような状況を避けることができる。
