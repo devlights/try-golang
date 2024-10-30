@@ -11,13 +11,13 @@ type (
 		bits []uint32
 		size int
 	}
-	kind int
+	opcode int
 )
 
 const (
-	AND kind = iota
-	OR  kind = iota
-	XOR kind = iota
+	AND opcode = iota
+	OR  opcode = iota
+	XOR opcode = iota
 )
 
 // NewBitVector は、指定されたサイズのビットベクタを作成します.
@@ -77,7 +77,7 @@ func (me *BitVector) Xor(other *BitVector) (*BitVector, error) {
 	return me.calc(other, XOR)
 }
 
-func (me *BitVector) calc(other *BitVector, op kind) (*BitVector, error) {
+func (me *BitVector) calc(other *BitVector, op opcode) (*BitVector, error) {
 	if me.size != other.size {
 		return nil, fmt.Errorf("size mismatch: %d != %d", me.size, other.size)
 	}
