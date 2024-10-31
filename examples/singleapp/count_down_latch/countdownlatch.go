@@ -5,7 +5,7 @@ import (
 	"sync/atomic"
 )
 
-// CountdownLatch は、C#-のCountdownEventやJavaのCountDownLatchと同様の機能を提供する構造体です.
+// CountdownLatch は、C#のCountdownEventやJavaのCountDownLatchと同様の機能を提供する構造体です.
 type CountdownLatch struct {
 	count atomic.Int32
 	mutex sync.Mutex
