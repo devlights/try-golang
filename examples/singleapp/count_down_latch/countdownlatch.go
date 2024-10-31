@@ -7,7 +7,7 @@ import (
 
 // CountdownLatch は、C#-のCountdownEventやJavaのCountDownLatchと同様の機能を提供する構造体です.
 type CountdownLatch struct {
-	count int32
+	count atomic.Int32
 	mutex sync.Mutex
 	cond  *sync.Cond
 }
@@ -21,7 +21,7 @@ func NewCountdownLatch(initialCount int) *CountdownLatch {
 	var (
 		ce CountdownLatch
 	)
-	ce.count = int32(initialCount)
+	ce.count.Store(int32(initialCount))
 	ce.cond = sync.NewCond(&ce.mutex)
 
 	return &ce
@@ -43,7 +43,7 @@ func (me *CountdownLatch) SignalCount(count int) bool {
 	me.mutex.Lock()
 	defer me.mutex.Unlock()
 
-	newCount := atomic.AddInt32(&me.count, -int32(count))
+	newCount := me.count.Add(-int32(count))
 	if newCount <= 0 {
 		me.cond.Broadcast()
 		return true
@@ -57,17 +57,21 @@ func (me *CountdownLatch) Wait() {
 	me.mutex.Lock()
 	defer me.mutex.Unlock()
 
-	for atomic.LoadInt32(&me.count) > 0 {
+	for me.count.Load() > 0 {
 		me.cond.Wait()
 	}
 }
 
 // CurrentCount は、現在のカウント値を返します.
 func (me *CountdownLatch) CurrentCount() int {
-	return int(atomic.LoadInt32(&me.count))
+	me.mutex.Lock()
+	defer me.mutex.Unlock()
+
+	return int(me.count.Load())
 }
 
 // Reset は、カウントを指定された値にリセットします.
+// リセットすることになるため、強制的にカウント満了したことになり、待機している非同期処理が存在する場合は解除されます.
 func (me *CountdownLatch) Reset(count int) {
 	if count < 0 {
 		panic("リセットカウントは0以上である必要があります")
@@ -76,5 +80,7 @@ func (me *CountdownLatch) Reset(count int) {
 	me.mutex.Lock()
 	defer me.mutex.Unlock()
 
-	atomic.StoreInt32(&me.count, int32(count))
+	me.cond.Broadcast()
+
+	me.count.Store(int32(count))
 }

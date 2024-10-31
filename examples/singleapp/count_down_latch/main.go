@@ -66,12 +66,12 @@ func proc(_ context.Context) error {
 		latchCount = 3
 	)
 	var (
-		ce = NewCountdownLatch(latchCount)
-		wg sync.WaitGroup
+		latch = NewCountdownLatch(latchCount)
+		wg    sync.WaitGroup
 	)
 
 	for range 2 {
-		ce.Reset(latchCount)
+		latch.Reset(latchCount)
 
 		for i := range 5 {
 			wg.Add(1)
@@ -79,7 +79,7 @@ func proc(_ context.Context) error {
 				defer wg.Done()
 
 				log.Printf("[%2d] 待機開始", i)
-				ce.Wait()
+				latch.Wait()
 				log.Printf("[%2d] 待機解除", i)
 			}(i)
 		}
@@ -87,8 +87,8 @@ func proc(_ context.Context) error {
 		for range 3 {
 			<-time.After(time.Second)
 
-			log.Printf("現在のカウント: %d\n", ce.CurrentCount())
-			ce.Signal()
+			log.Printf("現在のカウント: %d\n", latch.CurrentCount())
+			latch.Signal()
 		}
 
 		wg.Wait()
