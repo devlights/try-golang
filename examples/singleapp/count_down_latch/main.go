@@ -70,30 +70,25 @@ func proc(_ context.Context) error {
 		wg    sync.WaitGroup
 	)
 
-	for range 2 {
-		latch.Reset(latchCount)
+	for i := range 5 {
+		wg.Add(1)
+		go func(i int) {
+			defer wg.Done()
 
-		for i := range 5 {
-			wg.Add(1)
-			go func(i int) {
-				defer wg.Done()
-
-				log.Printf("[%2d] 待機開始", i)
-				latch.Wait()
-				log.Printf("[%2d] 待機解除", i)
-			}(i)
-		}
-
-		for range 3 {
-			<-time.After(time.Second)
-
-			log.Printf("現在のカウント: %d\n", latch.CurrentCount())
-			latch.Signal()
-		}
-
-		wg.Wait()
-		log.Println("-------------------------------------")
+			log.Printf("[%2d] 待機開始", i)
+			latch.Wait()
+			log.Printf("[%2d] 待機解除", i)
+		}(i)
 	}
+
+	for range 3 {
+		<-time.After(time.Second)
+
+		log.Printf("現在のカウント: %d\n", latch.CurrentCount())
+		latch.Signal()
+	}
+
+	wg.Wait()
 
 	return nil
 }

@@ -69,18 +69,3 @@ func (me *CountdownLatch) CurrentCount() int {
 
 	return int(me.count.Load())
 }
-
-// Reset は、カウントを指定された値にリセットします.
-// リセットすることになるため、強制的にカウント満了したことになり、待機している非同期処理が存在する場合は解除されます.
-func (me *CountdownLatch) Reset(count int) {
-	if count < 0 {
-		panic("リセットカウントは0以上である必要があります")
-	}
-
-	me.mutex.Lock()
-	defer me.mutex.Unlock()
-
-	me.cond.Broadcast()
-
-	me.count.Store(int32(count))
-}
