@@ -19,12 +19,12 @@ func NewCountdownLatch(initialCount int) *CountdownLatch {
 	}
 
 	var (
-		ce CountdownLatch
+		latch CountdownLatch
 	)
-	ce.count.Store(int32(initialCount))
-	ce.cond = sync.NewCond(&ce.mutex)
+	latch.count.Store(int32(initialCount))
+	latch.cond = sync.NewCond(&latch.mutex)
 
-	return &ce
+	return &latch
 }
 
 // Signal は、カウントを1減らします.
