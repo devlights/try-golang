@@ -13,6 +13,8 @@ import (
 //
 // > (TryLockはmをロックしようとし、成功したかどうかを報告します。)
 //
+// mutex.TryLock() は、ロック取得をノンブロッキングにしたい場合に利用できます。
+//
 // # REFERENCES
 //
 //   - https://pkg.go.dev/sync@go1.22.1#Mutex.TryLock
