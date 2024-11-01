@@ -63,32 +63,40 @@ func run(pCtx context.Context) context.Context {
 
 func proc(_ context.Context) error {
 	const (
-		latchCount = 3
+		numLatchs     = 3
+		numGoroutines = 5
 	)
 	var (
-		latch = NewCountdownLatch(latchCount)
-		wg    sync.WaitGroup
+		latch = NewCountdownLatch(numLatchs)
 	)
+	for range 2 {
+		var (
+			wg sync.WaitGroup
+		)
 
-	for i := range 5 {
-		wg.Add(1)
-		go func(i int) {
-			defer wg.Done()
+		latch.Reset(numLatchs)
 
-			log.Printf("[%2d] 待機開始", i)
-			latch.Wait()
-			log.Printf("[%2d] 待機解除", i)
-		}(i)
+		for i := range numGoroutines {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+
+				log.Printf("[%2d] 待機開始", i)
+				latch.Wait()
+				log.Printf("[%2d] 待機解除", i)
+			}(i)
+		}
+
+		for range numLatchs {
+			<-time.After(time.Second)
+
+			log.Printf("現在のカウント: %d\n", latch.CurrentCount())
+			latch.Signal()
+		}
+
+		wg.Wait()
+		log.Println("----------------")
 	}
-
-	for range 3 {
-		<-time.After(time.Second)
-
-		log.Printf("現在のカウント: %d\n", latch.CurrentCount())
-		latch.Signal()
-	}
-
-	wg.Wait()
 
 	return nil
 }

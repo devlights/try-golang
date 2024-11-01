@@ -30,3 +30,7 @@ func (me *Gate) Open() {
 
 	me.latch.Signal()
 }
+
+func (me *Gate) Reset() {
+	me.latch.Reset(1)
+}

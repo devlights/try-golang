@@ -69,3 +69,17 @@ func (me *CountdownLatch) CurrentCount() int {
 
 	return int(me.count.Load())
 }
+
+// Reset は、カウントを指定された値にリセットします.
+func (me *CountdownLatch) Reset(count int) {
+	if count < 0 {
+		panic("リセットカウントは0以上である必要があります")
+	}
+
+	me.mutex.Lock()
+	defer me.mutex.Unlock()
+
+	me.cond.Broadcast()
+
+	me.count.Store(int32(count))
+}
