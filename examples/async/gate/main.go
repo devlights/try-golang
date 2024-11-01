@@ -64,32 +64,35 @@ func run(pCtx context.Context) context.Context {
 func proc(_ context.Context) error {
 	var (
 		gate = NewGate()
-		wg   sync.WaitGroup
 	)
+	for range 2 {
+		var (
+			wg sync.WaitGroup
+		)
 
-	// 10個のゴルーチンがゲート前に待機する
-	for i := range 10 {
-		wg.Add(1)
-		go func(i int) {
-			defer wg.Done()
+		gate.Reset()
 
-			log.Printf("[%2d] 待機開始", i)
-			gate.Await()
-			log.Printf("[%2d] 待機解除", i)
-		}(i)
+		// 10個のゴルーチンがゲート前に待機する
+		for i := range 10 {
+			wg.Add(1)
+			go func(i int) {
+				defer wg.Done()
+
+				log.Printf("[%2d] 待機開始", i)
+				gate.Await()
+				log.Printf("[%2d] 待機解除", i)
+			}(i)
+		}
+
+		// 何か準備処理などを行っているとする
+		<-time.After(time.Second)
+		log.Println("-------------------------------------")
+
+		// ゲートを開き、待機解除したゴルーチン達が全完了するのを待つ
+		gate.Open()
+		wg.Wait()
+		log.Println("*************************************")
 	}
-
-	// 何か準備処理などを行っているとする
-	<-time.After(time.Second)
-	log.Println("-------------------------------------")
-
-	// ゲートを開き、待機解除したゴルーチン達が全完了するのを待つ
-	gate.Open()
-	wg.Wait()
-
-	// 一度開いたゲートは開きっぱなしになるため、開いた後のAwait呼び出しは即座に返る.
-	gate.Await()
-	gate.Await()
 
 	return nil
 }
