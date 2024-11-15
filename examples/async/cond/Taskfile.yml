@@ -5,5 +5,5 @@ version: '3'
 tasks:
   default:
     cmds:
-      - go run . -debug=false | tee out.txt
+      - go run . -debug=false
     ignore_error: true
