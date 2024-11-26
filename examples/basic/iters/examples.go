@@ -17,4 +17,5 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["iters_range_over_func_1"] = Go123RangeOverFunc1
 	m["iters_range_over_func_2"] = Go123RangeOverFunc2
+	m["iters_range_over_func_3"] = Go123RangeOverFunc3
 }
