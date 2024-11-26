@@ -8,7 +8,7 @@ import "github.com/devlights/gomy/output"
 // 以下の関数パターンがサポートされています。
 //
 //   - func(func() bool)     : ループ変数に値を渡さないタイプ
-//   - func(func(k) bool)    : 1つのループ変数に値を渡すタイプ
+//   - func(func(v) bool)    : 1つのループ変数に値を渡すタイプ
 //   - func(func(k, v) bool) : 2つのループ変数に値を渡すタイプ
 //
 // 本サンプルは、func(func() bool) (ループ変数に値を渡さないタイプ) についてのサンプルです。
