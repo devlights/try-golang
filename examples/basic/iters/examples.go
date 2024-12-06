@@ -20,4 +20,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["iters_range_over_func_3"] = Go123RangeOverFunc3
 	m["iters_seq"] = IterSeq
 	m["iters_seq2"] = IterSeq2
+	m["iters_pull"] = IterPull1
+
 }
