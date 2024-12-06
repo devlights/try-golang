@@ -9,3 +9,4 @@
 | range_over_func3.go | iters_range_over_func_3 | Go 1.23 で正式導入となった Range-Over-Func のサンプルです。(func(k, v) bool) |
 | seq.go              | iters_seq               | Go 1.23 で正式導入となった iter.Seq のサンプルです。                         |
 | seq2.go             | iters_seq2              | Go 1.23 で正式導入となった iter.Seq2 のサンプルです。                        |
+| pull1.go            | iters_pull              | Go 1.23 で正式導入となった iter.Pull のサンプルです。                        |
