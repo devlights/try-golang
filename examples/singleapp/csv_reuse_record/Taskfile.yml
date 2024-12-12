@@ -1,0 +1,20 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  KEN_ALL_FILE: utf_ken_all.csv
+  KEN_ALL_ZIP: utf_ken_all.zip
+  KEN_ALL_URL: https://www.post.japanpost.jp/zipcode/dl/utf/zip/{{.KEN_ALL_ZIP}}
+
+tasks:
+  default:
+    cmds:
+      - task: benchmark
+  ken-all:
+    cmds:
+      - wget {{.KEN_ALL_URL}}
+      - unzip {{.KEN_ALL_ZIP}}
+  benchmark:
+    cmds:
+      - go test -bench=. -run='^$' -benchmem -count 1 -benchtime 10s
