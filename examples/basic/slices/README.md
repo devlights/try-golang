@@ -21,3 +21,4 @@
 | slice_nil_append.go              | slice_nil_append              | Nilなスライスに対して append した場合の挙動についてのサンプル              |
 | slice_convert_to_array_go117.go  | slice_convert_to_array_go117  | Go 1.17 以降で有効な スライス から 配列 への変換方法についてのサンプルです |
 | slice_append_special_behavior.go | slice_append_special_behavior | append() を利用する際の特別な挙動に付いてのサンプルです                    |
+| slice_iter_values.go             | slice_go123_iter_values       | Go 1.23で追加された slices.Values() のサンプルです                         |

@@ -43,7 +43,7 @@ func Reverse() error {
 		}
 
 		f = func(i []int, s []string) {
-			fmt.Printf("[original]\tints[%v]\tstrs[%v]\n", ints, strs)
+			fmt.Printf("[original]\tints[%v]\tstrs[%v]\n", i, s)
 		}
 	)
 
