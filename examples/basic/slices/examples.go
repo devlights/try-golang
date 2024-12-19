@@ -33,4 +33,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["slice_convert_to_array_go117"] = ConvertToArrayGo117
 	m["slice_append_special_behavior"] = AppendSpecialBehavior
 	m["slice_go123_iter_values"] = IterValues
+	m["slice_go123_iter_all"] = IterAll
 }
