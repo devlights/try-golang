@@ -3,7 +3,6 @@ package deepcopy
 import (
 	"bytes"
 	"encoding/gob"
-	"fmt"
 
 	"github.com/devlights/gomy/output"
 )
@@ -27,17 +26,21 @@ func GobDeepCopy() error {
 	//   - encoding/json 使う
 	//
 	// 以下は encoding/gob を利用した方法
+	//
+	// gobは、Go言語で表現される型のほどんどに対応しているが、以下の型は対応していない。
+	// 	 - 関数型 (func)
+	//	 - チャネル型（chan）
+	//	 - エクスポートされていないフィールド
+	// 上記の型の場合、定義されていても無視される。
+	//
+	// 基本的に、encoding/gobの方がencoding/jsonよりもパフォーマンスが良い。
 	// --------------------------------------------------------------------------
-	pa := func(v interface{}) string {
-		return fmt.Sprintf("%p", v)
-	}
-
-	clone := func(from, to interface{}) {
-		buf := new(bytes.Buffer)
-
-		enc := gob.NewEncoder(buf)
-		dec := gob.NewDecoder(buf)
-
+	clone := func(from, to any) {
+		var (
+			buf = new(bytes.Buffer)
+			enc = gob.NewEncoder(buf)
+			dec = gob.NewDecoder(buf)
+		)
 		_ = enc.Encode(from)
 		_ = dec.Decode(to)
 	}
@@ -47,6 +50,7 @@ func GobDeepCopy() error {
 	var (
 		i  = 100
 		i2 int
+
 		s  = "helloworld"
 		s2 string
 	)
@@ -54,8 +58,8 @@ func GobDeepCopy() error {
 	clone(&i, &i2)
 	clone(&s, &s2)
 
-	output.Stdoutl("[i, i2]", i, i2, pa(&i), pa(&i2))
-	output.Stdoutl("[s, s2]", s, s2, &s, &s2)
+	output.Stdoutl("[i, i2]", i, i2)
+	output.Stdoutl("[s, s2]", s, s2)
 
 	// --------------------------------------------------------------------------
 	// スライス
@@ -65,10 +69,11 @@ func GobDeepCopy() error {
 	)
 
 	clone(&sli1, &sli2)
-	output.Stdoutl("[sli1, sli2]", sli1, sli2, pa(&sli1), pa(&sli2))
+	output.Stdoutl("[sli1, sli2][1]", sli1, sli2)
 
 	sli1[0] = 100
-	output.Stdoutl("[sli1, sli2]", sli1, sli2, pa(&sli1), pa(&sli2))
+	sli2[1] = 200
+	output.Stdoutl("[sli1, sli2][2]", sli1, sli2)
 
 	// --------------------------------------------------------------------------
 	// マップ
@@ -78,10 +83,11 @@ func GobDeepCopy() error {
 	)
 
 	clone(&map1, &map2)
-	output.Stdoutl("[map1, map2]", map1, map2, pa(&map1), pa(&map2))
+	output.Stdoutl("[map1, map2][1]", map1, map2)
 
 	map1[1] = "melon"
-	output.Stdoutl("[map1, map2]", map1, map2, pa(&map1), pa(&map2))
+	map2[2] = "林檎"
+	output.Stdoutl("[map1, map2][2]", map1, map2)
 
 	// --------------------------------------------------------------------------
 	// 構造体
@@ -105,11 +111,11 @@ func GobDeepCopy() error {
 	)
 
 	clone(&b1, &b2)
-	output.Stdoutl("[b1, b2]", b1, b2, pa(&b1), pa(&b2))
+	output.Stdoutl("[b1, b2][1]", b1, b2)
 
 	b1.Value = "world"
 	b1.ValueB = "hello"
-	output.Stdoutl("[b1, b2]", b1, b2, pa(&b1), pa(&b2))
+	output.Stdoutl("[b1, b2][2]", b1, b2)
 
 	return nil
 }
