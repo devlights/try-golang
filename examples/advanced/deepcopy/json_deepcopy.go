@@ -2,7 +2,6 @@ package deepcopy
 
 import (
 	"encoding/json"
-	"fmt"
 
 	"github.com/devlights/gomy/output"
 )
@@ -27,11 +26,7 @@ func JsonDeepCopy() error {
 	//
 	// 以下は encoding/json を利用した方法
 	// --------------------------------------------------------------------------
-	pa := func(v interface{}) string {
-		return fmt.Sprintf("%p", v)
-	}
-
-	clone := func(from, to interface{}) {
+	clone := func(from, to any) {
 		b, _ := json.Marshal(from)
 		_ = json.Unmarshal(b, to)
 	}
@@ -48,8 +43,8 @@ func JsonDeepCopy() error {
 	clone(&i, &i2)
 	clone(&s, &s2)
 
-	output.Stdoutl("[i, i2]", i, i2, pa(&i), pa(&i2))
-	output.Stdoutl("[s, s2]", s, s2, &s, &s2)
+	output.Stdoutl("[i, i2]", i, i2)
+	output.Stdoutl("[s, s2]", s, s2)
 
 	// --------------------------------------------------------------------------
 	// スライス
@@ -59,10 +54,10 @@ func JsonDeepCopy() error {
 	)
 
 	clone(&sli1, &sli2)
-	output.Stdoutl("[sli1, sli2]", sli1, sli2, pa(&sli1), pa(&sli2))
+	output.Stdoutl("[sli1, sli2][1]", sli1, sli2)
 
 	sli1[0] = 100
-	output.Stdoutl("[sli1, sli2]", sli1, sli2, pa(&sli1), pa(&sli2))
+	output.Stdoutl("[sli1, sli2][2]", sli1, sli2)
 
 	// --------------------------------------------------------------------------
 	// マップ
@@ -72,10 +67,10 @@ func JsonDeepCopy() error {
 	)
 
 	clone(&map1, &map2)
-	output.Stdoutl("[map1, map2]", map1, map2, pa(&map1), pa(&map2))
+	output.Stdoutl("[map1, map2][1]", map1, map2)
 
 	map1[1] = "melon"
-	output.Stdoutl("[map1, map2]", map1, map2, pa(&map1), pa(&map2))
+	output.Stdoutl("[map1, map2][2]", map1, map2)
 
 	// --------------------------------------------------------------------------
 	// 構造体
@@ -99,11 +94,11 @@ func JsonDeepCopy() error {
 	)
 
 	clone(&b1, &b2)
-	output.Stdoutl("[b1, b2]", b1, b2, pa(&b1), pa(&b2))
+	output.Stdoutl("[b1, b2][1]", b1, b2)
 
 	b1.Value = "world"
 	b1.ValueB = "hello"
-	output.Stdoutl("[b1, b2]", b1, b2, pa(&b1), pa(&b2))
+	output.Stdoutl("[b1, b2][2]", b1, b2)
 
 	return nil
 }
