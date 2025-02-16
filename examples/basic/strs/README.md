@@ -15,3 +15,4 @@
 | trimspace.go                 | string_trim_space                | strings.TrimSpace() のサンプルです.                                               |
 | random_string.go             | string_random_string             | 指定された文字数のランダム文字列を作成するサンプルです.                           |
 | split_fields.go              | string_split_fields              | strings.Fields() のサンプルです.                                                  |
+| go124_strings_lines.go       | string_go124_strings_lines       | Go 1.24 で追加された strings.Lines() のサンプルです.                              |
