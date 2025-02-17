@@ -26,6 +26,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/floatop"
 	"github.com/devlights/try-golang/examples/basic/formatting"
 	"github.com/devlights/try-golang/examples/basic/functions"
+	"github.com/devlights/try-golang/examples/basic/go124"
 	"github.com/devlights/try-golang/examples/basic/goroutines"
 	"github.com/devlights/try-golang/examples/basic/helloworld"
 	"github.com/devlights/try-golang/examples/basic/hexop"
@@ -116,6 +117,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	floatop.NewRegister().Regist(m)
 	formatting.NewRegister().Regist(m)
 	functions.NewRegister().Regist(m)
+	go124.NewRegister().Regist(m)
 	goroutines.NewRegister().Regist(m)
 	helloworld.NewRegister().Regist(m)
 	hexop.NewRegister().Regist(m)
