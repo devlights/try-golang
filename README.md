@@ -3,10 +3,8 @@
 
 This is my TUTORIAL project for golang.
 
-![try-golang - Go Version](https://img.shields.io/badge/go-1.23-blue.svg)
+![try-golang - Go Version](https://img.shields.io/badge/go-1.24-blue.svg)
 ![Go](https://github.com/devlights/try-golang/workflows/Go/badge.svg?branch=master)
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/devlights/try-golang)
 
 ## Go version
 
@@ -103,3 +101,5 @@ $ task test
 - [go-tcp-keepalive-example](https://github.com/devlights/go-tcp-keepalive-example)
   - Go で キープアライブプローブ を送信するサンプルです。
 - [バイトスライスに文字列を速く設定する方法（fmt.Sprintf, fmt.Appendf, 直接append使用)](https://gist.github.com/devlights/ffd22f78297a563c9bebcb9a9baa7f5f)
+- [go124-goget-tools-dependencies-example](https://github.com/devlights/go124-goget-tools-dependencies-example)
+  - Go 1.24で導入された go get -tool によるツール依存関係インストールのサンプルです。
