@@ -1,0 +1,33 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: run
+  build:
+    cmds:
+      - go build -o app main.go
+  run:
+    cmds:
+      - task: run-fin
+      - sleep 2
+      - task: run-rst
+  run-fin:
+    cmds:
+      - sudo tcpdump -i lo -n 'tcp port 8888' -S &
+      - sleep 1
+      - ./app -server &
+      - ./app
+      - sleep 2
+      - sudo pkill tcpdump
+  run-rst:
+    cmds:
+      - sudo tcpdump -i lo -n 'tcp port 8888' -S &
+      - sleep 1
+      - ./app -server -rst &
+      - ./app -rst
+      - sleep 2
+      - sudo pkill tcpdump
