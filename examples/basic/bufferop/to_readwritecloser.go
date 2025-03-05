@@ -30,7 +30,7 @@ func ToReadWriteCloser() error {
 				io.Writer     // io.Writer
 			}{
 				io.NopCloser(b), // io.ReaderはBufferが実装済み。io.Closerは空実装。
-				b,               // io.ReaderはBufferが実装済み。
+				b,               // io.WriterはBufferが実装済み。
 			}
 		}
 		// 書き込み
