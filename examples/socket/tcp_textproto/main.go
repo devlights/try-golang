@@ -78,11 +78,14 @@ func runServer() error {
 	defer conn.Close()
 
 	// net/textprotoの接続として処理
+	// 
+	// textproto.NewConn() は、引数に io.ReadWriteCloser を要求しているが
+	// net.Conn は、os.Fileと同様に io.ReadWriteCloser を実装している。
 	tpConn := textproto.NewConn(conn)
 	defer tpConn.Close()
 
 	// ウェルカムメッセージ
-	err = tpConn.PrintfLine("%d %s", OK, "ようこそ! コマンド: GET, SET, QUIT")
+	err = tpConn.PrintfLine("%d %s", OK, "WELCOME AVAILABLE COMMANDS: {SET, GET, QUIT}")
 	if err != nil {
 		return err
 	}
@@ -133,60 +136,86 @@ func runClient() error {
 	tpConn := textproto.NewConn(conn)
 	defer tpConn.Close()
 
-	code, message, err := tpConn.ReadCodeLine(OK)
-	if err != nil {
-		return err
-	}
+	// helper funcs
+	var (
+		send = func(tp *textproto.Conn, msg string) error {
+			fmt.Printf("< %s\n", msg)
+			return tp.PrintfLine("%s", msg)
+		}
+		recv = func(tp *textproto.Conn) error {
+			code, msg, err := tp.ReadCodeLine(OK)
+			if err != nil {
+				return err
+			}
+			fmt.Printf("%d %s\n", code, msg)
 
-	fmt.Printf("%d %s\n", code, message)
+			return nil
+		}
+	)
+
+	// WELCOME
+	{
+		err = recv(tpConn)
+		if err != nil {
+			return err
+		}
+	}
 
 	// SET
 	m := fmt.Sprintf("%s %s %s", CmdSet, "Hello", "World")
-	fmt.Printf("< %s\n", m)
+	{
+		err = send(tpConn, m)
+		if err != nil {
+			return err
+		}
 
-	err = tpConn.PrintfLine("%s", m)
-	if err != nil {
-		return err
+		err = recv(tpConn)
+		if err != nil {
+			return err
+		}
 	}
-
-	code, message, err = tpConn.ReadCodeLine(OK)
-	if err != nil {
-		return err
-	}
-
-	fmt.Printf("%d %s\n", code, message)
 
 	// GET
 	m = fmt.Sprintf("%s %s", CmdGet, "Hello")
-	fmt.Printf("< %s\n", m)
+	{
+		err = send(tpConn, m)
+		if err != nil {
+			return err
+		}
 
-	err = tpConn.PrintfLine("%s", m)
-	if err != nil {
-		return err
+		err = recv(tpConn)
+		if err != nil {
+			return err
+		}
 	}
 
-	code, message, err = tpConn.ReadCodeLine(OK)
-	if err != nil {
-		return err
-	}
+	// 存在しないコマンド
+	m = fmt.Sprintf("%s %s", "GOLANG", "HELLO")
+	{
+		err = send(tpConn, m)
+		if err != nil {
+			return err
+		}
 
-	fmt.Printf("%d %s\n", code, message)
+		err = recv(tpConn)
+		if err != nil {
+			fmt.Printf("%[1]s (%[1]T)\n", err)
+		}
+	}
 
 	// QUIT
 	m = CmdQuit
-	fmt.Printf("< %s\n", m)
+	{
+		err = send(tpConn, m)
+		if err != nil {
+			return err
+		}
 
-	err = tpConn.PrintfLine("%s", m)
-	if err != nil {
-		return err
+		err = recv(tpConn)
+		if err != nil {
+			return err
+		}
 	}
-
-	code, message, err = tpConn.ReadCodeLine(OK)
-	if err != nil {
-		return err
-	}
-
-	fmt.Printf("%d %s\n", code, message)
 
 	return nil
 }
