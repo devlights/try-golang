@@ -194,7 +194,7 @@ func runClient() error {
 }
 
 func send(conn net.Conn, tpConn *textproto.Conn, msg string) error {
-	err := conn.SetReadDeadline(time.Now().Add(1 * time.Second))
+	err := conn.SetWriteDeadline(time.Now().Add(1 * time.Second))
 	if err != nil {
 		return err
 	}
@@ -209,7 +209,7 @@ func send(conn net.Conn, tpConn *textproto.Conn, msg string) error {
 }
 
 func recv(conn net.Conn, tpConn *textproto.Conn) error {
-	err := conn.SetWriteDeadline(time.Now().Add(1 * time.Second))
+	err := conn.SetReadDeadline(time.Now().Add(1 * time.Second))
 	if err != nil {
 		return err
 	}
