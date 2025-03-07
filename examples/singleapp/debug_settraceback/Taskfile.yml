@@ -1,0 +1,31 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  APP_NAME: app
+
+tasks:
+  default:
+    cmds:
+      - task: clean
+      - task: run
+  install-panicparse:
+    cmds:
+      - go install github.com/maruel/panicparse/v2/cmd/pp@latest
+    status:
+      - which pp
+  clean:
+    cmds:
+      - rm -f ./{{.APP_NAME}}{{exeExt}}
+    status:
+      - test ! -f ./{{.APP_NAME}}{{exeExt}}
+  build:
+    cmds:
+      - go build -o {{.APP_NAME}}{{exeExt}} .
+  run:
+    deps: [ build, install-panicparse ]
+    cmds:
+      - for: [ 'none', 'single', 'all', 'system', 'crach', 'wer' ]
+        cmd: ./{{.APP_NAME}}{{exeExt}} -traceback {{.ITEM}} |& pp
+    ignore_error: true
