@@ -1,7 +1,21 @@
 /*
 GOTRACEBACKの値をプログラムから設定するサンプル
 
-runtime/debug.SetTraceback("all") の様に設定できる。
+GOTRACEBACKは、Goのプログラムがパニックを起こした際の出力の詳細度を制御する環境変数。
+プログラムからも設定することが可能で ```runtime/debug.SetTraceback()``` で設定できる。
+
+	debug.SetTraceback("all")
+
+指定出来る値として
+
+  - none
+  - single (デフォルト)
+  - all
+  - system
+  - crach
+  - wer
+
+がある。
 
 # REFERENCES
   - https://pkg.go.dev/runtime/debug#SetTraceback
