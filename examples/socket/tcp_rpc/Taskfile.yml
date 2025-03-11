@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: "3"
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: run
+  build:
+    cmds:
+      - go build -o app .
+  run:
+    cmds:
+      - ./app -server &
+      - sleep 1
+      - ./app -x 2071723 -y 5363222357
+      - sleep 1
+      - pkill app
+  watch:
+    cmds:
+      - cmd: sudo tcpdump -i lo -n 'tcp port 8888' -S -X
+    interactive: true
