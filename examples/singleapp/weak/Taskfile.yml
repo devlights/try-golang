@@ -6,3 +6,5 @@ tasks:
   default:
     cmds:
       - go run main.go
+      - sleep 1
+      - go run main.go -weakref
