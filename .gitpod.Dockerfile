@@ -23,4 +23,5 @@ RUN printf '%s\n' 'export GOPATH=/workspace/go' \
                       'export PATH=$GOPATH/bin:$PATH' > $HOME/.bashrc.d/300-go
 
 RUN sudo apt update && sudo apt install -y universal-ctags tree nkf wamerican miller tcpdump
-
+RUN wget -O /tmp/hyperfine.deb https://github.com/sharkdp/hyperfine/releases/download/v1.19.0/hyperfine_1.19.0_amd64.deb
+RUN sudo dpkg -i /tmp/hyperfine.deb

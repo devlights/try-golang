@@ -1,0 +1,18 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  run:
+    deps: [ build ]
+    cmds:
+      - hyperfine --time-unit microsecond --shell none --warmup 3 --runs 100 './app -syscall -val 5'
+      - cmd: echo '-----------------------'
+        silent: true
+      - hyperfine --time-unit microsecond --shell none --warmup 3 --runs 100 './app -val 5'
+  build:
+    cmds:
+      - go build -o app .
+  clean:
+    cmds:
+      - rm -f ./app
