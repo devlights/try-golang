@@ -1,0 +1,21 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: clean
+      - task: run
+      - task: stat
+  run:
+    cmds:
+      - go test -bench . -benchmem -count 10 | tee bench.out
+  stat:
+    cmds:
+      - benchstat bench.out
+  clean:
+    cmds:
+      - rm -f bench.out
+    status:
+      - test ! -f bench.out
