@@ -1,0 +1,20 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run
+  build:
+    cmds:
+      - go build -o app
+  run:
+    deps: [ build ]
+    cmds:
+      - for: ["100","99","98","97","96","95"]
+        cmd: hyperfine './app -d {{.ITEM}}'
+      - hyperfine 'sleep 0.1'
+  clean:
+    cmds:
+      - rm -f ./app
