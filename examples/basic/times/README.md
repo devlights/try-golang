@@ -29,3 +29,4 @@
 | time_sleep.go              | time_sleep               | time.Sleep() のサンプルです。                                                         |
 | time_cancellable_sleep.go  | time_cancellable_sleep   | キャンセル可能なスリープ処理のサンプルです。                                          |
 | time_parseDuration.go      | time_parse_duration      | time.ParseDuration() のサンプルです                                                   |
+| time_n_duration.go         | time_do_n_duration       | forループとtime.Before()を組み合わせて「Nの時間分何かを行う」という処理のサンプルです |
