@@ -16,15 +16,17 @@ task: [build] go build -o app main.go
 task: [run] ./app -server &
 task: [run] sleep 1
 task: [run] ./app
-01:59:18.896796 [C] Send (hello)
-01:59:18.896882 [S] Recv (hello)
-01:59:18.897098 [S] Send (HELLO)
-01:59:18.897149 [C] Recv (HELLO)
-01:59:18.897174 [C] close
-01:59:18.897177 [S] disconnect
-01:59:18.897205 [S] close
+02:42:06.032066 [C] Send (hello)
+02:42:06.032128 [S] Recv (hello)
+02:42:06.032345 [S] Send (HELLO)
+02:42:06.032365 [C] Recv (HELLO)
+02:42:06.032378 [C] SEND FIN (shutdown(SHUT_WR))
+02:42:06.032382 [S] disconnect
+02:42:06.032410 [S] close
+02:42:06.032413 [C] disconnect
+02:42:06.032436 [C] close
 task: [run] pkill -INT -f './app -server'
-01:59:18.909751 [S] Shutdown...
+02:42:06.043557 [S] Shutdown...
 ```
 
 ## 参考情報

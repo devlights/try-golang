@@ -13,6 +13,7 @@ import (
 	"net"
 	"os"
 	"os/signal"
+	"time"
 )
 
 type (
@@ -117,26 +118,29 @@ func runServer() error {
 			}
 			log.Printf("[S] Send (%s)", message)
 
-			// Graceful shutdown
-			{
-				unixConn, ok := conn.(*net.UnixConn)
-				if !ok {
-					errCh <- fmt.Errorf("conn.(*net.UnixConn) failed")
-					return
+			// FIN待機用のタイムアウト設定
+			err = conn.SetReadDeadline(time.Now().Add(2 * time.Second))
+			if err != nil {
+				log.Printf("[S] SetReadDeadline error: %v", err)
+				errCh <- err
+				return
+			}
+
+			for {
+				clear(buf)
+				if n, err = conn.Read(buf); n == 0 || errors.Is(err, io.EOF) {
+					log.Println("[S] disconnect")
+					break
 				}
 
-				err = unixConn.CloseWrite()
 				if err != nil {
-					errCh <- err
-					return
-				}
-
-				for {
-					clear(buf)
-					if n, err = conn.Read(buf); n == 0 || errors.Is(err, io.EOF) {
-						log.Println("[S] disconnect")
+					if netErr, ok := err.(net.Error); ok && netErr.Timeout() {
+						log.Println("[S] timeout (client FIN)")
 						break
 					}
+
+					errCh <- err
+					return
 				}
 			}
 		}()
@@ -179,6 +183,29 @@ func runClient() error {
 
 	message := string(buf[:n])
 	log.Printf("[C] Recv (%s)", message)
+
+	// Graceful shutdown
+	{
+		unixConn, ok := conn.(*net.UnixConn)
+		if !ok {
+			return fmt.Errorf("conn.(*net.UnixConn) failed")
+
+		}
+
+		err = unixConn.CloseWrite()
+		if err != nil {
+			return err
+		}
+		log.Println("[C] SEND FIN (shutdown(SHUT_WR))")
+
+		for {
+			clear(buf)
+			if n, err = conn.Read(buf); n == 0 || errors.Is(err, io.EOF) {
+				log.Println("[C] disconnect")
+				break
+			}
+		}
+	}
 
 	return nil
 }
