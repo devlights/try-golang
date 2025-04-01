@@ -1,3 +1,6 @@
+/*
+UNIXドメインソケット 抽象名前空間のサンプル（netパッケージのUnixConnを利用する版)
+*/
 package main
 
 import (

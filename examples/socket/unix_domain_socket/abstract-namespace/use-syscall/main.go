@@ -1,3 +1,6 @@
+/*
+UNIXドメインソケット 抽象名前空間のサンプル（syscallパッケージを利用する版)
+*/
 package main
 
 import (

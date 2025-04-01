@@ -1,4 +1,4 @@
-# UNIXドメインソケットの抽象名前空間のサンプル (net版)
+# UNIXドメインソケットの抽象名前空間のサンプル (net-conn版)
 
 Linux特有の機能である「抽象名前空間」（Abstract Namespace）のUnixドメインソケットは以下の特徴がある
 
@@ -16,12 +16,15 @@ task: [build] go build -o app main.go
 task: [run] ./app -server &
 task: [run] sleep 1
 task: [run] ./app
-09:01:13.238544 [C] Send (hello)
-09:01:13.239925 [S] Recv (hello)
-09:01:13.240143 [S] Send (HELLO)
-09:01:13.240205 [C] Recv (HELLO)
-09:01:13.240314 [S] disconnect
-task: [run] pkill -f './app -server' || true
+01:59:18.896796 [C] Send (hello)
+01:59:18.896882 [S] Recv (hello)
+01:59:18.897098 [S] Send (HELLO)
+01:59:18.897149 [C] Recv (HELLO)
+01:59:18.897174 [C] close
+01:59:18.897177 [S] disconnect
+01:59:18.897205 [S] close
+task: [run] pkill -INT -f './app -server'
+01:59:18.909751 [S] Shutdown...
 ```
 
 ## 参考情報

@@ -1,0 +1,24 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  APP_NAME: app
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: run
+  build:
+    cmds:
+      - go build -o {{.APP_NAME}} main.go
+  run:
+    cmds:
+      - ./{{.APP_NAME}} -server &
+      - sleep 1
+      - ./{{.APP_NAME}}
+      - pkill -INT -f './{{.APP_NAME}} -server'
+  clean:
+    cmds:
+      - rm -f ./{{.APP_NAME}}
