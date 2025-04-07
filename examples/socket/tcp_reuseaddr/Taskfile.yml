@@ -5,6 +5,7 @@ version: '3'
 tasks:
   default:
     cmds:
+      - cat /etc/os-release | head -n 1
       - task: run
   run:
     cmds:
