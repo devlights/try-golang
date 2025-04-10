@@ -1,0 +1,20 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: run
+  build:
+    cmds:
+      - go build -o app .
+  run:
+    cmds:
+      - ./app -server &
+      - sleep 0.5
+      - ./app
+      - sleep 0.5
+      - pkill app
+    ignore_error: true
