@@ -4,6 +4,7 @@
 
 対象となるソケットファイルディスクリプタが読み取り可能な状態であるかを確認して処理するサンプルです。
 
+[syscall](https://pkg.go.dev/syscall@latest)でも同様のことが出来るが、[golang.org/sys/unix](https://pkg.go.dev/golang.org/x/sys/unix)のほうが FD_SET用の構造体などが定義されており、扱いやすい。
 
 ```sh
 $ task
