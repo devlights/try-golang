@@ -1,0 +1,27 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  GREETING: Hello, World!
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: run
+  build:
+    cmds:
+      - go build -o tcp-client tcpclient/main.go
+      - go build -o tcp-server tcpserver/main.go
+      - go build -o uds-server udsserver/main.go
+  run:
+    cmds:
+      - ./uds-server &
+      - sleep 1
+      - ./tcp-server &
+      - sleep 1
+      - ./tcp-client
+      - pkill tcp-server
+      - pkill uds-server
+    ignore_error: true
