@@ -1,0 +1,18 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: run
+  build:
+    cmds:
+      - go build -o app .
+  run:
+    cmds:
+      - ./app -timeout 100ms
+      - ./app -timeout 3s
+      - ./app -length 10 -timeout 3s
+      - ./app -bufsize 6 -length 12 -timeout 3s
