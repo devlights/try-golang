@@ -9,6 +9,3 @@ go install golang.org/x/perf/cmd/benchstat@latest
 sudo apt update && sudo sudo apt install -y universal-ctags tree nkf wamerican miller tcpdump
 wget -O /tmp/hyperfine.deb https://github.com/sharkdp/hyperfine/releases/download/v1.19.0/hyperfine_1.19.0_amd64.deb
 sudo dpkg -i /tmp/hyperfine.deb
-
-go mod download
-task build
