@@ -41,7 +41,8 @@ func run() error {
 		return fmt.Errorf("not net.UnixConn")
 	}
 
-	fd, err := fdpassing.NewFd(unixConn).Recv()
+	fdp := fdpassing.NewFd(unixConn)
+	fd, err := fdp.Recv()
 	if err != nil {
 		return err
 	}

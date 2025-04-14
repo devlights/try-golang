@@ -63,9 +63,9 @@ func run() error {
 				unixConn = udsConn.(*net.UnixConn)
 				tcpConn  = conn.(*net.TCPConn)
 				file, _  = tcpConn.File()
-				fd       = fdpassing.NewFd(unixConn)
+				fdp      = fdpassing.NewFd(unixConn)
 			)
-			err = fd.Send(int(file.Fd()))
+			err = fdp.Send(int(file.Fd()))
 			if err != nil {
 				errCh <- err
 				return
