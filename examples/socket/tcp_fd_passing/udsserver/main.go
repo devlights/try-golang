@@ -8,7 +8,7 @@ import (
 	"net"
 	"os"
 
-	"golang.org/x/sys/unix"
+	"github.com/devlights/try-golang/examples/socket/tcp_fd_passing/fdpassing"
 )
 
 func main() {
@@ -26,7 +26,7 @@ func run() error {
 	}
 	defer ln.Close()
 
-	log.Println("[UDS-S] server listening on")
+	log.Println("[UDS-S] uds-server listening on")
 
 	udsConn, err := ln.Accept()
 	if err != nil {
@@ -41,7 +41,7 @@ func run() error {
 		return fmt.Errorf("not net.UnixConn")
 	}
 
-	fd, err := recvFD(unixConn)
+	fd, err := fdpassing.NewFd(unixConn).Recv()
 	if err != nil {
 		return err
 	}
@@ -86,47 +86,4 @@ func run() error {
 	log.Println("[UDS-S] shutdown(SHUT_WR)")
 
 	return nil
-}
-
-func recvFD(sock *net.UnixConn) (int, error) {
-	var (
-		dummy = make([]byte, 1)
-		oob   = make([]byte, unix.CmsgSpace(4))
-		flags int
-		err   error
-	)
-	_, _, flags, _, err = sock.ReadMsgUnix(dummy, oob)
-	if err != nil {
-		return -1, err
-	}
-
-	if flags&unix.MSG_TRUNC != 0 {
-		return -1, fmt.Errorf("control message is truncated")
-	}
-
-	var (
-		msgs []unix.SocketControlMessage
-	)
-	msgs, err = unix.ParseSocketControlMessage(oob)
-	if err != nil {
-		return -1, err
-	}
-
-	if len(msgs) != 1 {
-		return -1, fmt.Errorf("want: 1 control message; got: %d", len(msgs))
-	}
-
-	var (
-		fds []int
-	)
-	fds, err = unix.ParseUnixRights(&msgs[0])
-	if err != nil {
-		return -1, err
-	}
-
-	if len(fds) != 1 {
-		return -1, fmt.Errorf("want: 1 fd; got: %d", len(fds))
-	}
-
-	return fds[0], nil
 }

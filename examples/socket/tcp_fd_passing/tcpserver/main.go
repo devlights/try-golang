@@ -6,7 +6,7 @@ import (
 	"net"
 	"time"
 
-	"golang.org/x/sys/unix"
+	"github.com/devlights/try-golang/examples/socket/tcp_fd_passing/fdpassing"
 )
 
 func main() {
@@ -43,7 +43,7 @@ func run() error {
 		return err
 	}
 	defer ln.Close()
-	log.Println("[TCP-S] listen on :8888")
+	log.Println("[TCP-S] tcp-listen on :8888")
 
 	for {
 		errCh := make(chan error, 1)
@@ -59,15 +59,18 @@ func run() error {
 			}()
 			log.Println("[TCP-S] accept client")
 
-			unixConn, _ := udsConn.(*net.UnixConn)
-			tcpConn, _ := conn.(*net.TCPConn)
-			file, _ := tcpConn.File()
-			err = sendFD(unixConn, int(file.Fd()))
+			var (
+				unixConn = udsConn.(*net.UnixConn)
+				tcpConn  = conn.(*net.TCPConn)
+				file, _  = tcpConn.File()
+				fd       = fdpassing.NewFd(unixConn)
+			)
+			err = fd.Send(int(file.Fd()))
 			if err != nil {
 				errCh <- err
 				return
 			}
-			log.Printf("[TCP-S] send fd=%d to uds-server", file.Fd())
+			log.Printf("[TCP-S] passing fd=%d to uds-server", file.Fd())
 
 			errCh <- nil
 		}()
@@ -77,18 +80,4 @@ func run() error {
 			return err
 		}
 	}
-}
-
-func sendFD(sock *net.UnixConn, fd int) error {
-	var (
-		dummy  = make([]byte, 1)
-		rights = unix.UnixRights(fd)
-		err    error
-	)
-	_, _, err = sock.WriteMsgUnix(dummy, rights, nil)
-	if err != nil {
-		return err
-	}
-
-	return nil
 }
