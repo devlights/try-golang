@@ -10,7 +10,7 @@ require (
 	golang.org/x/crypto v0.36.0
 	golang.org/x/exp v0.0.0-20240904232852-e7e105dedf7e
 	golang.org/x/sync v0.12.0
-	golang.org/x/sys v0.31.0
+	golang.org/x/sys v0.32.0
 	golang.org/x/term v0.30.0
 	golang.org/x/text v0.23.0
 	gopkg.in/ini.v1 v1.67.0
@@ -19,3 +19,5 @@ require (
 )
 
 require github.com/muesli/cancelreader v0.2.2
+
+require github.com/devlights/fdpassing v1.0.1

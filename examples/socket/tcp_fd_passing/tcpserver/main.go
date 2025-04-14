@@ -6,7 +6,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/devlights/try-golang/examples/socket/tcp_fd_passing/fdpassing"
+	"github.com/devlights/fdpassing"
 )
 
 func main() {
