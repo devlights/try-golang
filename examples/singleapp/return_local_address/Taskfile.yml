@@ -1,0 +1,38 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: show-ver
+      - task: compile-c
+      - task: compile-go
+      - task: run_gcc
+      - task: run_clang
+      - task: run_go
+  show-ver:
+    silent: true
+    cmds:
+      - gcc --version | head -n 1
+      - clang --version | head -n 1
+  compile-c:
+    dir: c
+    cmds:
+      - gcc -o ../app_gcc main.c
+      - clang -o ../app_clang main.c
+  compile-go:
+    cmds:
+      - go build -o app_go main.go
+  run_gcc:
+    internal: true
+    cmds:
+      - sh -c './app_gcc | true'
+  run_clang:
+    internal: true
+    cmds:
+      - ./app_clang
+  run_go:
+    internal: true
+    cmds:
+      - ./app_go
