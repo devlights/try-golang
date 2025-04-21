@@ -1,6 +1,11 @@
 version: '3'
 
 tasks:
-  run:
+  default:
     cmds:
-      - go run -race main.go
+      - go build -o server main.go
+      - ./server &
+      - sleep 1
+      - curl http://localhost:8888/
+      - curl http://localhost:8888/something
+      - kill -INT $(pgrep server)
