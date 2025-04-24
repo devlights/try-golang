@@ -15,4 +15,5 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["signal_notify"] = Notify
 	m["signal_notify_context"] = NotifyContext
+	m["signal_stop"] = Stop
 }
