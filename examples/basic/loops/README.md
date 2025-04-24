@@ -14,3 +14,4 @@
 | for_loop_two_variable.go    | loops_two_variable             | for ループで ２つの変数 を初期化してループさせるサンプルです           |
 | go122_loop_variable.go      | loops_go122_loop_variable      | Go 1.22 で導入された「ループ変数」の仕様変更についてのサンプルです.    |
 | go122_range_over_integer.go | loops_go122_range_over_integer | Go 1.22 で導入された range over integers ループ機能のサンプルです.     |
+| dowhile.go                  | loops_dowhile                  | Goで他の言語にある do-while と同様のことを行うサンプルです.            |
