@@ -1,0 +1,17 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  LOOP_CNT: 500000
+  ZERO: 0
+
+tasks:
+  default:
+    cmds:
+      - rm -f ./app
+      - goimports -w main.go
+      - go build -o app main.go
+      - time ./app -loop {{.LOOP_CNT}} -inch {{.ZERO}} -outch {{.ZERO}}
+      - time ./app -loop {{.LOOP_CNT}} -inch {{.LOOP_CNT}} -outch {{.ZERO}}
+      - time ./app -loop {{.LOOP_CNT}} -inch {{.LOOP_CNT}} -outch {{.LOOP_CNT}}
