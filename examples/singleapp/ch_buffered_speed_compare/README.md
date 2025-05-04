@@ -3,9 +3,9 @@
 ## Gitpod
 
 ```sh
-$ lscpu | grep 'CPU(s):'
+$ lscpu | grep -E '^(CPU\(s\):|Model name:).*$'
 CPU(s):                               16
-NUMA node0 CPU(s):                    0-15
+Model name:                           AMD EPYC 7B13
 
 $ task
 task: [default] rm -f ./app
