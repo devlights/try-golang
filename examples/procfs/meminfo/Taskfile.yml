@@ -1,0 +1,20 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: clean
+      - task: build
+      - task: run
+  build:
+    cmds:
+      - go build -o app .
+  run:
+    cmds:
+      - free | head -n 2
+      - ./app
+  clean:
+    cmds:
+      - rm -f ./app
