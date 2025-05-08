@@ -33,13 +33,16 @@ func run() error {
 	}
 
 	var (
-		memTotal       = *mem.MemTotal      // システムに搭載されている物理メモリ（RAM）の総量をkB単位
-		memTotalBytes  = *mem.MemTotalBytes // システムに搭載されている物理メモリ（RAM）の総量をバイト単位
-		freeTotal      = *mem.MemFree       // 空き容量をKB表示
-		freeTotalBytes = *mem.MemFreeBytes  // 空き容量をバイト単位
-		toMB           = func(v uint64) uint64 { return v >> 20 }
+		memTotal        = *mem.MemTotal          // システムに搭載されている物理メモリ（RAM）の総量をkB単位
+		memTotalBytes   = *mem.MemTotalBytes     // システムに搭載されている物理メモリ（RAM）の総量をバイト単位
+		freeTotal       = *mem.MemFree           // 空き容量をKB表示
+		freeTotalBytes  = *mem.MemFreeBytes      // 空き容量をバイト単位
+		availTotal      = *mem.MemAvailable      // 利用可能容量をKB表示
+		availTotalBytes = *mem.MemAvailableBytes // 利用可能容量をバイト単位
+		toMB            = func(v uint64) uint64 { return v >> 20 }
 	)
-	log.Printf("MemTotal=%dKB(%dMB), Free=%dKB(%dMB)", memTotal, toMB(memTotalBytes), freeTotal, toMB(freeTotalBytes))
+	log.Printf("MemTotal=%dKB(%dMB), Free=%dKB(%dMB), Avail=%dKB(%dMB)",
+		memTotal, toMB(memTotalBytes), freeTotal, toMB(freeTotalBytes), availTotal, toMB(availTotalBytes))
 
 	return nil
 }
