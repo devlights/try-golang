@@ -9,7 +9,7 @@ require (
 	github.com/shopspring/decimal v1.4.0
 	golang.org/x/crypto v0.36.0
 	golang.org/x/exp v0.0.0-20240904232852-e7e105dedf7e
-	golang.org/x/sync v0.12.0
+	golang.org/x/sync v0.13.0
 	golang.org/x/sys v0.32.0
 	golang.org/x/term v0.30.0
 	golang.org/x/text v0.23.0
@@ -22,6 +22,7 @@ require github.com/muesli/cancelreader v0.2.2
 
 require (
 	github.com/devlights/fdpassing v1.0.1
+	github.com/prometheus/procfs v0.16.1
 	github.com/shirou/gopsutil/v4 v4.25.3
 )
 
