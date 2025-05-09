@@ -1,0 +1,11 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - rm -f ./app
+      - go build -o app .
+      - ./app
+      - ./app hello world 1 2 3 4 5
