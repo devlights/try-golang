@@ -90,7 +90,5 @@ func run() error {
 		log.Println(string(data))
 	}
 
-
-
 	return nil
 }
