@@ -128,7 +128,7 @@ func run() error {
 	// $ git archive --prefix=archive/ main $(git diff --name-only ${REV1} ${REV2}) -o archive.zip
 	// --------------------------------------------------------------------------------------------
 
-	// 最新のコミットハッシュを取得
+	// コミットハッシュを取得
 	var (
 		from string
 		to   string
