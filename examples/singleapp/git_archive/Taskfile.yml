@@ -2,6 +2,9 @@
 
 version: '3'
 
+vars:
+  APP_NAME: gitar
+
 tasks:
   default:
     cmds:
@@ -10,11 +13,11 @@ tasks:
       - task: run
   clean:
     cmds:
-      - rm -f ./app
+      - rm -f ./{{.APP_NAME}}
   build:
     cmds:
-      - go build -o app .
+      - go build -o {{.APP_NAME}} .
   run:
     cmds:
-      - ./app
+      - ./{{.APP_NAME}}
       - unzip -l archive.zip
