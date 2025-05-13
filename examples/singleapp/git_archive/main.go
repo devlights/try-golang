@@ -120,6 +120,14 @@ func run() error {
 		return err
 	}
 
+	// --------------------------------------------------------------------------------------------
+	// 以下と同じことをする
+	//
+	// $ REV1=$(git rev-parse HEAD~1)
+	// $ REV2=$(git rev-parse HEAD)
+	// $ git archive --prefix=archive/ main $(git diff --name-only ${REV1} ${REV2}) -o archive.zip
+	// --------------------------------------------------------------------------------------------
+
 	// 最新のコミットハッシュを取得
 	var (
 		from string
