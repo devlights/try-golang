@@ -1,0 +1,23 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  APP_NAME: gitar
+
+tasks:
+  default:
+    cmds:
+      - task: clean
+      - task: build
+      - task: run
+  clean:
+    cmds:
+      - rm -f ./{{.APP_NAME}}
+  build:
+    cmds:
+      - go build -o {{.APP_NAME}} .
+  run:
+    cmds:
+      - ./{{.APP_NAME}}
+      - unzip -l archive.zip
