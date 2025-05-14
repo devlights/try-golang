@@ -1,0 +1,15 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - rm -f ./app_noerror
+      - go build -o app_noerror main.go
+      - go build -o app_client client/main.go
+      - ./app_noerror &
+      - sleep 1
+      - ./app_client
+      - pkill app_noerror
+    ignore_error: true
