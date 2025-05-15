@@ -1,0 +1,46 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run_noerror
+      - task: hr
+      - task: run_unix
+      - task: hr
+      - task: run_stdlib
+  hr:
+    cmds:
+      - echo '-------------------------------------------------'
+    silent: true
+  run_noerror:
+    cmds:
+      - rm -f ./app_noerror
+      - go build -o app_noerror main.go
+      - go build -o app_client client/main.go
+      - ./app_noerror &
+      - sleep 1
+      - ./app_client
+      - pkill app_noerror
+    ignore_error: true
+  run_unix:
+    cmds:
+      - rm -f ./app_unix
+      - go build -o app_unix unix/main.go
+      - go build -o app_client client/main.go
+      - ./app_unix &
+      - sleep 1
+      - ./app_client
+      - pkill app_unix
+    ignore_error: true
+  run_stdlib:
+    cmds:
+      - rm -f ./app_stdlib
+      - go build -o app_stdlib stdlib/main.go
+      - go build -o app_client client/main.go
+      - ./app_stdlib &
+      - sleep 1
+      - ./app_client
+      - pkill app_stdlib
+    ignore_error: true
