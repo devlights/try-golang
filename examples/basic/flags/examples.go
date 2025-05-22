@@ -15,6 +15,7 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["flags_flagset"] = Flagset
 	m["flags_var"] = Var
+	m["flags_var2"] = Var2
 	m["flags_int"] = Int
 	m["flags_bool"] = Bool
 	m["flags_string"] = String
