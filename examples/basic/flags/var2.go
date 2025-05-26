@@ -68,4 +68,22 @@ func Var2() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build -o "/workspaces/try-golang/try-golang" .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: flags_var2
+
+	   [Name] "flags_var2"
+	   [vars]               hello
+	   [vars]               world
+	   [vars]               へろー
+	   [vars]               ワールド
+
+
+	   [Elapsed] 128.76µs
+	*/
+
 }
