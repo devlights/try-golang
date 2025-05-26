@@ -34,6 +34,9 @@ func TestMainOutput(t *testing.T) {
 	wg.Wait()
 
 	// 出力内容を確認
+	//   出力量が分かっている場合は以下でも良いが
+	//   不明な場合は [io.Reader.Read()] をちゃんとループ処理して
+	//   読み込む処理にする必要がある。
 	want := []byte("hello,world,へろー,ワールド\n")
 	got, _ := io.ReadAll(r)
 	if !bytes.Equal(want, got) {
