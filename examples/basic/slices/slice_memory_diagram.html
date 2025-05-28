@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goスライス メモリ共有と容量制御の図解</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f7fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            padding: 10px 0;
+            border-left: 4px solid #3498db;
+            padding-left: 15px;
+        }
+        
+        .case-section {
+            margin: 30px 0;
+            padding: 20px;
+            border: 2px solid #ecf0f1;
+            border-radius: 8px;
+            background-color: #fafbfc;
+        }
+        
+        .memory-diagram {
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        
+        .step {
+            margin: 15px 0;
+            padding: 15px;
+            background-color: white;
+            border-radius: 6px;
+            border-left: 4px solid #3498db;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .memory-layout {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            flex-wrap: wrap;
+        }
+        
+        .memory-cell {
+            width: 40px;
+            height: 40px;
+            border: 2px solid #34495e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 2px;
+            font-weight: bold;
+            background-color: #ecf0f1;
+        }
+        
+        .memory-cell.original {
+            background-color: #e8f4fd;
+            border-color: #3498db;
+        }
+        
+        .memory-cell.modified {
+            background-color: #ffeaa7;
+            border-color: #fdcb6e;
+        }
+        
+        .memory-cell.new {
+            background-color: #81ecec;
+            border-color: #00cec9;
+        }
+        
+        .slice-info {
+            margin-left: 20px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .slice-pointer {
+            display: flex;
+            align-items: center;
+            margin: 5px 0;
+        }
+        
+        .arrow {
+            margin: 0 10px;
+            font-size: 18px;
+            color: #e74c3c;
+        }
+        
+        .code-block {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 15px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .highlight {
+            background-color: #f39c12;
+            color: white;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        
+        .warning {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            color: #856404;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        
+        .info {
+            background-color: #d1ecf1;
+            border: 1px solid #bee5eb;
+            color: #0c5460;
+            padding: 15px;
+            border-radius: 6px;
+            margin: 15px 0;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+        
+        .comparison-table th {
+            background-color: #3498db;
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Go言語スライス：メモリ共有と容量制御の完全図解</h1>
+        
+        <div class="info">
+            <strong>重要ポイント:</strong> このコードは3-index slice expressions（通常のスライス）とfull slice expressions（容量制限付きスライス）の動作の違いを示しています。
+        </div>
+
+        <div class="case-section">
+            <h2>ケース1: 通常のスライス操作（メモリ共有あり）</h2>
+            <div class="code-block">
+s := make([]int, 0, 5)  // 長さ0、容量5<br>
+s = append(s, 1, 2, 3, 4, 5)<br>
+s2 := s[:3]    // [1, 2, 3] - 同じ底層ベース配列を共有<br>
+s3 := s[3:]    // [4, 5] - 同じ底層ベース配列を共有
+            </div>
+
+            <div class="step">
+                <div class="step-title">ステップ1: 初期状態</div>
+                <div class="memory-layout">
+                    <div class="memory-cell original">1</div>
+                    <div class="memory-cell original">2</div>
+                    <div class="memory-cell original">3</div>
+                    <div class="memory-cell original">4</div>
+                    <div class="memory-cell original">5</div>
+                    <div class="slice-info">
+                        s: len=5, cap=5<br>
+                        s2: len=3, cap=5 (s[:3])<br>
+                        s3: len=2, cap=2 (s[3:])
+                    </div>
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-title">ステップ2: s2 = append(s2, 100) 実行後</div>
+                <div class="memory-layout">
+                    <div class="memory-cell original">1</div>
+                    <div class="memory-cell original">2</div>
+                    <div class="memory-cell original">3</div>
+                    <div class="memory-cell modified">100</div>
+                    <div class="memory-cell original">5</div>
+                    <div class="slice-info">
+                        s: [1 2 3 <span class="highlight">100</span> 5] - 影響を受ける！<br>
+                        s2: [1 2 3 <span class="highlight">100</span>] - len=4, cap=5<br>
+                        s3: [<span class="highlight">100</span> 5] - 影響を受ける！
+                    </div>
+                </div>
+                <div class="warning">
+                    <strong>注意:</strong> s2への追加により、底層配列のindex[3]が100に変更され、sとs3も影響を受けます。
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-title">ステップ3: s3 = append(s3, 200) 実行後</div>
+                <div class="memory-layout">
+                    <div class="memory-cell original">1</div>
+                    <div class="memory-cell original">2</div>
+                    <div class="memory-cell original">3</div>
+                    <div class="memory-cell modified">100</div>
+                    <div class="memory-cell original">5</div>
+                    <div class="arrow">→</div>
+                    <div class="memory-cell new">200</div>
+                    <div class="slice-info">
+                        s: [1 2 3 100 5] - 変化なし<br>
+                        s2: [1 2 3 100] - 変化なし<br>
+                        s3: [100 5 <span class="highlight">200</span>] - 新しい配列に移動
+                    </div>
+                </div>
+                <div class="info">
+                    <strong>解説:</strong> s3の容量が不足したため、新しい配列が割り当てられ、データがコピーされました。
+                </div>
+            </div>
+        </div>
+
+        <div class="case-section">
+            <h2>ケース2: Full Slice Expressions（容量制限でメモリ共有を防ぐ）</h2>
+            <div class="code-block">
+s := make([]int, 0, 5)  // 長さ0、容量5<br>
+s = append(s, 1, 2, 3, 4, 5)<br>
+s2 := s[:3:3]        // [1, 2, 3] - 容量を3に制限<br>
+s3 := s[3:len(s):len(s)]  // [4, 5] - 容量を2に制限
+            </div>
+
+            <div class="step">
+                <div class="step-title">ステップ1: 初期状態（容量制限適用）</div>
+                <div class="memory-layout">
+                    <div class="memory-cell original">1</div>
+                    <div class="memory-cell original">2</div>
+                    <div class="memory-cell original">3</div>
+                    <div class="memory-cell original">4</div>
+                    <div class="memory-cell original">5</div>
+                    <div class="slice-info">
+                        s: len=5, cap=5<br>
+                        s2: len=3, cap=<span class="highlight">3</span> (s[:3:3])<br>
+                        s3: len=2, cap=<span class="highlight">2</span> (s[3:5:5])
+                    </div>
+                </div>
+                <div class="info">
+                    <strong>重要:</strong> Full slice expressionsにより、s2とs3の容量が制限されました。
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-title">ステップ2: s2 = append(s2, 100) 実行後</div>
+                <div class="memory-layout">
+                    <div class="memory-cell original">1</div>
+                    <div class="memory-cell original">2</div>
+                    <div class="memory-cell original">3</div>
+                    <div class="memory-cell original">4</div>
+                    <div class="memory-cell original">5</div>
+                    <div class="arrow">→</div>
+                    <div class="memory-cell new">1</div>
+                    <div class="memory-cell new">2</div>
+                    <div class="memory-cell new">3</div>
+                    <div class="memory-cell new">100</div>
+                    <div class="slice-info">
+                        s: [1 2 3 4 5] - 影響なし！<br>
+                        s2: [1 2 3 <span class="highlight">100</span>] - 新配列、cap=6<br>
+                        s3: [4 5] - 影響なし！
+                    </div>
+                </div>
+                <div class="info">
+                    <strong>効果:</strong> s2の容量制限により新しい配列が作成され、元の配列への影響を完全に防止しました。
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-title">ステップ3: s3 = append(s3, 200) 実行後</div>
+                <div class="memory-layout">
+                    <div class="memory-cell original">1</div>
+                    <div class="memory-cell original">2</div>
+                    <div class="memory-cell original">3</div>
+                    <div class="memory-cell original">4</div>
+                    <div class="memory-cell original">5</div>
+                    <div class="arrow">→</div>
+                    <div class="memory-cell new">1</div>
+                    <div class="memory-cell new">2</div>
+                    <div class="memory-cell new">3</div>
+                    <div class="memory-cell new">100</div>
+                    <div class="arrow">→</div>
+                    <div class="memory-cell new">4</div>
+                    <div class="memory-cell new">5</div>
+                    <div class="memory-cell new">200</div>
+                    <div class="slice-info">
+                        s: [1 2 3 4 5] - 変化なし<br>
+                        s2: [1 2 3 100] - 変化なし<br>
+                        s3: [4 5 <span class="highlight">200</span>] - 新配列、cap=4
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2>動作比較表</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>項目</th>
+                    <th>通常のスライス (s[:3])</th>
+                    <th>Full Slice Expression (s[:3:3])</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>容量継承</td>
+                    <td>元のスライスの容量を継承 (cap=5)</td>
+                    <td>指定した容量に制限 (cap=3)</td>
+                </tr>
+                <tr>
+                    <td>メモリ共有</td>
+                    <td>底層配列を共有し続ける</td>
+                    <td>append時に新しい配列を強制作成</td>
+                </tr>
+                <tr>
+                    <td>データ保護</td>
+                    <td>他のスライスに影響する可能性あり</td>
+                    <td>完全に独立、影響なし</td>
+                </tr>
+                <tr>
+                    <td>パフォーマンス</td>
+                    <td>メモリ効率は良いが予期しない変更リスク</td>
+                    <td>メモリコピーが発生するが安全</td>
+                </tr>
+                <tr>
+                    <td>使用場面</td>
+                    <td>読み取り専用、変更が予想されない場合</td>
+                    <td>独立したデータコピーが必要な場合</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <h3>実務での注意点</h3>
+            <ul>
+                <li><strong>並行処理:</strong> 複数のゴルーチンでスライスを共有する場合、メモリ共有による競合状態を避けるためfull slice expressionsを使用</li>
+                <li><strong>API設計:</strong> 関数の引数として受け取ったスライスを変更する可能性がある場合、呼び出し元への影響を防ぐため容量制限を適用</li>
+                <li><strong>メモリリーク:</strong> 大きなスライスから小さな部分スライスを作成する場合、full slice expressionsで不要なメモリ参照を切断</li>
+                <li><strong>パフォーマンス:</strong> 頻繁にappendする場合は事前に適切な容量を確保し、不必要なメモリ再割り当てを回避</li>
+            </ul>
+        </div>
+
+        <div class="case-section">
+            <h2>ケース3: copyビルドイン関数（明示的なデータコピー）</h2>
+            <div class="code-block">
+s := make([]int, 0, 5)  // 長さ0、容量5<br>
+s = append(s, 1, 2, 3, 4, 5)<br>
+s2 := make([]int, 3)    // 新しい配列を明示的に作成<br>
+copy(s2, s[:3])         // データを明示的にコピー<br>
+s3 := make([]int, 2)    // 新しい配列を明示的に作成<br>
+copy(s3, s[3:])         // データを明示的にコピー
+            </div>
+
+            <div class="step">
+                <div class="step-title">ステップ1: 初期状態（完全分離）</div>
+                <div class="memory-layout">
+                    <div class="memory-cell original">1</div>
+                    <div class="memory-cell original">2</div>
+                    <div class="memory-cell original">3</div>
+                    <div class="memory-cell original">4</div>
+                    <div class="memory-cell original">5</div>
+                    <div class="arrow">→</div>
+                    <div class="memory-cell new">1</div>
+                    <div class="memory-cell new">2</div>
+                    <div class="memory-cell new">3</div>
+                    <div class="arrow">→</div>
+                    <div class="memory-cell new">4</div>
+                    <div class="memory-cell new">5</div>
+                    <div class="slice-info">
+                        s: len=5, cap=5 (元の配列)<br>
+                        s2: len=3, cap=3 (独立した新配列)<br>
+                        s3: len=2, cap=2 (独立した新配列)
+                    </div>
+                </div>
+                <div class="info">
+                    <strong>重要:</strong> copyにより最初から完全に独立した3つの配列が存在します。
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-title">ステップ2: s2 = append(s2, 100) 実行後</div>
+                <div class="memory-layout">
+                    <div class="memory-cell original">1</div>
+                    <div class="memory-cell original">2</div>
+                    <div class="memory-cell original">3</div>
+                    <div class="memory-cell original">4</div>
+                    <div class="memory-cell original">5</div>
+                    <div class="arrow">→</div>
+                    <div class="memory-cell new">1</div>
+                    <div class="memory-cell new">2</div>
+                    <div class="memory-cell new">3</div>
+                    <div class="memory-cell new">100</div>
+                    <div class="arrow">→</div>
+                    <div class="memory-cell new">4</div>
+                    <div class="memory-cell new">5</div>
+                    <div class="slice-info">
+                        s: [1 2 3 4 5] - 影響なし<br>
+                        s2: [1 2 3 <span class="highlight">100</span>] - 新配列拡張<br>
+                        s3: [4 5] - 影響なし
+                    </div>
+                </div>
+                <div class="info">
+                    <strong>効果:</strong> 最初から独立しているため、どのスライスも他に影響を与えません。
+                </div>
+            </div>
+
+            <div class="step">
+                <div class="step-title">ステップ3: s3 = append(s3, 200) 実行後</div>
+                <div class="memory-layout">
+                    <div class="memory-cell original">1</div>
+                    <div class="memory-cell original">2</div>
+                    <div class="memory-cell original">3</div>
+                    <div class="memory-cell original">4</div>
+                    <div class="memory-cell original">5</div>
+                    <div class="arrow">→</div>
+                    <div class="memory-cell new">1</div>
+                    <div class="memory-cell new">2</div>
+                    <div class="memory-cell new">3</div>
+                    <div class="memory-cell new">100</div>
+                    <div class="arrow">→</div>
+                    <div class="memory-cell new">4</div>
+                    <div class="memory-cell new">5</div>
+                    <div class="memory-cell new">200</div>
+                    <div class="slice-info">
+                        s: [1 2 3 4 5] - 変化なし<br>
+                        s2: [1 2 3 100] - 変化なし<br>
+                        s3: [4 5 <span class="highlight">200</span>] - 独立して拡張
+                    </div>
+                </div>
+                <div class="info">
+                    <strong>解説:</strong> s3も完全に独立しており、append時に新しいメモリ領域で拡張されます。
+                </div>
+            </div>
+        </div>
+
+        <h2>3つの手法の比較表</h2>
+        <table class="comparison-table">
+            <thead>
+                <tr>
+                    <th>項目</th>
+                    <th>通常のスライス<br>(s[:3])</th>
+                    <th>Full Slice Expression<br>(s[:3:3])</th>
+                    <th>copyビルドイン関数<br>(copy(new, s[:3]))</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>初期メモリ使用量</td>
+                    <td>最小（参照のみ）</td>
+                    <td>最小（参照のみ）</td>
+                    <td>多い（即座にコピー）</td>
+                </tr>
+                <tr>
+                    <td>append時の動作</td>
+                    <td>容量内なら元配列変更</td>
+                    <td>必ず新配列作成</td>
+                    <td>必ず新配列作成</td>
+                </tr>
+                <tr>
+                    <td>データ保護レベル</td>
+                    <td>低（相互影響あり）</td>
+                    <td>高（append時に分離）</td>
+                    <td>最高（最初から完全分離）</td>
+                </tr>
+                <tr>
+                    <td>パフォーマンス</td>
+                    <td>最高（メモリ効率良）</td>
+                    <td>中（append時コピー）</td>
+                    <td>中（初期コピーコスト）</td>
+                </tr>
+                <tr>
+                    <td>予測可能性</td>
+                    <td>低（副作用注意）</td>
+                    <td>高（意図が明確）</td>
+                    <td>最高（完全制御）</td>
+                </tr>
+                <tr>
+                    <td>適用場面</td>
+                    <td>読み取り専用<br>パフォーマンス重視</td>
+                    <td>将来の変更想定<br>安全性重視</td>
+                    <td>データ保護必須<br>明示的分離</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="warning">
+            <h3>実務での使い分け指針</h3>
+            <ul>
+                <li><strong>通常のスライス:</strong> 読み取り専用の処理、パフォーマンスが最優先の場合</li>
+                <li><strong>Full slice expressions:</strong> 将来的な変更の可能性があり、安全性を確保したい場合</li>
+                <li><strong>copyビルドイン関数:</strong> データの完全な独立性が必要、API境界での明示的なデータ分離</li>
+            </ul>
+        </div>
+
+        <div class="info">
+            <h3>ベストプラクティス</h3>
+            <p><strong>API設計:</strong> 外部に公開する関数では<code>copy</code>を使用して呼び出し元への影響を完全に遮断</p>
+            <p><strong>並行処理:</strong> ゴルーチン間でのデータ共有では<code>copy</code>または<code>s[:3:3]</code>で競合状態を防止</p>
+            <p><strong>メモリ効率:</strong> 大量のデータ処理では通常のスライスを使用し、変更タイミングを慎重に管理</p>
+            <p><strong>コード可読性:</strong> 意図を明確にするため、メモリ共有の有無をコメントで明記</p>
+        </div>
+    </div>
+</body>
+</html>
