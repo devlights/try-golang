@@ -37,7 +37,7 @@ func IterAll() error {
 	var (
 		m = maps.Collect(it)
 	)
-	output.Stdoutf("[key=3]", m[3])
+	output.Stdoutl("[key=3]", m[3])
 
 	return nil
 }
