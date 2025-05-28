@@ -34,4 +34,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["slice_append_special_behavior"] = AppendSpecialBehavior
 	m["slice_go123_iter_values"] = IterValues
 	m["slice_go123_iter_all"] = IterAll
+	m["slice_normal_fullslice_copy"] = NormalFullsliceCopy
 }
