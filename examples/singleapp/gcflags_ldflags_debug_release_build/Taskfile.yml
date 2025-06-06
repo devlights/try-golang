@@ -1,0 +1,25 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  RE1: main\.go.*inlining call.*$
+
+tasks:
+  default:
+    cmds:
+      # gcflags の all=-m -N -l の意味 (goコンパイラに対しての指示) (go tool compile -help)
+      #   all= は全てのパッケージが対象という意味
+      #   -m   はビルド時のコンパイラの詳細情報を出力せよという意味
+      #   -N   は最適化無効という意味 (No optimization)
+      #   -l   はインライン化無効という意味 (No inlining)
+      - cmd: go build -gcflags "all=-m -N -l" -o debug main.go 2>&1 | grep "{{.RE1}}"
+        ignore_error: true
+      - cmd: go build -gcflags "all=-m" -o normal main.go 2>&1 | grep "{{.RE1}}"
+        ignore_error: true
+      # ldflags の -s -w の意味 (リンカに対しての指示) (go tool link -help)
+      #    -s   はシンボルテーブル削除という意味
+      #    -w   はDWARF情報削除という意味（デバッグ情報）
+      - cmd: go build -gcflags "all=-m" -ldflags "-s -w" -o release main.go 2>&1 | grep "{{.RE1}}"
+        ignore_error: true
+      - ls -l {normal,debug,release} | awk 'NF>1 {print $5, $NF}'
