@@ -2,7 +2,7 @@
 # -----------------------------------------------------
 # Build
 # -----------------------------------------------------
-FROM golang:1.18-bullseye as base
+FROM golang:1.24-bullseye as base
 
 ENV CGO_ENABLED=1
 ENV GOOS=linux
