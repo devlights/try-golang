@@ -22,4 +22,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["cmdexec_env"] = WithEnv
 	m["cmdexec_dir"] = WithDir
 	m["cmdexec_slice"] = WithSlice
+	m["cmdexec_ospipe"] = OsPipe
 }
