@@ -13,3 +13,4 @@
 | withenv.go                 | cmdexec_env                     | *exec.Cmd 実行時に追加の環境変数を指定するサンプルです                     |
 | withdir.go                 | cmdexec_dir                     | *exec.Cmd 実行時にワーキングディレクトリを指定するサンプルです             |
 | withslice.go               | cmdexec_slice                   | *exec.Cmd 実行時にスライスの値をコマンドの引数で指定するサンプルです       |
+| ospipe.go                  | cmdexec_ospipe                  | (*Cmd).Stdout に os.Pipe の io.Writer を接続して処理するサンプルです |
