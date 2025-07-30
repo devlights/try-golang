@@ -1,0 +1,18 @@
+# https://taskfile.dev
+
+version: '3'
+
+vars:
+  APP_NAME: gitbkup
+
+tasks:
+  default:
+    cmds:
+      - task: build
+  build:
+    cmds:
+      - go build -o {{.APP_NAME}}{{exeExt}} .
+  clean:
+    cmds:
+      - rm -f ./{{.APP_NAME}}{{exeExt}}
+
