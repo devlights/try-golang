@@ -5,34 +5,6 @@ This is my TUTORIAL project for golang.
 
 ![try-golang - Go Version](https://img.shields.io/badge/go-1.24-blue.svg)
 
-## Go version
-
-```shell script
-$ lsb_release -a
-No LSB modules are available.
-Distributor ID: Ubuntu
-Description:    Ubuntu 22.04.3 LTS
-Release:        22.04
-Codename:       jammy
-
-$ go version
-go version go1.23.0 linux/amd64
-
-$ task build
-task: [build] go build .
-
-$ ./try-golang -help
-Usage of ./try-golang:
-  -example string
-        name of example
-  -list
-        show all example names
-  -onetime
-        run only one time
-  -vscode
-        run with vscode
-```
-
 ## Run
 
 ```sh
