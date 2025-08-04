@@ -74,3 +74,5 @@ $ task test
 - [バイトスライスに文字列を速く設定する方法（fmt.Sprintf, fmt.Appendf, 直接append使用)](https://gist.github.com/devlights/ffd22f78297a563c9bebcb9a9baa7f5f)
 - [go124-goget-tools-dependencies-example](https://github.com/devlights/go124-goget-tools-dependencies-example)
   - Go 1.24で導入された go get -tool によるツール依存関係インストールのサンプルです。
+- [try-treesitter](https://github.com/devlights/try-treesitter)
+  - tree-sitterライブラリのGoバインディングを使ったサンプルです。
