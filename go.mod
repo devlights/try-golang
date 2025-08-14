@@ -1,8 +1,6 @@
 module github.com/devlights/try-golang
 
-go 1.24.0
-
-toolchain go1.24.4
+go 1.25
 
 require (
 	github.com/devlights/gomy v0.7.0
