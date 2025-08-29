@@ -15,4 +15,5 @@ func NewRegister() mapping.Register {
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["scannerop_basic"] = Basic
 	m["scannerop_custom"] = Custom
+	m["scannerop_buffer"] = BufferSize
 }
