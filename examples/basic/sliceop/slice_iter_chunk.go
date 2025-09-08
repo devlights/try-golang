@@ -7,6 +7,7 @@ import (
 	"slices"
 )
 
+// Chunk は、slices.Chunk()のサンプルです。
 func Chunk() error {
 	//
 	// Go1.23でサポートされたiterパッケージのサンプルとして
