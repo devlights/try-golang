@@ -51,6 +51,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["templates_text_tmpl_with"] = With
 	m["templates_text_tmpl_define"] = Define
 	m["templates_text_tmpl_funcmap"] = FuncMap
+	m["templates_text_tmpl_missingkey"] = MissingKey
 
 	parsefuncs.NewRegister().Regist(m)
 }
