@@ -9,7 +9,7 @@ import (
 // MissingKey -- text/template の missingkey=zero オプション指定時のサンプルです。
 //
 // Template.Option("missingkey=zero")の設定を行い、テンプレートに対して map[string]any をデータとして指定した場合
-// キーに対応する値が nil の場合、"<no value>" と表示されることに注意。（マップの値の方の方がanyのため）
+// キーが存在しないの場合、"<no value>" と表示されることに注意。（マップの値の方の方がanyのため）
 //
 // 当然、any以外の場合はその型のゼロ値となる。
 //
