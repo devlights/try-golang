@@ -39,7 +39,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/literals"
 	"github.com/devlights/try-golang/examples/basic/logging"
 	"github.com/devlights/try-golang/examples/basic/loops"
-	"github.com/devlights/try-golang/examples/basic/maps"
+	"github.com/devlights/try-golang/examples/basic/mapop"
 	"github.com/devlights/try-golang/examples/basic/maths"
 	"github.com/devlights/try-golang/examples/basic/methods"
 	"github.com/devlights/try-golang/examples/basic/metricsop"
@@ -54,7 +54,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/scanop"
 	"github.com/devlights/try-golang/examples/basic/scope"
 	"github.com/devlights/try-golang/examples/basic/signals"
-	"github.com/devlights/try-golang/examples/basic/slices"
+	"github.com/devlights/try-golang/examples/basic/sliceop"
 	"github.com/devlights/try-golang/examples/basic/sorts"
 	"github.com/devlights/try-golang/examples/basic/stacktrace"
 	"github.com/devlights/try-golang/examples/basic/stdin"
@@ -133,7 +133,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	literals.NewRegister().Regist(m)
 	logging.NewRegister().Regist(m)
 	loops.NewRegister().Regist(m)
-	maps.NewRegister().Regist(m)
+	mapop.NewRegister().Regist(m)
 	maths.NewRegister().Regist(m)
 	methods.NewRegister().Regist(m)
 	metricsop.NewRegister().Regist(m)
@@ -146,7 +146,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	scanop.NewRegister().Regist(m)
 	scope.NewRegister().Regist(m)
 	signals.NewRegister().Regist(m)
-	slices.NewRegister().Regist(m)
+	sliceop.NewRegister().Regist(m)
 	sorts.NewRegister().Regist(m)
 	stacktrace.NewRegister().Regist(m)
 	stdin.NewRegister().Regist(m)
