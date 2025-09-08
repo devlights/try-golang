@@ -32,7 +32,8 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["sliceop_declare_empty_slice"] = DeclareEmtpySlice
 	m["sliceop_convert_to_array_go117"] = ConvertToArrayGo117
 	m["sliceop_append_special_behavior"] = AppendSpecialBehavior
-	m["sliceop_go123_iter_values"] = IterValues
-	m["sliceop_go123_iter_all"] = IterAll
+	m["sliceop_iter_values"] = IterValues
+	m["sliceop_iter_all"] = IterAll
+	m["sliceop_iter_chunk"] = Chunk
 	m["sliceop_normal_fullslice_copy"] = NormalFullsliceCopy
 }
