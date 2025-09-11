@@ -3,7 +3,7 @@ package lib_test
 import (
 	"testing"
 
-	"github.com/devlights/try-golang/examples/testing/short_feature/lib"
+	"github.com/devlights/try-golang/examples/testing/05.short_feature/lib"
 )
 
 func TestAdd(t *testing.T) {

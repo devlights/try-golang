@@ -5,7 +5,7 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/devlights/try-golang/examples/http/basic/handler/index"
+	"github.com/devlights/try-golang/examples/http/01.basic/handler/index"
 )
 
 var (
