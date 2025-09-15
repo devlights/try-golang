@@ -1,0 +1,13 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - powershell New-Item test.txt -ItemType File -Force
+      - defer: powershell Remove-Item test.txt -Force
+      - go run .
+      - powershell "(Get-Item test.txt).LastAccessTime"
+      - powershell "(Get-Item test.txt).LastWriteTime"
+      - powershell "(Get-Item test.txt).CreationTime"
