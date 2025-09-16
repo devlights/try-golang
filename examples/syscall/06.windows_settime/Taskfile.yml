@@ -2,12 +2,16 @@
 
 version: '3'
 
+vars:
+  select_object: Select-Object LastAccessTime,LastWriteTime,CreationTime | Format-List
+  new_item_cmd: New-Item test.txt -ItemType File -Force | {{.select_object}}
+  rm_item_cmd: Remove-Item test.txt -Force
+  get_item_cmd: Get-Item test.txt | {{.select_object}}
+
 tasks:
   default:
     cmds:
-      - powershell New-Item test.txt -ItemType File -Force
-      - defer: powershell Remove-Item test.txt -Force
+      - powershell "{{.new_item_cmd}}"
+      - defer: powershell "{{.rm_item_cmd}}"
       - go run .
-      - powershell "(Get-Item test.txt).LastAccessTime"
-      - powershell "(Get-Item test.txt).LastWriteTime"
-      - powershell "(Get-Item test.txt).CreationTime"
+      - powershell "{{.get_item_cmd}}"
