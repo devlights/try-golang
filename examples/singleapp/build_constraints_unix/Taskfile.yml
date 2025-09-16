@@ -1,6 +1,9 @@
 version: '3'
 
 tasks:
+  default:
+    cmds:
+      - task: run
   run:
     cmds:
       - go run .
