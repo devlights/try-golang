@@ -1,0 +1,10 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - go test -bench . -benchmem -count 3 | tee bench.txt
+      - defer: rm -f bench.txt
+      - benchstat bench.txt
