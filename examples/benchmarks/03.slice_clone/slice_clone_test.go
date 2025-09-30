@@ -9,7 +9,6 @@ const (
 	NumItems = 5 * 1024 * 1024
 )
 
-// コンパイラの最適化を防ぐためのダミー関数
 func voidfn(_ []int) {}
 
 // 方法1: 事前に容量を確保してからappendする方法
@@ -17,7 +16,6 @@ func BenchmarkPreAllocatedAppend(b *testing.B) {
 	var (
 		items = make([]int, 0, NumItems)
 	)
-	// テストデータの準備
 	for i := range NumItems {
 		items = append(items, i)
 	}
@@ -26,9 +24,8 @@ func BenchmarkPreAllocatedAppend(b *testing.B) {
 		var (
 			dst = make([]int, 0, NumItems)
 		)
-		// appendを使用してコピー
 		dst = append(dst, items...)
-		voidfn(dst) // コンパイラの最適化を防ぐ
+		voidfn(dst)
 	}
 }
 
@@ -77,9 +74,7 @@ func BenchmarkBuiltinCopy(b *testing.B) {
 	}
 
 	for b.Loop() {
-		// 正しい長さでスライスを作成
 		dst := make([]int, len(items))
-		// copyを使用してコピー（最も効率的）
 		copy(dst, items)
 		voidfn(dst)
 	}
@@ -95,7 +90,6 @@ func BenchmarkSlicesClone(b *testing.B) {
 	}
 
 	for b.Loop() {
-		// slices.Cloneを使用（内部でmake + copyを実行）
 		dst := slices.Clone(items)
 		voidfn(dst)
 	}
