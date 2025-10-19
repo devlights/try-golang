@@ -1,4 +1,4 @@
-//go:build unix
+//go:build unix && !arm64
 
 package main
 
@@ -38,6 +38,8 @@ func run() error {
 	//
 	// 通常の関数のように error が返ってくるのではなく
 	// syscall.Errno が返ってくることに注意。
+	//
+	// unix.SYS_FORK は、CPUアーキテクチャが aarch64 (arm64) の場合は存在しないことに注意
 	pid, _, errno := unix.RawSyscall(unix.SYS_FORK, 0, 0, 0)
 	if errno != 0 {
 		return fmt.Errorf("fork failed: %d", errno)
