@@ -15,13 +15,13 @@ const (
 )
 
 func Benchmark_Csv_ReuseRecord(b *testing.B) {
-	for range b.N {
+	for b.Loop() {
 		readCsv(true)
 	}
 }
 
 func Benchmark_Csv_No_ReuseRecord(b *testing.B) {
-	for range b.N {
+	for b.Loop() {
 		readCsv(false)
 	}
 }
