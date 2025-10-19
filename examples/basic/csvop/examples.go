@@ -17,4 +17,5 @@ func NewRegister() mapping.Register {
 func (*register) Regist(m mapping.ExampleMapping) {
 	m["csv_read"] = Read
 	m["csv_write"] = Write
+	m["csv_fieldsperrecord"] = FieldsPerRecord
 }
