@@ -16,4 +16,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["unsafe_sizeof"] = Sizeof
 	m["unsafe_string"] = UnsafeString
 	m["unsafe_stringdata"] = UnsafeStringData
+	m["unsafe_pointer_cast"] = PointerCast
 }
