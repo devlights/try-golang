@@ -8,3 +8,4 @@
 | unsafe_string.go       | unsafe_string       | unsafe.String() のサンプルです.                                      |
 | unsafe_stringdata.go   | unsafe_stringdata   | unsafe.StringData() のサンプルです.                                  |
 | unsafe_pointer_cast.go | unsafe_pointer_cast | unsafeパッケージを用いてポインタを任意の型にキャストするサンプルです |
+| unsafe_add.go          | usnafe_add          | unsafe.Add関数を利用してポインタ演算するサンプルです                 |

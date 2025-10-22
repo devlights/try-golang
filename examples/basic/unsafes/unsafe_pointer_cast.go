@@ -43,4 +43,24 @@ func PointerCast() error {
 	}
 
 	return nil
+
+	/*
+	   $ task
+	   task: [build] go build -o "/home/dev/dev/github/try-golang/try-golang" .
+	   task: [run] ./try-golang -onetime
+
+	   ENTER EXAMPLE NAME: unsafe_pointer
+
+	   [Name] "unsafe_pointer_cast"
+	   cast1: 1バイト目: 0x04
+	   ---------------------------------
+	   cast2: 0バイト目: 0x04
+	   cast2: 1バイト目: 0x03
+	   cast2: 2バイト目: 0x02
+	   cast2: 3バイト目: 0x01
+
+
+	   [Elapsed] 42.422µs
+	*/
+
 }
