@@ -64,7 +64,7 @@ func Add() error {
 	// (unsafe.Addは内部で1ステートメントとして処理される)
 	//
 	// 元の位置から2バイト進めるので、4バイト目(0x01)にアクセス
-	ptr = unsafe.Add(ptr, uintptr(2*sizeOfByte))
+	ptr = unsafe.Add(ptr, 2*sizeOfByte)
 	bytePtr = (*byte)(ptr)
 
 	// 4バイト目（最上位バイト）を表示 (0x01)
