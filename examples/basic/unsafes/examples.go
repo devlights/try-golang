@@ -18,4 +18,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["unsafe_stringdata"] = UnsafeStringData
 	m["unsafe_pointer_cast"] = PointerCast
 	m["unsafe_add"] = Add
+	m["unsafe_slice"] = Slice
 }
