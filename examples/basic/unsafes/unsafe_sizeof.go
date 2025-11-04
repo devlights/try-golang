@@ -6,6 +6,9 @@ import (
 )
 
 // Sizeof は、 unsafe.Sizeof() についてのサンプルです.
+//
+// REFERENCES:
+//   - https://pkg.go.dev/unsafe@go1.25.3#Sizeof
 func Sizeof() error {
 	// ---------------------------------------------------------
 	// unsafe.Sizeof()
