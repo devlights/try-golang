@@ -12,3 +12,4 @@
 | unsafe_sizeof.go       | unsafe_sizeof       | unsafe.Sizeof() についてのサンプルです.                              |
 | unsafe_offsetof.go     | unsafe_offsetof     | unsafe.Offsetof() のサンプルです                                     |
 | unsafe_dump.go         | unsafe_dump         | unsafeパッケージを使って構造体のメモリダンプを出力するサンプルです   |
+| unsafe_alignof.go      | unsafe_alignof      | unsafe.Alignof() のサンプルです                                      |

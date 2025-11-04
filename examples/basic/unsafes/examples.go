@@ -20,5 +20,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["unsafe_add"] = Add
 	m["unsafe_slice"] = Slice
 	m["unsafe_offsetof"] = Offsetof
+	m["unsafe_alignof"] = Alignof
 	m["unsafe_dump"] = Dump
 }
