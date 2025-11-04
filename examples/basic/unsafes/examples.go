@@ -19,4 +19,6 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["unsafe_pointer_cast"] = PointerCast
 	m["unsafe_add"] = Add
 	m["unsafe_slice"] = Slice
+	m["unsafe_offsetof"] = Offsetof
+	m["unsafe_dump"] = Dump
 }
