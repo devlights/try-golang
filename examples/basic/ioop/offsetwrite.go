@@ -24,6 +24,9 @@ func OffsetWrite() error {
 	if err != nil {
 		return err
 	}
+	defer os.Remove(w.Name())
+
+	output.Stdoutl("[File]", w.Name())
 
 	fstat := errs.Drop(w.Stat())
 	{
