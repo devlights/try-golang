@@ -22,6 +22,7 @@ func MultiOffsetWrite() error {
 		return err
 	}
 	defer os.Remove(file.Name())
+	defer file.Close()
 
 	//
 	// ファイル内は指定バイト数ごとに区画が決まっているとする
