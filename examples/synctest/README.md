@@ -41,3 +41,4 @@ bubbleのルートgoroutine（Testに渡した関数）が終了すると、そ�
 - [synctest package](https://pkg.go.dev/testing/synctest)
 - [Testing Time (and other asynchronicities)](https://go.dev/blog/testing-time)
 - [Go synctest: Solving Flaky Tests](https://victoriametrics.com/blog/go-synctest/)
+- [Gist of Go: Concurrency testing](https://antonz.org/go-concurrency/testing/)
