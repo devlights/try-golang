@@ -25,4 +25,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["osop_clearenv"] = Clearenv
 	m["osop_pid"] = Pid
 	m["osop_pname"] = Pname
+	m["osop_homedir"] = HomeDir
 }
