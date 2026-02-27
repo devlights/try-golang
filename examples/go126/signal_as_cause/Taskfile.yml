@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - go run main.go
+      - go run main.go -term
+    silent: false
+  fmtlint:
+    cmds:
+      - go fix main.go
+      - go fmt main.go
+      - go vet main.go
+    silent: true
