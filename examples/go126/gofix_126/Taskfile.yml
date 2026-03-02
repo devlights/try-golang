@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - go run main.go
+      - go fix -diff main.go > main.patch
+    silent: false
+  apply-patch:
+    cmds:
+      - defer: rm -f main.patch
+      - patch main.go main.patch
+    silent: false
