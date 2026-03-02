@@ -1,0 +1,25 @@
+--- /home/dev/dev/github/try-golang/examples/go126/gofix_126/main.go (old)
++++ /home/dev/dev/github/try-golang/examples/go126/gofix_126/main.go (new)
+@@ -2,8 +2,9 @@
+ 
+ import "log"
+ 
+-func toptr[T any](v T) *T {
++//go:fix inline
++func toptr[T any](v T) *T {
+-	return &v
++	return new(v)
+ }
+ 
+ func main() {
+@@ -14,8 +15,8 @@
+ 		v1 int32  = 1
+ 		v2 string = "hello"
+ 
+-		p1 = toptr(v1)
++		p1 = new(v1)
+-		p2 = toptr(v2)
++		p2 = new(v2)
+ 	)
+ 	log.Printf("v=%[1]v(%[1]T), p=%[2]p(%[2]T)", v1, p1)
+ 	log.Printf("v=%[1]v(%[1]T), p=%[2]p(%[2]T)", v2, p2)
