@@ -1,0 +1,55 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+vars:
+  DWARF5: app_dwarf5
+  DWARF4: app_dwarf4
+
+tasks:
+  default:
+    cmds:
+      - task: build-dwarf5
+      - task: build-dwarf4
+      - task: check-dwarf-version
+  build-dwarf5:
+    cmds:
+      #
+      # Go 1.25以降は DWARF5 がデフォルトとなっている
+      #
+      # とても古いバージョンの gdb (例：CentOS8 など) では
+      # DWARF5形式に対応していないので、gdb利用時に以下のエラーメッセージが表示される。
+      #
+      # Dwarf Error: Cannot handle DW_FORM_addrx in DWARF reader [in module libXXXX.so]
+      # 
+      # 上記のメッセージが出た場合はDWARF5形式に対応していない。
+      # (DW_FORM_addrx は、DWARF5から追加された)
+      #
+      # - https://go.dev/doc/go1.25
+      # - https://github.com/golang/go/issues/75079
+      #
+      - go build -o {{.DWARF5}} main.go
+  build-dwarf4:
+    env:
+      #
+      # Go 1.25以降で、強制的に DWARF4 を適用するには
+      # GOEXPERIMENT="nodwarf5" を指定する。
+      # 
+      # - https://go.dev/doc/go1.25
+      # - https://github.com/golang/go/issues/75079
+      #
+      GOEXPERIMENT: "nodwarf5"
+    cmds:
+      - go build -o {{.DWARF4}} main.go
+  check-dwarf-version:
+    cmds:
+      #
+      # .debug_addr セクションは DWARF5 固有のセクションであるため、
+      # その有無により DWARF バージョンを判別できる。
+      #
+      #   存在する   -> DWARF5
+      #   存在しない -> DWARF4 以下
+      #
+      - readelf -S {{.DWARF5}} | grep debug_addr
+      - readelf -S {{.DWARF4}} | grep debug_addr
+    ignore_error: true
