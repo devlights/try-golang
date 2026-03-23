@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - go vet main.go
+      - go run main.go
+      - GOEXPERIMENT=goroutineleakprofile go run main.go -prof
+    silent: false
