@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: build
+      - task: verify
+  build:
+    cmds:
+      - go build -o app0 main.go
+      - go build -ldflags="-s" -o app1 main.go
+      - go build -ldflags="-s -w=0" -o app2 main.go
+  verify:
+    cmds:
+      - file app0 app1 app2
+      - readelf -S app0 | grep -E '\.debug|\.symtab|\.strtab'
+      - readelf -S app1 | grep -E '\.debug|\.symtab|\.strtab'
+      - readelf -S app2 | grep -E '\.debug|\.symtab|\.strtab'
+    ignore_error: true
