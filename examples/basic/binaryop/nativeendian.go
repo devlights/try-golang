@@ -58,10 +58,16 @@ func NativeEndian() error {
 	}
 
 	// SEND SIDE
+	type (
+		Header struct {
+			Length uint32
+		}
+	)
 	const (
 		charset = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 	)
 	var (
+		// ランダム文字列生成
 		rnd = func(n int) []byte {
 			b := make([]byte, n)
 			for i := range b {
@@ -71,41 +77,48 @@ func NativeEndian() error {
 		}
 		errCh = make(chan error, 1)
 	)
+	defer close(errCh)
+
 	go func() {
 		defer pw.Close()
 
 		var (
-			buf    = new(bytes.Buffer)
-			data   = rnd(10 + rand.IntN(21))
-			length = uint32(len(data))
+			buf     = new(bytes.Buffer)
+			payload = rnd(10 + rand.IntN(21))
+			header  = Header{Length: uint32(len(payload))}
 		)
-		// ローカルパイプ上なので、エンディアン意識せずにバイナリを送りたい
-		binary.Write(buf, binary.NativeEndian, length)
-		binary.Write(buf, binary.NativeEndian, data)
+		if err = binary.Write(buf, binary.NativeEndian, header); err != nil {
+			errCh <- err
+			return
+		}
+
+		if err = binary.Write(buf, binary.NativeEndian, payload); err != nil {
+			errCh <- err
+			return
+		}
 
 		if _, err = pw.Write(buf.Bytes()); err != nil {
 			errCh <- err
+			return
 		}
 	}()
 
 	// RECV SIDE
 	var (
-		header = make([]byte, 4)
+		header Header
 	)
-	if _, err = pr.Read(header); err != nil {
+	if err = binary.Read(pr, binary.NativeEndian, &header); err != nil {
 		return err
 	}
 
 	var (
-		// ローカルパイプ上なので、エンディアン意識せずにバイナリを読み取りたい
-		length  = binary.NativeEndian.Uint32(header)
-		payload = make([]byte, length)
+		payload = make([]byte, header.Length)
 	)
-	if _, err = pr.Read(payload); err != nil {
+	if err = binary.Read(pr, binary.NativeEndian, payload); err != nil {
 		return err
 	}
 
-	fmt.Printf("length=%d, payload=%s\n", length, payload)
+	fmt.Printf("length=%d, payload=%s\n", header.Length, payload)
 
 	select {
 	case err = <-errCh:
