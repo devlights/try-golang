@@ -1,0 +1,11 @@
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - go build -o app main.go
+      - defer: rm -f ./app ./out.txt
+      - ./app 2>out.txt; echo
+      - cat out.txt
+    ignore_error: true
+    silent: true
