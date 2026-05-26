@@ -25,4 +25,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["flags_nargs"] = Nargs
 	m["flags_subcommand"] = Subcommand
 	m["flags_double_dashes"] = DoubleDashesPermitted
+	m["flags_visit"] = Visit
 }
