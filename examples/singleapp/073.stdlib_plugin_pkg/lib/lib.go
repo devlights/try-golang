@@ -5,7 +5,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/devlights/try-golang/examples/singleapp/stdlib_plugin_pkg/lib/pkg/strs"
+	"github.com/devlights/try-golang/examples/singleapp/073.stdlib_plugin_pkg/lib/pkg/strs"
 )
 
 func Fn(message string) {

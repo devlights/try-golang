@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"testing"
 
-	args "github.com/devlights/try-golang/examples/singleapp/flag_pkg/unittest"
+	args "github.com/devlights/try-golang/examples/singleapp/027.flag_pkg/unittest"
 )
 
 func TestArgs(t *testing.T) {

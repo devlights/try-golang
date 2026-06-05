@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/devlights/try-golang/examples/singleapp/find_number_of_digits/lib"
+	"github.com/devlights/try-golang/examples/singleapp/026.find_number_of_digits/lib"
 )
 
 func main() {

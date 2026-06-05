@@ -5,7 +5,7 @@ import (
 	"runtime"
 	"sync"
 
-	"github.com/devlights/try-golang/examples/singleapp/designpatterns/singleton/defines"
+	"github.com/devlights/try-golang/examples/singleapp/017.designpatterns/singleton/defines"
 )
 
 func main() {

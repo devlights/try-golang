@@ -6,7 +6,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/devlights/try-golang/examples/singleapp/dev_shm/shm"
+	"github.com/devlights/try-golang/examples/singleapp/018.dev_shm/shm"
 )
 
 func main() {
