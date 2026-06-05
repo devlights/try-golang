@@ -20,36 +20,42 @@ func trace() *httptrace.ClientTrace {
 	return &httptrace.ClientTrace{
 		// 名前解決を開始した時
 		DNSStart: func(info httptrace.DNSStartInfo) {
-			log.Printf("DNS lookup started: %s\n", info.Host)
+			log.Printf("名前解決 開始: %s\n", info.Host)
 		},
 		// 名前解決が完了した時
 		DNSDone: func(info httptrace.DNSDoneInfo) {
-			log.Printf("DNS resolved: %v (duration: %s)\n", info.Addrs, time.Since(start))
+			log.Printf("名前解決 完了: %v (duration: %s)\n", info.Addrs, time.Since(start))
 		},
 		// TCP 接続開始時
 		ConnectStart: func(network, addr string) {
-			log.Printf("Connecting to %s...\n", addr)
+			log.Printf("TCP接続 開始: %s...\n", addr)
 		},
 		// TCP 接続完了（または失敗）時
 		ConnectDone: func(network, addr string, err error) {
 			if err != nil {
-				log.Printf("Connection error: %v\n", err)
+				log.Printf("TCP接続 エラー: %v\n", err)
 			} else {
-				log.Printf("Connected to %s\n", addr)
+				log.Printf("TCP接続 完了: %s\n", addr)
 			}
 		},
 		// HTTPS の TLS ハンドシェイク開始時
 		TLSHandshakeStart: func() {
-			log.Printf("TLS handshake starting\n")
+			log.Printf("TLSハンドシェイク 開始\n")
 		},
 		// TLS ハンドシェイク完了時
 		TLSHandshakeDone: func(state tls.ConnectionState, err error) {
-			log.Printf("TLS handshake done, version: %x\n", state.Version)
+			if err != nil {
+				log.Printf("TLSハンドシェイク エラー: %s", err)
+			} else {
+				log.Printf("TLSハンドシェイク 完了: バージョン=%x\n", state.Version)
+			}
 		},
 		// リクエスト書き込み完了時
 		WroteRequest: func(reqInfo httptrace.WroteRequestInfo) {
 			if reqInfo.Err != nil {
-				log.Printf("Request write error: %v\n", reqInfo.Err)
+				log.Printf("リクエスト書き込み エラー: %v\n", reqInfo.Err)
+			} else {
+				log.Printf("リクエスト書き込み 完了\n")
 			}
 		},
 		// 実際に使用されるコネクションが確定した時
@@ -57,9 +63,9 @@ func trace() *httptrace.ClientTrace {
 		// 	- 再利用か
 		GotConn: func(info httptrace.GotConnInfo) {
 			if info.Reused {
-				log.Printf("Connection reused (idle: %s)\n", info.IdleTime)
+				log.Printf("コネクションを再利用 (idle: %s)\n", info.IdleTime)
 			} else {
-				log.Printf("New connection established\n")
+				log.Printf("新規接続\n")
 			}
 		},
 	}
