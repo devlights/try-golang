@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - go build -o app .
+      - defer: rm -f app
+      - ./app
+    silent: true
+    ignore_error: false
