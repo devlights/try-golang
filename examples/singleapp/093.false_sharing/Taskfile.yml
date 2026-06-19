@@ -8,5 +8,6 @@ tasks:
       - go build -o app .
       - defer: rm -f app
       - ./app
-    silent: true
+      - ./app -proc 1
+    silent: false
     ignore_error: false

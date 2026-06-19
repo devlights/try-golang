@@ -1,7 +1,29 @@
-// go1.26
+// False Sharingについてのサンプルです。
+//
+// False Sharingとは「別々の変数を触っているのに、たまたま同じキャッシュラインに乗っているせいで、キャッシュコヒーレンシが暴れて性能が落ちる現象」のこと。
+// マルチコアCPUの環境で、一つの構造体の別々のフィールドを別々のスレッドで個別に更新する処理などを書いたりしている場合に良く発生します。
+// 数回更新されるだけの処理なら問題ありませんが、例えば何万回、何千万回も更新されるフィールドの場合などは塵積で差が出てきます。
+//
+// キャッシュコヒーレンシとは「複数のキャッシュに載っている“同じメモリ位置のデータ”の内容を、常に矛盾なく保つための仕組み・性質」のことです。
+// マルチコアCPUでは、各コアがそれぞれL1/L2キャッシュを持ち、同じアドレスのデータをローカルにキャッシュします。
+// どれかのコアがそのデータを書き換えたときに、他コアのキャッシュ内容も古いままにならないように
+// 「同じアドレスならどのコアから見ても同じ値になる」ことを保証するメカニズムがキャッシュコヒーレンシです。
+// False Sharingが発生している場合は、これが何回も発生します。
+//
+// 多くのアーキテクチャでキャッシュラインサイズは 64 バイトです。
+// なので、同じキャッシュラインに入っている値を、別々のスレッドで更新するとキャッシュコヒーレンシが発生します。
+// 一つのスレッドが更新するたびに、同じキャッシュラインをコピーして保持しているスレッド全部に発生するため、性能が落ちていきます。
+//
+// 回避策はそれぞれ別のキャッシュラインに載るように適切にパディングしたりすることです。
+//
+// REFERENCES:
+//   - https://abhisheklearn12.github.io/blogs/memory.html
+//   - https://jp.xlsoft.com/documents/intel/compiler/17/cpp_17_win_lin/GUID-4B0549F1-045C-47B0-BEAD-872522D62863.html
+//   - https://en.wikipedia.org/wiki/False_sharing
 package main
 
 import (
+	"flag"
 	"fmt"
 	"runtime"
 	"sync"
@@ -9,172 +31,100 @@ import (
 	"time"
 )
 
-// ------------------------------------------------------------
-// このサンプルは C コードのフォールスシェアリング例を
-// Go で再現したものです。
-//   - 悪い例: 同じキャッシュライン上にある 2 つのカウンタ
-//   - 良い例: パディングを入れて別キャッシュラインに分離
-// ------------------------------------------------------------
-
-// ------------------------------------------------------------
-// ITERATIONS は各カウンタをインクリメントする回数です。
-// C版と同様に 200000000 回とします。
-// ------------------------------------------------------------
-const ITERATIONS = 200000000
-
-// ------------------------------------------------------------
-// 多くのアーキテクチャでキャッシュラインサイズは 64 バイト前後です。
-// Go ランタイム内部でも 64 を前提にした CacheLinePad 相当の型を
-// アーキテクチャごとに定義しています。
-//
-//	例: internal/cpu.CacheLinePad など
-//
-// ------------------------------------------------------------
-// ここでは単純化のために 64 を固定値として扱います。
-// ------------------------------------------------------------
-const cacheLineSize = 64
-
-// ------------------------------------------------------------
-// 悪い例: a と b が同じキャッシュラインに載る可能性が高い構造体です。
-// Go の struct レイアウトも 8バイトの int64 が 2 つ並ぶので
-// C の struct bad_counters とほぼ同じメモリ配置になります。
-// ------------------------------------------------------------
-type badCounters struct {
-	// 競合状態を避けるために atomic.Int64 を使います。
-	// これにより C の volatile long に相当する「他スレッドから
-	// 同期付きで更新される値」を表現しています。
-	a atomic.Int64 // offset 0
-	b atomic.Int64 // offset 8
-}
-
-// ------------------------------------------------------------
-// 良い例: a と b の間にパディングを挟んで別キャッシュラインに分離します。
-// Go の構造体では [N]byte を使って明示的にパディングを入れます。
-//   - int64 が 8 バイト
-//   - 64 バイトのキャッシュラインを仮定
-//   - gap = 64 - 8 = 56 バイト
-//
-// ------------------------------------------------------------
-type goodCounters struct {
-	a atomic.Int64
-	// gap はフォールスシェアリングを避けるためのダミー領域です。
-	// 実際には利用しません。
-	gap [cacheLineSize - 8]byte
-	b   atomic.Int64
-}
-
-// ------------------------------------------------------------
-// グローバル変数として bad / good を定義します。
-// C版の global struct と同じイメージです。
-// ------------------------------------------------------------
-var (
-	bad  badCounters
-	good goodCounters
+const (
+	Iterations    = 200000000 // 各カウンタをインクリメントする回数
+	CacheLineSize = 64        //キャッシュラインのサイズ
 )
 
-// ------------------------------------------------------------
-// incBadA / incBadB は悪い例のカウンタをインクリメントします。
-// ------------------------------------------------------------
+// badCounters は、悪い例を表す構造体です。
+//
+// a と b が同じキャッシュラインに載る可能性が高い構造体です。
+type badCounters struct {
+	a atomic.Int64
+	b atomic.Int64
+}
 
-func incBadA(wg *sync.WaitGroup) {
-	// 処理が終わったことを通知するための Done を必ず実行します。
-	defer wg.Done()
+// goodCounters は、良い例を表す構造体です。
+//
+// a と b の間にパディングを挟んで別キャッシュラインに分離しています。
+type goodCounters struct {
+	a atomic.Int64
+	_ [CacheLineSize - 8]byte
+	b atomic.Int64
+}
 
-	// ITERATIONS 回 a をインクリメントします。
-	for i := 0; i < ITERATIONS; i++ {
-		// Add はアトミックに値を加算します。
-		// 戻り値は使わないので捨てています。
-		bad.a.Add(1)
+func inc(v *atomic.Int64) {
+	for range Iterations {
+		v.Add(1)
 	}
 }
 
-func incBadB(wg *sync.WaitGroup) {
-	defer wg.Done()
-	for i := 0; i < ITERATIONS; i++ {
-		bad.b.Add(1)
-	}
+func (me *badCounters) initialize() {
+	me.a.Store(0)
+	me.b.Store(0)
 }
 
-// ------------------------------------------------------------
-// incGoodA / incGoodB はパディング入りのカウンタをインクリメントします。
-// a と b が別キャッシュラインに載ることを期待します。
-// ------------------------------------------------------------
-
-func incGoodA(wg *sync.WaitGroup) {
-	defer wg.Done()
-	for i := 0; i < ITERATIONS; i++ {
-		good.a.Add(1)
-	}
+func (me *badCounters) incA() {
+	inc(&me.a)
 }
 
-func incGoodB(wg *sync.WaitGroup) {
-	defer wg.Done()
-	for i := 0; i < ITERATIONS; i++ {
-		good.b.Add(1)
-	}
+func (me *badCounters) incB() {
+	inc(&me.b)
 }
 
-// ------------------------------------------------------------
-// elapsed は 2 つの時刻の差を秒単位で返します。
-// time.Since を使わず、C の elapsed() に近い形で実装しています。
-// ------------------------------------------------------------
+func (me *goodCounters) initialize() {
+	me.a.Store(0)
+	me.b.Store(0)
+}
 
-func elapsed(start, end time.Time) float64 {
-	// Sub は time.Duration を返します。
-	// Seconds メソッドで秒に変換します。
-	return end.Sub(start).Seconds()
+func (me *goodCounters) incA() {
+	inc(&me.a)
+}
+
+func (me *goodCounters) incB() {
+	inc(&me.b)
 }
 
 func main() {
-	// --------------------------------------------------------
-	// Go のスケジューラが 2 スレッド以上を使えるようにします。
-	// C版は pthread を 2 本作っているので、ここでは最低 2 に設定します。
-	// --------------------------------------------------------
-	runtime.GOMAXPROCS(2)
+	var (
+		numProc = flag.Int("proc", -1, "runtime.GOMAXPROCSに指定する値（-1の場合はデフォルト設定を使います)")
+	)
+	flag.Parse()
 
-	// --------------------------------------------------------
-	// フォールスシェアリングありのケース
-	// --------------------------------------------------------
-	var wg sync.WaitGroup
+	if *numProc > 0 {
+		// シングルスレッドの場合、キャッシュコヒーレンシの大量発生は
+		// 原理上発生しないので、badとgoodの差はほぼ無くなる。
+		runtime.GOMAXPROCS(*numProc)
+	}
 
-	// bad のカウンタを 0 に初期化します。
-	bad.a.Store(0)
-	bad.b.Store(0)
+	var (
+		bad   = new(badCounters)
+		good  = new(goodCounters)
+		wg    sync.WaitGroup
+		start time.Time
+	)
+	bad.initialize()
+	good.initialize()
 
-	// 開始時刻を取得します。
-	startBad := time.Now()
+	//
+	// False Sharingが発生するパターン
+	//
+	start = time.Now()
+	{
+		wg.Go(bad.incA)
+		wg.Go(bad.incB)
+		wg.Wait()
+	}
+	fmt.Printf("False Sharing: %v ms\n", time.Since(start).Milliseconds())
 
-	// 2 つの goroutine を起動します。
-	wg.Add(2)
-	go incBadA(&wg)
-	go incBadB(&wg)
-
-	// goroutine の終了を待ちます。
-	wg.Wait()
-
-	// 終了時刻を取得します。
-	endBad := time.Now()
-
-	fmt.Printf("False Sharing: %.2f 秒\n", elapsed(startBad, endBad))
-
-	// --------------------------------------------------------
-	// パディングで解消したケース
-	// --------------------------------------------------------
-
-	// WaitGroup のカウンタは前回の Wait 後に 0 になっているので再利用します。
-
-	// good のカウンタを 0 に初期化します。
-	good.a.Store(0)
-	good.b.Store(0)
-
-	startGood := time.Now()
-
-	wg.Add(2)
-	go incGoodA(&wg)
-	go incGoodB(&wg)
-	wg.Wait()
-
-	endGood := time.Now()
-
-	fmt.Printf("Padding      : %.2f 秒\n", elapsed(startGood, endGood))
+	//
+	// パディングを設置して別々のキャッシュラインに載るようにするパターン
+	//
+	start = time.Now()
+	{
+		wg.Go(good.incA)
+		wg.Go(good.incB)
+		wg.Wait()
+	}
+	fmt.Printf("Padding      : %v ms\n", time.Since(start).Milliseconds())
 }
