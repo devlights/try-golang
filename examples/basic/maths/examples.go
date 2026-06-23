@@ -14,4 +14,5 @@ func NewRegister() mapping.Register {
 // Regist -- 登録します.
 func (r *register) Regist(m mapping.ExampleMapping) {
 	m["maths_minmax"] = MinMax
+	m["maths_rnd_pcg"] = RndPcg
 }
