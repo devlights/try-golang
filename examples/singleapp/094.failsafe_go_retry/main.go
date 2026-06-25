@@ -92,6 +92,8 @@ func main() {
 		}
 	)
 
+	// 実処理をfailsafeのExecutorに渡して実行してもらう
+	// エラーが返ってきた場合はリトライオーバーした状態
 	conn, err := executor.Get(dialFn)
 	if err != nil {
 		log.Printf("retry-over: %[1]v (%[1]T)", err)
