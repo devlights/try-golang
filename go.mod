@@ -5,6 +5,7 @@ go 1.26
 require (
 	github.com/devlights/fdpassing v1.0.1
 	github.com/devlights/gomy v0.7.0
+	github.com/failsafe-go/failsafe-go v0.9.6
 	github.com/goforj/godump v1.9.1
 	github.com/integrii/flaggy v1.5.2
 	github.com/muesli/cancelreader v0.2.2
@@ -25,8 +26,10 @@ require (
 )
 
 require (
+	github.com/bits-and-blooms/bitset v1.24.4 // indirect
 	github.com/ebitengine/purego v0.8.4 // indirect
 	github.com/go-ole/go-ole v1.3.0 // indirect
+	github.com/kr/text v0.2.0 // indirect
 	github.com/lufia/plan9stats v0.0.0-20250317134145-8bc96cf8fc35 // indirect
 	github.com/power-devops/perfstat v0.0.0-20240221224432-82ca36839d55 // indirect
 	github.com/tklauser/go-sysconf v0.3.15 // indirect
