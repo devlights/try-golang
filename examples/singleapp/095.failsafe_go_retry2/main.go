@@ -21,6 +21,10 @@ import (
 	"github.com/failsafe-go/failsafe-go/timeout"
 )
 
+const (
+	addr = "localhost:8080"
+)
+
 var (
 	appLog  *log.Logger
 	dbgLog  *log.Logger
@@ -40,16 +44,19 @@ func init() {
 }
 
 func main() {
-	addr := "localhost:8080"
+	var (
+		retryPolicy   retrypolicy.RetryPolicy[net.Conn]
+		timeoutPolicy timeout.Timeout[net.Conn]
+		executor      failsafe.Executor[net.Conn]
+		dialFn        func(exec failsafe.Execution[net.Conn]) (net.Conn, error)
+	)
 
 	// --- RetryPolicy の構築 ---
 	//
 	// ・WithDelay(time.Second)   : 各リトライ間隔 1 秒
 	// ・WithMaxRetries(3)        : 最大 3 回リトライ（= 最大 4 試行）
-	//   ※「最大3回リトライ」という日本語を「3回まで再試行」と
-	//     解釈しているため、実試行回数としては 1 + 3 = 4 となる。
 	//
-	retryPolicy := retrypolicy.NewBuilder[net.Conn]().
+	retryPolicy = retrypolicy.NewBuilder[net.Conn]().
 		WithDelay(time.Second).
 		WithMaxRetries(3).
 		Build()
@@ -60,7 +67,7 @@ func main() {
 	//   Timeout は「その試行に対して子 Context を張り、
 	//   時間超過時にキャンセルする」ポリシー。
 	//
-	timeoutPolicy := timeout.New[net.Conn](time.Second)
+	timeoutPolicy = timeout.New[net.Conn](time.Second)
 
 	// --- Executor の構築 ---
 	//
@@ -70,7 +77,7 @@ func main() {
 	// Timeout が「内側」の場合、各試行ごとに Timeout が適用され
 	// Timeout で失敗した試行も、RetryPolicy によって再試行対象になる。
 	//
-	executor := failsafe.With(retryPolicy, timeoutPolicy)
+	executor = failsafe.With(retryPolicy, timeoutPolicy)
 
 	// --- 実処理: Dial 処理 ---
 	//
@@ -82,7 +89,7 @@ func main() {
 	// Dial 自体が中断され、「タイムアウトした試行は実処理も止まる」
 	// という挙動になる。
 	//
-	dialFn := func(exec failsafe.Execution[net.Conn]) (net.Conn, error) {
+	dialFn = func(exec failsafe.Execution[net.Conn]) (net.Conn, error) {
 		conn, err := new(net.Dialer).DialContext(exec.Context(), "tcp4", addr)
 		if err != nil {
 			err = fmt.Errorf("dial failed: attempt=[%d] retry=[%d] %w", exec.Attempts(), exec.Retries(), err)
@@ -98,8 +105,11 @@ func main() {
 	//
 	// GetWithExecution を用いることで Execution を受け取る関数を渡せる。
 	//
-	conn, err := executor.GetWithExecution(dialFn)
-	if err != nil {
+	var (
+		conn net.Conn
+		err  error
+	)
+	if conn, err = executor.GetWithExecution(dialFn); err != nil {
 		appLog.Printf("失敗: %[1]v (%[1]T)\n", err)
 		os.Exit(1)
 	}
