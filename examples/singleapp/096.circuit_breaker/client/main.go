@@ -52,13 +52,13 @@ type CircuitBreaker struct {
 
 	// 設定
 	failureThreshold int           // この回数連続で失敗したら Open へ
-	successThreshold int           // Half-Open 時にこの回数成功したら Closed へ
+	successThreshold int           // Half-Open 時にこの回数連続で成功したら Closed へ
 	openTimeout      time.Duration // Open を維持する時間
 
 	// 状態
 	state           State
-	consecutiveFail int
-	consecutiveSucc int
+	consecutiveFail int // 連続失敗数
+	consecutiveSucc int // 連続成功数
 	openedAt        time.Time
 }
 
@@ -74,30 +74,41 @@ func NewCircuitBreaker(failThreshold, succThreshold int, openTimeout time.Durati
 // Call はサーキットブレーカーを通じて fn を呼び出す。
 // Open 状態では fn を実行せず ErrCircuitOpen を返す。
 func (cb *CircuitBreaker) Call(fn func() error) error {
+	var (
+		s State
+	)
 	cb.mu.Lock()
-	// Open タイムアウトを確認して必要なら Half-Open に遷移
-	if cb.state == StateOpen && time.Since(cb.openedAt) >= cb.openTimeout {
-		cb.state = StateHalfOpen
-		cb.consecutiveFail = 0
-		cb.consecutiveSucc = 0
-		log.Printf("[CB] Open → Half-Open (試験リクエストを許可)")
+	{
+		// Open タイムアウトを確認して必要なら Half-Open に遷移
+		if cb.state == StateOpen && time.Since(cb.openedAt) >= cb.openTimeout {
+			cb.state = StateHalfOpen
+			cb.consecutiveFail = 0
+			cb.consecutiveSucc = 0
+			log.Printf("[CB] Open → Half-Open (試験リクエストを許可)")
+		}
+
+		s = cb.state
 	}
-	s := cb.state
 	cb.mu.Unlock()
 
 	if s == StateOpen {
 		return ErrCircuitOpen
 	}
 
-	err := fn()
-
+	// 処理実行
+	var (
+		err = fn()
+	)
 	cb.mu.Lock()
-	defer cb.mu.Unlock()
-	if err != nil {
-		cb.onFailure()
-	} else {
-		cb.onSuccess()
+	{
+		if err != nil {
+			cb.onFailure()
+		} else {
+			cb.onSuccess()
+		}
 	}
+	cb.mu.Unlock()
+
 	return err
 }
 
@@ -143,24 +154,36 @@ func (cb *CircuitBreaker) State() State {
 // ── TCP リクエスト ────────────────────────────────────
 
 func sendRequest(addr, msg string) error {
-	conn, err := net.DialTimeout("tcp", addr, 2*time.Second)
-	if err != nil {
+	var (
+		conn net.Conn
+		err  error
+	)
+	if conn, err = net.DialTimeout("tcp", addr, 2*time.Second); err != nil {
 		return fmt.Errorf("dial: %w", err)
 	}
 	defer conn.Close()
-	conn.SetDeadline(time.Now().Add(2 * time.Second))
+
+	if err = conn.SetDeadline(time.Now().Add(2 * time.Second)); err != nil {
+		return fmt.Errorf("setdeadline: %w", err)
+	}
 
 	fmt.Fprintf(conn, "%s\n", msg)
 
-	resp, err := bufio.NewReader(conn).ReadString('\n')
-	if err != nil {
+	var (
+		resp string
+		r    = bufio.NewReader(conn)
+	)
+	if resp, err = r.ReadString('\n'); err != nil {
 		return fmt.Errorf("read: %w", err)
 	}
+
 	resp = strings.TrimSpace(resp)
 	if strings.HasPrefix(resp, "ERR") {
 		return fmt.Errorf("server error: %s", resp)
 	}
+
 	log.Printf("[client] response: %s", resp)
+
 	return nil
 }
 
@@ -169,26 +192,34 @@ func sendRequest(addr, msg string) error {
 func main() {
 	log.SetFlags(log.Lmicroseconds)
 
-	addr := flag.String("addr", "localhost:9000", "server address")
-	requests := flag.Int("n", 20, "number of requests")
-	interval := flag.Duration("interval", 300*time.Millisecond, "interval between requests")
-	failThreshold := flag.Int("fail-threshold", 3, "consecutive failures to open circuit")
-	succThreshold := flag.Int("succ-threshold", 2, "consecutive successes to close circuit")
-	openTimeout := flag.Duration("open-timeout", 3*time.Second, "how long circuit stays open")
+	var (
+		addr          = flag.String("addr", "localhost:9000", "server address")
+		requests      = flag.Int("n", 20, "number of requests")
+		interval      = flag.Duration("interval", 300*time.Millisecond, "interval between requests")
+		failThreshold = flag.Int("fail-threshold", 3, "consecutive failures to open circuit")
+		succThreshold = flag.Int("succ-threshold", 2, "consecutive successes to close circuit")
+		openTimeout   = flag.Duration("open-timeout", 3*time.Second, "how long circuit stays open")
+	)
 	flag.Parse()
 
-	cb := NewCircuitBreaker(*failThreshold, *succThreshold, *openTimeout)
-
-	log.Printf("[client] start  addr=%s  n=%d  fail=%d  succ=%d  open_timeout=%s",
-		*addr, *requests, *failThreshold, *succThreshold, *openTimeout)
+	var (
+		cb = NewCircuitBreaker(*failThreshold, *succThreshold, *openTimeout)
+	)
+	log.Printf(
+		"[client] start  addr=%s  n=%d  fail=%d  succ=%d  open_timeout=%s",
+		*addr,
+		*requests,
+		*failThreshold,
+		*succThreshold,
+		*openTimeout)
 
 	for i := 1; i <= *requests; i++ {
-		msg := fmt.Sprintf("req-%03d", i)
-		err := cb.Call(func() error {
-			return sendRequest(*addr, msg)
-		})
-
-		state := cb.State()
+		var (
+			msg   = fmt.Sprintf("req-%03d", i)
+			fn    = func() error { return sendRequest(*addr, msg) }
+			err   = cb.Call(fn)
+			state = cb.State()
+		)
 		switch {
 		case errors.Is(err, ErrCircuitOpen):
 			log.Printf("[client] #%03d %-10s ⚡ CIRCUIT OPEN — リクエストをスキップ", i, state)
