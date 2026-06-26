@@ -83,7 +83,7 @@ func main() {
 	// という挙動になる。
 	//
 	dialFn := func(exec failsafe.Execution[net.Conn]) (net.Conn, error) {
-		conn, err := new(net.Dialer).DialContext(exec.Context(), "tcp", addr)
+		conn, err := new(net.Dialer).DialContext(exec.Context(), "tcp4", addr)
 		if err != nil {
 			err = fmt.Errorf("dial failed: attempt=[%d] retry=[%d] %w", exec.Attempts(), exec.Retries(), err)
 			dbgLog.Printf("net.Dialer=> %v\n", err)
