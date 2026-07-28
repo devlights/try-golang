@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run-server
+      - sleep 0.5s
+      - task: run-client
+      - pkill server
+    silent: false
+  build-server:
+    dir: server
+    cmds:
+      - go build -o server main.go
+  build-client:
+    dir: client
+    cmds:
+      - go build -o client main.go
+  run-server:
+    dir: server
+    deps: [ build-server ]
+    cmds:
+      - ./server -addr ":9000" -err-rate 0.7 &
+  run-client:
+    dir: client
+    deps: [ build-client ]
+    cmds:
+      - ./client -addr "localhost:9000" -n 20 -interval 300ms -fail-threshold 3 -succ-threshold 2 -open-timeout 3s
+
