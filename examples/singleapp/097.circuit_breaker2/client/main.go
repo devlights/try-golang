@@ -75,7 +75,7 @@ func main() {
 	)
 	flag.Parse()
 
-	// CircuitBreaker を構築
+	// failsafe-go で CircuitBreaker を構築
 	//
 	// WithFailureThreshold:
 	//   Closed 状態で failureThreshold 回連続失敗すると Open へ遷移
@@ -131,7 +131,9 @@ func main() {
 		// サーキットブレーカ経由で処理
 		//
 		// Open 中なら sendRequest は呼ばれず、circuitbreaker.ErrOpen が返る。
-		// Half-Open なら 試験実行 が許可され、その成否で Close/Open が決まる。
+		// Half-Open なら 試験的実行 が許可され、その成否で Close/Open が決まる。
+		//
+		// executor.Get()を使うことも可能。この場合はBuilder生成時に指定した型パラメータが働く。
 		err = executor.Run(func() error {
 			return sendRequest(*addr, msg)
 		})
