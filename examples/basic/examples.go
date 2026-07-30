@@ -49,6 +49,7 @@ import (
 	"github.com/devlights/try-golang/examples/basic/panics"
 	"github.com/devlights/try-golang/examples/basic/profiles"
 	"github.com/devlights/try-golang/examples/basic/reflects"
+	"github.com/devlights/try-golang/examples/basic/regexpop"
 	"github.com/devlights/try-golang/examples/basic/runtimes"
 	"github.com/devlights/try-golang/examples/basic/scannerop"
 	"github.com/devlights/try-golang/examples/basic/scanop"
@@ -141,6 +142,7 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	network.NewRegister().Regist(m)
 	panics.NewRegister().Regist(m)
 	reflects.NewRegister().Regist(m)
+	regexpop.NewRegister().Regist(m)
 	runtimes.NewRegister().Regist(m)
 	scannerop.NewRegister().Regist(m)
 	scanop.NewRegister().Regist(m)
