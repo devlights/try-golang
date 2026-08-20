@@ -3,7 +3,7 @@
 
 This is my TUTORIAL project for golang.
 
-![try-golang - Go Version](https://img.shields.io/badge/go-1.26-blue.svg)
+![try-golang - Go Version](https://img.shields.io/badge/go-1.27-blue.svg)
 
 ## Run
 
