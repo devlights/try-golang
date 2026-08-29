@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+vars:
+  APP: app{{exeExt}}
+
+tasks:
+  default:
+    cmds:
+      - go fix .
+      - go vet .
+      - go fmt .
+      - go build -o {{.APP}} .
+      - defer: rm -f {{.APP}}
+      - ./{{.APP}}
