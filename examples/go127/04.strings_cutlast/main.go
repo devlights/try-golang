@@ -48,12 +48,12 @@ func run() error {
 
 	// strings.CutPrefix: 指定プレフィックスでカット
 	if after, found = strings.CutPrefix(s, "hello"); found {
-		w.Write(fmt.Appendf(nil, "cutprefix('ll')\t \t%s\n", after))
+		w.Write(fmt.Appendf(nil, "cutprefix('hello')\t \t%s\n", after))
 	}
 
 	// strings.CutSuffix: 指定サフィックスでカット
 	if before, found = strings.CutSuffix(s, "world"); found {
-		w.Write(fmt.Appendf(nil, "cutsuffix('ll')\t%s\t\n", before))
+		w.Write(fmt.Appendf(nil, "cutsuffix('world')\t%s\t\n", before))
 	}
 
 	return nil
