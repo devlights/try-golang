@@ -28,4 +28,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["osop_homedir"] = HomeDir
 	m["osop_openroot"] = OpenRoot
 	m["osop_openinroot"] = OpenInRoot
+	m["osop_samefile"] = SameFile
 }
