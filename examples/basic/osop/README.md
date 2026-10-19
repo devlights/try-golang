@@ -16,3 +16,4 @@
 | clearenv.go    | osop_clearenv       | os.Clearenv() のサンプルです。           |
 | pid.go         | osop_pid            | os.Getpid()のサンプルです.               |
 | pname.go       | osop_pname          | 自身のプロセス名を取得するサンプルです。 |
+| samefile.go    | osop_samefile       | os.SameFile のサンプルです。             |
