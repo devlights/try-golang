@@ -14,7 +14,7 @@ func main() {
 	rnd1 = rand.New(rand.NewPCG(123, 345))
 	rnd2 = rand.New(rand.NewPCG(123, 345))
 
-	// 乱数生成器にPCG(Permuted Congruential Generator)を使うと、同じシート値を指定した場合は
+	// 乱数生成器にPCG(Permuted Congruential Generator)を使うと、同じシード値を指定した場合は
 	// 全く同じ乱数を得ることが出来る。開発時試験などで便利。
 	// (注意) math/rand/v2 は、「真の乱数」ではなく、状態とシードから決まる決定的な擬似乱数であることに注意。
 	//       本当の乱数を利用する場合は crypto/rand を利用すること。
