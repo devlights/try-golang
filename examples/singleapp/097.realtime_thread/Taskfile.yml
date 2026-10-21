@@ -1,0 +1,11 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - go build -o rt-demo .
+      - ./rt-demo --mode normal
+      - sudo ./rt-demo --mode rr
+      - sudo ./rt-demo --mode compare
