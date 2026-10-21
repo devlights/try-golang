@@ -5,7 +5,16 @@ version: '3'
 tasks:
   default:
     cmds:
+      - task: run
+  build:
+    cmds:
       - go build -o rt-demo .
+  run:
+    deps: [ check, build ]
+    cmds:
       - ./rt-demo --mode normal
       - sudo ./rt-demo --mode rr
-      - sudo ./rt-demo --mode compare
+      - sudo ./rt-demo --mode compare      
+  check:
+    cmds:
+      - sudo chrt -r 10 true && echo OK
