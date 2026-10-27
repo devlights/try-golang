@@ -26,4 +26,5 @@ func (r *register) Regist(m mapping.ExampleMapping) {
 	m["string_random_string"] = RandomString
 	m["string_split_fields"] = SplitFields
 	m["string_go124_strings_lines"] = Go124StringsLines
+	m["string_map"] = StringsMap
 }
