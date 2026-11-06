@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func main() {
 	//
@@ -30,6 +33,17 @@ func main() {
 		//
 		for i := 0; i < 5; i++ {
 			fmt.Println(-^i)
+		}
+	}
+	fmt.Println("----------------------")
+	{
+		for i := 0; i < 10; i++ {
+			ans := strings.Repeat("Fizz", i%3/2) + strings.Repeat("Buzz", i%5/4)
+			if ans != "" {
+				fmt.Println(ans)
+			} else {
+				fmt.Println(-^i)
+			}
 		}
 	}
 }
