@@ -14,12 +14,13 @@ require (
 	github.com/prometheus/procfs v0.21.1
 	github.com/shirou/gopsutil/v4 v4.26.7
 	github.com/shopspring/decimal v1.4.0
-	golang.org/x/crypto v0.55.0
+	golang.org/x/crypto v0.58.0
 	golang.org/x/exp v0.0.0-20260813180055-c1d0aacb2297
-	golang.org/x/sync v0.22.0
+	golang.org/x/net v0.62.0
+	golang.org/x/sync v0.24.0
 	golang.org/x/sys v0.49.0
-	golang.org/x/term v0.45.0
-	golang.org/x/text v0.41.0
+	golang.org/x/term v0.47.0
+	golang.org/x/text v0.43.0
 	gopkg.in/ini.v1 v1.67.3
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1
 	gopkg.in/yaml.v3 v3.0.1
