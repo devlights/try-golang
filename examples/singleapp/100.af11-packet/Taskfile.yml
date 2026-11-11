@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://taskfile.dev/schema.json
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: run-recv
+      - task: run-send
+      - pkill app-recv
+  run-tcpdump:
+    cmds:
+      - sudo tcpdump -i lo -nn -v 'ip and udp dst port 5000 and (ip[1] & 0xfc) = 0x28'
+    interactive: true
+  run-recv:
+    dir: recv
+    cmds:
+      - go build -o app-recv main.go
+      - ./app-recv &
+  run-send:
+    dir: send
+    cmds:
+      - go build -o app-send main.go
+      - ./app-send
