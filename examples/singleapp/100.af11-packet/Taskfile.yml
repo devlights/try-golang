@@ -10,7 +10,7 @@ tasks:
       - pkill app-recv
   run-tcpdump:
     cmds:
-      - sudo tcpdump -i lo -nn -v 'ip and udp dst port 5000 and (ip[1] & 0xfc) = 0x28'
+      - sudo tcpdump -i lo -nn -v 'ip and udp dst port 5000'
     interactive: true
   run-recv:
     dir: recv
